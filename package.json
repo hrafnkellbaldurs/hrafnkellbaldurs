@@ -1,0 +1,24 @@
+{
+  "name": "netlify-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "test",
+    "prod": "parcel build index.html --public-url ./",
+    "dev": "parcel index.html --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hrafnkellbaldurs/netlify-test.git"
+  },
+  "author": "Hrafnkell Baldursson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hrafnkellbaldurs/netlify-test/issues"
+  },
+  "homepage": "https://github.com/hrafnkellbaldurs/netlify-test#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.9.7"
+  }
+}

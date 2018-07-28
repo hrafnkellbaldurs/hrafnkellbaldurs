@@ -1,0 +1,17 @@
+body {
+    background: url('/assets/cup.jpg');
+    animation: twerk 3s linear infinite;
+}
+
+@keyframes twerk {
+    0% {
+        background-position: 0%;
+        background-size: 10%;
+        transform: rotate3d(0, 1, 0, 0deg);
+    }
+    100% {
+        background-position: 100%;
+        background-size: 100%;
+        transform: rotate3d(0, 0, 1, 35deg);       
+    }
+}
