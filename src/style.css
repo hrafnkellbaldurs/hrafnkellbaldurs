@@ -1,5 +1,5 @@
 body {
-    background: url('/assets/cup.jpg');
+    background: url('../assets/cup.jpg');
     animation: twerk 3s linear infinite;
 }
 
