@@ -1,3 +1,8 @@
-import { doStuff } from './utils';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './components/App.jsx';
 
-doStuff();
+ReactDOM.render(
+    <App />,
+    document.querySelector('#app')
+);
