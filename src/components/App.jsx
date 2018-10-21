@@ -14,6 +14,7 @@ export default class App extends Component {
 			<div className={styles.container}>
                 <AppHeader />
                 <div style={{ height: '200px', }}></div>
+				<h1>test from staging</h1>
 			</div>
 		);
 	}
