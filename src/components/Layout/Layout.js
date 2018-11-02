@@ -1,10 +1,11 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
-import { StaticQuery, graphql } from 'gatsby'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Helmet from 'react-helmet';
+import { StaticQuery, graphql } from 'gatsby';
 
-import Header from './header'
-import './layout.css'
+import Header from '../Header';
+import './Layout.scss';
+//import '../../css/index.scss';
 
 class Layout extends React.PureComponent {
   render() {
@@ -16,6 +17,8 @@ class Layout extends React.PureComponent {
             site {
               siteMetadata {
                 title
+                description
+                author
               }
             }
           }
@@ -25,7 +28,8 @@ class Layout extends React.PureComponent {
             <Helmet
               title={data.site.siteMetadata.title}
               meta={[
-                { name: 'description', content: 'Sample' },
+                { name: 'description', content: data.site.siteMetadata.description },
+                { name: 'author', content: data.site.siteMetadata.author },
                 { name: 'keywords', content: 'sample, something' },
               ]}
             >
