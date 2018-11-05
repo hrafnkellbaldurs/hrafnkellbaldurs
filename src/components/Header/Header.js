@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import styles from './Header.module.scss';
+import styles from './Header.module.scss'
 
 class Header extends React.PureComponent {
-  render() {
+  render () {
     return (
-      <header className={`${styles.header} home-header`}>
+      <header className={`${ styles.header } home-header`}>
         <div className={styles.headerTextContainer}>
           <h1>
             <Link to="/">
@@ -14,7 +14,7 @@ class Header extends React.PureComponent {
           </h1>
         </div>
       </header>
-    );
+    )
   }
 };
 
