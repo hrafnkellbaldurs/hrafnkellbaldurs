@@ -21,6 +21,7 @@
   "scripts": {
     "prod": "gatsby build",
     "dev": "gatsby develop",
+    "format": "eslint --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
