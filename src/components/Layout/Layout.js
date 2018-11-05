@@ -1,15 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Helmet from 'react-helmet';
-import { StaticQuery, graphql } from 'gatsby';
+import React from 'react'
+import PropTypes from 'prop-types'
+import Helmet from 'react-helmet'
+import { StaticQuery, graphql } from 'gatsby'
 
-import Header from '../Header';
-import './Layout.scss';
-//import '../../css/index.scss';
+import Header from '../Header'
+import './Layout.scss'
+// import '../../css/index.scss';
 
 class Layout extends React.PureComponent {
-  render() {
-    
+  render () {
     return (
       <StaticQuery
         query={graphql`
@@ -49,7 +48,7 @@ class Layout extends React.PureComponent {
           </>
         )}
       />
-    );
+    )
   }
 }
 
