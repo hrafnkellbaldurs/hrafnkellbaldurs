@@ -101,21 +101,6 @@ header .banner-text hr {
    border-color: rgba(150, 150, 150, .1);
 }
 
-/* header social links */
-header .social {
-   margin: 24px 0;
-   padding: 0;
-   font-size: 30px;
-   text-shadow: 0px 1px 2px rgba(0, 0, 0, .8);
-}
-header .social li {
-   display: inline-block;
-   margin: 0 15px;
-   padding: 0;
-}
-header .social li a { color: #fff; }
-header .social li a:hover { color: #11ABB0; }
-
 /* scrolldown link */
 header .scrolldown a {
    position: absolute;
@@ -315,10 +300,6 @@ ul#nav li.current a { color: #11ABB0; }
 	text-align: left;
 }
 
-.bars h3 {
-
-}
-
 .bars .skills {
   	margin-top: 36px;
     padding-top: 30px;
@@ -344,7 +325,6 @@ ul#nav li.current a { color: #11ABB0; }
    position: absolute;
    left: 0;
    top: 0;
-
    margin: 0;
    padding-right: 24px;
   	background: #313131;
@@ -356,280 +336,170 @@ ul#nav li.current a { color: #11ABB0; }
 
 .photoshop {
   	width: 80%;
-  	-moz-animation: photoshop 2s ease;
-  	-webkit-animation: photoshop 2s ease;
+  	animation: photoshop 2s ease;
 }
 .illustrator {
   	width: 50%;
-  	-moz-animation: illustrator 2s ease;
-  	-webkit-animation: illustrator 2s ease;
+  	animation: illustrator 2s ease;
 }
 .javascript {
   	width: 70%;
-  	-moz-animation: javascript 2s ease;
-  	-webkit-animation: javascript 2s ease;
+  	animation: javascript 2s ease;
 }
 .css {
   	width: 30%;
-  	-moz-animation: css 2s ease;
-  	-webkit-animation: css 2s ease;
+  	animation: css 2s ease;
 }
 .html5 {
   	width: 70%;
-  	-moz-animation: html5 2s ease;
-  	-webkit-animation: html5 2s ease;
+  	animation: html5 2s ease;
 }
 .jquery {
   	width: 70%;
-  	-moz-animation: jquery 2s ease;
-  	-webkit-animation: jquery 2s ease;
+  	animation: jquery 2s ease;
 }
 .c {
   	width: 10%;
-  	-moz-animation: c 2s ease;
-  	-webkit-animation: c 2s ease;
+  	animation: c 2s ease;
 }
 .cplusplus {
   	width: 35%;
-  	-moz-animation: cplusplus 2s ease;
-  	-webkit-animation: cplusplus 2s ease;
+  	animation: cplusplus 2s ease;
 }
 .csharp {
   	width: 60%;
-  	-moz-animation: csharp 2s ease;
-  	-webkit-animation: csharp 2s ease;
+  	animation: csharp 2s ease;
 }
 .sql {
   	width: 40%;
-  	-moz-animation: sql 2s ease;
-  	-webkit-animation: sql 2s ease;
+  	animation: sql 2s ease;
 }
 .python {
   	width: 30%;
-  	-moz-animation: python 2s ease;
-  	-webkit-animation: python 2s ease;
+  	animation: python 2s ease;
 }
 .java {
   	width: 60%;
-  	-moz-animation: java 2s ease;
-  	-webkit-animation: java 2s ease;
+  	animation: java 2s ease;
 }
 .angularjs {
   	width: 70%;
-  	-moz-animation: angularjs 2s ease;
-  	-webkit-animation: angularjs 2s ease;
+  	animation: angularjs 2s ease;
 }
 .nodejs {
   	width: 60%;
-  	-moz-animation: nodejs 2s ease;
-  	-webkit-animation: nodejs 2s ease;
+  	animation: nodejs 2s ease;
 }
 .android {
   	width: 45%;
-  	-moz-animation: android 2s ease;
-  	-webkit-animation: android 2s ease;
+  	animation: android 2s ease;
 }
 .visualstudio {
   	width: 65%;
-  	-moz-animation: visualstudio 2s ease;
-  	-webkit-animation: visualstudio 2s ease;
+  	animation: visualstudio 2s ease;
 }
 .git {
   	width: 70%;
-  	-moz-animation: git 2s ease;
-  	-webkit-animation: git 2s ease;
+  	animation: git 2s ease;
 }
 .mspaint {
   	width: 100%;
-  	-moz-animation: mspaint 2s ease;
-  	-webkit-animation: mspaint 2s ease;
+  	animation: mspaint 2s ease;
 }
 .scrum {
   	width: 80%;
-  	-moz-animation: scrum 2s ease;
-  	-webkit-animation: scrum 2s ease;
+  	animation: scrum 2s ease;
 }
 .uidesign {
   	width: 60%;
-  	-moz-animation: uidesign 2s ease;
-  	-webkit-animation: uidesign 2s ease;
+  	animation: uidesign 2s ease;
 }
 .graphicdesign {
   	width: 80%;
-  	-moz-animation: graphicdesign 2s ease;
-  	-webkit-animation: graphicdesign 2s ease;
+  	animation: graphicdesign 2s ease;
 }
 
-@-moz-keyframes photoshop {
+@keyframes photoshop {
   0%   { width: 0px;  }
   100% { width: 80%;  }
 }
-@-moz-keyframes illustrator {
+@keyframes illustrator {
   0%   { width: 0px;  }
   100% { width: 50%;  }
 }
-@-moz-keyframes javascript {
+@keyframes javascript {
   0%   { width: 0px;  }
   100% { width: 70%;  }
 }
-@-moz-keyframes css {
+@keyframes css {
   0%   { width: 0px;  }
   100% { width: 30%;  }
 }
-@-moz-keyframes html5 {
+@keyframes html5 {
   0%   { width: 0px;  }
   100% { width: 70%;  }
 }
-@-moz-keyframes jquery {
+@keyframes jquery {
   0%   { width: 0px;  }
   100% { width: 70%;  }
 }
-@-moz-keyframes c {
+@keyframes c {
   0%   { width: 0px;  }
   100% { width: 10%;  }
 }
-@-moz-keyframes cplusplus {
+@keyframes cplusplus {
   0%   { width: 0px;  }
   100% { width: 35%;  }
 }
-@-moz-keyframes csharp {
+@keyframes csharp {
   0%   { width: 0px;  }
   100% { width: 60%;  }
 }
-@-moz-keyframes sql {
+@keyframes sql {
   0%   { width: 0px;  }
   100% { width: 40%;  }
 }
-@-moz-keyframes python {
+@keyframes python {
   0%   { width: 0px;  }
   100% { width: 30%;  }
 }
-@-moz-keyframes java {
+@keyframes java {
   0%   { width: 0px;  }
   100% { width: 60%;  }
 }
-@-moz-keyframes angularjs {
+@keyframes angularjs {
   0%   { width: 0px;  }
   100% { width: 70%;  }
 }
-@-moz-keyframes nodejs {
+@keyframes nodejs {
   0%   { width: 0px;  }
   100% { width: 60%;  }
 }
-@-moz-keyframes android {
+@keyframes android {
   0%   { width: 0px;  }
   100% { width: 45%;  }
 }
-@-moz-keyframes visualstudio {
+@keyframes visualstudio {
   0%   { width: 0px;  }
   100% { width: 65%;  }
 }
-@-moz-keyframes git {
+@keyframes git {
   0%   { width: 0px;  }
   100% { width: 70%;  }
 }
-@-moz-keyframes mspaint {
+@keyframes mspaint {
   0%   { width: 0px;  }
   100% { width: 100%;  }
 }
-@-moz-keyframes scrum {
+@keyframes scrum {
   0%   { width: 0px;  }
   100% { width: 80%;  }
 }
-@-moz-keyframes uidesign {
+@keyframes uidesign {
   0%   { width: 0px;  }
   100% { width: 60%;  }
 }
-@-moz-keyframes graphicdesign {
-  0%   { width: 0px;  }
-  100% { width: 80%;  }
-}
-
-
-
-
-
-@-webkit-keyframes photoshop {
-  0%   { width: 0px;  }
-  100% { width: 80%;  }
-}
-@-webkit-keyframes illustrator {
-  0%   { width: 0px;  }
-  100% { width: 50%;  }
-}
-@-webkit-keyframes javascript {
-  0%   { width: 0px;  }
-  100% { width: 70%;  }
-}
-@-webkit-keyframes css {
-  0%   { width: 0px;  }
-  100% { width: 30%;  }
-}
-@-webkit-keyframes html5 {
-  0%   { width: 0px;  }
-  100% { width: 70%;  }
-}
-@-webkit-keyframes jquery {
-  0%   { width: 0px;  }
-  100% { width: 70%;  }
-}
-@-webkit-keyframes c {
-  0%   { width: 0px;  }
-  100% { width: 10%;  }
-}
-@-webkit-keyframes cplusplus {
-  0%   { width: 0px;  }
-  100% { width: 35%;  }
-}
-@-webkit-keyframes csharp {
-  0%   { width: 0px;  }
-  100% { width: 60%;  }
-}
-@-webkit-keyframes sql {
-  0%   { width: 0px;  }
-  100% { width: 40%;  }
-}
-@-webkit-keyframes python {
-  0%   { width: 0px;  }
-  100% { width: 30%;  }
-}
-@-webkit-keyframes java {
-  0%   { width: 0px;  }
-  100% { width: 60%;  }
-}
-@-webkit-keyframes angularjs {
-  0%   { width: 0px;  }
-  100% { width: 70%;  }
-}
-@-webkit-keyframes nodejs {
-  0%   { width: 0px;  }
-  100% { width: 60%;  }
-}
-@-webkit-keyframes android {
-  0%   { width: 0px;  }
-  100% { width: 45%;  }
-}
-@-webkit-keyframes visualstudio {
-  0%   { width: 0px;  }
-  100% { width: 65%;  }
-}
-@-webkit-keyframes git {
-  0%   { width: 0px;  }
-  100% { width: 70%;  }
-}
-@-webkit-keyframes mspaint {
-  0%   { width: 0px;  }
-  100% { width: 100%;  }
-}
-@-webkit-keyframes scrum {
-  0%   { width: 0px;  }
-  100% { width: 80%;  }
-}
-@-webkit-keyframes uidesign {
-  0%   { width: 0px;  }
-  100% { width: 60%;  }
-}
-@-webkit-keyframes graphicdesign {
+@keyframes graphicdesign {
   0%   { width: 0px;  }
   100% { width: 80%;  }
 }
@@ -961,7 +831,7 @@ call-to-action .button {
 .flexslider .slides > li { position: relative; }
 
 /* Hide the slides before the JS is loaded. Avoids image jumping */
-.flexslider .slides > li { display: none; -webkit-backface-visibility: hidden; }
+.flexslider .slides > li { display: none; backface-visibility: hidden; }
 /* Suggested container for slide animation setups. Can replace this with your own */
 .flex-container { zoom: 1; position: relative; }
 
@@ -1080,6 +950,7 @@ footer .social-links li {
     color: #F06000;
 }
 
+
 #exit-work {
   text-align: right;
 }
@@ -1100,16 +971,10 @@ footer .social-links li:first-child { margin-left: 0; }
 	width: 60px;
 	height: 60px;
 	background-color: #525252;
-
-	-webkit-transition: all 0.2s ease-in-out;
-   -moz-transition: all 0.2s ease-in-out;
-   -o-transition: all 0.2s ease-in-out;
-   -ms-transition: all 0.2s ease-in-out;
-   transition: all 0.2s ease-in-out;
-
-   color: #fff;
-   font-size: 21px;
-   line-height: 60px;
+  transition: all 0.2s ease-in-out;
+  color: #fff;
+  font-size: 21px;
+  line-height: 60px;
  	border-radius: 100%;
 }
 #go-top a:hover { background-color: #0F9095; }

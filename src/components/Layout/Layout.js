@@ -8,52 +8,52 @@ import './Layout.scss'
 // import '../../css/index.scss';
 
 class Layout extends React.PureComponent {
-  render () {
-    return (
-      <StaticQuery
-        query={graphql`
-          query SiteTitleQuery {
-            site {
-              siteMetadata {
-                title
-                description
-                author
-              }
-            }
-          }
-        `}
-        render={data => (
-          <>
-            <Helmet
-              title={data.site.siteMetadata.title}
-              meta={[
-                { name: 'description', content: data.site.siteMetadata.description },
-                { name: 'author', content: data.site.siteMetadata.author },
-                { name: 'keywords', content: 'sample, something' },
-              ]}
-            >
-              <html lang="en" />
-            </Helmet>
-            <Header siteTitle={data.site.siteMetadata.title} />
-            <div
-              style={{
-                margin: '0 auto',
-                maxWidth: 960,
-                padding: '0px 1.0875rem 1.45rem',
-                paddingTop: 0,
-              }}
-            >
-              {this.props.children}
-            </div>
-          </>
-        )}
-      />
-    )
-  }
+    render() {
+        return (
+            <StaticQuery
+                query={ graphql`
+                    query SiteTitleQuery {
+                        site {
+                        siteMetadata {
+                            title
+                            description
+                            author
+                        }
+                        }
+                    }
+                `}
+                render={ data => (
+                    <>
+                        <Helmet
+                            title={ data.site.siteMetadata.title }
+                            meta={ [
+                                { name: 'description', content: data.site.siteMetadata.description },
+                                { name: 'author', content: data.site.siteMetadata.author },
+                                { name: 'keywords', content: 'sample, something' },
+                            ] }
+                        >
+                            <html lang="en" />
+                        </Helmet>
+                        <Header siteTitle={ data.site.siteMetadata.title } />
+                        <div
+                            style={ {
+                                margin: '0 auto',
+                                maxWidth: 960,
+                                padding: '0px 1.0875rem 1.45rem',
+                                paddingTop: 0,
+                            } }
+                        >
+                            { this.props.children }
+                        </div>
+                    </>
+                ) }
+            />
+        )
+    }
 }
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired,
+    children: PropTypes.node.isRequired,
 }
 
 export default Layout
