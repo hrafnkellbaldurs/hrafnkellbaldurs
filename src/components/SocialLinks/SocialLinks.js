@@ -10,9 +10,9 @@ import { ReactComponent as CodePenIcon } from '../../assets/images/codepen.svg'
 
 class SocialLinks extends React.PureComponent {
     render() {
-        const className = this.props.className || '';
+        const className = this.props.className || ''
         return (
-            <ul className={ `${styles.socialLinks} ${className}` }>
+            <ul className={ `${ styles.socialLinks } ${ className }` }>
                 <li>
                     <a href="https://www.facebook.com/hrabbi" target="_blank">
                         <FacebookIcon />

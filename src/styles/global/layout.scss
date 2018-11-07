@@ -36,7 +36,7 @@ header {
 .home-header {
     //background: #161415 url(../assets/images/header-background2.jpg) no-repeat top center;
     background-color: #161415;
-    background-image: url(../assets/images/header-background2.jpg);
+    background-image: url(../../assets/images/header-background2.jpg);
     background-repeat: no-repeat;
     background-position: bottom;
     background-size: cover;
@@ -206,7 +206,7 @@ ul#nav li.current a { color: #11ABB0; }
    margin-bottom: 12px;
 }
 #about p {
-   line-height: 30px;
+   line-height: 25px;
    color: #7A7A7A;
 }
 #about .profile-pic {
@@ -570,7 +570,7 @@ ul#nav li.current a { color: #11ABB0; }
 	-o-transition: opacity 0.3s ease-in-out;
 	transition: opacity 0.3s ease-in-out;
 
-   background: url(../assets/images/overlay-bg.png) repeat;
+   background: url(../../assets/images/overlay-bg.png) repeat;
 }
 .portfolio-item .item-wrap .link-icon {
    display: block;
