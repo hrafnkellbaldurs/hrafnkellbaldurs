@@ -1,3 +1,5 @@
+@import '../../styles/colors.scss';
+
 .socialLinks {
     margin: 24px 0;
     padding: 0;
@@ -13,7 +15,7 @@
         color: white;
 
         &:hover {
-            color: #11ABB0;
+            color: theme-color('accent');
         }
     }
 }

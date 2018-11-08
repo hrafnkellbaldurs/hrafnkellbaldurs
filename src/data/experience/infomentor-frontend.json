@@ -1,0 +1,10 @@
+{
+    "dataId": "infomentor-frontend",
+    "type": "work",
+    "iconSrc": "assets/images/infomentor.png",
+    "title": "InfoMentor",
+    "subtitle": "Front-end Developer",
+    "startDate": "2016-05-16",
+    "endDate": "2018-11-01",
+    "description": "Responsible for the development and maintenance of front-end solutions, as well as working closely with managers, stakeholders, designers and other developers through Scrum.<br/> I used Knockout.js, React.js, Node.js, SCSS, ASP.NET MVC and other tools to build stable and reliable solutions."
+}

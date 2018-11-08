@@ -1,3 +1,5 @@
+@import '../colors.scss';
+
 /*
    TOC:
    a. General Styles
@@ -16,7 +18,7 @@
 /* a. General Styles
 /* ------------------------------------------------------------------ */
 
-body { background: #0f0f0f; }
+body { background: theme-color(); }
 
 /* ------------------------------------------------------------------ */
 /* b. Header Styles
@@ -34,13 +36,13 @@ header {
 }
 
 .home-header {
-    //background: #161415 url(../assets/images/header-background2.jpg) no-repeat top center;
-    background-color: #161415;
+    background-color: theme-color();
     background-image: url(../../assets/images/header-background2.jpg);
     background-repeat: no-repeat;
     background-position: bottom;
     background-size: cover;
     height: 100vh;
+    box-shadow: inset 0 0 0 1000px rgba(theme-color(), 0.5);
 }
 
 .work-header-grey {
@@ -78,7 +80,7 @@ header .banner-text h1 {
 
 header .banner-text h2 {
    font: 30px/1.5em 'opensans-bold', sans-serif;
-   color: #11ABB0;
+   color: theme-color('accent');
    letter-spacing: -2px;
    margin: 0 auto 18px auto;
    text-shadow: 0px 1px 3px rgba(0, 0, 0, .8);
@@ -128,7 +130,7 @@ header .scrolldown a {
    -o-transition: all .3s ease-in-out;
    transition: all .3s ease-in-out;
 }
-header .scrolldown a:hover { color: #11ABB0; }
+header .scrolldown a:hover { color: theme-color('accent'); }
 
 /* primary navigation
 --------------------------------------------------------------------- */
@@ -190,7 +192,7 @@ ul#nav li a {
 }
 
 ul#nav li a:active { background-color: transparent !important; }
-ul#nav li.current a { color: #11ABB0; }
+ul#nav li.current a { color: theme-color('accent'); }
 
 
 /* ------------------------------------------------------------------ */
@@ -205,7 +207,7 @@ ul#nav li.current a { color: #11ABB0; }
 }
 
 #about a, #about a:visited  { color: #fff; }
-#about a:hover, #about a:focus { color: #11ABB0; }
+#about a:hover, #about a:focus { color: theme-color('accent'); }
 
 #about h2 {
    font: 22px/30px 'opensans-bold', sans-serif;
@@ -223,7 +225,7 @@ ul#nav li.current a { color: #11ABB0; }
    border-radius: 50%;
    border-width: thick;
    border-style: solid;
-   border-color: white;
+   border-color: theme-color('accent');
 }
 
 #about .contact-details { width: 41.66667%; }
@@ -257,7 +259,7 @@ ul#nav li.current a { color: #11ABB0; }
    overflow: hidden;
 }
 
-#resume a, #resume a:visited  { color: #11ABB0; }
+#resume a, #resume a:visited  { color: theme-color('accent'); }
 #resume a:hover, #resume a:focus { color: #313131; }
 
 #resume h1 {
@@ -266,7 +268,7 @@ ul#nav li.current a { color: #11ABB0; }
    letter-spacing: 1px;
 }
 #resume h1 span {
-   border-bottom: 3px solid #11ABB0;
+   border-bottom: 3px solid theme-color('accent');
    padding-bottom: 6px;
 }
 #resume h3 {
@@ -296,221 +298,6 @@ ul#nav li.current a { color: #11ABB0; }
    margin-top: 6px;
 }
 
-/*----------------------------------------------*/
-/*	Skill Bars
-/*----------------------------------------------*/
-
-.bars {
-	width: 95%;
-	float: left;
-	padding: 0;
-	text-align: left;
-}
-
-.bars .skills {
-  	margin-top: 36px;
-    padding-top: 30px;
-   list-style: none;
-}
-.bars li {
-   position: relative;
-  	margin-bottom: 60px;
-  	background: #ccc;
-  	height: 42px;
-  	border-radius: 3px;
-}
-.bars li em {
-	font: 15px 'opensans-bold', sans-serif;
-   color: #313131;
-	text-transform: uppercase;
-   letter-spacing: 2px;
-	font-weight: normal;
-   position: relative;
-	top: -36px;
-}
-.bar-expand {
-   position: absolute;
-   left: 0;
-   top: 0;
-   margin: 0;
-   padding-right: 24px;
-  	background: #313131;
-   display: inline-block;
-  	height: 42px;
-   line-height: 42px;
-   border-radius: 3px 0 0 3px;
-}
-
-.photoshop {
-  	width: 80%;
-  	animation: photoshop 2s ease;
-}
-.illustrator {
-  	width: 50%;
-  	animation: illustrator 2s ease;
-}
-.javascript {
-  	width: 70%;
-  	animation: javascript 2s ease;
-}
-.css {
-  	width: 30%;
-  	animation: css 2s ease;
-}
-.html5 {
-  	width: 70%;
-  	animation: html5 2s ease;
-}
-.jquery {
-  	width: 70%;
-  	animation: jquery 2s ease;
-}
-.c {
-  	width: 10%;
-  	animation: c 2s ease;
-}
-.cplusplus {
-  	width: 35%;
-  	animation: cplusplus 2s ease;
-}
-.csharp {
-  	width: 60%;
-  	animation: csharp 2s ease;
-}
-.sql {
-  	width: 40%;
-  	animation: sql 2s ease;
-}
-.python {
-  	width: 30%;
-  	animation: python 2s ease;
-}
-.java {
-  	width: 60%;
-  	animation: java 2s ease;
-}
-.angularjs {
-  	width: 70%;
-  	animation: angularjs 2s ease;
-}
-.nodejs {
-  	width: 60%;
-  	animation: nodejs 2s ease;
-}
-.android {
-  	width: 45%;
-  	animation: android 2s ease;
-}
-.visualstudio {
-  	width: 65%;
-  	animation: visualstudio 2s ease;
-}
-.git {
-  	width: 70%;
-  	animation: git 2s ease;
-}
-.mspaint {
-  	width: 100%;
-  	animation: mspaint 2s ease;
-}
-.scrum {
-  	width: 80%;
-  	animation: scrum 2s ease;
-}
-.uidesign {
-  	width: 60%;
-  	animation: uidesign 2s ease;
-}
-.graphicdesign {
-  	width: 80%;
-  	animation: graphicdesign 2s ease;
-}
-
-@keyframes photoshop {
-  0%   { width: 0px;  }
-  100% { width: 80%;  }
-}
-@keyframes illustrator {
-  0%   { width: 0px;  }
-  100% { width: 50%;  }
-}
-@keyframes javascript {
-  0%   { width: 0px;  }
-  100% { width: 70%;  }
-}
-@keyframes css {
-  0%   { width: 0px;  }
-  100% { width: 30%;  }
-}
-@keyframes html5 {
-  0%   { width: 0px;  }
-  100% { width: 70%;  }
-}
-@keyframes jquery {
-  0%   { width: 0px;  }
-  100% { width: 70%;  }
-}
-@keyframes c {
-  0%   { width: 0px;  }
-  100% { width: 10%;  }
-}
-@keyframes cplusplus {
-  0%   { width: 0px;  }
-  100% { width: 35%;  }
-}
-@keyframes csharp {
-  0%   { width: 0px;  }
-  100% { width: 60%;  }
-}
-@keyframes sql {
-  0%   { width: 0px;  }
-  100% { width: 40%;  }
-}
-@keyframes python {
-  0%   { width: 0px;  }
-  100% { width: 30%;  }
-}
-@keyframes java {
-  0%   { width: 0px;  }
-  100% { width: 60%;  }
-}
-@keyframes angularjs {
-  0%   { width: 0px;  }
-  100% { width: 70%;  }
-}
-@keyframes nodejs {
-  0%   { width: 0px;  }
-  100% { width: 60%;  }
-}
-@keyframes android {
-  0%   { width: 0px;  }
-  100% { width: 45%;  }
-}
-@keyframes visualstudio {
-  0%   { width: 0px;  }
-  100% { width: 65%;  }
-}
-@keyframes git {
-  0%   { width: 0px;  }
-  100% { width: 70%;  }
-}
-@keyframes mspaint {
-  0%   { width: 0px;  }
-  100% { width: 100%;  }
-}
-@keyframes scrum {
-  0%   { width: 0px;  }
-  100% { width: 80%;  }
-}
-@keyframes uidesign {
-  0%   { width: 0px;  }
-  100% { width: 60%;  }
-}
-@keyframes graphicdesign {
-  0%   { width: 0px;  }
-  100% { width: 80%;  }
-}
-
 /* ------------------------------------------------------------------ */
 /* e. Portfolio Section
 /* ------------------------------------------------------------------ */
@@ -530,7 +317,7 @@ ul#nav li.current a { color: #11ABB0; }
 }
 
 #portfolio h1 span {
-   border-bottom: 3px solid #11ABB0;
+   border-bottom: 3px solid theme-color('accent');
 }
 
 #portfolio h3 {

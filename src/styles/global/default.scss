@@ -21,6 +21,7 @@ e. Others
  ------------------------------------------------------------------ */
 
 @import './fonts.scss';
+@import '../colors.scss';
 
 /* ------------------------------------------------------------------
 /* b. Reset
@@ -282,7 +283,7 @@ hr { border: solid #E3E3E3; border-width: 1px 0 0; clear: both; margin: 11px 0 3
 a, a:visited {
    text-decoration: none;
    outline: 0;
-   color: #11ABB0;
+   color: theme-color('accent');
 
    -webkit-transition: color .3s ease-in-out;
    -moz-transition: color .3s ease-in-out;
@@ -310,52 +311,9 @@ li { line-height: 18px; margin-bottom: 12px; }
 ul.large li { }
 li p { }
 
-/* ---------------------------------------------------------------------
-/*  Stats Tab Markup
-
-    <ul class="stats-tabs">
-		<li><a href="#">[value]<b>[name]</b></a></li>
-	 </ul>
-
-    Extend this object into your markup.
-/*
-/* --------------------------------------------------------------------- */
-.stats-tabs {
-   padding: 0;
-   margin: 24px 0;
-}
-.stats-tabs li {
-	display: inline-block;
-	margin: 0 10px 18px 0;
-	padding: 0 10px 0 0;
-	border-right: 1px solid #ccc;
-}
-.stats-tabs li:last-child {
-	margin: 0;
-	padding: 0;
-	border: none;
-}
-.stats-tabs li a {
-	display: inline-block;
-	font-size: 22px;
-	font-family: 'opensans-bold', sans-serif;
-   border: none;
-   color: #313131;
-}
-.stats-tabs li a:hover {
-   color:#11ABB0;
-}
-.stats-tabs li a b {
-	display: block;
-	margin: 6px 0 0 0;
-	font-size: 13px;
-	font-family: 'opensans-regular', sans-serif;
-   color: #8B9798;
-}
-
 /* definition list */
 dl { margin: 12px 0; }
-dt { margin: 0; color:#11ABB0; }
+dt { margin: 0; color:theme-color('accent'); }
 dd { margin: 0 0 0 20px; }
 
 /* Lining Definition Style Markup */
@@ -430,7 +388,7 @@ dd { margin: 0 0 0 20px; }
 }
 .pagination .current,
 .pagination .current:hover {
-   background-color: #11ABB0;
+   background-color: theme-color('accent');
    color: #fff;
 }
 .pagination .inactive,
@@ -458,7 +416,7 @@ input[type="submit"],
 input[type="reset"],
 input[type="button"] {
    font: 16px/30px 'opensans-bold', sans-serif;
-   background: #11ABB0;
+   background: theme-color('accent');
    display: inline-block;
 	text-decoration: none;
    letter-spacing: 0;

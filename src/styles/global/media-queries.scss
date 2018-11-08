@@ -1,3 +1,5 @@
+@import '../colors.scss';
+
 /* screenwidth less than 1024px
 --------------------------------------------------------------------- */
 @media only screen and (max-width: 1024px) {
@@ -104,7 +106,7 @@
 	   width: 48px;
 		height: 48px;
 		text-align: left;
-		background-color: #11ABB0;
+		background-color: theme-color('accent');
 		position: relative;
       border: none;
       float: right;
@@ -228,8 +230,6 @@
    #resume h1 { letter-spacing: 3px; }
    #resume .main-col { padding-right: 30px; }
    #resume h3, #resume .info { text-align: center; }
-
-   .bars { width: 100%; }
 
 
    /* Call To Action Section
