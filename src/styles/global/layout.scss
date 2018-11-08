@@ -40,6 +40,7 @@ header {
     background-repeat: no-repeat;
     background-position: bottom;
     background-size: cover;
+    height: 100vh;
 }
 
 .work-header-grey {
@@ -99,6 +100,12 @@ header .banner-text hr {
    margin: 18px auto 24px auto;
    border-color: #2F2D2E;
    border-color: rgba(150, 150, 150, .1);
+}
+
+.home-header .banner-text a {
+  &, &:visited {
+    text-decoration: underline;
+  }
 }
 
 /* scrolldown link */

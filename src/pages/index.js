@@ -3,11 +3,15 @@ import Layout from '../components/OldLayout'
 
 class IndexPage extends React.PureComponent {
     render() {
-        const { renderAboutSection: AboutSection } = this
+        const {
+            renderAboutSection: AboutSection,
+            renderResumeSection: ResumeSection
+        } = this
 
         return (
             <Layout>
                 <AboutSection></AboutSection>
+                <ResumeSection></ResumeSection>
             </Layout>
         )
     }
@@ -75,6 +79,166 @@ class IndexPage extends React.PureComponent {
                     </div>
 
                 </div>
+            </section>
+        )
+    }
+
+    renderResumeSection() {
+        const renderExperience = (item, i) => {
+            return (
+                <div className="row item" key={ i }>
+                    <div className="one columns">
+                        <div style={{
+                            fontSize: '40px',
+                            width: '1em',
+                            height: 'auto'
+                        }}>
+                            { item.icon }
+                        </div>
+                    </div>
+                    <div className="eleven columns">
+                        <h3>{ item.title }</h3>
+
+                        <p className="info">
+                            { item.subtitle }
+                            <span>&bull;&nbsp;</span>
+                            <em className="date">{ item.startDate } - { item.endDate }</em>
+                        </p>
+                        <p>{ item.description }</p>
+                    </div>
+                </div>
+            )
+        }
+
+        const educationExperiences = [
+            {
+                icon: require('../assets/images/ru.svg').ReactComponent(),
+                title: 'Reykjavik University',
+                subtitle: 'Bachelor\'s Degree in Computer Science',
+                startDate: 'August 2013',
+                endDate: 'June 2016',
+                description: 'Software development with a focus on web development.'
+            }
+        ]
+
+        const workExperiences = [
+            {
+                icon: <img src={require('../assets/images/infomentor.png')}/>,
+                title: 'InfoMentor',
+                subtitle: 'Front-end Developer',
+                startDate: 'May 2016',
+                endDate: 'Nov 2018',
+                description: `Responsible for the development and maintenance of front-end solutions,
+                        as well as working closely with managers, stakeholders, designers and other developers through Scrum.
+                        I used Knockout.js, React.js, Node.js, SCSS, ASP.NET MVC and other tools to build stable and reliable solutions.`
+            },
+            {
+                icon: require('../assets/images/ru.svg').ReactComponent(),
+                title: 'Reykjavik University',
+                subtitle: 'Internship',
+                startDate: 'November 2015',
+                endDate: 'December 2015',
+                description: `A class I finished at RU called "RU-Internship" where students contributed
+                        to a new version of the university's intranet, called Centris. I contributed Web API
+                        and front-end design and implementation of the online exams in Centris`
+            }
+        ]
+
+        return (
+            <section id="resume">
+
+                <div className="row work">
+
+                    <div className="three columns header-col">
+                        <h1><span>Experience</span></h1>
+                    </div>
+
+                    <div className="nine columns main-col">
+                        { workExperiences.map(renderExperience) }
+                    </div>
+
+                </div>
+
+                <div className="row education">
+
+                    <div className="three columns header-col">
+                        <h1><span>Education</span></h1>
+                    </div>
+
+                    <div className="nine columns main-col">
+                        { educationExperiences.map(renderExperience) }
+                    </div>
+
+                </div>
+
+                <div className="row skill">
+
+                    <div className="three columns header-col">
+                        <h1><span>Skills</span></h1>
+                    </div>
+
+                    <div className="nine columns main-col">
+
+                        <p>
+                            I have experience with a broad field of front-end technologies and frameworks.
+                        </p>
+
+                        {/* TODO: Remove bars and css */}
+                        {/* <div className="bars">
+
+                            <div className="skills-title">
+                                <h3 ><span>Programming Languages</span></h3>
+                            </div>
+
+                            <ul className="skills">
+
+                                <li><span className="bar-expand javascript"></span><em>JavaScript</em></li>
+                                <li><span className="bar-expand html5"></span><em>HTML5</em></li>
+                                <li><span className="bar-expand css"></span><em>CSS</em></li>
+                                <li><span className="bar-expand c"></span><em>C</em></li>
+                                <li><span className="bar-expand cplusplus"></span><em>C++</em></li>
+                                <li><span className="bar-expand csharp"></span><em>C#</em></li>
+                                <li><span className="bar-expand sql"></span><em>SQL</em></li>
+                                <li><span className="bar-expand python"></span><em>Python</em></li>
+                                <li><span className="bar-expand java"></span><em>Java</em></li>
+                            </ul>
+
+                        </div>
+
+                        <div className="bars">
+
+                            <h3><span>Frameworks and Software</span></h3>
+
+                            <ul className="skills">
+                                <li><span className="bar-expand jquery"></span><em>jQuery</em></li>
+                                <li><span className="bar-expand angularjs"></span><em>AngularJS</em></li>
+                                <li><span className="bar-expand nodejs"></span><em>Node.js</em></li>
+                                <li><span className="bar-expand android"></span><em>Android App Development</em></li>
+                                <li><span className="bar-expand visualstudio"></span><em>Visual Studio</em></li>
+                                <li><span className="bar-expand git"></span><em>Git</em></li>
+                                <li><span className="bar-expand photoshop"></span><em>Photoshop</em></li>
+                                <li><span className="bar-expand illustrator"></span><em>Illustrator</em></li>
+                                <li><span className="bar-expand mspaint"></span><em>MS Paint</em></li>
+                            </ul>
+
+                        </div>
+
+                        <div className="bars">
+
+                            <h3><span>Other</span></h3>
+
+                            <ul className="skills">
+                                <li><span className="bar-expand scrum"></span><em>Scrum Methodology</em></li>
+                                <li><span className="bar-expand uidesign"></span><em>UI Design</em></li>
+                                <li><span className="bar-expand graphicdesign"></span><em>Graphic Design</em></li>
+                            </ul>
+
+                        </div> */}
+
+                    </div>
+
+                </div>
+
             </section>
         )
     }
