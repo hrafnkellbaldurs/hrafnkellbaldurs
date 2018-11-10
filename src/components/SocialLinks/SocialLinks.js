@@ -8,49 +8,49 @@ import { ReactComponent as GitHubIcon } from '../../assets/images/github.svg'
 import { ReactComponent as BitBucketIcon } from '../../assets/images/bitbucket.svg'
 import { ReactComponent as CodePenIcon } from '../../assets/images/codepen.svg'
 
-class SocialLinks extends React.PureComponent {
-    render() {
-        const className = this.props.className || ''
-        return (
-            <ul className={ `${ styles.socialLinks } ${ className }` }>
-                <li>
-                    <a href="https://www.facebook.com/hrabbi" target="_blank">
-                        <FacebookIcon />
-                    </a>
-                </li>
-                <li>
-                    <a href="https://twitter.com/hrafnkellb" target="_blank">
-                        <TwitterIcon />
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.linkedin.com/in/hrafnkellbaldurs" target="_blank">
-                        <LinkedInIcon />
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.instagram.com/hrafnkellbaldurs/" target="_blank">
-                        <InstagramIcon />
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.github.com/hrafnkellbaldurs" target="_blank">
-                        <GitHubIcon />
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.bitbucket.com/kotkarl" target="_blank">
-                        <BitBucketIcon />
-                    </a>
-                </li>
-                <li>
-                    <a href="https://codepen.io/kotkarl/" target="_blank">
-                        <CodePenIcon />
-                    </a>
-                </li>
-            </ul>
-        )
+const links = [
+    {
+        icon: FacebookIcon,
+        href: 'https://www.facebook.com/hrabbi'
+    },
+    {
+        icon: TwitterIcon,
+        href: 'https://twitter.com/hrafnkellb'
+    },
+    {
+        icon: LinkedInIcon,
+        href: 'https://www.linkedin.com/in/hrafnkellbaldurs'
+    },
+    {
+        icon: InstagramIcon,
+        href: 'https://www.instagram.com/hrafnkellbaldurs/'
+    },
+    {
+        icon: GitHubIcon,
+        href: 'https://www.github.com/hrafnkellbaldurs'
+    },
+    {
+        icon: BitBucketIcon,
+        href: 'https://www.bitbucket.com/kotkarl'
+    },
+    {
+        icon: CodePenIcon,
+        href: 'https://codepen.io/kotkarl/'
     }
-}
+]
+
+const SocialLinks = props => (
+    <ul className={ `${ styles.socialLinks }` }>
+        {
+            links.map(({ href, icon: Icon }, i) => (
+                <li className={ styles.li } key={ i }>
+                    <a className={ styles.a } href={ href } target="_blank">
+                        <Icon />
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
+)
 
 export default SocialLinks
