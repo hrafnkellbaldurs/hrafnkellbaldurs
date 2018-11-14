@@ -1,6 +1,6 @@
 import React from 'react'
-// import SocialLinks from '../SocialLinks'
-// import { ReactComponent as DownArrowIcon } from '../../assets/images/arrow_drop_down_circle.svg'
+import SocialLinks from '../SocialLinks'
+import { ReactComponent as DownArrowIcon } from '../../assets/images/arrow_drop_down_circle.svg'
 import styles from './Header.module.scss'
 
 const Header = () => {
@@ -55,13 +55,13 @@ const Header = () => {
                         to learn more.
                     </h3>
                     <hr />
-                    {/* <SocialLinks /> */}
+                    <SocialLinks />
                 </div>
             </div>
 
             <p className="scrolldown">
                 <a className="smoothscroll" href="#about">
-                    {/* <DownArrowIcon /> */}
+                    <DownArrowIcon />
                 </a>
             </p>
         </header>

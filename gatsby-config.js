@@ -21,16 +21,16 @@ module.exports = {
             resolve: `gatsby-transformer-json`,
             options: {}
         },
-        // {
-        //     resolve: `gatsby-plugin-svgr`,
-        //     options: {
-        //         icon: true,
-        //         svgProps: {
-        //             className: `svgr`
-        //         }
-        //         // see https://github.com/smooth-code/svgr for a list of all options
-        //     }
-        // },
+        {
+            resolve: `gatsby-plugin-svgr`,
+            options: {
+                icon: true,
+                svgProps: {
+                    className: `svgr`
+                }
+                // see https://github.com/smooth-code/svgr for a list of all options
+            }
+        },
         {
             resolve: `gatsby-plugin-manifest`,
             options: {
@@ -43,7 +43,6 @@ module.exports = {
                 // Relative to the root of the site.
                 icon: `src/assets/images/favicon.png`
             },
-        },
-        `gatsby-plugin-offline`
+        }
     ]
 }

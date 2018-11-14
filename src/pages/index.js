@@ -56,7 +56,7 @@ class IndexPage extends React.PureComponent {
 
         const profilePicUrl = require('../' + urls.profilePic)
         const portfolioDocUrl = require('../' + urls.portfolioPdf)
-        const DownloadIcon = () => <div></div> // require('../assets/images/download.svg').ReactComponent
+        const DownloadIcon = require('../assets/images/download.svg').ReactComponent
 
         return (
             <Section id="about">
@@ -127,7 +127,7 @@ class IndexPage extends React.PureComponent {
             let icon = require('../' + item.iconSrc)
 
             if (item.iconSrc.includes('.svg')) {
-                icon = <span></span> // icon.ReactComponent()
+                icon = icon.ReactComponent()
             } else {
                 icon = <img src={icon} />
             }
