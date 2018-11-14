@@ -1,24 +1,10 @@
-// @import '../../styles/colors.scss';
+@import '../../styles/utils/_colors.scss';
 
 .socialLinks {
     margin: 24px 0;
     padding: 0;
     font-size: 30px;
     
-    // .li {
-    //     display: inline-block;
-    //     margin: 0 15px;
-    //     padding: 0;
-
-    //     .a {
-    //         color: white;
-    
-    //         &:hover {
-    //             //color: theme-color('accent');
-    //             color: #11ABB0;
-    //         }
-    //     }
-    // }
     li {
         display: inline-block;
         margin: 0 15px;
@@ -29,8 +15,7 @@
         color: white;
 
         &:hover {
-            //color: theme-color('accent');
-            color: #11ABB0;
+            color: theme-color('accent');
         }
     }
 }

@@ -8,9 +8,9 @@
 
 // Manually add sourcemaps, since it's not working by default for some reason
 exports.onCreateWebpackConfig = ({ stage, actions }) => {
-  if (stage === 'develop') {
-    actions.setWebpackConfig({
-      devtool: 'cheap-module-source-map'
-    })
-  }
+    if (stage === 'develop') {
+        actions.setWebpackConfig({
+            devtool: 'cheap-module-source-map'
+        })
+    }
 }

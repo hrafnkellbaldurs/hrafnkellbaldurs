@@ -43,8 +43,8 @@ const SocialLinks = props => (
     <ul className={ `${ styles.socialLinks }` }>
         {
             links.map(({ href, icon: Icon }, i) => (
-                <li className={ styles.li } key={ i }>
-                    <a className={ styles.a } href={ href } target="_blank">
+                <li key={ i }>
+                    <a href={ href } target="_blank">
                         <Icon />
                     </a>
                 </li>

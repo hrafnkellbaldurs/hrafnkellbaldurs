@@ -1,15 +1,36 @@
+const packageJson = require('./package.json')
 const siteName = `HrafnkellBaldurs`
 
 module.exports = {
     siteMetadata: {
         title: siteName,
-        description: `Hrafnkell Baldursson Portfolio page`,
-        author: `Hrafnkell Baldursson`
+        description: packageJson.description,
+        author: packageJson.author
     },
     plugins: [
         `gatsby-plugin-react-helmet`,
-        `gatsby-plugin-offline`,
         `gatsby-plugin-sass`,
+        {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+                name: `data`,
+                path: `${ __dirname }/src/data`
+            }
+        },
+        {
+            resolve: `gatsby-transformer-json`,
+            options: {}
+        },
+        // {
+        //     resolve: `gatsby-plugin-svgr`,
+        //     options: {
+        //         icon: true,
+        //         svgProps: {
+        //             className: `svgr`
+        //         }
+        //         // see https://github.com/smooth-code/svgr for a list of all options
+        //     }
+        // },
         {
             resolve: `gatsby-plugin-manifest`,
             options: {
@@ -23,28 +44,6 @@ module.exports = {
                 icon: `src/assets/images/favicon.png`
             },
         },
-        {
-            resolve: `gatsby-plugin-svgr`,
-            options: {
-                icon: true,
-                svgProps: {
-                    className: `svgr`
-                }
-                // see https://github.com/smooth-code/svgr for a list of all options
-            },
-        },
-        {
-            resolve: `gatsby-source-filesystem`,
-            options: {
-                name: `data`,
-                path: `${ __dirname }/src/data`
-            }
-        },
-        {
-            resolve: `gatsby-transformer-json`,
-            options: {
-                
-            }
-        }
+        `gatsby-plugin-offline`
     ]
 }

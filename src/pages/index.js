@@ -1,41 +1,18 @@
 import React from 'react'
-import Layout from '../components/OldLayout'
+import Layout from '../components/Layout'
 import { graphql, Link } from 'gatsby'
-import Section from '../components/Section'
 import * as R from 'ramda'
+import Section from '../components/Section'
+import Experience from '../components/Experience'
 
-const Experience = props => {
-    return (
-        <div className="row item">
-            <div className="one columns">
-                <div style={{
-                    fontSize: '40px',
-                    width: '1em',
-                    height: 'auto'
-                }}>
-                    { props.icon }
-                </div>
-            </div>
-            <div className="eleven columns">
-                <h3>{ props.title }</h3>
-
-                <p className="info">
-                    { props.subtitle }
-                    <span>&bull;&nbsp;</span>
-                    <em className="date">{ props.startDate } - { props.endDate }</em>
-                </p>
-                <p>{ props.description }</p>
-            </div>
-        </div>
-    )
+const itemsToData = (items, filter) => {
+    const filteredItems = filter ? items.filter(filter) : items
+    return R.pluck('node', filteredItems)
 }
 
-const jsonResultToData = (rootNode, filter) => {
-    const edges = filter ? rootNode.edges.filter(filter) : rootNode.edges
-    return edges.map(({ node }) => node)
-}
-
-const filterJsonResultNodeBy = (key, value) => x => x.node[key] === value
+const itemsToDataBy = R.curry((items, key, value) => {
+    return itemsToData(items, R.pathEq(['node', key], value))
+})
 
 class IndexPage extends React.PureComponent {
     render() {
@@ -45,22 +22,20 @@ class IndexPage extends React.PureComponent {
         } = this
 
         const {
-            allAboutMeJson,
-            allExperienceJson
+            allAboutMeJson: { edges: allAboutMeItems },
+            allExperienceJson: { edges: allExperienceItems }
         } = this.props.data
 
+        const aboutMeData = itemsToDataBy(allAboutMeItems, 'dataId', 'aboutMe')[0]
         const aboutProps = {
-            ...jsonResultToData(allAboutMeJson, filterJsonResultNodeBy('dataId', 'aboutMe'))[0]
+            ...aboutMeData
         }
 
+        const getExperienceItemsByType = itemsToDataBy(allExperienceItems, 'type')
         const resumeProps = {
-            workExperienceItems: jsonResultToData(allExperienceJson, filterJsonResultNodeBy('type', 'work')),
-            educationExperienceItems: jsonResultToData(allExperienceJson, filterJsonResultNodeBy('type', 'education'))
+            workExperienceItems: getExperienceItemsByType('work'),
+            educationExperienceItems: getExperienceItemsByType('education')
         }
-
-        R.pipe(
-            console.log
-        )('hello from ramda')
 
         return (
             <Layout>
@@ -81,7 +56,7 @@ class IndexPage extends React.PureComponent {
 
         const profilePicUrl = require('../' + urls.profilePic)
         const portfolioDocUrl = require('../' + urls.portfolioPdf)
-        const DownloadIcon = require('../assets/images/download.svg').ReactComponent
+        const DownloadIcon = () => <div></div> // require('../assets/images/download.svg').ReactComponent
 
         return (
             <Section id="about">
@@ -152,7 +127,7 @@ class IndexPage extends React.PureComponent {
             let icon = require('../' + item.iconSrc)
 
             if (item.iconSrc.includes('.svg')) {
-                icon = icon.ReactComponent()
+                icon = <span></span> // icon.ReactComponent()
             } else {
                 icon = <img src={icon} />
             }
