@@ -1,18 +1,18 @@
 import React from 'react'
-import Layout from '../components/Layout'
 import { graphql, Link } from 'gatsby'
-import * as R from 'ramda'
+import Layout from '../components/Layout'
 import Section from '../components/Section'
 import Experience from '../components/Experience'
 
 const itemsToData = (items, filter) => {
     const filteredItems = filter ? items.filter(filter) : items
-    return R.pluck('node', filteredItems)
+    return filteredItems.map(item => item.node)
 }
 
-const itemsToDataBy = R.curry((items, key, value) => {
-    return itemsToData(items, R.pathEq(['node', key], value))
-})
+const itemsToDataBy = (items, key, value) => {
+    const filter = item => item.node[key] === value
+    return itemsToData(items, filter)
+}
 
 class IndexPage extends React.PureComponent {
     render() {
@@ -31,7 +31,7 @@ class IndexPage extends React.PureComponent {
             ...aboutMeData
         }
 
-        const getExperienceItemsByType = itemsToDataBy(allExperienceItems, 'type')
+        const getExperienceItemsByType = type => itemsToDataBy(allExperienceItems, 'type', type)
         const resumeProps = {
             workExperienceItems: getExperienceItemsByType('work'),
             educationExperienceItems: getExperienceItemsByType('education')
@@ -54,8 +54,10 @@ class IndexPage extends React.PureComponent {
             downloadResumeLabel
         } = props
 
-        const profilePicUrl = require('../' + urls.profilePic)
-        const portfolioDocUrl = require('../' + urls.portfolioPdf)
+        // const profilePicUrl = require('../' + urls.profilePic)
+        // const portfolioDocUrl = require('../' + urls.portfolioPdf)
+        const profilePicUrl = require('../assets/images/hrafnkell2.png')
+        const portfolioDocUrl = require('../assets/ferilskra-english.pdf')
         const DownloadIcon = require('../assets/images/download.svg').ReactComponent
 
         return (
@@ -124,18 +126,18 @@ class IndexPage extends React.PureComponent {
                 endDate,
                 description
             } = item
-            let icon = require('../' + item.iconSrc)
+            // let icon = require('../' + item.iconSrc)
 
-            if (item.iconSrc.includes('.svg')) {
-                icon = icon.ReactComponent()
-            } else {
-                icon = <img src={icon} />
-            }
+            // if (item.iconSrc.includes('.svg')) {
+            //     icon = icon.ReactComponent()
+            // } else {
+            //     icon = <img src={icon} />
+            // }
 
             const props = {
                 id,
                 dataId,
-                icon,
+                // icon,
                 title,
                 subtitle,
                 startDate,

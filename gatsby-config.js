@@ -8,6 +8,19 @@ module.exports = {
         author: packageJson.author
     },
     plugins: [
+        {
+            resolve: `gatsby-plugin-manifest`,
+            options: {
+                name: siteName,
+                short_name: siteName,
+                start_url: `/`,
+                background_color: `#663399`,
+                theme_color: `#663399`,
+                display: `minimal-ui`,
+                // Relative to the root of the site.
+                icon: `src/assets/images/favicon.png`
+            },
+        },
         `gatsby-plugin-react-helmet`,
         `gatsby-plugin-sass`,
         {
@@ -30,19 +43,6 @@ module.exports = {
                 }
                 // see https://github.com/smooth-code/svgr for a list of all options
             }
-        },
-        {
-            resolve: `gatsby-plugin-manifest`,
-            options: {
-                name: siteName,
-                short_name: siteName,
-                start_url: `/`,
-                background_color: `#663399`,
-                theme_color: `#663399`,
-                display: `minimal-ui`,
-                // Relative to the root of the site.
-                icon: `src/assets/images/favicon.png`
-            },
         }
     ]
 }
