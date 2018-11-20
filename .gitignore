@@ -52,5 +52,4 @@ yarn-error.log
 .cache
 node_modules
 
-# Build directory
-/public
+public
