@@ -24,6 +24,10 @@ module.exports = {
         `gatsby-plugin-react-helmet`,
         `gatsby-plugin-sass`,
         {
+            resolve: `gatsby-transformer-json`,
+            options: {}
+        },
+        {
             resolve: `gatsby-source-filesystem`,
             options: {
                 name: `data`,
@@ -31,8 +35,11 @@ module.exports = {
             }
         },
         {
-            resolve: `gatsby-transformer-json`,
-            options: {}
+            resolve: `gatsby-source-filesystem`,
+            options: {
+                name: `assets`,
+                path: `${ __dirname }/src/assets`
+            }
         },
         {
             resolve: `gatsby-plugin-svgr`,

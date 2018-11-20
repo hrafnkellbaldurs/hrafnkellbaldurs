@@ -3,38 +3,40 @@ import { graphql, Link } from 'gatsby'
 import Layout from '../components/Layout'
 import Section from '../components/Section'
 import Experience from '../components/Experience'
-
-const itemsToData = (items, filter) => {
-    const filteredItems = filter ? items.filter(filter) : items
-    return filteredItems.map(item => item.node)
-}
-
-const itemsToDataBy = (items, key, value) => {
-    const filter = item => item.node[key] === value
-    return itemsToData(items, filter)
-}
+import { ReactComponent as DownloadIcon } from '../assets/images/download.svg'
 
 class IndexPage extends React.PureComponent {
+    mapData({ aboutMe, workExperience, educationExperience }) {
+        const pluckEdgeNodes = data => data.edges.map(x => x.node)
+
+        return {
+            aboutMe: pluckEdgeNodes(aboutMe)[0],
+            workExperienceItems: pluckEdgeNodes(workExperience),
+            educationExperienceItems: pluckEdgeNodes(educationExperience)
+        }
+    }
+
     render() {
         const {
+            props,
+            mapData,
             renderAboutSection: AboutSection,
             renderResumeSection: ResumeSection
         } = this
 
         const {
-            allAboutMeJson: { edges: allAboutMeItems },
-            allExperienceJson: { edges: allExperienceItems }
-        } = this.props.data
+            aboutMe,
+            workExperienceItems,
+            educationExperienceItems
+        } = mapData(props.data)
 
-        const aboutMeData = itemsToDataBy(allAboutMeItems, 'dataId', 'aboutMe')[0]
         const aboutProps = {
-            ...aboutMeData
+            ...aboutMe
         }
 
-        const getExperienceItemsByType = type => itemsToDataBy(allExperienceItems, 'type', type)
         const resumeProps = {
-            workExperienceItems: getExperienceItemsByType('work'),
-            educationExperienceItems: getExperienceItemsByType('education')
+            workExperienceItems,
+            educationExperienceItems
         }
 
         return (
@@ -54,19 +56,13 @@ class IndexPage extends React.PureComponent {
             downloadResumeLabel
         } = props
 
-        // const profilePicUrl = require('../' + urls.profilePic)
-        // const portfolioDocUrl = require('../' + urls.portfolioPdf)
-        const profilePicUrl = require('../assets/images/hrafnkell2.png')
-        const portfolioDocUrl = require('../assets/ferilskra-english.pdf')
-        const DownloadIcon = require('../assets/images/download.svg').ReactComponent
-
         return (
             <Section id="about">
                 <div className="row">
 
                     <div className="three columns">
 
-                        <img className="profile-pic" src={ profilePicUrl } alt="" />
+                        <img className="profile-pic" src={ urls.profilePic.public } alt="" />
                     </div>
 
                     <div className="nine columns main-col">
@@ -93,7 +89,7 @@ class IndexPage extends React.PureComponent {
                             </div>
 
                             <div className="columns download">
-                                <a href={ portfolioDocUrl } className="button">
+                                <a href={ urls.portfolioPdf.public } className="button">
                                     <span style={{ display: 'flex', alignItems: 'center', 'justifyContent': 'center' }}>
                                         <DownloadIcon style={{ fontSize: '22px', marginRight: '5px', marginTop: '-5px' }}/>
                                         { downloadResumeLabel }
@@ -124,20 +120,15 @@ class IndexPage extends React.PureComponent {
                 subtitle,
                 startDate,
                 endDate,
-                description
+                description,
+                logo
             } = item
-            // let icon = require('../' + item.iconSrc)
-
-            // if (item.iconSrc.includes('.svg')) {
-            //     icon = icon.ReactComponent()
-            // } else {
-            //     icon = <img src={icon} />
-            // }
+            const icon = <img src={ logo.publicURL }></img>
 
             const props = {
                 id,
                 dataId,
-                // icon,
+                icon,
                 title,
                 subtitle,
                 startDate,
@@ -197,7 +188,11 @@ class IndexPage extends React.PureComponent {
 
 export const query = graphql`
     query IndexPage {
-        allAboutMeJson {
+        aboutMe: allAboutMeJson(
+            filter: {
+                dataId: { eq: "aboutMe" }
+            }
+        ) {
             edges {
                 node {
                     id,
@@ -205,8 +200,12 @@ export const query = graphql`
                     title,
                     description,
                     urls {
-                        profilePic,
-                        portfolioPdf
+                        profilePic {
+                            public: publicURL
+                        },
+                        portfolioPdf {
+                            public: publicURL
+                        }
                     },
                     contactDetails {
                         label,
@@ -222,13 +221,50 @@ export const query = graphql`
                 }
             }
         },
-        allExperienceJson {
+        workExperience: allExperienceJson(
+            sort: {
+                fields: startDate,
+                   order: DESC
+            },
+            filter: {
+              type: { eq: "work" }
+            }
+        ) {
             edges {
                 node {
                     id,
                     dataId,
                     type,
-                    iconSrc,
+                    logo {
+                        id,
+                        publicURL
+                    },
+                    title,
+                    subtitle,
+                    startDate,
+                    endDate,
+                    description
+                }
+            }
+        },
+        educationExperience: allExperienceJson(
+            sort: {
+                fields: startDate,
+                   order: DESC
+            },
+            filter: {
+              type: { eq: "education" }
+            }
+        ) {
+            edges {
+                node {
+                    id,
+                    dataId,
+                    type,
+                    logo {
+                        id,
+                        publicURL
+                    },
                     title,
                     subtitle,
                     startDate,

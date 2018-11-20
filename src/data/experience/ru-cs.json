@@ -1,7 +1,7 @@
 {
     "dataId": "ru-cs",
     "type": "education",
-    "iconSrc": "assets/images/ru.svg",
+    "logo": "../../assets/images/ru.png",
     "title": "Reykjavik University",
     "subtitle": "Bachelor's Degree in Computer Science",
     "startDate": "2013-08-20",

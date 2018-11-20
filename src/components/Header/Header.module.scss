@@ -123,9 +123,9 @@
         .navItems {
             min-height: 48px;
             width: auto;
-
             /* center align the menu */
             text-align: center;
+            background-color: rgba(theme-color('primary', 'dark'), 0.9);
 
             .navItem {
                 position: relative;

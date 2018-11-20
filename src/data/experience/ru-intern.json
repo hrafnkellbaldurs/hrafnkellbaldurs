@@ -1,7 +1,7 @@
 {
     "dataId": "ru-intern",
     "type": "work",
-    "iconSrc": "assets/images/ru.svg",
+    "logo": "../../assets/images/ru.png",
     "title": "Reykjavik University",
     "subtitle": "Internship",
     "startDate": "2015-11-01",

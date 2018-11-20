@@ -1,7 +1,7 @@
 {
     "dataId": "infomentor-frontend",
     "type": "work",
-    "iconSrc": "assets/images/infomentor.png",
+    "logo": "../../assets/images/infomentor.png",
     "title": "InfoMentor",
     "subtitle": "Front-end Developer",
     "startDate": "2016-05-16",
