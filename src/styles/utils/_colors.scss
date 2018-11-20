@@ -1,0 +1,55 @@
+$theme-colors: (
+    // Brand color
+    'primary': (
+        'base': #2B2B2B,
+        'light': #dbdbdb,
+        'dark': #1d1d1d
+    ),
+    // Secondary color
+    'accent': (
+        'base': #11ABB0,
+        'light': #13bec4,
+        'dark': #0e8f94
+    ),
+    // Primary objects with darker colors
+    'foreground': (
+        'base': #393939,
+        'light': #6e6e6e,
+        'dark': #111
+    ),
+    // Lighter objects or section backgrounds
+    'background': (
+        'base': #f8f5f5,
+        'light': #fff,
+        'dark': #ddd
+    )
+);
+
+@function theme-color($key: 'primary', $variant: 'base') {
+    $map: map-get($theme-colors, $key);
+    @return map-get($map, $variant);
+}
+
+$contrast-colors: (
+  'dark': (
+    'primary': rgb(255, 255, 255),
+    'secondary': rgba(255, 255, 255, .70),
+    'disabled': rgba(255, 255, 255, .5),
+    'hint': rgba(255, 255, 255, .12)
+  ),
+  'light': (
+    'primary': rgba(0, 0, 0, .87),
+    'secondary': rgba(0, 0, 0, .54),
+    'disabled': rgba(0, 0, 0, .38),
+    'hint': rgba(0, 0, 0, .12)
+  ),
+);
+
+@function contrastColor($background: 'light', $type: 'primary') {
+    $map: map-get($contrast-colors, $background);
+    @return map-get($map, $type);
+}
+  
+@mixin contrastColor($background: 'light', $type: 'primary') {
+    color: contrast($background, $type);
+}
