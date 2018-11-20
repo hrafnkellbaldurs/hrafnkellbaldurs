@@ -61,5 +61,5 @@ typings/
 .next
 
 dist/*
-.cache/
+.cache
 public
