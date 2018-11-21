@@ -51,5 +51,5 @@ $contrast-colors: (
 }
   
 @mixin contrastColor($background: 'light', $type: 'primary') {
-    color: contrast($background, $type);
+    color: contrastColor($background, $type);
 }
