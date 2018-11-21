@@ -1,12 +1,11 @@
 <p align="center">
-  <a href="https://www.hrafnkellbaldurs.netlify.com">
+  <a href="https://hrafnkellbaldurs.netlify.com">
     <img alt="HrafnkellBaldurs" src="https://hrafnkellbaldurs.netlify.com/icons/icon-72x72.png" width="60" />
   </a>
 </p>
-<span>
+
 <h1 align="center">
-  HrafnkellBaldurs
-  <div style="font-size: 0.7em; opacity: 0.7">My personal portfolio website</div>
+  HrafnkellBaldurs - Personal Portfolio
 </h1>
 
 This is my personal portfolio website where I showcase my work and experience.<br>
