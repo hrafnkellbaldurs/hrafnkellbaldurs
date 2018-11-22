@@ -1,0 +1,9 @@
+{
+    "name": "ASP.NET MVC",
+    "shortName": "ASP.NET MVC",
+    "type": "technology",
+    "description": "",
+    "yearsOfExperience": "0.5",
+    "logo": "../../assets/images/gatsby-icon.png",
+    "order": null
+}

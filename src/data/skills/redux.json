@@ -1,0 +1,9 @@
+{
+    "name": "Redux",
+    "shortName": "Redux",
+    "type": "technology",
+    "description": "",
+    "yearsOfExperience": "2",
+    "logo": "../../assets/images/gatsby-icon.png",
+    "order": null
+}

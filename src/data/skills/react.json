@@ -1,0 +1,9 @@
+{
+    "name": "React",
+    "shortName": "React",
+    "type": "technology",
+    "description": "I love to use React as it allows for easy development of web applications",
+    "yearsOfExperience": "2",
+    "logo": "../../assets/images/gatsby-icon.png",
+    "order": 0
+}
