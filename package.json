@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "prod": "gatsby build",
+    "prod:verbose": "gatsby build --no-uglify --verbose",
     "serve": "gatsby serve --port 8080",
     "prod:serve": "npm run prod && npm run serve",
     "dev": "gatsby develop",
