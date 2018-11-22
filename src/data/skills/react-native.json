@@ -1,9 +1,9 @@
 {
     "name": "React Native",
-    "shortName": "React Native",
+    "shortName": "RN",
     "type": "technology",
     "description": "",
     "yearsOfExperience": "0.5",
-    "logo": "../../assets/images/gatsby-icon.png",
-    "order": null
+    "logo": "../../assets/images/",
+    "rating": null
 }

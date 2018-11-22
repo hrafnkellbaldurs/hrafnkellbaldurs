@@ -1,9 +1,9 @@
 {
     "name": "KnockoutJS",
-    "shortName": "Knockout",
+    "shortName": "KO",
     "type": "technology",
     "description": "",
     "yearsOfExperience": "3",
-    "logo": "../../assets/images/gatsby-icon.png",
-    "order": null
+    "logo": "../../assets/images/",
+    "rating": null
 }

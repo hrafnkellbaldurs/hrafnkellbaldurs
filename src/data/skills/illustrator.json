@@ -1,9 +1,9 @@
 {
     "name": "Illustrator",
-    "shortName": "Illustrator",
+    "shortName": "AI",
     "type": "technology",
     "description": "",
     "yearsOfExperience": "5",
-    "logo": "../../assets/images/gatsby-icon.png",
-    "order": null
+    "logo": "../../assets/images/",
+    "rating": null
 }

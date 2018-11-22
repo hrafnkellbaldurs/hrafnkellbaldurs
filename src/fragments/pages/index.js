@@ -90,7 +90,7 @@ export const IndexPageFragment = graphql`
             }
         },
 
-        skills: allSkillsJson(sort:{ order: ASC, fields: order}) {
+        skills: allSkillsJson(sort:{ order: ASC, fields: rating }) {
             edges {
               node {
                 id,
@@ -102,7 +102,7 @@ export const IndexPageFragment = graphql`
                 logo {
                   publicURL
                 },
-                order
+                rating
               }
             }
           }

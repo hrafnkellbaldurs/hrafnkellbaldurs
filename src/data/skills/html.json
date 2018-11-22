@@ -4,6 +4,6 @@
     "type": "technology",
     "description": "I have proficient knowledge of HTML and use it pretty much daily",
     "yearsOfExperience": "5",
-    "logo": "../../assets/images/gatsby-icon.png",
-    "order": 3
+    "logo": "../../assets/images/",
+    "rating": 3
 }

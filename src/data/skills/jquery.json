@@ -1,9 +1,9 @@
 {
     "name": "jQuery",
-    "shortName": "jQuery",
+    "shortName": "jQ",
     "type": "technology",
     "description": "",
     "yearsOfExperience": "4",
-    "logo": "../../assets/images/gatsby-icon.png",
-    "order": null
+    "logo": "../../assets/images/",
+    "rating": null
 }

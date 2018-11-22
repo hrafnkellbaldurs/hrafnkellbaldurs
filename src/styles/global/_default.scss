@@ -407,65 +407,85 @@ e. Others
  img.pull-left { margin: 12px 18px 0px 0px; }
  
  /*  6. Buttons  --------------------------------------------------------- */
+
+.button,
+.button:visited,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+   font: 16px 'opensans-bold', sans-serif;
+   display: inline-block;
+   background: theme-color('accent');
+   color: contrastColor('dark');
+   text-decoration: none;
+   letter-spacing: 0;
+   padding: 12px 20px;
+   border: none;
+   cursor: pointer;
+   height: auto;
+   border-radius: 3px;
+}
+
+
+//  .button,
+//  .button:visited,
+//  button,
+//  input[type="submit"],
+//  input[type="reset"],
+//  input[type="button"] {
+//     font: 16px/30px 'opensans-bold', sans-serif;
+//     background: theme-color('accent');
+//     display: inline-block;
+//      text-decoration: none;
+//     letter-spacing: 0;
+//     color: #fff;
+//      padding: 12px 20px;
+//      margin-bottom: 18px;
+//     border: none;
+//     cursor: pointer;
+//     height: auto;
  
- .button,
- .button:visited,
- button,
- input[type="submit"],
- input[type="reset"],
- input[type="button"] {
-    font: 16px/30px 'opensans-bold', sans-serif;
-    background: theme-color('accent');
-    display: inline-block;
-     text-decoration: none;
-    letter-spacing: 0;
-    color: #fff;
-     padding: 12px 20px;
-     margin-bottom: 18px;
-    border: none;
-    cursor: pointer;
-    height: auto;
+//     -webkit-transition: all .2s ease-in-out;
+//      -moz-transition: all .2s ease-in-out;
+//      -o-transition: all .2s ease-in-out;
+//      -ms-transition: all .2s ease-in-out;
+//      transition: all .2s ease-in-out;
  
-    -webkit-transition: all .2s ease-in-out;
-     -moz-transition: all .2s ease-in-out;
-     -o-transition: all .2s ease-in-out;
-     -ms-transition: all .2s ease-in-out;
-     transition: all .2s ease-in-out;
+//     -moz-border-radius: 3px;
+//     -webkit-border-radius: 3px;
+//     -khtml-border-radius: 3px;
+//     border-radius: 3px;
+//  }
  
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -khtml-border-radius: 3px;
-    border-radius: 3px;
- }
+//  .button:hover,
+//  button:hover,
+//  input[type="submit"]:hover,
+//  input[type="reset"]:hover,
+//  input[type="button"]:hover {
+//     background: #3d4145;
+//     color: #fff;
+//  }
  
- .button:hover,
- button:hover,
- input[type="submit"]:hover,
- input[type="reset"]:hover,
- input[type="button"]:hover {
-    background: #3d4145;
-    color: #fff;
- }
+//  .button:active,
+//  button:active,
+//  input[type="submit"]:active,
+//  input[type="reset"]:active,
+//  input[type="button"]:active {
+//     background: #3d4145;
+//     color: #fff;
+//  }
  
- .button:active,
- button:active,
- input[type="submit"]:active,
- input[type="reset"]:active,
- input[type="button"]:active {
-    background: #3d4145;
-    color: #fff;
- }
- 
- .button.full-width,
- button.full-width,
- input[type="submit"].full-width,
- input[type="reset"].full-width,
- input[type="button"].full-width {
-     width: 100%;
-     padding-left: 0 !important;
-     padding-right: 0 !important;
-     text-align: center;
- }
+//  .button.full-width,
+//  button.full-width,
+//  input[type="submit"].full-width,
+//  input[type="reset"].full-width,
+//  input[type="button"].full-width {
+//      width: 100%;
+//      padding-left: 0 !important;
+//      padding-right: 0 !important;
+//      text-align: center;
+//  }
  
  /* Fix for odd Mozilla border & padding issues */
  button::-moz-focus-inner,

@@ -4,6 +4,6 @@
     "type": "technology",
     "description": "I use SCSS wherever I can to be able to use variables, functions, mixins and more to reduce repeated css.",
     "yearsOfExperience": "2.5",
-    "logo": "../../assets/images/gatsby-icon.png",
-    "order": null
+    "logo": "../../assets/images/",
+    "rating": null
 }

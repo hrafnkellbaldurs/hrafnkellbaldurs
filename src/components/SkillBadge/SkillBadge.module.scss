@@ -1,0 +1,43 @@
+@import '../../styles/utils/colors';
+
+.container {
+    width: 80px;
+    max-height: 80px;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px 5px;
+    padding: 10px;
+    border-radius: 15px;
+    transition: all 50ms ease-out;
+    box-shadow: 0px 4px 7px 0px rgba(0,0,0,.5);
+    background: rgb(250, 250, 250);
+
+    &:hover {
+        transform: scale(1.1);
+        box-shadow: 0px 10px 45px -5px rgba(0,0,0,.5);
+        cursor: pointer;
+    }
+
+    .itemLogo {
+        height: 30px;
+        width: 30px;
+    }
+
+    .fallbackLogo {
+        height: 30px;
+        width: 30px;
+        background: theme-color('accent');
+        color: contrastColor('dark');
+        border-radius: 50%;
+        text-align: center;
+    }
+    
+    .itemLabel {
+        font-size: 12px;
+        color: black;
+        font-weight: bold;
+        white-space: nowrap;
+    }
+}

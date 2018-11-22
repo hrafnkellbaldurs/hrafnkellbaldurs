@@ -4,6 +4,6 @@
     "type": "technology",
     "description": "The programming language I use pretty much exclusively",
     "yearsOfExperience": "4",
-    "logo": "../../assets/images/gatsby-icon.png",
-    "order": 1
+    "logo": "../../assets/images/",
+    "rating": 1
 }
