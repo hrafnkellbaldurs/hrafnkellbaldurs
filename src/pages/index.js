@@ -5,43 +5,30 @@ import Section from '../components/Section'
 import Experience from '../components/Experience'
 import { ReactComponent as DownloadIcon } from '../assets/images/download.svg'
 import SkillGrid from '../components/SkillGrid'
+import * as R from 'ramda'
+
+const mapData = R.mapObjIndexed(R.pipe(
+    R.prop('edges'),
+    R.pluck('node')
+))
 
 class IndexPage extends React.PureComponent {
-    mapData(data) {
-        const {
-            aboutMe,
-            workExperience,
-            educationExperience,
-            skills
-        } = data
-
-        const pluckEdgeNodes = data => data.edges.map(x => x.node)
-
-        return {
-            aboutMe: pluckEdgeNodes(aboutMe)[0],
-            workExperienceItems: pluckEdgeNodes(workExperience),
-            educationExperienceItems: pluckEdgeNodes(educationExperience),
-            skills: pluckEdgeNodes(skills)
-        }
-    }
-
     render() {
         const {
             props,
-            mapData,
             renderAboutSection: AboutSection,
             renderResumeSection: ResumeSection
         } = this
 
         const {
             aboutMe,
-            workExperienceItems,
-            educationExperienceItems,
+            workExperience: workExperienceItems,
+            educationExperience: educationExperienceItems,
             skills
         } = mapData(props.data)
 
         const aboutProps = {
-            ...aboutMe
+            ...aboutMe[0]
         }
 
         const resumeProps = {
