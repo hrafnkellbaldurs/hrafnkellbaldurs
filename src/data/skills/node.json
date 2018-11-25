@@ -4,6 +4,6 @@
     "type": "technology",
     "description": "I've mainly used it with NPM packages (Babel, Gulp, Webpack, Parcel, Jest and more) to ease development, but also for creating an internally used scaffolding tool for InfoMentor. Using Node.js and Node packages is a key factor in modern front-end development.",
     "yearsOfExperience": "4",
-    "logo": "../../assets/images/",
+    "logo": "../../assets/images/nodejs-logo.png",
     "rating": 2
 }

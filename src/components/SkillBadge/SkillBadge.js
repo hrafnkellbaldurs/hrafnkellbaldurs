@@ -17,9 +17,9 @@ const SkillBadge = ({ id, logo = {}, name, shortName }) => {
     return (
         <div className={ styles.container }>
             { image }
-            <span className={ styles.itemLabel }>
+            <div className={ styles.itemLabel }>
                 { name }
-            </span>
+            </div>
         </div>
     )
 }

@@ -1,9 +1,9 @@
 {
     "name": "Adobe XD",
     "shortName": "XD",
-    "type": "technology",
+    "type": "graphicdesign",
     "description": "",
     "yearsOfExperience": "0.5",
-    "logo": "../../assets/images/",
-    "rating": null
+    "logo": "../../assets/images/xd-logo.png",
+    "rating": 19
 }

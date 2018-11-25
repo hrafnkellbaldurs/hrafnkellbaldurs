@@ -2,8 +2,8 @@
     "name": "C Sharp",
     "shortName": "C#",
     "type": "technology",
-    "description": "",
+    "description": "adadad",
     "yearsOfExperience": "1",
-    "logo": null,
-    "rating": null
+    "logo": "../../assets/images/csharp-logo.png",
+    "rating": 15
 }

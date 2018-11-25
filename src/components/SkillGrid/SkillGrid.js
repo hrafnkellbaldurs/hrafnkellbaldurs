@@ -5,16 +5,11 @@ import { ReactComponent as DropdownArrow } from '../../assets/images/arrow_drop_
 import classnames from 'classnames'
 
 class SkillGrid extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            additionalOpen: true
-        }
-
-        this.toggleAdditional = this.toggleAdditional.bind(this)
+    state = {
+        additionalOpen: false
     }
 
-    toggleAdditional() {
+    toggleAdditional = () => {
         this.setState({
             additionalOpen: !this.state.additionalOpen
         })
@@ -23,12 +18,12 @@ class SkillGrid extends React.Component {
     render() {
         const top5 = this.props.children.filter(x => R.both(
             R.complement(R.isNil),
-            R.lte(R.__, 5)
+            R.lte(R.__, 4)
         )(x.props.rating))
 
         const rest = this.props.children.filter(x => R.either(
             R.isNil,
-            R.gte(R.__, 5)
+            R.gt(R.__, 4)
         )(x.props.rating))
 
         const renderItem = item => {
@@ -37,16 +32,17 @@ class SkillGrid extends React.Component {
             )
         }
 
-        const additionalChildrenClassNames = classnames({
-            [styles.items]: true,
-            [styles.hidden]: !this.state.additionalOpen
-        })
+        const additionalLabelClassNames = classnames([ styles.groupLabel, styles.additionalLabel ])
 
         const arrowClassNames = classnames({
             [styles.arrow]: true,
             [styles.up]: this.state.additionalOpen
         })
 
+        const additionalChildrenClassNames = classnames({
+            [styles.items]: true,
+            [styles.hidden]: !this.state.additionalOpen
+        })
         return (
             <div className={ styles.container }>
                 <div className={ styles.groupLabel }>Top 5</div>
@@ -55,8 +51,7 @@ class SkillGrid extends React.Component {
                 </div>
 
                 <button
-                    className={ styles.groupLabel }
-                    style={{ marginTop: '20px' }}
+                    className={ additionalLabelClassNames }
                     onClick={ this.toggleAdditional }>
                     <span>Additional</span>
                     <span className={ arrowClassNames }>

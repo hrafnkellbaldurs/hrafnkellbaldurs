@@ -2,8 +2,8 @@
 
 .container {
     //background-color: rgb(238, 93, 93);
-
     //border: thin solid black;
+
     width: 100%;
     padding: 20px;
     display: flex;
@@ -12,7 +12,6 @@
 
     .groupLabel {
         font: 16px 'opensans-bold', sans-serif;
-        //background: theme-color('accent', 'light');
         background: none;
         color: contrastColor('light');
         font-weight: bold;
@@ -22,6 +21,10 @@
         justify-content: space-between;
         align-items: center;
         justify-items: center;
+    }
+
+    .additionalLabel {
+        margin-top: 20px;
 
         .arrow {
             margin-left: 5px;
