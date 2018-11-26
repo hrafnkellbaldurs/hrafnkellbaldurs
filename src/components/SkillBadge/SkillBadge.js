@@ -4,7 +4,7 @@ import * as R from 'ramda'
 
 const SkillBadge = ({ id, logo = {}, name, shortName }) => {
     logo = R.defaultTo({}, logo)
-    
+
     const LogoImage = () => <img className={ styles.itemLogo } src={ logo.publicURL }/>
     const FallbackImage = () => <span className={ styles.fallbackLogo }>{ shortName } </span>
 
@@ -13,7 +13,7 @@ const SkillBadge = ({ id, logo = {}, name, shortName }) => {
         LogoImage,
         FallbackImage
     )()
-    
+
     return (
         <div className={ styles.container }>
             { image }

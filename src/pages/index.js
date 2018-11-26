@@ -5,7 +5,6 @@ import Section from '../components/Section'
 import Experience from '../components/Experience'
 import { ReactComponent as DownloadIcon } from '../assets/images/download.svg'
 import SkillGrid from '../components/SkillGrid'
-import SkillBadge from '../components/SkillBadge'
 import * as R from 'ramda'
 
 const mapData = R.mapObjIndexed(R.pipe(
@@ -177,9 +176,7 @@ class IndexPage extends React.PureComponent {
                             I have experience with a broad field of front-end technologies and frameworks.
                         </p>
 
-                        <SkillGrid >
-                            { skills.map(skill => <SkillBadge key={ skill.id }{ ...skill }/>) }
-                        </SkillGrid>
+                        <SkillGrid skills={ skills }></SkillGrid>
                     </div>
 
                 </div>

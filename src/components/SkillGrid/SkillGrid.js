@@ -3,32 +3,49 @@ import styles from './SkillGrid.module.scss'
 import * as R from 'ramda'
 import { ReactComponent as DropdownArrow } from '../../assets/images/arrow_drop_down.svg'
 import classnames from 'classnames'
+import SkillBadge from '../SkillBadge'
 
 class SkillGrid extends React.Component {
-    state = {
-        additionalOpen: false
+    constructor(props) {
+        super(props)
+
+        const { additionalOpen = false } = props
+
+        this.state = { additionalOpen }
     }
 
     toggleAdditional = () => {
-        this.setState({
-            additionalOpen: !this.state.additionalOpen
+        this.setState(state => {
+            return {
+                additionalOpen: !state.additionalOpen
+            }
         })
     }
 
     render() {
-        const top5 = this.props.children.filter(x => R.both(
-            R.complement(R.isNil),
-            R.lte(R.__, 4)
-        )(x.props.rating))
+        const {
+            skills = []
+        } = this.props
 
-        const rest = this.props.children.filter(x => R.either(
-            R.isNil,
-            R.gt(R.__, 4)
-        )(x.props.rating))
+        const top5 = skills.filter(R.pipe(
+            R.prop('rating'),
+            R.both(
+                R.complement(R.isNil),
+                R.lte(R.__, 4)
+            )
+        ))
 
-        const renderItem = item => {
+        const rest = skills.filter(R.pipe(
+            R.prop('rating'),
+            R.either(
+                R.isNil,
+                R.gt(R.__, 4)
+            )
+        ))
+
+        const renderSkill = skill => {
             return (
-                <div className={ styles.itemContainer }>{ item }</div>
+                <div className={ styles.itemContainer } key={ skill.id }><SkillBadge { ...skill }/></div>
             )
         }
 
@@ -47,7 +64,7 @@ class SkillGrid extends React.Component {
             <div className={ styles.container }>
                 <div className={ styles.groupLabel }>Top 5</div>
                 <div className={ styles.items } style={{ height: 'auto' }}>
-                    { top5.map(renderItem) }
+                    { top5.map(renderSkill) }
                 </div>
 
                 <button
@@ -59,7 +76,7 @@ class SkillGrid extends React.Component {
                     </span>
                 </button>
                 <div className={ additionalChildrenClassNames }>
-                    { rest.map(renderItem) }
+                    { rest.map(renderSkill) }
                 </div>
             </div>
         )
