@@ -1,0 +1,9 @@
+{
+    "name": "SCSS",
+    "shortName": "SCSS",
+    "type": "technology",
+    "description": "I use SCSS wherever I can to be able to use variables, functions, mixins and more to reduce repeated css.",
+    "yearsOfExperience": "2.5",
+    "logo": "../../assets/images/scss-logo.png",
+    "rating": 9
+}

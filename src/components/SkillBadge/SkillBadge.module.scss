@@ -1,0 +1,46 @@
+@import '../../styles/utils/colors';
+@import '../../styles/utils/material-helpers';
+
+.container {
+    width: 80px;
+    max-height: 80px;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px 5px;
+    padding: 10px;
+    border-radius: 15px;
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+
+    @include materialBoxShadow(1);
+
+    &:hover {
+        transform: translateY(-5px);
+        cursor: pointer;
+
+        @include materialBoxShadow(2);
+    }
+
+    .itemLogo {
+        height: 30px;
+        width: 30px;
+    }
+
+    .fallbackLogo {
+        height: 30px;
+        width: 30px;
+        background: theme-color('accent');
+        color: contrastColor('dark');
+        border-radius: 50%;
+        text-align: center;
+    }
+    
+    .itemLabel {
+        font-size: 12px;
+        color: black;
+        font-weight: bold;
+        white-space: nowrap;
+    }
+
+}

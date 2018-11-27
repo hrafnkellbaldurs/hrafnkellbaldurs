@@ -5,17 +5,21 @@
   "license": "MIT",
   "scripts": {
     "prod": "gatsby build",
+    "prod:verbose": "gatsby build --no-uglify --verbose",
     "serve": "gatsby serve --port 8080",
     "prod:serve": "npm run prod && npm run serve",
     "dev": "gatsby develop",
     "format": "eslint ./src/ --ext .js,.jsx --fix",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "start-storybook -p 6006",
+    "storybook:prod": "build-storybook -o docs"
   },
   "keywords": [
     "gatsby"
   ],
   "dependencies": {
     "@svgr/webpack": "^4.0.3",
+    "classnames": "^2.2.6",
     "gatsby": "^2.0.33",
     "gatsby-plugin-manifest": "^2.0.9",
     "gatsby-plugin-react-helmet": "^3.0.2",
@@ -24,12 +28,21 @@
     "gatsby-source-filesystem": "^2.0.8",
     "gatsby-transformer-json": "^2.1.5",
     "node-sass": "^4.10.0",
+    "ramda": "^0.26.0",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
     "react-helmet": "^5.2.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.1.6",
+    "@storybook/addon-actions": "^4.0.9",
+    "@storybook/addon-backgrounds": "^4.0.8",
+    "@storybook/addon-knobs": "^4.0.9",
+    "@storybook/addon-links": "^4.0.9",
+    "@storybook/addons": "^4.0.9",
+    "@storybook/react": "^4.0.9",
     "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.4",
     "eslint": "^5.8.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.14.0",

@@ -1,0 +1,9 @@
+{
+    "name": "Git",
+    "shortName": "Git",
+    "type": "technology",
+    "description": "",
+    "yearsOfExperience": "3",
+    "logo": "../../assets/images/git-logo.png",
+    "rating": 7
+}

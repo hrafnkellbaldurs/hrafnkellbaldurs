@@ -1,0 +1,69 @@
+@import '../../styles/utils/colors';
+
+.container {
+    //background-color: rgb(238, 93, 93);
+    //border: thin solid black;
+
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .groupLabel {
+        font: 16px 'opensans-bold', sans-serif;
+        background: none;
+        color: contrastColor('light');
+        font-weight: bold;
+        border-radius: 10px;
+        padding: 3px 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        justify-items: center;
+    }
+
+    .additionalLabel {
+        margin-top: 20px;
+
+        .arrow {
+            margin-left: 5px;
+            font-size: 20px;
+            display: flex;
+
+            & :global(.svgr) {
+                transition: transform 100ms ease-in-out;
+                transform: rotate(0deg);
+                transform-origin: center;
+                color: currentColor;
+            }
+
+            &.up :global(.svgr) {
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    .items {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        transition: height 300ms ease-in-out, opacity 300ms ease-in-out;
+        opacity: 1;
+        overflow: hidden;
+        height: 330px;
+
+        &.hidden {
+            height: 0;
+            opacity: 0;
+        }
+
+        .itemContainer {
+            display: flex;
+            flex-grow: 1;
+            flex-shrink: 1;
+            justify-content: center;
+            width: 18%;
+        }
+    }
+}

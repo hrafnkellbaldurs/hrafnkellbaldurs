@@ -1,42 +1,40 @@
 import React from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Section from '../components/Section'
 import Experience from '../components/Experience'
 import { ReactComponent as DownloadIcon } from '../assets/images/download.svg'
+import SkillGrid from '../components/SkillGrid'
+import * as R from 'ramda'
+
+const mapData = R.mapObjIndexed(R.pipe(
+    R.prop('edges'),
+    R.pluck('node')
+))
 
 class IndexPage extends React.PureComponent {
-    mapData({ aboutMe, workExperience, educationExperience }) {
-        const pluckEdgeNodes = data => data.edges.map(x => x.node)
-
-        return {
-            aboutMe: pluckEdgeNodes(aboutMe)[0],
-            workExperienceItems: pluckEdgeNodes(workExperience),
-            educationExperienceItems: pluckEdgeNodes(educationExperience)
-        }
-    }
-
     render() {
         const {
             props,
-            mapData,
             renderAboutSection: AboutSection,
             renderResumeSection: ResumeSection
         } = this
 
         const {
             aboutMe,
-            workExperienceItems,
-            educationExperienceItems
+            workExperience: workExperienceItems,
+            educationExperience: educationExperienceItems,
+            skills
         } = mapData(props.data)
 
         const aboutProps = {
-            ...aboutMe
+            ...aboutMe[0]
         }
 
         const resumeProps = {
             workExperienceItems,
-            educationExperienceItems
+            educationExperienceItems,
+            skills
         }
 
         return (
@@ -109,7 +107,8 @@ class IndexPage extends React.PureComponent {
     renderResumeSection(props) {
         const {
             workExperienceItems,
-            educationExperienceItems
+            educationExperienceItems,
+            skills
         } = props
 
         const renderExperience = (item, i) => {
@@ -142,21 +141,6 @@ class IndexPage extends React.PureComponent {
         return (
             <Section id="resume">
 
-                <div className="row skill">
-
-                    <div className="three columns header-col">
-                        <h1><span>Skills</span></h1>
-                    </div>
-
-                    <div className="nine columns main-col">
-
-                        <p>
-                            I have experience with a broad field of front-end technologies and frameworks.
-                        </p>
-                    </div>
-
-                </div>
-
                 <div className="row work">
 
                     <div className="three columns header-col">
@@ -181,6 +165,26 @@ class IndexPage extends React.PureComponent {
 
                 </div>
 
+                <div className="row skill">
+
+                    <div className="three columns header-col">
+                        <h1><span>Skills</span></h1>
+                    </div>
+
+                    <div className="nine columns main-col">
+                        <p>
+                            I have experience with a broad field of front-end technologies and frameworks.
+                        </p>
+
+                        <SkillGrid skills={ skills }></SkillGrid>
+                    </div>
+
+                </div>
+
+                {/* <div style={{ height: '500px', background: 'red'}}>
+                    <h1 align="center">hello my firend</h1>
+                </div> */}
+
             </Section>
         )
     }
@@ -188,91 +192,7 @@ class IndexPage extends React.PureComponent {
 
 export const query = graphql`
     query IndexPage {
-        aboutMe: allAboutMeJson(
-            filter: {
-                dataId: { eq: "aboutMe" }
-            }
-        ) {
-            edges {
-                node {
-                    id,
-                    dataId,
-                    title,
-                    description,
-                    urls {
-                        profilePic {
-                            public: publicURL
-                        },
-                        portfolioPdf {
-                            public: publicURL
-                        }
-                    },
-                    contactDetails {
-                        label,
-                        name,
-                        address,
-                        zip,
-                        city,
-                        country,
-                        phone,
-                        email
-                    },
-                    downloadResumeLabel
-                }
-            }
-        },
-        workExperience: allExperienceJson(
-            sort: {
-                fields: startDate,
-                   order: DESC
-            },
-            filter: {
-              type: { eq: "work" }
-            }
-        ) {
-            edges {
-                node {
-                    id,
-                    dataId,
-                    type,
-                    logo {
-                        id,
-                        publicURL
-                    },
-                    title,
-                    subtitle,
-                    startDate,
-                    endDate,
-                    description
-                }
-            }
-        },
-        educationExperience: allExperienceJson(
-            sort: {
-                fields: startDate,
-                   order: DESC
-            },
-            filter: {
-              type: { eq: "education" }
-            }
-        ) {
-            edges {
-                node {
-                    id,
-                    dataId,
-                    type,
-                    logo {
-                        id,
-                        publicURL
-                    },
-                    title,
-                    subtitle,
-                    startDate,
-                    endDate,
-                    description
-                }
-            }
-        }
+        ...IndexPageFragment
     }
 `
 

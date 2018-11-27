@@ -1,0 +1,9 @@
+{
+    "name": "jQuery",
+    "shortName": "jQ",
+    "type": "technology",
+    "description": "",
+    "yearsOfExperience": "4",
+    "logo": "../../assets/images/jquery-logo.png",
+    "rating": 8
+}

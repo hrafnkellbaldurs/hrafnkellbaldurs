@@ -1,0 +1,9 @@
+{
+    "name": "React Native",
+    "shortName": "RN",
+    "type": "technology",
+    "description": "",
+    "yearsOfExperience": "0.5",
+    "logo": "../../assets/images/react-logo.png",
+    "rating": 14
+}

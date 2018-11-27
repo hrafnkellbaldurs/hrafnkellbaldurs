@@ -1,0 +1,9 @@
+{
+    "name": "Photoshop",
+    "shortName": "PS",
+    "type": "graphicdesign",
+    "description": "",
+    "yearsOfExperience": "5",
+    "logo": "../../assets/images/photoshop-logo.png",
+    "rating": 17
+}

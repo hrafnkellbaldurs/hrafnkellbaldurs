@@ -163,7 +163,6 @@ e. Others
  h4 { font-size: 20px; line-height: 30px; margin-bottom: 6px; }
  h5 { font-size: 18px; line-height: 30px; }
  h6 { font-size: 14px; line-height: 30px; }
- .subheader { }
  
  p { margin: 0 0 30px 0; }
  p img { margin: 0; }
@@ -222,61 +221,58 @@ e. Others
       </aside>
  /*
  /* --------------------------------------------------------------------- */
- .pull-quote {
-    position: relative;
-     padding: 18px 30px 18px 0px;
- }
- .pull-quote:before,
- .pull-quote:after {
-     height: 1em;
-     opacity: 0.45;
-     position: absolute;
-     font-size: 80px;
-    font-family: Arial, Sans-Serif;
- }
- .pull-quote:before {
-     content: "\201C";
-     top:  33px;
-     left: 0;
- }
- .pull-quote:after {
-     content: '\201D';
-     bottom: -33px;
-     right: 0;
- }
- .pull-quote blockquote {
-    margin: 0;
- }
- .pull-quote blockquote:before {
-    content: none;
- }
+//  .pull-quote {
+//     position: relative;
+//      padding: 18px 30px 18px 0px;
+//  }
+//  .pull-quote:before,
+//  .pull-quote:after {
+//      height: 1em;
+//      opacity: 0.45;
+//      position: absolute;
+//      font-size: 80px;
+//     font-family: Arial, Sans-Serif;
+//  }
+//  .pull-quote:before {
+//      content: "\201C";
+//      top:  33px;
+//      left: 0;
+//  }
+//  .pull-quote:after {
+//      content: '\201D';
+//      bottom: -33px;
+//      right: 0;
+//  }
+//  .pull-quote blockquote {
+//     margin: 0;
+//  }
+//  .pull-quote blockquote:before {
+//     content: none;
+//  }
  
  /* Abbreviations */
- abbr {
-    font-family: 'opensans-bold', sans-serif;
-     font-variant: small-caps;
-     text-transform: lowercase;
-    letter-spacing: .5px;
-     color: gray;
- }
- abbr:hover { cursor: help; }
+//  abbr {
+//     font-family: 'opensans-bold', sans-serif;
+//      font-variant: small-caps;
+//      text-transform: lowercase;
+//     letter-spacing: .5px;
+//      color: gray;
+//  }
+//  abbr:hover { cursor: help; }
  
  /* drop cap */
- .drop-cap:first-letter {
-     float: left;
-     margin: 0;
-     padding: 14px 6px 0 0;
-     font-size: 84px;
-     font-family: /* Copperplate */ 'opensans-bold', sans-serif;
-    line-height: 60px;
-     text-indent: 0;
-     background: transparent;
-     color: inherit;
- }
- 
- hr { border: solid #E3E3E3; border-width: 1px 0 0; clear: both; margin: 11px 0 30px; height: 0; }
- 
- 
+//  .drop-cap:first-letter {
+//      float: left;
+//      margin: 0;
+//      padding: 14px 6px 0 0;
+//      font-size: 84px;
+//      font-family: /* Copperplate */ 'opensans-bold', sans-serif;
+//     line-height: 60px;
+//      text-indent: 0;
+//      background: transparent;
+//      color: inherit;
+//  }
+
  /*  3. Links  ------------------------------------------------------- */
  
  a, a:visited {
@@ -407,65 +403,25 @@ e. Others
  img.pull-left { margin: 12px 18px 0px 0px; }
  
  /*  6. Buttons  --------------------------------------------------------- */
- 
- .button,
- .button:visited,
- button,
- input[type="submit"],
- input[type="reset"],
- input[type="button"] {
-    font: 16px/30px 'opensans-bold', sans-serif;
-    background: theme-color('accent');
-    display: inline-block;
-     text-decoration: none;
-    letter-spacing: 0;
-    color: #fff;
-     padding: 12px 20px;
-     margin-bottom: 18px;
-    border: none;
-    cursor: pointer;
-    height: auto;
- 
-    -webkit-transition: all .2s ease-in-out;
-     -moz-transition: all .2s ease-in-out;
-     -o-transition: all .2s ease-in-out;
-     -ms-transition: all .2s ease-in-out;
-     transition: all .2s ease-in-out;
- 
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -khtml-border-radius: 3px;
-    border-radius: 3px;
- }
- 
- .button:hover,
- button:hover,
- input[type="submit"]:hover,
- input[type="reset"]:hover,
- input[type="button"]:hover {
-    background: #3d4145;
-    color: #fff;
- }
- 
- .button:active,
- button:active,
- input[type="submit"]:active,
- input[type="reset"]:active,
- input[type="button"]:active {
-    background: #3d4145;
-    color: #fff;
- }
- 
- .button.full-width,
- button.full-width,
- input[type="submit"].full-width,
- input[type="reset"].full-width,
- input[type="button"].full-width {
-     width: 100%;
-     padding-left: 0 !important;
-     padding-right: 0 !important;
-     text-align: center;
- }
+
+.button,
+.button:visited,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+   font: 16px 'opensans-bold', sans-serif;
+   display: inline-block;
+   background: theme-color('accent');
+   color: contrastColor('dark');
+   text-decoration: none;
+   letter-spacing: 0;
+   padding: 12px 20px;
+   border: none;
+   cursor: pointer;
+   height: auto;
+   border-radius: 3px;
+}
  
  /* Fix for odd Mozilla border & padding issues */
  button::-moz-focus-inner,
@@ -477,63 +433,59 @@ e. Others
  
  /*  7. Forms  --------------------------------------------------------- */
  
- form { margin-bottom: 24px; }
- fieldset { margin-bottom: 24px; }
+//  form { margin-bottom: 24px; }
+//  fieldset { margin-bottom: 24px; }
  
- input[type="text"],
- input[type="password"],
- input[type="email"],
- textarea,
- select {
-    display: block;
-    padding: 18px 15px;
-    margin: 0 0 24px 0;
-    border: 0;
-    outline: none;
-    vertical-align: middle;
-    min-width: 225px;
-     max-width: 100%;
-    font-size: 15px;
-    line-height: 24px;
-     color: #647373;
-     background: #D3D9D9;
+//  input[type="text"],
+//  input[type="password"],
+//  input[type="email"],
+//  textarea,
+//  select {
+//     display: block;
+//     padding: 18px 15px;
+//     margin: 0 0 24px 0;
+//     border: 0;
+//     outline: none;
+//     vertical-align: middle;
+//     min-width: 225px;
+//      max-width: 100%;
+//     font-size: 15px;
+//     line-height: 24px;
+//      color: #647373;
+//      background: #D3D9D9;
  
- }
+//  }
  
- /* select { padding: 0;
-    width: 220px;
-    } */
+//  input[type="text"]:focus,
+//  input[type="password"]:focus,
+//  input[type="email"]:focus,
+//  textarea:focus {
+//     color: #B3B7BC;
+//      background-color: #3d4145;
+//  }
  
- input[type="text"]:focus,
- input[type="password"]:focus,
- input[type="email"]:focus,
- textarea:focus {
-    color: #B3B7BC;
-     background-color: #3d4145;
- }
+//  textarea { min-height: 220px; }
  
- textarea { min-height: 220px; }
+//  label,
+//  legend {
+//     font: 16px/24px 'opensans-bold', sans-serif;
+//      margin: 12px 0;
+//     color: #3d4145;
+//     display: block;
+//  }
+//  label span,
+//  legend span {
+//      color: #8B9798;
+//     font: 14px/24px 'opensans-regular', sans-serif;
+//  }
  
- label,
- legend {
-    font: 16px/24px 'opensans-bold', sans-serif;
-     margin: 12px 0;
-    color: #3d4145;
-    display: block;
- }
- label span,
- legend span {
-     color: #8B9798;
-    font: 14px/24px 'opensans-regular', sans-serif;
- }
+//  input[type="checkbox"],
+//  input[type="radio"] {
+//      font-size: 15px;
+//      color: #737373;
+//  }
  
- input[type="checkbox"],
- input[type="radio"] {
-     font-size: 15px;
-     color: #737373;
- }
- 
- input[type="checkbox"] { display: inline; }
+//  input[type="checkbox"] { display: inline; }
  
  /* ------------------------------------------------------------------ */
  /* d. Grid
@@ -726,29 +678,29 @@ e. Others
      (http://nicolasgallagher.com/micro-clearfix-hack/
  --------------------------------------------------------------------- */
  
- .cf:before,
- .cf:after {
-     content: " ";
-     display: table;
- }
- .cf:after {
-     clear: both;
- }
+//  .cf:before,
+//  .cf:after {
+//      content: " ";
+//      display: table;
+//  }
+//  .cf:after {
+//      clear: both;
+//  }
  
  /*  2. Misc -------------------------------------------------------- */
  
- .remove-bottom { margin-bottom: 0 !important; }
- .half-bottom { margin-bottom: 12px !important; }
- .add-bottom { margin-bottom: 24px !important; }
- .no-border { border: none; }
+ //.remove-bottom { margin-bottom: 0 !important; }
+ //.half-bottom { margin-bottom: 12px !important; }
+ //.add-bottom { margin-bottom: 24px !important; }
+ //.no-border { border: none; }
  
- .text-center  { text-align: center !important; }
- .text-left    { text-align: left !important; }
- .text-right   { text-align: right !important; }
- .pull-left    { float: left !important; }
- .pull-right   { float: right !important; }
- .align-center {
-     margin-left: auto !important;
-     margin-right: auto !important;
-     text-align: center !important;
- }
+ //.text-center  { text-align: center !important; }
+ //.text-left    { text-align: left !important; }
+ //.text-right   { text-align: right !important; }
+ //.pull-left    { float: left !important; }
+ //.pull-right   { float: right !important; }
+//  .align-center {
+//      margin-left: auto !important;
+//      margin-right: auto !important;
+//      text-align: center !important;
+//  }

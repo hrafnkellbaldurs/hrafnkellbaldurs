@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 class Experience extends React.PureComponent {
     render() {
@@ -24,17 +25,24 @@ class Experience extends React.PureComponent {
                 </div>
                 <div className="eleven columns">
                     <h3>{ title }</h3>
-    
+
                     <p className="info">
                         { subtitle }
                         <span>&bull;&nbsp;</span>
-                        <em className="date">{ startDate } - { endDate }</em>
+                        <em className="date">{ startDate } - { endDate || 'Today' }</em>
                     </p>
-                    <p>{ description }</p>
+                    {
+                        description ? <p>{ description }</p> : null
+                    }
                 </div>
             </div>
         )
     }
+}
+
+Experience.propTypes = {
+    title: PropTypes.string.isRequired,
+    subtitle: PropTypes.string.isRequired,
 }
 
 export default Experience

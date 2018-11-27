@@ -1,0 +1,9 @@
+{
+    "name": "KnockoutJS",
+    "shortName": "KO",
+    "type": "technology",
+    "description": "",
+    "yearsOfExperience": "3",
+    "logo": "../../assets/images/knockoutjs-logo.png",
+    "rating": 10
+}

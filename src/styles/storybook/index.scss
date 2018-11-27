@@ -1,0 +1,12 @@
+// Adds global styles for storybook, since not all styles are contained within components
+
+@import '../global/fonts';
+@import '../global/default';
+@import '../global/svg';
+// @import '../global/layout';
+// @import '../global/media-queries';
+
+body {
+    background: unset;
+}
+
