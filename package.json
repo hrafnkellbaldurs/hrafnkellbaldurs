@@ -12,7 +12,7 @@
     "format": "eslint ./src/ --ext .js,.jsx --fix",
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "storybook:prod": "build-storybook -o docs"
   },
   "keywords": [
     "gatsby"
