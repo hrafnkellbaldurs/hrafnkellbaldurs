@@ -2,6 +2,7 @@ import { configure, addDecorator } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import { withKnobs } from '@storybook/addon-knobs'
 import { withBackgrounds } from '@storybook/addon-backgrounds'
+import { configureViewport, INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
 import colors from '../src/styles/utils/_colors.scss'
 import * as R from 'ramda'
 require('../src/styles/storybook/index.scss')
@@ -22,12 +23,10 @@ window.___navigate = pathname => {
 }
 
 // Global decorators
-
-// Knobs
+  // Knobs
 addDecorator(withKnobs)
 
-
-// Backgrounds
+  // Backgrounds
 const websiteColors = R.pipe(
   R.toPairs,
   R.map(([name, value]) => ({ name, value }))
@@ -41,6 +40,17 @@ addDecorator(withBackgrounds(
   ]
   .concat(websiteColors)
 ))
+
+ // Viewport
+const newViewports = {
+  
+}
+configureViewport({ 
+  viewports: {
+    ...INITIAL_VIEWPORTS,
+    ...newViewports
+  } 
+})  
 
 // Automatically import all files ending in *.stories.js
 const req = require.context('../src', true, /.stories.js$/);

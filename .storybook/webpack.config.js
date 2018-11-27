@@ -69,6 +69,23 @@ module.exports = (baseConfig, env, defaultConfig) => {
             }
         ]
     })
+
+    // Storysource loader addon
+    defaultConfig.module.rules.push({
+        test: /\.stories\.jsx?$/,
+        use: [
+            {
+                loader: require.resolve('@storybook/addon-storysource/loader'),
+                options: {
+                    prettierConfig: {
+                        printWidth: 80,
+                        singleQuote: true
+                    }
+                }
+            }
+        ],
+        enforce: 'pre'
+    })
     
     return defaultConfig
   }
