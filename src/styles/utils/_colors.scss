@@ -53,3 +53,26 @@ $contrast-colors: (
 @mixin contrastColor($background: 'light', $type: 'primary') {
     color: contrastColor($background, $type);
 }
+
+:export {
+    theme-primary-base: theme-color('primary', 'base');
+    theme-primary-light: theme-color('primary', 'light');
+    theme-primary-dark: theme-color('primary', 'dark');
+    theme-accent-base: theme-color('accent', 'base');
+    theme-accent-light: theme-color('accent', 'light');
+    theme-accent-dark: theme-color('accent', 'dark');
+    theme-foreground-base: theme-color('foreground', 'base');
+    theme-foreground-light: theme-color('foreground', 'light');
+    theme-foreground-dark: theme-color('foreground', 'dark');
+    theme-background-base: theme-color('background', 'base');
+    theme-background-light: theme-color('background', 'light');
+    theme-background-dark: theme-color('background', 'dark');
+    contrast-dark-primary: contrastColor('dark', 'primary');
+    contrast-dark-secondary: contrastColor('dark', 'secondary');
+    contrast-dark-disabled: contrastColor('dark', 'disabled');
+    contrast-dark-hint: contrastColor('dark', 'hint');
+    contrast-light-primary: contrastColor('light', 'primary');
+    contrast-light-secondary: contrastColor('light', 'secondary');
+    contrast-light-disabled: contrastColor('light', 'disabled');
+    contrast-light-hint: contrastColor('light', 'hint');
+}
