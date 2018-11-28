@@ -3,6 +3,8 @@ import { action } from '@storybook/addon-actions'
 import { withKnobs } from '@storybook/addon-knobs'
 import { withBackgrounds } from '@storybook/addon-backgrounds'
 import { configureViewport, INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
+import { withTests } from '@storybook/addon-jest'
+import testResults from '../jest-test-results.json'
 import colors from '../src/styles/utils/_colors.scss'
 import * as R from 'ramda'
 require('../src/styles/storybook/index.scss')
@@ -42,15 +44,16 @@ addDecorator(withBackgrounds(
 ))
 
  // Viewport
-const newViewports = {
-  
-}
+const newViewports = {}
 configureViewport({ 
   viewports: {
     ...INITIAL_VIEWPORTS,
     ...newViewports
   } 
 })  
+
+  // Tests
+addDecorator(withTests({ results: testResults }))
 
 // Automatically import all files ending in *.stories.js
 const req = require.context('../src', true, /.stories.js$/);
