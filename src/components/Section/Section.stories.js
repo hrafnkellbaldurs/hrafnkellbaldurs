@@ -1,9 +1,8 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import Section from './Section'
-import * as R from 'ramda'
 
-storiesOf('Section', module)
+storiesOf('Layout|Section', module)
     .add('Basic', () => (
         <Section id="mysection">
             <h1>My section</h1>

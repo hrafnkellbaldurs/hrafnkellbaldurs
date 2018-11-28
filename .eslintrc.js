@@ -1,6 +1,6 @@
 module.exports = {
-    extends: ['standard'],
-    plugins: ['standard', 'react'],
+    extends: ['standard', 'plugin:jest/recommended'],
+    plugins: ['standard', 'react', 'jest'],
     rules: {
       'no-var': 'error', // optional, recommended when using es6+
       'no-unused-vars': 1, // recommended
@@ -35,7 +35,17 @@ module.exports = {
       // react plugin - options
       'react/jsx-uses-react': 'error',
       'react/jsx-uses-vars': 'error',
-      'react/jsx-no-undef': 'error'
+      'react/jsx-no-undef': 'error',
+
+      // jest
+      // "jest/no-disabled-tests": "warn",
+      // "jest/no-focused-tests": "error",
+      // "jest/no-identical-title": "error",
+      // "jest/prefer-to-have-length": "warn",
+      // "jest/valid-expect": "error"
+    },
+    "env": {
+      "jest/globals": true
     },
     parser: 'babel-eslint',
     parserOptions: {
