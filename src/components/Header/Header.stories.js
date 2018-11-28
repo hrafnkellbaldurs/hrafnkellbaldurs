@@ -2,7 +2,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import Header from './Header'
 
-storiesOf('Header', module)
+storiesOf('Layout/Header', module)
     .add('Basic', () => (
         <Header/>
     ))
