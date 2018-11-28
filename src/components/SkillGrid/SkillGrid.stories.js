@@ -4,7 +4,7 @@ import { number } from '@storybook/addon-knobs'
 import SkillGrid from './SkillGrid'
 import * as R from 'ramda'
 
-storiesOf('Components/SkillGrid', module)
+storiesOf('Components|SkillGrid', module)
     .add('With 20 items', () => {
         const numberOfSkills = number('Number of skills', 20)
 

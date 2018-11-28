@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react'
 import { text, object } from '@storybook/addon-knobs'
 import SkillBadge from './SkillBadge'
 
-const stories = storiesOf('Components/SkillBadge', module)
+const stories = storiesOf('Components|SkillBadge', module)
 
 stories.add('Basic', () => (
     <SkillBadge

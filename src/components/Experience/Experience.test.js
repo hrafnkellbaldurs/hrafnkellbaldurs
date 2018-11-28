@@ -4,7 +4,7 @@ import { shallow } from 'enzyme'
 import { spyConsole } from '../../scripts/testUtils'
 
 describe('Experience', () => {
-    let spy = spyConsole()
+    spyConsole()
 
     it('should exist', () => {
         const wrapper = shallow(<Experience/>)

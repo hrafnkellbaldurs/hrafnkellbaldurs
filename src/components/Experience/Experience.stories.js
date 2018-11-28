@@ -2,7 +2,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import Experience from './Experience'
 
-storiesOf('Components/Experience', module)
+storiesOf('Components|Experience', module)
     .addParameters({ jest: ['Experience'] })
     .add('Basic', () => (
         <Experience

@@ -4,10 +4,13 @@ import { withKnobs } from '@storybook/addon-knobs'
 import { withBackgrounds } from '@storybook/addon-backgrounds'
 import { configureViewport, INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
 import { withTests } from '@storybook/addon-jest'
+import { withOptions } from '@storybook/addon-options';
 import testResults from '../jest-test-results.json'
 import colors from '../src/styles/utils/_colors.scss'
 import * as R from 'ramda'
 require('../src/styles/storybook/index.scss')
+
+/*** GATSBY OVERRIDES ***/
 
 // Gatsby's Link overrides:
 // Gatsby defines a global called ___loader to prevent its method calls from creating console errors you override it here
@@ -23,6 +26,18 @@ global.__PATH_PREFIX__ = ""
 window.___navigate = pathname => {
   action("NavigateTo:")(pathname)
 }
+
+/*** STORYBOOK OPTIONS OVERRIDE ***/
+
+addDecorator(
+  withOptions({
+    name: 'HrafnkellBaldurs Storybook',
+    hierarchyRootSeparator: /\|/,
+    sortStoriesByKind: true
+  })
+)
+
+/*** GLOBAL DECORATORS ***/
 
 // Global decorators
   // Knobs
@@ -54,6 +69,8 @@ configureViewport({
 
   // Tests
 addDecorator(withTests({ results: testResults }))
+
+/*** STORY IMPORTS ***/
 
 // Automatically import all files ending in *.stories.js
 const req = require.context('../src', true, /.stories.js$/);
