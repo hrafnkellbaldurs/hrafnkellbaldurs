@@ -1,6 +1,6 @@
 @import '../../styles/utils/_colors.scss';
 
-.socialLinks {
+.SocialLinks {
     margin: 24px 0;
     padding: 0;
     font-size: 30px;
@@ -11,8 +11,8 @@
         padding: 0;
     }
 
-    a {
-        color: theme-color('primary', 'light');
+    .socialLink {
+        color: theme-color('foreground');
 
         &:hover {
             color: theme-color('accent');

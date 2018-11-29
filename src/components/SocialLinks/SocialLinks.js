@@ -1,5 +1,7 @@
 import React from 'react'
+import classnames from 'classnames'
 import styles from './SocialLinks.module.scss'
+import { createGlobalLocalClassnames } from '../../scripts/utils'
 import { ReactComponent as FacebookIcon } from '../../assets/images/facebook.svg'
 import { ReactComponent as TwitterIcon } from '../../assets/images/twitter.svg'
 import { ReactComponent as LinkedInIcon } from '../../assets/images/linkedin.svg'
@@ -39,18 +41,30 @@ const links = [
     }
 ]
 
-const SocialLinks = props => (
-    <ul className={ `${ styles.socialLinks }` }>
-        {
-            links.map(({ href, icon: Icon }, i) => (
-                <li key={ i }>
-                    <a href={ href } target="_blank">
-                        <Icon />
-                    </a>
-                </li>
-            ))
-        }
-    </ul>
-)
+const renderSocialLink = ({ href, icon: Icon }, key) => {
+    const socialLinkClassnames = classnames(
+        createGlobalLocalClassnames('socialLink', styles)
+    )
+
+    return (
+        <li key={ key }>
+            <a className={ socialLinkClassnames } href={ href } target="_blank">
+                <Icon />
+            </a>
+        </li>
+    )
+}
+
+const SocialLinks = props => {
+    const socialLinksClassnames = classnames(
+        createGlobalLocalClassnames('SocialLinks', styles)
+    )
+
+    return (
+        <ul className={ socialLinksClassnames }>
+            { links.map(renderSocialLink) }
+        </ul>
+    )
+}
 
 export default SocialLinks

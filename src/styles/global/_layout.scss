@@ -41,7 +41,7 @@ hr { border: solid #E3E3E3; border-width: 1px 0 0; clear: both; margin: 11px 0 3
 /* ------------------------------------------------------------------ */
 
 #about {
-   background: #2B2B2B;
+   background: theme-color('background');
    padding-top: 96px;
    padding-bottom: 66px;
    overflow: hidden;
@@ -528,88 +528,3 @@ call-to-action .button {
     background: rgba(255, 255, 255, .9);
     cursor: default;
 }
-
-
-
-/* ------------------------------------------------------------------ */
-/* i. Footer
-/* ------------------------------------------------------------------ */
-
-footer {
-   padding-top: 48px;
-   margin-bottom: 48px;
-   color: #303030;
-   font-size: 14px;
-   text-align: center;
-   position: relative;
-}
-
-footer a, footer a:visited { color: #525252; }
-footer a:hover, footer a:focus { color: #fff; }
-
-/* copyright */
-footer .copyright {
-    margin: 0;
-    padding: 0;
- }
-footer .copyright li {
-    display: inline-block;
-    margin: 0;
-    padding: 0;
-    line-height: 24px;
-}
-.ie footer .copyright li {
-   display: inline;
-}
-footer .copyright li:before {
-    content: "\2022";
-    padding-left: 10px;
-    padding-right: 10px;
-    color: #095153;
-}
-footer .copyright  li:first-child:before {
-    display: none;
-}
-
-/* social links */
-footer .social-links {
-   margin: 18px 0 30px 0;
-   padding: 0;
-   font-size: 30px;
-}
-footer .social-links li {
-    display: inline-block;
-    margin: 0;
-    padding: 0;
-    margin-left: 42px;
-    color: #F06000;
-}
-
-
-#exit-work {
-  text-align: right;
-}
-
-footer .social-links li:first-child { margin-left: 0; }
-
-/* Go To Top Button */
-#go-top {
-	position: absolute;
-	top: -24px;
-   left: 50%;
-   margin-left: -30px;
-}
-#go-top a {
-	text-decoration: none;
-	border: 0 none;
-	display: block;
-	width: 60px;
-	height: 60px;
-	background-color: #525252;
-  transition: all 0.2s ease-in-out;
-  color: #fff;
-  font-size: 21px;
-  line-height: 60px;
- 	border-radius: 100%;
-}
-#go-top a:hover { background-color: #0F9095; }
