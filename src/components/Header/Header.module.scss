@@ -1,6 +1,7 @@
 @import '../../styles/utils/colors';
+@import '../../styles/utils/mixins';
 
-.container {
+.Header {
     background-color: theme-color();
     background-image: url(../../assets/images/header-background2.jpg);
     background-repeat: no-repeat;
@@ -76,23 +77,18 @@
 
     :global(.scrolldown) {
         a {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            margin-left: -29px;
-            color: #fff;
-            display: block;
-            height: 42px;
-            width: 42px;
-            font-size: 42px;
-            line-height: 42px;
-            color: #fff;
-            border-radius: 100%;
-            transition: all .3s ease-in-out;
+            $size: 42px;
 
-            &:hover {
-                color: theme-color('accent');
-            }
+            @include svgrCircleContainer(
+                $size: $size,
+                $backgroundColor: theme-color('foreground'),
+                $svgColor: theme-color('background', 'dark'),
+                $svgSizeRatio: 0.7
+            );
+
+            position: absolute;
+            margin-left: -($size / 2);
+            bottom: $size / 2;
         }
     }
 

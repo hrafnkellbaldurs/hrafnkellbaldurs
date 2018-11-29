@@ -1,4 +1,4 @@
-export function spyConsole() {
+export default function spyConsole() {
     // https://github.com/facebook/react/issues/7047
     let spy = {}
 

@@ -1,0 +1,39 @@
+@import '../../styles/utils/colors';
+@import '../../styles/utils/material-helpers';
+@import '../../styles/utils/mixins';
+
+$color: theme-color('background', 'light');
+
+.Footer {
+    background: theme-color('background');
+    padding: 48px 0;
+    color: $color;
+    font-size: 14px;
+    text-align: center;
+    position: relative;
+
+    :global(.socialLink) {
+        color: $color;
+    }
+    
+
+    .goToTop {
+        a {
+            $size: 42px;
+
+            @include svgrCircleContainer(
+                $size: $size,
+                $backgroundColor: theme-color('background', 'light'),
+                $svgColor: theme-color('foreground', 'light')
+            );
+
+            position: absolute;
+            margin-left: -($size / 2);
+            top: -($size / 2);
+
+            :global(.svgr) {
+                transform: rotate(180deg);
+            }
+        }
+    }
+}

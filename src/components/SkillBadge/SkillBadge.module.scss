@@ -1,5 +1,6 @@
 @import '../../styles/utils/colors';
 @import '../../styles/utils/material-helpers';
+@import '../../styles/utils/animations';
 
 .container {
     width: 80px;
@@ -11,7 +12,7 @@
     margin: 15px 5px;
     padding: 10px;
     border-radius: 15px;
-    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    transition: all 0.3s $timing-function-happy;
 
     @include materialBoxShadow(1);
 

@@ -1,0 +1,36 @@
+@import './colors';
+@import './material-helpers';
+@import './animations';
+
+// Creates styling for a circular container around an svg
+// Expects to to have a child with the .svgr class on it
+@mixin svgrCircleContainer(
+    $size, 
+    $backgroundColor: theme-color('foreground'),
+    $backgroundColorHover: theme-color('accent'),
+    $svgColor: theme-color('background', 'dark'),
+    $svgSizeRatio: 0.7
+) {
+    width: $size;
+    height: $size;
+    background: $backgroundColor;
+    
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s $timing-function-happy;
+
+    @include materialBoxShadow(1);
+    
+    &:hover {
+        background: $backgroundColorHover;
+        @include materialBoxShadow(2);
+        transform: translateY(-3px);
+    }
+
+    :global(.svgr) {
+        color: $svgColor;
+        font-size: $size * $svgSizeRatio;
+    }
+}

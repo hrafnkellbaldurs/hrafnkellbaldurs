@@ -1,6 +1,6 @@
 import React from 'react'
 import SocialLinks from '../SocialLinks'
-import { ReactComponent as DownArrowIcon } from '../../assets/images/arrow_drop_down_circle.svg'
+import { ReactComponent as DownArrowIcon } from '../../assets/images/arrow_drop_down.svg'
 import styles from './Header.module.scss'
 
 const Header = () => {
@@ -25,7 +25,7 @@ const Header = () => {
     ]
 
     return (
-        <header id="home" className={ styles.container }>
+        <header id="home" className={ styles.Header }>
             <nav id="nav-wrap">
 
                 <a className={ styles.mobileBtn } href="#nav-wrap" title="Show navigation">Show navigation</a>

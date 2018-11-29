@@ -13,15 +13,15 @@ $theme-colors: (
     ),
     // Primary objects with darker colors
     'foreground': (
-        'base': #393939,
-        'light': #6e6e6e,
-        'dark': #111
-    ),
-    // Lighter objects or section backgrounds
-    'background': (
         'base': #f8f5f5,
         'light': #fff,
         'dark': #ddd
+    ),
+    // Lighter objects or section backgrounds
+    'background': (
+        'base': #2B2B2B,
+        'light': #6e6e6e,
+        'dark': #111
     )
 );
 
