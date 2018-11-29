@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Layout from '../components/Layout'
+import { LayoutContainer } from '../components/Layout'
 import Section from '../components/Section'
 import Experience from '../components/Experience'
 import { ReactComponent as DownloadIcon } from '../assets/images/download.svg'
@@ -38,10 +38,10 @@ class IndexPage extends React.PureComponent {
         }
 
         return (
-            <Layout>
+            <LayoutContainer>
                 <AboutSection { ...aboutProps }></AboutSection>
                 <ResumeSection { ...resumeProps }></ResumeSection>
-            </Layout>
+            </LayoutContainer>
         )
     }
 
