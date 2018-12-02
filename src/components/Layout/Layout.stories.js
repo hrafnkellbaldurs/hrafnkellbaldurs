@@ -4,7 +4,7 @@ import Layout from './Layout'
 
 storiesOf('Layout|Layout', module)
     .add('Basic', () => (
-        <Layout siteMetaData={{
+        <Layout siteMetadata={{
             title: 'SiteTitle',
             description: 'description',
             author: 'John The Great'

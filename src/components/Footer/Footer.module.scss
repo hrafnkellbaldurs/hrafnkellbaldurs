@@ -1,5 +1,4 @@
 @import '../../styles/utils/colors';
-@import '../../styles/utils/material-helpers';
 @import '../../styles/utils/mixins';
 
 $color: theme-color('background', 'light');
@@ -12,10 +11,13 @@ $color: theme-color('background', 'light');
     text-align: center;
     position: relative;
 
-    :global(.socialLink) {
+    :global(.SocialLinks .socialLink) {
         color: $color;
+
+        &:hover {
+            color: theme-color('accent')
+        }
     }
-    
 
     .goToTop {
         a {
@@ -23,7 +25,7 @@ $color: theme-color('background', 'light');
 
             @include svgrCircleContainer(
                 $size: $size,
-                $backgroundColor: theme-color('background', 'light'),
+                $backgroundColor: $color,
                 $svgColor: theme-color('foreground', 'light')
             );
 
