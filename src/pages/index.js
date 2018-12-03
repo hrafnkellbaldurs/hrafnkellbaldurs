@@ -1,11 +1,14 @@
+import '../styles/pages/index/main.scss'
 import React from 'react'
 import { graphql } from 'gatsby'
+import * as R from 'ramda'
+import { ReactComponent as DownloadIcon } from '../assets/images/download.svg'
 import { LayoutContainer } from '../components/Layout'
+import Hero from '../components/Hero'
+import SocialLinks from '../components/SocialLinks'
 import Section from '../components/Section'
 import Experience from '../components/Experience'
-import { ReactComponent as DownloadIcon } from '../assets/images/download.svg'
 import SkillGrid from '../components/SkillGrid'
-import * as R from 'ramda'
 
 const mapData = R.mapObjIndexed(R.pipe(
     R.prop('edges'),
@@ -16,19 +19,28 @@ class IndexPage extends React.PureComponent {
     render() {
         const {
             props,
-            renderAboutSection: AboutSection,
-            renderResumeSection: ResumeSection
+            renderHero: RenderHero,
+            renderAboutSection: RenderAboutSection,
+            renderResumeSection: RenderResumeSection
         } = this
 
         const {
-            aboutMe,
+            aboutMe: aboutMeData,
             workExperience: workExperienceItems,
             educationExperience: educationExperienceItems,
             skills
         } = mapData(props.data)
 
+        const aboutMe = aboutMeData[0]
+
+        const heroProps = {
+            authorFullName: aboutMe.contactDetails.name,
+            text: aboutMe.shortDescription,
+            backgroundUrl: require('../assets/images/hero-background.jpg')
+        }
+
         const aboutProps = {
-            ...aboutMe[0]
+            ...aboutMe
         }
 
         const resumeProps = {
@@ -39,9 +51,38 @@ class IndexPage extends React.PureComponent {
 
         return (
             <LayoutContainer>
-                <AboutSection { ...aboutProps }></AboutSection>
-                <ResumeSection { ...resumeProps }></ResumeSection>
+                <RenderHero { ...heroProps } />
+                <RenderAboutSection { ...aboutProps } />
+                <RenderResumeSection { ...resumeProps } />
             </LayoutContainer>
+        )
+    }
+
+    renderHero(props) {
+        const {
+            authorFullName,
+            text,
+            backgroundUrl
+        } = props
+
+        const heroProps = {
+            backgroundUrl
+        }
+
+        return (
+            <Hero { ...heroProps }>
+                <div className="banner-text">
+
+                    <h1 className="responsive-headline">Hi, I'm { authorFullName }.</h1>
+                    <h3>
+                        <span className="hero-text">{ text }</span>
+                        <a className="smoothscroll" href="#about">Scroll down</a>&nbsp;
+                        to learn more.
+                    </h3>
+                    <hr />
+                    <SocialLinks />
+                </div>
+            </Hero>
         )
     }
 
@@ -180,11 +221,6 @@ class IndexPage extends React.PureComponent {
                     </div>
 
                 </div>
-
-                {/* <div style={{ height: '500px', background: 'red'}}>
-                    <h1 align="center">hello my firend</h1>
-                </div> */}
-
             </Section>
         )
     }

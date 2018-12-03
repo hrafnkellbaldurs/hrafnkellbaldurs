@@ -1,4 +1,4 @@
-@import '../utils/colors';
+@import '../../utils/colors';
 
 /*
    TOC:
@@ -205,7 +205,7 @@ hr { border: solid #E3E3E3; border-width: 1px 0 0; clear: both; margin: 11px 0 3
 	-o-transition: opacity 0.3s ease-in-out;
 	transition: opacity 0.3s ease-in-out;
 
-   background: url(../../assets/images/overlay-bg.png) repeat;
+   background: url(../../../assets/images/overlay-bg.png) repeat;
 }
 .portfolio-item .item-wrap .link-icon {
    display: block;

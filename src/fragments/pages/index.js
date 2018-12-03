@@ -13,6 +13,7 @@ export const IndexPageFragment = graphql`
                     dataId,
                     title,
                     description,
+                    shortDescription,
                     urls {
                         profilePic {
                             public: publicURL
