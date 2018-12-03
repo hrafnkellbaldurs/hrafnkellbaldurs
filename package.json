@@ -36,7 +36,8 @@
     "ramda": "^0.26.0",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
-    "react-helmet": "^5.2.0"
+    "react-helmet": "^5.2.0",
+    "smooth-scroll-into-view-if-needed": "^1.1.23"
   },
   "devDependencies": {
     "@babel/core": "^7.1.6",

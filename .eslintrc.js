@@ -30,19 +30,12 @@ module.exports = {
       'standard/object-curly-even-spacing': ['error', 'either'],
       'standard/array-bracket-even-spacing': ['error', 'either'],
       'standard/computed-property-even-spacing': ['error', 'even'],
-      'standard/no-callback-literal': ['error', ['cb', 'callback']],
+      'standard/no-callback-literal': 'off',
   
       // react plugin - options
       'react/jsx-uses-react': 'error',
       'react/jsx-uses-vars': 'error',
       'react/jsx-no-undef': 'error',
-
-      // jest
-      // "jest/no-disabled-tests": "warn",
-      // "jest/no-focused-tests": "error",
-      // "jest/no-identical-title": "error",
-      // "jest/prefer-to-have-length": "warn",
-      // "jest/valid-expect": "error"
     },
     "env": {
       "jest/globals": true
