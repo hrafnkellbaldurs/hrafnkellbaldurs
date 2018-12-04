@@ -1,6 +1,7 @@
 import React from 'react'
 import classnames from 'classnames'
 import { ReactComponent as DownArrowIcon } from '../../assets/images/arrow_drop_down.svg'
+import Link from '../Link'
 import { debounce } from '../../scripts/utils'
 import styles from './Hero.module.scss'
 
@@ -57,9 +58,9 @@ class Hero extends React.PureComponent {
                     { this.props.children }
                 </div>
                 <p className="scrolldown">
-                    <a className="smoothscroll" href="#about">
+                    <Link to="/#about" smoothScroll>
                         <DownArrowIcon />
-                    </a>
+                    </Link>
                 </p>
             </div>
         )

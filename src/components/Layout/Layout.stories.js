@@ -40,7 +40,7 @@ storiesOf('Layout|Layout', module)
             description: 'description',
             author: 'John The Great'
         } }>
-            <div style={ { padding: '0 25%', marginTop: '60px' } }>
+            <div style={ { padding: '20px 25%' } }>
                 <h1>The best content</h1>
                 <p>
                     You've swallowed a planet! It's a fez.

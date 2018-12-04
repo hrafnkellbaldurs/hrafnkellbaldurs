@@ -27,8 +27,8 @@ class Header extends React.PureComponent {
             <header id="home" className={ styles.Header }>
                 <nav id="nav-wrap">
 
-                    <a className={ styles.mobileBtn } href="#nav-wrap" title="Show navigation">Show navigation</a>
-                    <a className={ styles.mobileBtn } href="#" title="Hide navigation">Hide navigation</a>
+                    <Link className={ styles.mobileBtn } to="/#nav-wrap" title="Show navigation">Show navigation</Link>
+                    <Link className={ styles.mobileBtn } to="/#" title="Hide navigation">Hide navigation</Link>
 
                     <ul id="nav" className={ styles.navItems }>
                         {

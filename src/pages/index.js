@@ -4,6 +4,7 @@ import { graphql } from 'gatsby'
 import * as R from 'ramda'
 import { ReactComponent as DownloadIcon } from '../assets/images/download.svg'
 import { LayoutContainer } from '../components/Layout'
+import Link from '../components/Link'
 import Hero from '../components/Hero'
 import SocialLinks from '../components/SocialLinks'
 import Section from '../components/Section'
@@ -76,7 +77,7 @@ class IndexPage extends React.PureComponent {
                     <h1 className="responsive-headline">Hi, I'm { authorFullName }.</h1>
                     <h3>
                         <span className="hero-text">{ text }</span>
-                        <a className="smoothscroll" href="#about">Scroll down</a>&nbsp;
+                        <Link to="/#about" smoothScroll>Scroll down</Link>&nbsp;
                         to learn more.
                     </h3>
                     <hr />
@@ -120,20 +121,20 @@ class IndexPage extends React.PureComponent {
                                     <span>{ contactDetails.address }</span><br/>
                                     <span>{ contactDetails.zip } { contactDetails.city }, { contactDetails.country }</span><br/>
                                     <span>{ contactDetails.phone }</span><br/>
-                                    <a style={{ color: 'inherit' }} href={`mailto:${ contactDetails.email }`} target="_top">
+                                    <Link style={{ color: 'inherit' }} to={`mailto:${ contactDetails.email }`} target="_top">
                                         { contactDetails.email }
-                                    </a>
+                                    </Link>
                                 </p>
 
                             </div>
 
                             <div className="columns download">
-                                <a href={ urls.portfolioPdf.public } className="button">
+                                <Link to={ urls.portfolioPdf.public } className="button" target="_blank">
                                     <span style={{ display: 'flex', alignItems: 'center', 'justifyContent': 'center' }}>
                                         <DownloadIcon style={{ fontSize: '22px', marginRight: '5px', marginTop: '-5px' }}/>
                                         { downloadResumeLabel }
                                     </span>
-                                </a>
+                                </Link>
                             </div>
 
                         </div>

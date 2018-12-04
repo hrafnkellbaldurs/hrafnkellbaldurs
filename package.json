@@ -15,7 +15,7 @@
     "test:coverage": "npm run test -- --coverage",
     "test:nooutput": "jest",
     "storybook": "start-storybook -p 6006",
-    "storybook:prod": "build-storybook -o docs"
+    "storybook:prod": "npm run test && build-storybook -o docs"
   },
   "keywords": [
     "gatsby",

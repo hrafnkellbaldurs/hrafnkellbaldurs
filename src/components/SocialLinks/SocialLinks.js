@@ -1,6 +1,7 @@
 import React from 'react'
 import * as R from 'ramda'
 import classnames from 'classnames'
+import Link from '../Link'
 import styles from './SocialLinks.module.scss'
 import { createGlobalLocalClassnames } from '../../scripts/utils'
 import { ReactComponent as FacebookIcon } from '../../assets/images/facebook.svg'
@@ -51,9 +52,9 @@ const renderSocialLink = ({ href, icon: Icon }, key) => {
 
     return (
         <li key={ key }>
-            <a className={ socialLinkClassnames } href={ href } target="_blank">
+            <Link className={ socialLinkClassnames } to={ href } target="_blank">
                 <Icon />
-            </a>
+            </Link>
         </li>
     )
 }
