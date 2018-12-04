@@ -31,7 +31,8 @@ class Hero extends React.PureComponent {
 
     render() {
         const {
-            backgroundUrl
+            backgroundUrl,
+            className
         } = this.props
 
         const {
@@ -39,7 +40,7 @@ class Hero extends React.PureComponent {
         } = this.state
 
         const heroProps = {
-            className: styles.Hero,
+            className: classnames(styles.Hero, className),
             style: {
                 height: `${ height }px`,
                 backgroundImage: `url(${ backgroundUrl })`
@@ -57,11 +58,10 @@ class Hero extends React.PureComponent {
                 <div className={ childrenClassnames }>
                     { this.props.children }
                 </div>
-                <p className="scrolldown">
-                    <Link to="/#about" smoothScroll>
-                        <DownArrowIcon />
-                    </Link>
-                </p>
+
+                <Link className="scrolldown" to="/#about" smoothScroll>
+                    <DownArrowIcon />
+                </Link>
             </div>
         )
     }

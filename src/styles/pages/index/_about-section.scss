@@ -1,0 +1,57 @@
+@import '../../utils/colors';
+@import '../../utils/material-helpers';
+@import '../../utils/animations';
+
+.Section#about {
+    background: theme-color('background');
+    padding-top: 96px;
+    padding-bottom: 66px;
+    overflow: hidden;
+ 
+    h2 {
+       font: 22px/30px 'opensans-bold', sans-serif;
+       color: contrast-color('dark');
+       margin-bottom: 12px;
+    }
+ 
+    p {
+       line-height: 25px;
+       color: rgba(contrast-color('dark', 'secondary'), 0.35);
+    }
+ 
+    .profile-pic {
+       position: relative;
+       width: 170px;
+       height: 170px;
+       border-radius: 50%;
+       border-width: thick;
+       border-style: solid;
+       border-color: theme-color('accent');
+    }
+ 
+    .contact-details {
+       width: 41.66667%;
+    }
+ 
+    .download {
+       width: 58.33333%;
+       padding-top: 6px;
+ 
+       .button {
+          margin-top: 6px;
+          color: contrast-color('dark');
+          background: theme-color('accent', 'dark');
+          transition: all 0.3s $timing-function-happy;
+
+          @include materialHover();
+ 
+          &:hover {
+              background: theme-color('accent');
+          }
+       }
+    }
+ 
+    .main-col {
+       padding-right: 5%;
+    }
+ }

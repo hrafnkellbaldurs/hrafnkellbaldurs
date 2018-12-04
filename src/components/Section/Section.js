@@ -1,15 +1,23 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import classnames from 'classnames'
 
 class Section extends React.PureComponent {
     render() {
         const {
             id,
-            children
+            className,
+            children,
+            ...rest
         } = this.props
 
+        const sectionClassnames = classnames(
+            'Section',
+            className
+        )
+
         return (
-            <section id={ id }>
+            <section id={ id } className={ sectionClassnames } { ...rest }>
                 { children }
             </section>
         )

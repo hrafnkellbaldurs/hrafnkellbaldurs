@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import styles from './Experience.module.scss'
 
 class Experience extends React.PureComponent {
     render() {
@@ -13,23 +14,19 @@ class Experience extends React.PureComponent {
         } = this.props
 
         return (
-            <div className="row item">
+            <div className="row">
                 <div className="one columns">
-                    <div style={{
-                        fontSize: '40px',
-                        width: '1em',
-                        height: 'auto'
-                    }}>
+                    <div className={ styles.iconContainer }>
                         { icon }
                     </div>
                 </div>
                 <div className="eleven columns">
                     <h3>{ title }</h3>
 
-                    <p className="info">
+                    <p className={ styles.info }>
                         { subtitle }
                         <span>&bull;&nbsp;</span>
-                        <em className="date">{ startDate } - { endDate || 'Today' }</em>
+                        <em className={ styles.date }>{ startDate } - { endDate || 'Today' }</em>
                     </p>
                     {
                         description ? <p>{ description }</p> : null

@@ -4,6 +4,7 @@ import { graphql } from 'gatsby'
 import * as R from 'ramda'
 import { ReactComponent as DownloadIcon } from '../assets/images/download.svg'
 import { LayoutContainer } from '../components/Layout'
+import FitText from 'react-fittext'
 import Link from '../components/Link'
 import Hero from '../components/Hero'
 import SocialLinks from '../components/SocialLinks'
@@ -67,21 +68,19 @@ class IndexPage extends React.PureComponent {
         } = props
 
         const heroProps = {
-            backgroundUrl
+            backgroundUrl,
+            className: 'page-hero'
         }
 
         return (
             <Hero { ...heroProps }>
                 <div className="banner-text">
-
-                    <h1 className="responsive-headline">Hi, I'm { authorFullName }.</h1>
-                    <h3>
-                        <span className="hero-text">{ text }</span>
-                        <Link to="/#about" smoothScroll>Scroll down</Link>&nbsp;
-                        to learn more.
-                    </h3>
-                    <hr />
-                    <SocialLinks />
+                    <FitText minFontSize={30} maxFontSize={80}>
+                        <h1>Hi, I'm { authorFullName }.</h1>
+                    </FitText>
+                    <FitText minFontSize={14} maxFontSize={18} compressor={3}>
+                        <h3>{ text }</h3>
+                    </FitText>
                 </div>
             </Hero>
         )
@@ -183,7 +182,7 @@ class IndexPage extends React.PureComponent {
         return (
             <Section id="resume">
 
-                <div className="row work">
+                <div className="row section-item">
 
                     <div className="three columns header-col">
                         <h1><span>Experience</span></h1>
@@ -195,7 +194,7 @@ class IndexPage extends React.PureComponent {
 
                 </div>
 
-                <div className="row education">
+                <div className="row section-item">
 
                     <div className="three columns header-col">
                         <h1><span>Education</span></h1>
@@ -207,20 +206,23 @@ class IndexPage extends React.PureComponent {
 
                 </div>
 
-                <div className="row skill">
+                <div className="row section-item">
 
                     <div className="three columns header-col">
                         <h1><span>Skills</span></h1>
                     </div>
 
                     <div className="nine columns main-col">
-                        <p>
-                            I have experience with a broad field of front-end technologies and frameworks.
-                        </p>
-
-                        <SkillGrid skills={ skills }></SkillGrid>
+                        <div className="row item">
+                            <div className="one columns"></div>
+                            <div className="eleven columns">
+                                <p>
+                                    I have experience with a broad field of front-end technologies and frameworks.
+                                </p>
+                            </div>
+                            <SkillGrid skills={ skills }></SkillGrid>
+                        </div>
                     </div>
-
                 </div>
             </Section>
         )

@@ -1,0 +1,22 @@
+.iconContainer {
+    font-size: 40px;
+    width: 1em;
+    height: auto;
+}
+
+.info {
+    font: 16px/24px 'librebaskerville-italic', serif;
+    color: #6E7881;
+    margin-bottom: 18px;
+    margin-top: 9px;
+ 
+    span {
+        margin-right: 5px;
+        margin-left: 5px;
+    }
+
+    .date {
+        font: 15px/24px 'opensans-regular', sans-serif;
+        margin-top: 6px;
+    }
+}

@@ -21,12 +21,10 @@
     justify-content: center;
     transition: all 0.3s $timing-function-happy;
 
-    @include materialBoxShadow(1);
+    @include materialHover();
     
     &:hover {
         background: $backgroundColorHover;
-        @include materialBoxShadow(2);
-        transform: translateY(-3px);
     }
 
     :global(.svgr) {
