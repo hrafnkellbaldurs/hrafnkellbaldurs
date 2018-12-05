@@ -1,32 +1,33 @@
 @import '../../utils/colors';
+@import '../../utils/media-queries';
 
 .Section#resume {
     background: theme-color('foreground');
     padding-top: 90px;
     padding-bottom: 72px;
     overflow: hidden;
- 
+
     h1 {
-       font: 18px/24px 'opensans-bold', sans-serif;
-       text-transform: uppercase;
-       letter-spacing: 1px;
- 
-       span {
-          border-bottom: 3px solid theme-color('accent');
-          padding-bottom: 6px;
-       }
+        font: 18px/24px 'opensans-bold', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+
+        span {
+            border-bottom: 3px solid theme-color('accent');
+            padding-bottom: 6px;
+        }
     }
- 
+
     h3 {
-       font: 25px/30px 'opensans-bold', sans-serif;
+        font: 25px/30px 'opensans-bold', sans-serif;
     }
- 
+
     .header-col {
-       padding-top: 9px;
+        padding-top: 9px;
     }
- 
-    .main-col { 
-       padding-right: 10%; 
+
+    .main-col {
+        padding-right: 10%;
     }
 
     .section-item {
@@ -38,6 +39,17 @@
             margin-bottom: 0;
             padding-bottom: 0;
             border-bottom: 0;
+        }
+    }
+
+    @include media("<=laptop") {
+        h1 {
+            font-size: 16px;
+            line-height: 24px;
+        }
+
+        .main-col {
+            padding-right: 5%;
         }
     }
 }

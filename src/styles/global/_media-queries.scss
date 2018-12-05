@@ -2,17 +2,17 @@
 
 /* screenwidth less than 1024px
 --------------------------------------------------------------------- */
-@media only screen and (max-width: 1024px) {
+// @media only screen and (max-width: 1024px) {
 
-    /* header styles
-   ------------------------------------------------------------------ */
-   header .banner-text h1 {
-      font: 80px/1.1em 'opensans-bold', sans-serif;
-      letter-spacing: -1px;
-      margin: 0 auto 12px auto;
-   }
+//     /* header styles
+//    ------------------------------------------------------------------ */
+//    header .banner-text h1 {
+//       font: 80px/1.1em 'opensans-bold', sans-serif;
+//       letter-spacing: -1px;
+//       margin: 0 auto 12px auto;
+//    }
 
-}
+// }
 
 /* screenwidth less than 900px
 --------------------------------------------------------------------- */
@@ -20,67 +20,40 @@
 
     /* header styles
    ------------------------------------------------------------------ */
-   header .banner { padding-bottom: 12px; }
-   header .banner-text h1 {
-      font: 78px/1.1em 'opensans-bold', sans-serif;
-      letter-spacing: -1px;
-   }
-   header .banner-text h3 {
-      font: 17px/1.9em 'librebaskerville-regular', serif;
-      width: 80%;
-   }
-   header .banner-text hr {
-      width: 65%;
-      margin: 12px auto;
-   }
+   //header .banner { padding-bottom: 12px; }
+   // header .banner-text h1 {
+   //    font: 78px/1.1em 'opensans-bold', sans-serif;
+   //    letter-spacing: -1px;
+   // }
+   // header .banner-text h3 {
+   //    font: 17px/1.9em 'librebaskerville-regular', serif;
+   //    width: 80%;
+   // }
+   // header .banner-text hr {
+   //    width: 65%;
+   //    margin: 12px auto;
+   // }
    /* nav-wrap */
-   #nav-wrap {
-      font: 11px 'opensans-bold', sans-serif;
-      letter-spacing: 1.5px;
-   }
+   // #nav-wrap {
+   //    font: 11px 'opensans-bold', sans-serif;
+   //    letter-spacing: 1.5px;
+   // }
 
 
    /* About Section
    ------------------------------------------------------------------- */
-   #about .profile-pic {
-      width: 140px;
-      height: 140px;
-      margin-left: 12px;
-   }
-   #about .contact-details { width: 50%; }
-   #about .download { width: 50%; }
+   // #about .profile-pic {
+   //    width: 140px;
+   //    height: 140px;
+   //    margin-left: 12px;
+   // }
+   // #about .contact-details { width: 50%; }
+   // #about .download { width: 50%; }
 
    /* Resume Section
    ------------------------------------------------------------------- */
-   #resume h1 { font: 16px/24px 'opensans-bold', sans-serif; }
-   #resume .main-col { padding-right: 5%; }
-
-   /* Testimonials Section
-   ------------------------------------------------------------------- */
-   #testimonials .header-col h1:before {
-      font-size: 66px;
-      line-height: 66px;
-   }
-   #testimonials blockquote p {
-      font-size: 22px;
-      line-height: 46px;
-   }
-
-    /* Call to Action Section
-   ------------------------------------------------------------------- */
-   #call-to-action .header-col h1:before {
-      font-size: 66px;
-      line-height: 66px;
-   }
-
-   /* Contact Section
-   ------------------------------------------------------------------- */
-   #contact .section-head { margin-bottom: 30px; }
-   #contact .header-col h1:before {
-      font-size: 66px;
-      line-height: 66px;
-   }
-   #contact .section-head p.lead { font: 17px/33px opensans-light, sans-serif; }
+//    #resume h1 { font: 16px/24px 'opensans-bold', sans-serif; }
+//    #resume .main-col { padding-right: 5%; }
 
 
 }
@@ -93,71 +66,71 @@
 
    /* mobile navigation
    -------------------------------------------------------------------- */
-   #nav-wrap {
-      font: 12px 'opensans-bold', sans-serif;
-      background: transparent !important;
-      letter-spacing: 1.5px;
-      width: auto;
-      position: fixed;
-      top: 0;
-      right: 0;
-   }
-   #nav-wrap > a {
-	   width: 48px;
-		height: 48px;
-		text-align: left;
-		background-color: theme-color('accent');
-		position: relative;
-      border: none;
-      float: right;
+//    #nav-wrap {
+//       font: 12px 'opensans-bold', sans-serif;
+//       background: transparent !important;
+//       letter-spacing: 1.5px;
+//       width: auto;
+//       position: fixed;
+//       top: 0;
+//       right: 0;
+//    }
+//    #nav-wrap > a {
+// 	   width: 48px;
+// 		height: 48px;
+// 		text-align: left;
+// 		background-color: theme-color('accent');
+// 		position: relative;
+//       border: none;
+//       float: right;
 
-      font: 0/0 a;
-      text-shadow: none;
-      color: transparent;
+//       font: 0/0 a;
+//       text-shadow: none;
+//       color: transparent;
 
-      position: relative;
-      top: 0px;
-      right: 30px;
-   }
+//       position: relative;
+//       top: 0px;
+//       right: 30px;
+//    }
 
-	#nav-wrap > a:before,
-   #nav-wrap > a:after {
-	   position: absolute;
-		border: 2px solid #fff;
-		top: 35%;
-		left: 25%;
-		right: 25%;
-		content: '';
-	}
-   #nav-wrap > a:after { top: 60%; }
+// 	#nav-wrap > a:before,
+//    #nav-wrap > a:after {
+// 	   position: absolute;
+// 		border: 2px solid #fff;
+// 		top: 35%;
+// 		left: 25%;
+// 		right: 25%;
+// 		content: '';
+// 	}
+//    #nav-wrap > a:after { top: 60%; }
 
    /* toggle buttons */
-	#nav-wrap:not( :target ) > a:first-of-type,
-	#nav-wrap:target > a:last-of-type  {
-	   display: block;
-	}
+	// #nav-wrap:not( :target ) > a:first-of-type,
+	// #nav-wrap:target > a:last-of-type  {
+	//    display: block;
+	// }
 
    /* hide menu panel */
-   #nav-wrap ul#nav {
-      height: auto;
-		display: none;
-      clear: both;
-      width: auto;
-      float: right;
+//    #nav-wrap ul#nav {
+//       height: auto;
+// 		display: none;
+//       clear: both;
+//       width: auto;
+//       float: right;
 
-      position: relative;
-      top: 12px;
-      right: 0;
-   }
+//       position: relative;
+//       top: 12px;
+//       right: 0;
+//    }
 
    /* display menu panels */
-	#nav-wrap:target > ul#nav	{
-	   display: block;
-      padding: 30px 20px 48px 20px;
-      background: #1f2024;
-      margin: 0 30px;
-      clear: both;
-   }
+// 	#nav-wrap:target > ul#nav	{
+// 	   display: block;
+//       padding: 30px 20px 48px 20px;
+//       background: #1f2024;
+//       margin: 0 30px;
+//       clear: both;
+//    }
 
    ul#nav li {
       display: block;
