@@ -1,4 +1,5 @@
 import React from 'react'
+import * as R from 'ramda'
 import classnames from 'classnames'
 import { ReactComponent as DownArrowIcon } from '../../assets/images/arrow_drop_down.svg'
 import Link from '../Link'
@@ -11,6 +12,7 @@ class Hero extends React.PureComponent {
 
         this.heroRef = React.createRef()
         this.state = { height: null }
+        this.updateHeight = this.updateHeight.bind(this)
     }
 
     componentDidMount() {
@@ -20,10 +22,15 @@ class Hero extends React.PureComponent {
         window.addEventListener('resize', debounce(this.updateHeight, 66))
     }
 
-    updateHeight = () => {
+    // Hero should not exceed window height
+    getNewHeight(windowHeight, heroOffsetTop) {
+        return windowHeight - heroOffsetTop
+    }
+
+    updateHeight() {
         if (this.heroRef.current) {
             // Make hero fill out the rest of the screen
-            const newHeight = window.innerHeight - this.heroRef.current.offsetTop
+            const newHeight = this.getNewHeight(window.innerHeight, this.heroRef.current.offsetTop)
 
             this.setState({ height: newHeight })
         }
@@ -31,13 +38,12 @@ class Hero extends React.PureComponent {
 
     render() {
         const {
-            backgroundUrl,
-            className
+            backgroundUrl = '',
+            className = '',
+            children
         } = this.props
 
-        const {
-            height
-        } = this.state
+        const height = R.defaultTo(0, this.state.height)
 
         const heroProps = {
             className: classnames(styles.Hero, className),
@@ -56,7 +62,7 @@ class Hero extends React.PureComponent {
         return (
             <div { ...heroProps }>
                 <div className={ childrenClassnames }>
-                    { this.props.children }
+                    { children }
                 </div>
 
                 <Link className="scrolldown" to="/#about" smoothScroll>

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link as GatsbyLink } from 'gatsby'
 import scrollIntoView from 'smooth-scroll-into-view-if-needed'
+import * as R from 'ramda'
 
 const onInternalClick = ({ smoothScroll }, e) => {
     if (smoothScroll) {
@@ -42,8 +43,19 @@ const Link = props => {
     if (internal && !file) {
         const onClick = (...args) => onInternalClick({ smoothScroll }, ...args)
 
+        const gatsbyLinkProps = {
+            to,
+            onClick,
+            ...other
+        }
+
+        // Bypasses react warning when activeClassName is not being used
+        if (!R.isNil(activeClassName)) {
+            gatsbyLinkProps.activeClassName = activeClassName
+        }
+
         return (
-            <GatsbyLink to={ to } activeClassName={ activeClassName } onClick={ onClick } { ...other }>
+            <GatsbyLink { ...gatsbyLinkProps }>
                 { children }
             </GatsbyLink>
         )
