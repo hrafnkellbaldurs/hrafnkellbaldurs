@@ -5,7 +5,7 @@
 $height: 48px;
 
 .Header {
-    background-color: theme-color();
+    background-color: theme-color('primary', 'dark');
     text-align: center;
     height: $height;
 
@@ -20,6 +20,7 @@ $height: 48px;
         left: 0;
         top: 0;
         min-height: $height;
+        background-color: rgba(theme-color('primary', 'dark'), 0.9);
 
         .navItems,
         .navItem,
@@ -39,7 +40,7 @@ $height: 48px;
             width: auto;
             /* center align the menu */
             text-align: center;
-            background-color: rgba(theme-color('primary', 'dark'), 0.9);
+            
 
             .navItem {
                 position: relative;
@@ -112,17 +113,36 @@ $height: 48px;
             &:target .mobileBtn:last-of-type {
                 display: block;
             }
-            
+
             .navItems {
                 height: auto;
                 display: none;
                 clear: both;
                 width: auto;
                 float: right;
-                
+
                 position: relative;
                 top: 12px;
                 right: 0;
+
+                .navItem {
+                    display: block;
+                    height: auto;
+                    margin: 0 auto;
+                    padding: 0 4%;
+                    text-align: left;
+                    border-bottom: 1px solid #2d2e34;
+                    border-bottom-style: dotted;
+
+                    a {
+                        display: block;
+                        margin: 0;
+                        padding: 0;
+                        margin: 12px 0;
+                        line-height: 16px; /* reset line-height from 48px */
+                        border: none;
+                    }
+                }
             }
 
             &:target .navItems {
@@ -132,7 +152,13 @@ $height: 48px;
                 margin: 0 30px;
                 clear: both;
             }
-            
+        }
+
+        @include media('<=phone') {
+            .navItems {
+                width: auto;
+                float: none;
+            }
         }
     }
 }

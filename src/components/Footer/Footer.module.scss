@@ -1,5 +1,6 @@
 @import '../../styles/utils/colors';
 @import '../../styles/utils/mixins';
+@import '../../styles/utils/media-queries';
 
 $color: theme-color('background', 'light');
 
@@ -19,19 +20,26 @@ $color: theme-color('background', 'light');
         }
     }
 
+    
     .goToTop {
         a {
-            $size: 42px;
+            @mixin floatingSvgrCircleContainer($size) {
+                @include svgrCircleContainer(
+                    $size: $size,
+                    $backgroundColor: $color,
+                    $svgColor: theme-color('foreground', 'light')
+                );
 
-            @include svgrCircleContainer(
-                $size: $size,
-                $backgroundColor: $color,
-                $svgColor: theme-color('foreground', 'light')
-            );
+                margin-left: -($size / 2);
+                top: -($size / 2);
+                position: absolute;
+            }
 
-            position: absolute;
-            margin-left: -($size / 2);
-            top: -($size / 2);
+            @include floatingSvgrCircleContainer(42px);
+
+            @include media('<=tablet') {
+                @include floatingSvgrCircleContainer(50px);
+            }
 
             :global(.svgr) {
                 transform: rotate(180deg);

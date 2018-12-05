@@ -68,4 +68,27 @@
             width: 50%;
         }
     }
+
+    @include media('<=tablet') {
+        .profile-pic {
+            float: right;
+        }
+
+        .download .button {
+            width: 100%;
+            text-align: center;
+            padding: 15px 20px;
+        }
+
+        .main-col {
+            padding-right: 30px;
+        }
+    }
+
+    @include media('<=phone') {
+        .profile-pic {
+            width: 100px;
+            height: 100px;
+        }
+    }
 }

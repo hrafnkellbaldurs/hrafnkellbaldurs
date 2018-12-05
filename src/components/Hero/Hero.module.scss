@@ -1,5 +1,6 @@
 @import '../../styles/utils/colors';
 @import '../../styles/utils/mixins';
+@import '../../styles/utils/media-queries';
 
 .Hero {
     background-color: theme-color();
@@ -34,5 +35,9 @@
         position: absolute;
         margin-left: -($size / 2);
         bottom: $size / 2;
+
+        @include media('<=tablet') {
+            display: none;
+        }
     }
 }
