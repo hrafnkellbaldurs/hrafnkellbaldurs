@@ -33,6 +33,7 @@
     "gatsby-source-filesystem": "^2.0.8",
     "gatsby-transformer-json": "^2.1.5",
     "node-sass": "^4.10.0",
+    "prop-types": "^15.6.2",
     "ramda": "^0.26.0",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
