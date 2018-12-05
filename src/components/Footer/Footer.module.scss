@@ -12,6 +12,13 @@ $color: theme-color('background', 'light');
     text-align: center;
     position: relative;
 
+    .contentContainer {
+        .socialLinksContainer {
+            display: flex;
+            justify-content: center;
+        }
+    }
+
     :global(.SocialLinks .socialLink) {
         color: $color;
 
