@@ -32,3 +32,15 @@
         font-size: $size * $svgSizeRatio;
     }
 }
+
+@mixin onlyDisplayWhenMedia($display, $media) {
+    display: none;
+
+    @include media($media) {
+        display: $display;
+    }
+}
+
+@mixin onlyDisplayWhenTabletOrLess($display: block) {
+    @include onlyDisplayWhenMedia($display, '<=tablet')
+}

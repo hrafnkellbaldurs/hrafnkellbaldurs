@@ -29,6 +29,7 @@ const Link = props => {
         children,
         to,
         smoothScroll = false,
+        onClick,
         ...other
     } = props
 
@@ -41,11 +42,16 @@ const Link = props => {
 
     // Use Gatsby Link for internal links, and <a> for others
     if (internal && !file) {
-        const onClick = (...args) => onInternalClick({ smoothScroll }, ...args)
+        const onClickHandler = (...args) => {
+            onInternalClick({ smoothScroll }, ...args)
+            if (!R.isNil(onClick)) {
+                onClick(...args)
+            }
+        }
 
         const gatsbyLinkProps = {
             to,
-            onClick,
+            onClick: onClickHandler,
             ...other
         }
 

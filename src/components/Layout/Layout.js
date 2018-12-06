@@ -23,7 +23,7 @@ class Layout extends React.PureComponent {
                     <html lang="en" />
                 </Helmet>
                 <Header />
-                    { children }
+                { children }
                 <Footer />
             </>
         )

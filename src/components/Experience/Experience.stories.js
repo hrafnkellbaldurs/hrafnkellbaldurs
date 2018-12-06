@@ -4,7 +4,7 @@ import Experience from './Experience'
 
 storiesOf('Components|Experience', module)
     .addParameters({ jest: ['Experience'] })
-    .add('Basic', () => (
+    .add('With no parameters', () => (
         <Experience
             icon={<img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg"></img>}
             title="Keeper of peace"

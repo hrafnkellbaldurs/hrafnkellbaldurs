@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react'
 import Layout from './Layout'
 
 storiesOf('Layout|Layout', module)
-    .add('Basic', () => (
+    .add('With no parameters', () => (
         <Layout siteMetadata={ {
             title: 'SiteTitle',
             description: 'description',
