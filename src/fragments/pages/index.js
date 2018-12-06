@@ -13,6 +13,7 @@ export const IndexPageFragment = graphql`
                     dataId,
                     title,
                     description,
+                    shortDescription,
                     urls {
                         profilePic {
                             public: publicURL
@@ -56,8 +57,8 @@ export const IndexPageFragment = graphql`
                     },
                     title,
                     subtitle,
-                    startDate(formatString: "MMMM YYYY"),
-                    endDate(formatString: "MMMM YYYY"),
+                    startDate(formatString: "MMM YYYY"),
+                    endDate(formatString: "MMM YYYY"),
                     description
                 }
             }
@@ -83,8 +84,8 @@ export const IndexPageFragment = graphql`
                     },
                     title,
                     subtitle,
-                    startDate(formatString: "MMMM YYYY"),
-                    endDate(formatString: "MMMM YYYY"),
+                    startDate(formatString: "MMM YYYY"),
+                    endDate(formatString: "MMM YYYY"),
                     description
                 }
             }

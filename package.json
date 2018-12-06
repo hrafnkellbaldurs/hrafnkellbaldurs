@@ -33,10 +33,13 @@
     "gatsby-source-filesystem": "^2.0.8",
     "gatsby-transformer-json": "^2.1.5",
     "node-sass": "^4.10.0",
+    "prop-types": "^15.6.2",
     "ramda": "^0.26.0",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
-    "react-helmet": "^5.2.0"
+    "react-fittext": "^1.0.0",
+    "react-helmet": "^5.2.0",
+    "smooth-scroll-into-view-if-needed": "^1.1.23"
   },
   "devDependencies": {
     "@babel/core": "^7.1.6",
@@ -69,6 +72,7 @@
     "eslint-plugin-react": "^7.11.1",
     "eslint-plugin-standard": "^4.0.0",
     "identity-obj-proxy": "^3.0.0",
+    "include-media": "^1.4.9",
     "jest": "^23.6.0",
     "react-test-renderer": "^16.6.3"
   },
@@ -82,7 +86,8 @@
     },
     "moduleNameMapper": {
       ".+\\.(css|styl|less|sass|scss)$": "identity-obj-proxy",
-      ".+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js"
+      ".+\\.(jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      ".+\\.(svg)$": "<rootDir>/__mocks__/svgrMock.js"
     },
     "setupTestFrameworkScriptFile": "./setupTests.js",
     "testPathIgnorePatterns": [

@@ -8,7 +8,7 @@ import { withOptions } from '@storybook/addon-options';
 import testResults from '../jest-test-results.json'
 import colors from '../src/styles/utils/_colors.scss'
 import * as R from 'ramda'
-require('../src/styles/storybook/index.scss')
+require('../src/styles/storybook/main.scss')
 
 /*** GATSBY OVERRIDES ***/
 

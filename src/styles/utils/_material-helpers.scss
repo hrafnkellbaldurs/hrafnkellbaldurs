@@ -41,3 +41,16 @@
         box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
     }
 }
+
+@mixin materialHover(
+    $level: 1,
+    $hoverLevel: 2,
+    $hoverTransform: translateY(-3px)
+) {
+    @include materialBoxShadow($level);
+
+    &:hover {
+        @include materialBoxShadow($hoverLevel);
+        transform: $hoverTransform
+    }
+}

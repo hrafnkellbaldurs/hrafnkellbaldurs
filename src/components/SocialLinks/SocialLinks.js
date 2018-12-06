@@ -1,5 +1,7 @@
 import React from 'react'
+import * as R from 'ramda'
 import classnames from 'classnames'
+import Link from '../Link'
 import styles from './SocialLinks.module.scss'
 import { createGlobalLocalClassnames } from '../../scripts/utils'
 import { ReactComponent as FacebookIcon } from '../../assets/images/facebook.svg'
@@ -10,7 +12,9 @@ import { ReactComponent as GitHubIcon } from '../../assets/images/github.svg'
 import { ReactComponent as BitBucketIcon } from '../../assets/images/bitbucket.svg'
 import { ReactComponent as CodePenIcon } from '../../assets/images/codepen.svg'
 
-const links = [
+const createSocialLinksGlobalLocalClassnames = R.partial(createGlobalLocalClassnames, [styles])
+
+const defaultLinks = [
     {
         icon: FacebookIcon,
         href: 'https://www.facebook.com/hrabbi'
@@ -43,21 +47,25 @@ const links = [
 
 const renderSocialLink = ({ href, icon: Icon }, key) => {
     const socialLinkClassnames = classnames(
-        createGlobalLocalClassnames('socialLink', styles)
+        createSocialLinksGlobalLocalClassnames('socialLink')
     )
 
     return (
         <li key={ key }>
-            <a className={ socialLinkClassnames } href={ href } target="_blank">
+            <Link className={ socialLinkClassnames } to={ href } target="_blank">
                 <Icon />
-            </a>
+            </Link>
         </li>
     )
 }
 
 const SocialLinks = props => {
+    const {
+        links = defaultLinks
+    } = props
+
     const socialLinksClassnames = classnames(
-        createGlobalLocalClassnames('SocialLinks', styles)
+        createSocialLinksGlobalLocalClassnames('SocialLinks')
     )
 
     return (

@@ -3,6 +3,7 @@ import styles from './SkillGrid.module.scss'
 import * as R from 'ramda'
 import { ReactComponent as DropdownArrow } from '../../assets/images/arrow_drop_down.svg'
 import classnames from 'classnames'
+import { createGlobalLocalClassnames } from '../../scripts/utils'
 import SkillBadge from '../SkillBadge'
 
 class SkillGrid extends React.Component {
@@ -45,37 +46,54 @@ class SkillGrid extends React.Component {
 
         const renderSkill = skill => {
             return (
-                <div className={ styles.itemContainer } key={ skill.id }><SkillBadge { ...skill }/></div>
+                <div className={ styles.itemContainer } key={ skill.id }>
+                    <SkillBadge { ...skill }/>
+                </div>
             )
         }
 
-        const additionalLabelClassNames = classnames([ styles.groupLabel, styles.additionalLabel ])
+        const containerProps = {
+            className: classnames(
+                createGlobalLocalClassnames(styles, 'SkillGrid')
+            )
+        }
 
-        const arrowClassNames = classnames({
-            [styles.arrow]: true,
-            [styles.up]: this.state.additionalOpen
-        })
+        const additionalButtonProps = {
+            className: classnames(
+                styles.groupLabel,
+                styles.additionalLabel
+            ),
+            onClick: this.toggleAdditional
+        }
 
-        const additionalChildrenClassNames = classnames({
-            [styles.items]: true,
-            [styles.hidden]: !this.state.additionalOpen
-        })
+        const dropdownArrowContainerProps = {
+            className: classnames({
+                [styles.arrow]: true,
+                [styles.up]: this.state.additionalOpen
+            })
+        }
+
+        const additionalSkillsProps = {
+            className: classnames({
+                [styles.items]: true,
+                [styles.hidden]: !this.state.additionalOpen
+            })
+        }
+
         return (
-            <div className={ styles.container }>
+            <div { ...containerProps }>
                 <div className={ styles.groupLabel }>Top 5</div>
                 <div className={ styles.items } style={{ height: 'auto' }}>
                     { top5.map(renderSkill) }
                 </div>
 
-                <button
-                    className={ additionalLabelClassNames }
-                    onClick={ this.toggleAdditional }>
+                <button { ...additionalButtonProps }>
                     <span>Additional</span>
-                    <span className={ arrowClassNames }>
+                    <span { ...dropdownArrowContainerProps }>
                         <DropdownArrow />
                     </span>
                 </button>
-                <div className={ additionalChildrenClassNames }>
+                <div { ...additionalSkillsProps }>
                     { rest.map(renderSkill) }
                 </div>
             </div>

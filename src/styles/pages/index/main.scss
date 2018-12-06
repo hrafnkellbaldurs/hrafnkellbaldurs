@@ -1,0 +1,24 @@
+@import '../../utils/colors';
+
+/* ------------------------------------------------------------------ */
+/* General Styles
+/* ------------------------------------------------------------------ */
+
+body { background: theme-color(); }
+
+hr { 
+   border-width: 1px 0 0; 
+   clear: both; 
+   height: 0;
+   width: 60%;
+   margin: 18px auto 24px auto;
+   border-color: rgba(theme-color('background', 'light'), 0.5);
+}
+
+/* ------------------------------------------------------------------ */
+/* Page
+/* ------------------------------------------------------------------ */
+@import './hero';
+@import './about-section';
+@import './resume-section';
+@import './portfolio-section';

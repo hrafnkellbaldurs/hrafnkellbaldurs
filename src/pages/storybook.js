@@ -1,16 +1,10 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import Header from '../components/Header'
 
 const StoryBookPage = () => {
     return (
         <div>
-            <div style={{
-                background: 'blue',
-                height: '48px',
-                width: '100vw'
-            }}>
-                <Link to="/">Back</Link>
-            </div>
+            <Header></Header>
             <iframe
                 style={{
                     display: 'block',

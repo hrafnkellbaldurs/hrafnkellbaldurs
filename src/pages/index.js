@@ -1,11 +1,15 @@
+import '../styles/pages/index/main.scss'
 import React from 'react'
 import { graphql } from 'gatsby'
+import * as R from 'ramda'
+import { ReactComponent as DownloadIcon } from '../assets/images/download.svg'
 import { LayoutContainer } from '../components/Layout'
+import FitText from 'react-fittext'
+import Link from '../components/Link'
+import Hero from '../components/Hero'
 import Section from '../components/Section'
 import Experience from '../components/Experience'
-import { ReactComponent as DownloadIcon } from '../assets/images/download.svg'
 import SkillGrid from '../components/SkillGrid'
-import * as R from 'ramda'
 
 const mapData = R.mapObjIndexed(R.pipe(
     R.prop('edges'),
@@ -16,19 +20,28 @@ class IndexPage extends React.PureComponent {
     render() {
         const {
             props,
-            renderAboutSection: AboutSection,
-            renderResumeSection: ResumeSection
+            renderHero: RenderHero,
+            renderAboutSection: RenderAboutSection,
+            renderResumeSection: RenderResumeSection
         } = this
 
         const {
-            aboutMe,
+            aboutMe: aboutMeData,
             workExperience: workExperienceItems,
             educationExperience: educationExperienceItems,
             skills
         } = mapData(props.data)
 
+        const aboutMe = aboutMeData[0]
+
+        const heroProps = {
+            authorFullName: aboutMe.contactDetails.name,
+            text: aboutMe.shortDescription,
+            backgroundUrl: require('../assets/images/hero-background.jpg')
+        }
+
         const aboutProps = {
-            ...aboutMe[0]
+            ...aboutMe
         }
 
         const resumeProps = {
@@ -39,9 +52,36 @@ class IndexPage extends React.PureComponent {
 
         return (
             <LayoutContainer>
-                <AboutSection { ...aboutProps }></AboutSection>
-                <ResumeSection { ...resumeProps }></ResumeSection>
+                <RenderHero { ...heroProps } />
+                <RenderAboutSection { ...aboutProps } />
+                <RenderResumeSection { ...resumeProps } />
             </LayoutContainer>
+        )
+    }
+
+    renderHero(props) {
+        const {
+            authorFullName,
+            text,
+            backgroundUrl
+        } = props
+
+        const heroProps = {
+            backgroundUrl,
+            className: 'page-hero'
+        }
+
+        return (
+            <Hero { ...heroProps }>
+                <div className="banner-text">
+                    <FitText minFontSize={30} maxFontSize={80}>
+                        <h1>Hi, I'm { authorFullName }.</h1>
+                    </FitText>
+                    <FitText minFontSize={14} maxFontSize={18} compressor={3}>
+                        <h3>{ text }</h3>
+                    </FitText>
+                </div>
+            </Hero>
         )
     }
 
@@ -79,20 +119,20 @@ class IndexPage extends React.PureComponent {
                                     <span>{ contactDetails.address }</span><br/>
                                     <span>{ contactDetails.zip } { contactDetails.city }, { contactDetails.country }</span><br/>
                                     <span>{ contactDetails.phone }</span><br/>
-                                    <a style={{ color: 'inherit' }} href={`mailto:${ contactDetails.email }`} target="_top">
+                                    <Link style={{ color: 'inherit' }} to={`mailto:${ contactDetails.email }`} target="_top">
                                         { contactDetails.email }
-                                    </a>
+                                    </Link>
                                 </p>
 
                             </div>
 
                             <div className="columns download">
-                                <a href={ urls.portfolioPdf.public } className="button">
+                                <Link to={ urls.portfolioPdf.public } className="button" target="_blank">
                                     <span style={{ display: 'flex', alignItems: 'center', 'justifyContent': 'center' }}>
                                         <DownloadIcon style={{ fontSize: '22px', marginRight: '5px', marginTop: '-5px' }}/>
                                         { downloadResumeLabel }
                                     </span>
-                                </a>
+                                </Link>
                             </div>
 
                         </div>
@@ -141,7 +181,7 @@ class IndexPage extends React.PureComponent {
         return (
             <Section id="resume">
 
-                <div className="row work">
+                <div className="row section-item">
 
                     <div className="three columns header-col">
                         <h1><span>Experience</span></h1>
@@ -153,7 +193,7 @@ class IndexPage extends React.PureComponent {
 
                 </div>
 
-                <div className="row education">
+                <div className="row section-item">
 
                     <div className="three columns header-col">
                         <h1><span>Education</span></h1>
@@ -165,26 +205,24 @@ class IndexPage extends React.PureComponent {
 
                 </div>
 
-                <div className="row skill">
+                <div className="row section-item">
 
                     <div className="three columns header-col">
                         <h1><span>Skills</span></h1>
                     </div>
 
                     <div className="nine columns main-col">
-                        <p>
-                            I have experience with a broad field of front-end technologies and frameworks.
-                        </p>
-
-                        <SkillGrid skills={ skills }></SkillGrid>
+                        <div className="row item">
+                            <div className="one columns"></div>
+                            <div className="eleven columns">
+                                <p>
+                                    I have experience with a broad field of front-end technologies and frameworks.
+                                </p>
+                            </div>
+                            <SkillGrid skills={ skills }></SkillGrid>
+                        </div>
                     </div>
-
                 </div>
-
-                {/* <div style={{ height: '500px', background: 'red'}}>
-                    <h1 align="center">hello my firend</h1>
-                </div> */}
-
             </Section>
         )
     }

@@ -2,13 +2,16 @@
 @import '../../styles/utils/material-helpers';
 @import '../../styles/utils/animations';
 
-.container {
+$logoSize: 30px;
+
+.SkillBadge {
     width: 80px;
     max-height: 80px;
     background: white;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     margin: 15px 5px;
     padding: 10px;
     border-radius: 15px;
@@ -17,29 +20,35 @@
     @include materialBoxShadow(1);
 
     &:hover {
-        transform: translateY(-5px);
+        transform: translateY(-3px);
         cursor: pointer;
 
         @include materialBoxShadow(2);
     }
 
-    .itemLogo {
-        height: 30px;
-        width: 30px;
+    .logoContainer {
+        display: flex;
+    }
+
+    .logo {
+        height: $logoSize;
+        width: $logoSize;
+        min-height: $logoSize;
+        min-width: $logoSize;
     }
 
     .fallbackLogo {
-        height: 30px;
-        width: 30px;
+        height: $logoSize;
+        width: $logoSize;
         background: theme-color('accent');
-        color: contrastColor('dark');
+        color: contrast-color('dark');
         border-radius: 50%;
         text-align: center;
     }
     
     .itemLabel {
         font-size: 12px;
-        color: black;
+        color: contrast-color('light');
         font-weight: bold;
         white-space: nowrap;
     }

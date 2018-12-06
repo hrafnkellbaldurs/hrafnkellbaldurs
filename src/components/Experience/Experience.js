@@ -1,5 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import styles from './Experience.module.scss'
+import classnames from 'classnames'
 
 class Experience extends React.PureComponent {
     render() {
@@ -12,25 +14,28 @@ class Experience extends React.PureComponent {
             description
         } = this.props
 
-        return (
-            <div className="row item">
-                <div className="one columns">
-                    <div style={{
-                        fontSize: '40px',
-                        width: '1em',
-                        height: 'auto'
-                    }}>
-                        { icon }
-                    </div>
-                </div>
-                <div className="eleven columns">
-                    <h3>{ title }</h3>
+        const titleContainerProps = {
+            className: classnames('twelve', 'columns', styles.titleContainer)
+        }
+        const detailsContainerProps = {
+            className: classnames('twelve', 'columns', styles.detailsContainer)
+        }
 
-                    <p className="info">
-                        { subtitle }
-                        <span>&bull;&nbsp;</span>
-                        <em className="date">{ startDate } - { endDate || 'Today' }</em>
-                    </p>
+        return (
+            <div className="row">
+                <div { ...titleContainerProps }>
+                    <div className={ styles.iconContainer }>{ icon }</div>
+                    <h3 className={ styles.title }>{ title }</h3>
+                </div>
+                <div { ...detailsContainerProps }>
+                    <div className={ styles.info }>
+                        <span className={ styles.subtitle }>{ subtitle }</span>
+                        <span className={ styles.dateContainer }>
+                            <span className={ styles.date }>{ startDate } - { endDate || 'Present' }</span>
+                            <span className={ styles.bullet }></span>
+                            <span className={ styles.date}>2 yrs 7 mos</span>
+                        </span>
+                    </div>
                     {
                         description ? <p>{ description }</p> : null
                     }

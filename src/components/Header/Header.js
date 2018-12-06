@@ -1,71 +1,51 @@
 import React from 'react'
-import SocialLinks from '../SocialLinks'
-import { ReactComponent as DownArrowIcon } from '../../assets/images/arrow_drop_down.svg'
 import styles from './Header.module.scss'
+import Link from '../Link'
 
-const Header = () => {
-    const navItems = [
-        {
-            current: true,
-            href: '#home',
-            text: 'Home'
-        },
-        {
-            href: '#about',
-            text: 'About'
-        },
-        {
-            href: '#resume',
-            text: 'Resume'
-        },
-        {
-            href: '#portfolio',
-            text: 'Portfolio'
-        }
-    ]
+const navItems = [
+    {
+        current: true,
+        href: '/#home',
+        text: 'Home'
+    },
+    {
+        href: '/#about',
+        text: 'About'
+    },
+    {
+        href: '/#resume',
+        text: 'Resume'
+    },
+    {
+        href: '/#portfolio',
+        text: 'Portfolio'
+    }
+]
+class Header extends React.PureComponent {
+    render() {
+        return (
+            <header id="home" className={ styles.Header }>
+                <nav id="nav-wrap">
 
-    return (
-        <header id="home" className={ styles.Header }>
-            <nav id="nav-wrap">
+                    <Link className={ styles.mobileBtn } to="/#nav-wrap" title="Show navigation">Show navigation</Link>
+                    <Link className={ styles.mobileBtn } to="/#" title="Hide navigation">Hide navigation</Link>
 
-                <a className={ styles.mobileBtn } href="#nav-wrap" title="Show navigation">Show navigation</a>
-                <a className={ styles.mobileBtn } href="#" title="Hide navigation">Hide navigation</a>
-
-                <ul id="nav" className={ styles.navItems }>
-                    {
-                        navItems.map(item => {
-                            const className = `${ styles.navItem } ${ item.current ? 'current' : '' }`
-                            return (
-                                <li key={ item.href } className={ className }>
-                                    <a className="smoothscroll" href={ item.href }>{ item.text }</a>
-                                </li>
-                            )
-                        })
-                    }
-                </ul>
-            </nav>
-
-            <div className="row banner">
-                <div className="banner-text">
-
-                    <h1 className="responsive-headline">Hi, I'm Hrafnkell Baldursson.</h1>
-                    <h3>
-                        I'm a <span>front-end developer</span> and <span>graphic design enthusiast</span>.<br />
-                        <a className="smoothscroll" href="#about">Scroll down</a>&nbsp;
-                        to learn more.
-                    </h3>
-                    <hr />
-                    <SocialLinks />
-                </div>
-            </div>
-
-            <p className="scrolldown">
-                <a className="smoothscroll" href="#about">
-                    <DownArrowIcon />
-                </a>
-            </p>
-        </header>
-    )
+                    <ul id="nav" className={ styles.navItems }>
+                        {
+                            navItems.map(item => {
+                                const className = `${ styles.navItem } ${ item.current ? 'current' : '' }`
+                                return (
+                                    <li key={ item.href } className={ className }>
+                                        <Link to={ item.href } smoothScroll>{ item.text }</Link>
+                                    </li>
+                                )
+                            })
+                        }
+                    </ul>
+                </nav>
+            </header>
+        )
+    }
 }
 
 export default Header

@@ -1,9 +1,7 @@
 @import '../../styles/utils/colors';
+@import '../../styles/utils/media-queries';
 
-.container {
-    //background-color: rgb(238, 93, 93);
-    //border: thin solid black;
-
+.SkillGrid {
     width: 100%;
     padding: 20px;
     display: flex;
@@ -11,16 +9,16 @@
     align-items: center;
 
     .groupLabel {
-        font: 16px 'opensans-bold', sans-serif;
+        font-family: 'opensans-semibold', sans-serif;
+        font-size: 16px;
         background: none;
-        color: contrastColor('light');
-        font-weight: bold;
-        border-radius: 10px;
+        color: contrast-color('light');
         padding: 3px 10px;
         display: flex;
         justify-content: space-between;
-        align-items: center;
         justify-items: center;
+        align-items: center;
+        margin-bottom: 10px;
     }
 
     .additionalLabel {
@@ -66,4 +64,48 @@
             width: 18%;
         }
     }
+
+    @mixin setSkillBadgeSize($size) {
+        width: $size;
+        height: $size;
+        max-height: $size;
+    }
+
+    @include media('<=tablet') {
+        .items {
+            height: 220px;
+            
+            .itemContainer {
+                $size: 60px;
+                height: $size + 12px;
+
+                :global(.SkillBadge) {
+                    @include setSkillBadgeSize($size);
+                    padding: 10px;
+                    margin: 5px;
+        
+                    :global(.itemLabel) {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+
+    @include media('<=phone') {
+        .items {
+            height: 190px;
+            
+            .itemContainer {
+                $size: 50px;
+                height: $size + 12px;
+
+                :global(.SkillBadge) {
+                    @include setSkillBadgeSize($size);
+                }
+            }
+        }
+    }
+
+    
 }

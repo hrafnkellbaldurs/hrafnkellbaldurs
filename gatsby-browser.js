@@ -7,5 +7,5 @@
 // You can delete this file if you're not using it
 
 // Global styles
-require('./src/styles/global/index.scss')
+require('./src/styles/global/main.scss')
 exports.onClientEntry = () => {}

@@ -1,0 +1,42 @@
+@import '../../styles/utils/colors';
+@import '../../styles/utils/mixins';
+@import '../../styles/utils/media-queries';
+
+.Hero {
+    background-color: theme-color();
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
+    min-height: 100px;
+    height: 100vh;
+    box-shadow: inset 0 0 0 1000px rgba(theme-color(), 0.5);
+    text-align: center;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    .children {
+        width: 85%;
+    }
+
+    :global(.scrolldown) {
+        $size: 42px;
+
+        @include svgrCircleContainer(
+            $size: $size,
+            $backgroundColor: theme-color('foreground'),
+            $svgColor: theme-color('background', 'dark'),
+            $svgSizeRatio: 0.7
+        );
+
+        position: absolute;
+        bottom: $size / 2;
+
+        @include media('<=tablet') {
+            display: none;
+        }
+    }
+}
