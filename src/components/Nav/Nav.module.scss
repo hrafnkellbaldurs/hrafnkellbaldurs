@@ -100,6 +100,13 @@ $bm-cross-color: $bm-burger-color;
 
 // BurgerMenu styles
 .Nav {
+
+    .Menu, 
+    :global(.bm-overlay),
+    :global(.bm-burger-button) {
+        @include onlyDisplayWhenTabletOrLess();
+    }
+
     /* Position and sizing of burger button */
     :global(.bm-burger-button) {
         width: $bm-burger-size;
@@ -109,11 +116,6 @@ $bm-cross-color: $bm-burger-color;
         color: $bm-burger-color;
         position: absolute;
         top: 2px;
-        display: none;
-
-        @include media('<=tablet') { 
-            display: block;
-        }
     }
 
     :global(.bm-icon) {

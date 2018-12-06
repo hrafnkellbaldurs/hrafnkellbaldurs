@@ -6,7 +6,7 @@ import { number } from '@storybook/addon-knobs'
 
 storiesOf('Layout|Hero', module)
     .addParameters({ jest: ['Hero'] })
-    .add('Basic', () => (
+    .add('With no parameters', () => (
         <Hero />
     ))
     .add('With children', () => (

@@ -3,7 +3,7 @@ import styles from './Nav.module.scss'
 import { createGlobalLocalClassnames } from '../../scripts/utils'
 import * as R from 'ramda'
 import classnames from 'classnames'
-import BurgerMenu from 'react-burger-menu/lib/menus/slide'
+import Menu from 'react-burger-menu/lib/menus/slide'
 import Link from '../Link'
 import { ReactComponent as BurgerIcon } from '../../assets/images/burger_menu.svg'
 
@@ -15,19 +15,23 @@ class Nav extends React.PureComponent {
         this.state = {
             menuOpen: false
         }
+
+        this.handleMenuStateChange = this.handleMenuStateChange.bind(this)
+        this.closeMenu = this.closeMenu.bind(this)
+        this.toggleMenu = this.toggleMenu.bind(this)
     }
 
-    // Keeps state in sync with BurgerMenu state
+    // Keeps state in sync with Menu state
     // via the default means, e.g. clicking the X, pressing the ESC key etc.
-    handleStateChange = ({ isOpen: menuOpen }) => {
+    handleMenuStateChange({ isOpen: menuOpen }) {
         this.setState({ menuOpen })
     }
 
-    closeMenu = () => {
+    closeMenu() {
         this.setState({ menuOpen: false })
     }
 
-    toggleMenu = () => {
+    toggleMenu() {
         this.setState(({ menuOpen }) => ({ menuOpen: !menuOpen }))
     }
 
@@ -58,6 +62,7 @@ class Nav extends React.PureComponent {
     render() {
         const {
             items = [],
+            menuOptions: menuOptionsProp = {}
         } = this.props
 
         const containerProps = {
@@ -68,23 +73,27 @@ class Nav extends React.PureComponent {
 
         const renderedItems = items.map(this.renderItem)
 
+        const menuOptionPropOr = R.partialRight(R.propOr, [menuOptionsProp])
+        const menuOptions = {
+            width: menuOptionPropOr('60%', 'width'),
+            customBurgerIcon: menuOptionPropOr(<BurgerIcon />, 'customBurgerIcon'),
+            right: menuOptionsProp.left !== true,
+            className: classnames(styles.Menu, menuOptionsProp.className),
+            isOpen: this.state.menuOpen,
+            onStateChange: this.handleMenuStateChange
+        }
+
         return (
             <nav { ...containerProps }>
-                <div className={ styles.container}>
+                <div className={ styles.container }>
                     <div className={ styles.items }>
                         { renderedItems }
                     </div>
                 </div>
 
-                <BurgerMenu
-                    customBurgerIcon={ <BurgerIcon /> }
-                    isOpen={ this.state.menuOpen }
-                    width={'60%'}
-                    onStateChange={ state => this.handleStateChange(state) }
-                    right
-                >
+                <Menu { ...menuOptions }>
                     { renderedItems }
-                </BurgerMenu>
+                </Menu>
             </nav>
         )
     }

@@ -5,6 +5,6 @@ import SocialLinks from './SocialLinks'
 
 storiesOf('Components|SocialLinks', module)
     .addDecorator(centered)
-    .add('with no params', () => (
+    .add('With no parameters', () => (
         <SocialLinks></SocialLinks>
     ))

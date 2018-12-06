@@ -5,7 +5,7 @@ import SkillBadge from './SkillBadge'
 
 const stories = storiesOf('Components|SkillBadge', module)
 
-stories.add('Basic', () => (
+stories.add('With no parameters', () => (
     <SkillBadge
         id="0"
         rating={ 0 }
