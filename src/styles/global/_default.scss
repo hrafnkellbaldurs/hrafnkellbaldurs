@@ -202,8 +202,6 @@ table {
 *,
 *:before,
 *:after {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 
@@ -340,68 +338,6 @@ blockquote cite a:visited {
     border: none;
 }
 
-/* ---------------------------------------------------------------------
- /*  Pull Quotes Markup
- /*
-     <aside class="pull-quote">
-         <blockquote>
-             <p></p>
-         </blockquote>
-      </aside>
- /*
- /* --------------------------------------------------------------------- */
-//  .pull-quote {
-//     position: relative;
-//      padding: 18px 30px 18px 0px;
-//  }
-//  .pull-quote:before,
-//  .pull-quote:after {
-//      height: 1em;
-//      opacity: 0.45;
-//      position: absolute;
-//      font-size: 80px;
-//     font-family: Arial, Sans-Serif;
-//  }
-//  .pull-quote:before {
-//      content: "\201C";
-//      top:  33px;
-//      left: 0;
-//  }
-//  .pull-quote:after {
-//      content: '\201D';
-//      bottom: -33px;
-//      right: 0;
-//  }
-//  .pull-quote blockquote {
-//     margin: 0;
-//  }
-//  .pull-quote blockquote:before {
-//     content: none;
-//  }
-
-/* Abbreviations */
-//  abbr {
-//     font-family: 'opensans-bold', sans-serif;
-//      font-variant: small-caps;
-//      text-transform: lowercase;
-//     letter-spacing: .5px;
-//      color: gray;
-//  }
-//  abbr:hover { cursor: help; }
-
-/* drop cap */
-//  .drop-cap:first-letter {
-//      float: left;
-//      margin: 0;
-//      padding: 14px 6px 0 0;
-//      font-size: 84px;
-//      font-family: /* Copperplate */ 'opensans-bold', sans-serif;
-//     line-height: 60px;
-//      text-indent: 0;
-//      background: transparent;
-//      color: inherit;
-//  }
-
 /*  3. Links  ------------------------------------------------------- */
 
 a,
@@ -409,10 +345,6 @@ a:visited {
     text-decoration: none;
     outline: 0;
     color: theme-color('accent');
-
-    -webkit-transition: color 0.3s ease-in-out;
-    -moz-transition: color 0.3s ease-in-out;
-    -o-transition: color 0.3s ease-in-out;
     transition: color 0.3s ease-in-out;
 }
 a:hover,
@@ -468,118 +400,12 @@ li {
     line-height: 18px;
     margin-bottom: 12px;
 }
-ul.large li {
-}
-li p {
-}
-
-/* definition list */
-dl {
-    margin: 12px 0;
-}
-dt {
-    margin: 0;
-    color: theme-color('accent');
-}
-dd {
-    margin: 0 0 0 20px;
-}
-
-/* Lining Definition Style Markup */
-.lining dt,
-.lining dd {
-    display: inline;
-    margin: 0;
-}
-.lining dt + dt:before,
-.lining dd + dt:before {
-    content: '\A';
-    white-space: pre;
-}
-.lining dd + dd:before {
-    content: ', ';
-}
-.lining dd:before {
-    content: ': ';
-    margin-left: -0.2em;
-}
-
-/* Dictionary Definition Style Markup */
-.dictionary-style dt {
-    display: inline;
-    counter-reset: definitions;
-}
-.dictionary-style dt + dt:before {
-    content: ', ';
-    margin-left: -0.2em;
-}
-.dictionary-style dd {
-    display: block;
-    counter-increment: definitions;
-}
-.dictionary-style dd:before {
-    content: counter(definitions, decimal) '. ';
-}
-
-/* Pagination */
-.pagination {
-    margin: 36px auto;
-    text-align: center;
-}
-.pagination ul li {
-    display: inline-block;
-    margin: 0;
-    padding: 0;
-}
-.pagination .page-numbers {
-    font: 15px/18px 'opensans-bold', sans-serif;
-    display: inline-block;
-    padding: 6px 10px;
-    margin-right: 3px;
-    margin-bottom: 6px;
-    color: #6e757c;
-    background-color: #e6e8eb;
-
-    -webkit-transition: all 200ms ease-in-out;
-    -moz-transition: all 200ms ease-in-out;
-    -o-transition: all 200ms ease-in-out;
-    -ms-transition: all 200ms ease-in-out;
-    transition: all 200ms ease-in-out;
-
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -khtml-border-radius: 3px;
-    border-radius: 3px;
-}
-.pagination .page-numbers:hover {
-    background: #838a91;
-    color: #fff;
-}
-.pagination .current,
-.pagination .current:hover {
-    background-color: theme-color('accent');
-    color: #fff;
-}
-.pagination .inactive,
-.pagination .inactive:hover {
-    background-color: #e6e8eb;
-    color: #a9adb2;
-}
-.pagination .prev,
-.pagination .next {
-}
 
 /*  5. Images  --------------------------------------------------------- */
 
 img {
     max-width: 100%;
     height: auto;
-}
-img.pull-right {
-    margin: 12px 0px 0px 18px;
-}
-img.pull-left {
-    margin: 12px 18px 0px 0px;
 }
 
 /*  6. Buttons  --------------------------------------------------------- */
@@ -601,13 +427,6 @@ input[type='button'] {
     cursor: pointer;
     height: auto;
     border-radius: 3px;
-}
-
-/* Fix for odd Mozilla border & padding issues */
-button::-moz-focus-inner,
-input::-moz-focus-inner {
-    border: 0;
-    padding: 0;
 }
 
 /*  7. Forms  --------------------------------------------------------- */

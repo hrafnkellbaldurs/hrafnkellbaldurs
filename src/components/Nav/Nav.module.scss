@@ -1,0 +1,173 @@
+@import '../../styles/utils/colors';
+@import '../../styles/utils/mixins';
+@import '../../styles/utils/media-queries';
+@import '../../styles/utils/material-helpers';
+
+$height: 48px;
+$padding-vertical: 0px;
+$padding-horizontal: 30px;
+$background-color: rgba(theme-color('primary', 'dark'), 1);
+
+// Burger menu
+$bm-burger-size: 36px;
+$bm-burger-color: theme-color('primary', 'light');
+$bm-menu-color: $background-color;
+$bm-cross-color: $bm-burger-color;
+
+.Nav {
+    height: $height;
+    min-height: $height;
+    width: 100%;
+    
+    font: 12px 'opensans-bold', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    margin: 0 auto;
+    z-index: 100;
+    position: fixed;
+    right: 0;
+    top: 0;
+
+    .container {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $background-color;
+
+        @include materialBoxShadow(2);
+    }
+
+    .items,
+    .item,
+    a {
+        margin: 0;
+        padding: 0;
+        border: none;
+        outline: none;
+    }
+
+    .items {
+        width: auto;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: $padding-vertical $padding-horizontal;
+    }
+
+    .item {
+        $color: theme-color('foreground');
+        $hoverColor: theme-color('accent');
+        
+        padding: 8px 13px;
+        line-height: 32px;
+        text-decoration: none;
+        text-align: left;
+        color: $color;
+        background: transparent;
+        transition: color 200ms ease-in-out;
+
+        &:hover {
+            color: lighten($color, 20%);
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        &.current {
+            color: $hoverColor;
+
+            &:hover {
+                color: lighten($hoverColor, 20%);
+            }
+        }
+    }
+
+    @include media('<=laptop') {
+        font-size: 11px;
+        letter-spacing: 2.5px;
+    }
+
+    @include media('<=tablet') {
+        font-size: 12px;
+        letter-spacing: 1.5px;
+
+        .items {
+            display: none;
+        }
+    }
+}
+
+// BurgerMenu styles
+.Nav {
+    /* Position and sizing of burger button */
+    :global(.bm-burger-button) {
+        width: $bm-burger-size;
+        height: $bm-burger-size;
+        right: $padding-horizontal;
+        font-size: $bm-burger-size;
+        color: $bm-burger-color;
+        position: absolute;
+        top: 2px;
+        display: none;
+
+        @include media('<=tablet') { 
+            display: block;
+        }
+    }
+
+    :global(.bm-icon) {
+        fill: currentColor;
+    }
+
+    /* Color/shape of burger icon bars */
+    :global(.bm-burger-bars) {
+        background: $bm-burger-color;
+    }
+
+    /* Position and sizing of clickable cross button */
+    :global(.bm-cross-button) {
+        height: 24px;
+        width: 24px;
+    }
+
+    /* Color/shape of close button cross */
+    :global(.bm-cross) {
+        background: $bm-cross-color;
+    }
+
+    :global(.bm-menu-wrap) {
+        max-width: 300px;
+
+        @include materialBoxShadow(2);
+    }
+
+    /* General sidebar styles */
+    :global(.bm-menu) {
+        background: $bm-menu-color;
+        padding: 2.5em 1.5em 0;
+        font-size: 1.15em;
+    }
+
+    /* Morph shape necessary with bubble or elastic */
+    :global(.bm-morph-shape) {
+        fill: $bm-menu-color;
+    }
+
+    /* Wrapper for item list */
+    :global(.bm-item-list) {
+        color: contrast-color('dark');
+        padding: 0.8em;
+    }
+
+    /* Individual item */
+    :global(.bm-item) {
+        display: inline-block;
+        border-bottom: 1px solid lighten($bm-menu-color, 2%);
+    }
+
+    /* Styling of overlay */
+    :global(.bm-overlay) {
+        background: rgba(0, 0, 0, 0.5) !important;
+    }
+}
