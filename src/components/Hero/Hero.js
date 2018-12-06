@@ -11,7 +11,10 @@ class Hero extends React.PureComponent {
         super(props)
 
         this.heroRef = React.createRef()
-        this.state = { height: null }
+        this.state = {
+            height: 95,
+            heightUnit: 'vh'
+        }
         this.updateHeight = this.updateHeight.bind(this)
     }
 
@@ -32,7 +35,7 @@ class Hero extends React.PureComponent {
             // Make hero fill out the rest of the screen
             const newHeight = this.getNewHeight(window.innerHeight, this.heroRef.current.offsetTop)
 
-            this.setState({ height: newHeight })
+            this.setState({ height: newHeight, heightUnit: 'px' })
         }
     }
 
@@ -43,12 +46,15 @@ class Hero extends React.PureComponent {
             children
         } = this.props
 
-        const height = R.defaultTo(0, this.state.height)
+        const {
+            height,
+            heightUnit
+        } = this.state
 
         const heroProps = {
             className: classnames(styles.Hero, className),
             style: {
-                height: `${ height }px`,
+                height: `${ height }${ heightUnit }`,
                 backgroundImage: `url(${ backgroundUrl })`
             },
             ref: this.heroRef
