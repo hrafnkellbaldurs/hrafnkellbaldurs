@@ -1,3 +1,5 @@
 export { default as toKeyValue } from './toKeyValue'
 export { default as createGlobalLocalClassnames } from './createGlobalLocalClassnames'
 export { default as debounce } from './debounce'
+export { default as getDateRangeDuration } from './getDateRangeDuration'
+export { default as createPluralAmountString } from './createPluralAmountString'

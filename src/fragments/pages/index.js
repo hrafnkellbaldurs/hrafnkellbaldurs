@@ -57,8 +57,8 @@ export const IndexPageFragment = graphql`
                     },
                     title,
                     subtitle,
-                    startDate(formatString: "MMM YYYY"),
-                    endDate(formatString: "MMM YYYY"),
+                    startDate,
+                    endDate,
                     description
                 }
             }
@@ -84,8 +84,8 @@ export const IndexPageFragment = graphql`
                     },
                     title,
                     subtitle,
-                    startDate(formatString: "MMM YYYY"),
-                    endDate(formatString: "MMM YYYY"),
+                    startDate,
+                    endDate,
                     description
                 }
             }

@@ -5,7 +5,6 @@
  */
 
 // You can delete this file if you're not using it
-
 const verboseLogger = (() => {
     const COLORS = {
         FG_YELLOW: '\x1b[33m',
