@@ -31,10 +31,17 @@
         padding-bottom: 24px;
         border-bottom: 1px solid rgba(theme-color('background', 'light'), 0.2);
 
-        &:last-child {
+        &:last-child,
+        .Experience:last-child {
             margin-bottom: 0;
             padding-bottom: 0;
             border-bottom: 0;
+        }
+
+        .Experience {
+            border-bottom: 2px dotted rgba(theme-color('background', 'light'), 0.1);
+            margin-bottom: 20px;
+            padding-bottom: 20px;
         }
     }
 

@@ -10,6 +10,7 @@ import Hero from '../components/Hero'
 import Section from '../components/Section'
 import Experience from '../components/Experience'
 import SkillGrid from '../components/SkillGrid'
+import HTMLReactParser from 'html-react-parser'
 
 const mapData = R.mapObjIndexed(R.pipe(
     R.prop('edges'),
@@ -107,7 +108,7 @@ class IndexPage extends React.PureComponent {
 
                         <h2>{ title }</h2>
 
-                        <p dangerouslySetInnerHTML={{ __html: description }}></p>
+                        <div>{ HTMLReactParser(description) }</div>
 
                         <div className="row">
 

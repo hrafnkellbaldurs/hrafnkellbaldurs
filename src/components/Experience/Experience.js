@@ -4,7 +4,8 @@ import styles from './Experience.module.scss'
 import classnames from 'classnames'
 import moment from 'moment'
 import * as R from 'ramda'
-import { getDateRangeDuration, createPluralAmountString } from '../../scripts/utils'
+import HTMLReactParser from 'html-react-parser'
+import { getDateRangeDuration, createPluralAmountString, createGlobalLocalClassnames } from '../../scripts/utils'
 
 class Experience extends React.PureComponent {
     createDateStrings(startDate, endDate, dateFormat = 'MMM YYYY') {
@@ -43,11 +44,18 @@ class Experience extends React.PureComponent {
             description
         } = this.props
 
+        const containerProps = {
+            className: classnames(
+                'row',
+                createGlobalLocalClassnames(styles, 'Experience')
+            )
+        }
+
         const titleContainerProps = {
-            className: classnames('twelve', 'columns', styles.titleContainer)
+            className: classnames('twelve', styles.titleContainer)
         }
         const detailsContainerProps = {
-            className: classnames('twelve', 'columns', styles.detailsContainer)
+            className: classnames('twelve', styles.detailsContainer)
         }
 
         const {
@@ -57,7 +65,7 @@ class Experience extends React.PureComponent {
         } = this.createDateStrings(startDate, endDate)
 
         return (
-            <div className="row">
+            <div { ...containerProps }>
                 <div { ...titleContainerProps }>
                     <div className={ styles.iconContainer }>{ icon }</div>
                     <h3 className={ styles.title }>{ title }</h3>
@@ -72,7 +80,11 @@ class Experience extends React.PureComponent {
                         </span>
                     </div>
                     {
-                        description ? <p>{ description }</p> : null
+                        description ? (
+                            <div className={ styles.description }>
+                                { HTMLReactParser(description) }
+                            </div>
+                        ) : null
                     }
                 </div>
             </div>
