@@ -1,5 +1,4 @@
 import React from 'react'
-import * as R from 'ramda'
 import classnames from 'classnames'
 import { ReactComponent as DownArrowIcon } from '../../assets/images/arrow_drop_down.svg'
 import Link from '../Link'
@@ -16,13 +15,27 @@ class Hero extends React.PureComponent {
             heightUnit: 'vh'
         }
         this.updateHeight = this.updateHeight.bind(this)
+        this.debouncedTryUpdateHeight = debounce(this.tryUpdateHeight, 66)
     }
 
     componentDidMount() {
-        this.updateHeight()
+        this.tryUpdateHeight()
 
         // Debounce the window resize event to improve performance
-        window.addEventListener('resize', debounce(this.updateHeight, 66))
+        window.addEventListener('resize', this.debouncedTryUpdateHeight)
+        window.addEventListener('scroll', this.debouncedTryUpdateHeight)
+    }
+
+    componentWillUnmount() {
+        // Remove listeners
+        window.removeEventListener('resize', this.debouncedTryUpdateHeight)
+        window.removeEventListener('scroll', this.debouncedTryUpdateHeight)
+    }
+
+    tryUpdateHeight = () => {
+        if (this.heroRef.current && window.scrollY <= this.heroRef.current.offsetTop) {
+            this.updateHeight()
+        }
     }
 
     // Hero should not exceed window height
