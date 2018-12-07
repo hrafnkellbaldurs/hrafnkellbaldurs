@@ -10,43 +10,51 @@ class Hero extends React.PureComponent {
     constructor(props) {
         super(props)
 
+        this.WINDOW_CHANGE_DEBOUNCE_DURATION = 66
+
         this.heroRef = React.createRef()
         this.state = {
             height: 95,
             heightUnit: 'vh'
         }
         this.updateHeight = this.updateHeight.bind(this)
+        this.handleOnWindowScroll = this.handleOnWindowScroll.bind(this)
+        this.handleOnWindowResize = this.handleOnWindowResize.bind(this)
+        this.onWindowChange = this.onWindowChange.bind(this)
     }
 
-    handleResize = e => {
-        this.updateHeightWhenVisible()
+    handleOnWindowResize() {
+        this.onWindowChange(window)
     }
 
-    handleScroll = e => {
-        this.updateHeightWhenVisible()
+    handleOnWindowScroll() {
+        this.onWindowChange(window)
+    }
+
+    onWindowChange(windowObject = {}) {
+        this.updateHeightWhenVisible(windowObject.scrollY, windowObject.innerHeight)
     }
 
     componentDidMount() {
-        this.updateHeightWhenVisible()
+        this.updateHeightWhenVisible(window.scrollY, window.innerHeight)
     }
 
     // Only update height when Hero is in the viewport
-    updateHeightWhenVisible = () => {
-        if (this.heroRef.current && window.scrollY <= this.heroRef.current.offsetTop) {
-            this.updateHeight()
+    updateHeightWhenVisible = (containerScrollY, containerHeight) => {
+        if (this.heroRef.current && containerScrollY <= this.heroRef.current.offsetTop) {
+            this.updateHeight(containerHeight)
         }
     }
 
-    // Hero should not exceed window height
-    getNewHeight(windowHeight, heroOffsetTop) {
-        return windowHeight - heroOffsetTop
+    // Hero should not exceed container height
+    getNewHeight(containerHeight, heroOffsetTop) {
+        return containerHeight - heroOffsetTop
     }
 
-    updateHeight() {
+    updateHeight(containerHeight) {
         if (this.heroRef.current) {
             // Make hero fill out the rest of the screen
-            const newHeight = this.getNewHeight(window.innerHeight, this.heroRef.current.offsetTop)
-
+            const newHeight = this.getNewHeight(containerHeight, this.heroRef.current.offsetTop)
             this.setState({ height: newHeight, heightUnit: 'px' })
         }
     }
@@ -77,13 +85,19 @@ class Hero extends React.PureComponent {
             styles.children
         )
 
+        const debouncedHandleWindowResize = debounce(this.handleOnWindowResize, this.WINDOW_CHANGE_DEBOUNCE_DURATION)
+        const windowEventListener = (
+            <EventListener
+                target="window"
+                onResize={ debouncedHandleWindowResize }
+                onScroll={ withOptions(debouncedHandleWindowResize, { passive: true, capture: false }) }
+            />
+        )
+
         return (
             <div { ...heroProps }>
-                <EventListener
-                    target="window"
-                    onResize={ debounce(this.handleResize, 66) }
-                    onScroll={ withOptions(debounce(this.handleScroll, 66), { passive: true, capture: false }) }
-                />
+                { windowEventListener }
+
                 <div className={ childrenClassnames }>
                     { children }
                 </div>
