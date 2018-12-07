@@ -4,6 +4,7 @@ import { ReactComponent as DownArrowIcon } from '../../assets/images/arrow_drop_
 import Link from '../Link'
 import { debounce } from '../../scripts/utils'
 import styles from './Hero.module.scss'
+import EventListener, { withOptions } from 'react-event-listener'
 
 class Hero extends React.PureComponent {
     constructor(props) {
@@ -15,24 +16,22 @@ class Hero extends React.PureComponent {
             heightUnit: 'vh'
         }
         this.updateHeight = this.updateHeight.bind(this)
-        this.debouncedTryUpdateHeight = debounce(this.tryUpdateHeight, 66)
+    }
+
+    handleResize = e => {
+        this.updateHeightWhenVisible()
+    }
+
+    handleScroll = e => {
+        this.updateHeightWhenVisible()
     }
 
     componentDidMount() {
-        this.tryUpdateHeight()
-
-        // Debounce the window resize event to improve performance
-        window.addEventListener('resize', this.debouncedTryUpdateHeight)
-        window.addEventListener('scroll', this.debouncedTryUpdateHeight)
+        this.updateHeightWhenVisible()
     }
 
-    componentWillUnmount() {
-        // Remove listeners
-        window.removeEventListener('resize', this.debouncedTryUpdateHeight)
-        window.removeEventListener('scroll', this.debouncedTryUpdateHeight)
-    }
-
-    tryUpdateHeight = () => {
+    // Only update height when Hero is in the viewport
+    updateHeightWhenVisible = () => {
         if (this.heroRef.current && window.scrollY <= this.heroRef.current.offsetTop) {
             this.updateHeight()
         }
@@ -80,6 +79,11 @@ class Hero extends React.PureComponent {
 
         return (
             <div { ...heroProps }>
+                <EventListener
+                    target="window"
+                    onResize={ debounce(this.handleResize, 66) }
+                    onScroll={ withOptions(debounce(this.handleScroll, 66), { passive: true, capture: false }) }
+                />
                 <div className={ childrenClassnames }>
                     { children }
                 </div>
