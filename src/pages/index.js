@@ -18,6 +18,11 @@ const mapData = R.mapObjIndexed(R.pipe(
     R.pluck('node')
 ))
 
+const WAYPOINT_PROPS = {
+    topOffset: '40%',
+    bottomOffset: '40%'
+}
+
 class IndexPage extends React.PureComponent {
     constructor(props) {
         super(props)
@@ -67,7 +72,7 @@ class IndexPage extends React.PureComponent {
         )
     }
 
-    onWaypointEnter = (waypoint, id) => {
+    onWaypointEnter = (waypoint, section) => {
         const {
             currentPosition,
             previousPosition,
@@ -79,7 +84,7 @@ class IndexPage extends React.PureComponent {
 
         const layoutContainerRef = this.layoutContainerRef.current
         if (layoutContainerRef) {
-            layoutContainerRef.setCurrentNavItem(id)
+            layoutContainerRef.setCurrentNavItem(section.id)
         }
     }
 
@@ -95,9 +100,16 @@ class IndexPage extends React.PureComponent {
             className: 'page-hero'
         }
 
+        const waypointProps = {
+            ...WAYPOINT_PROPS,
+            onEnter: waypoint => this.onWaypointEnter(waypoint, {
+                id: 'home'
+            })
+        }
+
         return (
             <Hero { ...heroProps }>
-                <Waypoint onEnter={ x => this.onWaypointEnter(x, 'home') }>
+                <Waypoint { ...waypointProps }>
                     <div className="banner-text">
                         <FitText minFontSize={ 30 } maxFontSize={ 80 }>
                             <h1>Hi, I'm { authorFullName }.</h1>
@@ -120,9 +132,16 @@ class IndexPage extends React.PureComponent {
             downloadResumeLabel
         } = props
 
+        const waypointProps = {
+            ...WAYPOINT_PROPS,
+            onEnter: waypoint => this.onWaypointEnter(waypoint, {
+                id: 'about'
+            })
+        }
+
         return (
             <Section id="about">
-                <Waypoint onEnter={ x => this.onWaypointEnter(x, 'about') }>
+                <Waypoint { ...waypointProps }>
                     <div className="row">
 
                         <div className="three columns">
@@ -205,9 +224,16 @@ class IndexPage extends React.PureComponent {
             return <Experience key={ id } { ...props } />
         }
 
+        const waypointProps = {
+            ...WAYPOINT_PROPS,
+            onEnter: waypoint => this.onWaypointEnter(waypoint, {
+                id: 'resume'
+            })
+        }
+
         return (
             <Section id="resume">
-                <Waypoint onEnter={ x => this.onWaypointEnter(x, 'resume') }>
+                <Waypoint { ...waypointProps }>
                     <div>
                         <div className="row section-item">
 
