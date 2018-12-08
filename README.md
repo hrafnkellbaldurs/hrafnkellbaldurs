@@ -40,4 +40,23 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 
 -   **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.org/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
 
--   **To dive straight into code samples head [to our documentation](https://www.gatsbyjs.org/docs/).** In particular, check out the “Guides”, API reference, and “Advanced Tutorials” sections in the sidebar.
+-   **To dive straight into code samples head to [the documentation](https://www.gatsbyjs.org/docs/).** In particular, check out the “Guides”, API reference, and “Advanced Tutorials” sections in the sidebar.
+
+
+## :books: Storybook
+
+-  The built storybook is located here  [![Storybook](https://github.com/storybooks/press/blob/master/badges/storybook.svg)](https://hrafnkellbaldurs.github.io/hrafnkellbaldurs-netlify/)<br/>
+    but you can also run it locally and see live changes.
+    
+-  **To run Storybook in development mode**
+    ```sh
+    npm run storybook
+    # storybook will run on http://localhost:6006
+    ```
+    All files in the [/src](https://github.com/hrafnkellbaldurs/hrafnkellbaldurs-netlify/tree/master/src) folder that match `*.stories.js` will be used, although I like to keep each stories file in the same folder as the component it's representing
+    
+-  **To build Storybook**
+    ```sh
+    npm run storybook:prod
+    ```
+    The build files are generated in the [/docs](https://github.com/hrafnkellbaldurs/hrafnkellbaldurs-netlify/tree/master/docs) folder, which is hosted on the main branch GitHub Pages [for this repository](https://hrafnkellbaldurs.github.io/hrafnkellbaldurs-netlify/)
