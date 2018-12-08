@@ -43,7 +43,7 @@ $logoSize: 30px;
             height: 100%;
             position: absolute;
             border-radius: 15px 15px 0 0;
-            border-top: 1px solid rgba(theme-color('accent', 'light'), 0.1);
+            border-top: 2px solid theme-color('accent', 'light');
         }
 
 

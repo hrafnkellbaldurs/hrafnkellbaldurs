@@ -12,6 +12,7 @@ import Experience from '../components/Experience'
 import SkillGrid from '../components/SkillGrid'
 import HTMLReactParser from 'html-react-parser'
 import Waypoint from 'react-waypoint'
+import ShowcaseGrid from '../components/ShowcaseGrid'
 
 const mapData = R.mapObjIndexed(R.pipe(
     R.prop('edges'),
@@ -35,7 +36,8 @@ class IndexPage extends React.PureComponent {
             props,
             renderHero: RenderHero,
             renderAboutSection: RenderAboutSection,
-            renderResumeSection: RenderResumeSection
+            renderResumeSection: RenderResumeSection,
+            renderPortfolioSection: RenderPortfolioSection
         } = this
 
         const {
@@ -63,11 +65,16 @@ class IndexPage extends React.PureComponent {
             skills
         }
 
+        const portfolioProps = {
+
+        }
+
         return (
             <LayoutContainer ref={ this.layoutContainerRef }>
                 <RenderHero { ...heroProps } />
                 <RenderAboutSection { ...aboutProps } />
                 <RenderResumeSection { ...resumeProps } />
+                <RenderPortfolioSection { ...portfolioProps } />
             </LayoutContainer>
         )
     }
@@ -238,7 +245,9 @@ class IndexPage extends React.PureComponent {
                         <div className="row section-item">
 
                             <div className="three columns header-col">
-                                <h1><span>Experience</span></h1>
+                                <h1 className="accent-underline">
+                                    Experience
+                                </h1>
                             </div>
 
                             <div className="nine columns main-col">
@@ -250,7 +259,9 @@ class IndexPage extends React.PureComponent {
                         <div className="row section-item">
 
                             <div className="three columns header-col">
-                                <h1><span>Education</span></h1>
+                                <h1 className="accent-underline">
+                                    Education
+                                </h1>
                             </div>
 
                             <div className="nine columns main-col">
@@ -262,7 +273,9 @@ class IndexPage extends React.PureComponent {
                         <div className="row section-item">
 
                             <div className="three columns header-col">
-                                <h1><span>Skills</span></h1>
+                                <h1 className="accent-underline">
+                                    Skills
+                                </h1>
                             </div>
 
                             <div className="nine columns main-col">
@@ -281,6 +294,32 @@ class IndexPage extends React.PureComponent {
                 </Waypoint>
             </Section>
 
+        )
+    }
+
+    renderPortfolioSection = props => {
+        const {
+            items = []
+        } = props
+
+        const waypointProps = {
+            ...WAYPOINT_PROPS,
+            onEnter: waypoint => this.onWaypointEnter(waypoint, {
+                id: 'portfolio'
+            })
+        }
+
+        return (
+            <Section id="portfolio">
+                <Waypoint { ...waypointProps }>
+                    <div className="row">
+                        <div className="twelve columns collapsed content-container">
+                            <h1 className="accent-underline">Check out some of my works</h1>
+                            <ShowcaseGrid items={ items }/>
+                        </div>
+                    </div>
+                </Waypoint>
+            </Section>
         )
     }
 }
