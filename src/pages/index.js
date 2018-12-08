@@ -11,6 +11,7 @@ import Section from '../components/Section'
 import Experience from '../components/Experience'
 import SkillGrid from '../components/SkillGrid'
 import HTMLReactParser from 'html-react-parser'
+import Waypoint from 'react-waypoint'
 
 const mapData = R.mapObjIndexed(R.pipe(
     R.prop('edges'),
@@ -18,6 +19,12 @@ const mapData = R.mapObjIndexed(R.pipe(
 ))
 
 class IndexPage extends React.PureComponent {
+    constructor(props) {
+        super(props)
+
+        this.layoutContainerRef = React.createRef()
+    }
+
     render() {
         const {
             props,
@@ -52,7 +59,7 @@ class IndexPage extends React.PureComponent {
         }
 
         return (
-            <LayoutContainer>
+            <LayoutContainer ref={ this.layoutContainerRef }>
                 <RenderHero { ...heroProps } />
                 <RenderAboutSection { ...aboutProps } />
                 <RenderResumeSection { ...resumeProps } />
@@ -60,7 +67,23 @@ class IndexPage extends React.PureComponent {
         )
     }
 
-    renderHero(props) {
+    onWaypointEnter = (waypoint, id) => {
+        const {
+            currentPosition,
+            previousPosition,
+            event,
+            waypointTop,
+            viewportTop,
+            viewportBottom
+        } = waypoint
+
+        const layoutContainerRef = this.layoutContainerRef.current
+        if (layoutContainerRef) {
+            layoutContainerRef.setCurrentNavItem(id)
+        }
+    }
+
+    renderHero = props => {
         const {
             authorFullName,
             text,
@@ -74,19 +97,21 @@ class IndexPage extends React.PureComponent {
 
         return (
             <Hero { ...heroProps }>
-                <div className="banner-text">
-                    <FitText minFontSize={30} maxFontSize={80}>
-                        <h1>Hi, I'm { authorFullName }.</h1>
-                    </FitText>
-                    <FitText minFontSize={14} maxFontSize={18} compressor={3}>
-                        <h3>{ text }</h3>
-                    </FitText>
-                </div>
+                <Waypoint onEnter={ x => this.onWaypointEnter(x, 'home') }>
+                    <div className="banner-text">
+                        <FitText minFontSize={ 30 } maxFontSize={ 80 }>
+                            <h1>Hi, I'm { authorFullName }.</h1>
+                        </FitText>
+                        <FitText minFontSize={ 14 } maxFontSize={ 18 } compressor={ 3 }>
+                            <h3>{ text }</h3>
+                        </FitText>
+                    </div>
+                </Waypoint>
             </Hero>
         )
     }
 
-    renderAboutSection(props) {
+    renderAboutSection = props => {
         const {
             title,
             description,
@@ -97,55 +122,56 @@ class IndexPage extends React.PureComponent {
 
         return (
             <Section id="about">
-                <div className="row">
+                <Waypoint onEnter={ x => this.onWaypointEnter(x, 'about') }>
+                    <div className="row">
 
-                    <div className="three columns">
+                        <div className="three columns">
 
-                        <img className="profile-pic" src={ urls.profilePic.public } alt="" />
-                    </div>
+                            <img className="profile-pic" src={ urls.profilePic.public } alt="" />
+                        </div>
 
-                    <div className="nine columns main-col">
+                        <div className="nine columns main-col">
 
-                        <h2>{ title }</h2>
+                            <h2>{ title }</h2>
 
-                        <div>{ HTMLReactParser(description) }</div>
+                            <div>{ HTMLReactParser(description) }</div>
 
-                        <div className="row">
+                            <div className="row">
 
-                            <div className="columns contact-details">
+                                <div className="columns contact-details">
 
-                                <h2>{ contactDetails.label }</h2>
-                                <p className="address">
-                                    <span>{ contactDetails.name }</span><br/>
-                                    <span>{ contactDetails.address }</span><br/>
-                                    <span>{ contactDetails.zip } { contactDetails.city }, { contactDetails.country }</span><br/>
-                                    <span>{ contactDetails.phone }</span><br/>
-                                    <Link style={{ color: 'inherit' }} to={`mailto:${ contactDetails.email }`} target="_top">
-                                        { contactDetails.email }
+                                    <h2>{ contactDetails.label }</h2>
+                                    <p className="address">
+                                        <span>{ contactDetails.name }</span><br />
+                                        <span>{ contactDetails.address }</span><br />
+                                        <span>{ contactDetails.zip } { contactDetails.city }, { contactDetails.country }</span><br />
+                                        <span>{ contactDetails.phone }</span><br />
+                                        <Link style={ { color: 'inherit' } } to={ `mailto:${ contactDetails.email }` } target="_top">
+                                            { contactDetails.email }
+                                        </Link>
+                                    </p>
+
+                                </div>
+
+                                <div className="columns download">
+                                    <Link to={ urls.portfolioPdf.public } className="button" target="_blank">
+                                        <span style={ { display: 'flex', alignItems: 'center', 'justifyContent': 'center' } }>
+                                            <DownloadIcon style={ { fontSize: '22px', marginRight: '5px', marginTop: '-5px' } } />
+                                            { downloadResumeLabel }
+                                        </span>
                                     </Link>
-                                </p>
+                                </div>
 
-                            </div>
-
-                            <div className="columns download">
-                                <Link to={ urls.portfolioPdf.public } className="button" target="_blank">
-                                    <span style={{ display: 'flex', alignItems: 'center', 'justifyContent': 'center' }}>
-                                        <DownloadIcon style={{ fontSize: '22px', marginRight: '5px', marginTop: '-5px' }}/>
-                                        { downloadResumeLabel }
-                                    </span>
-                                </Link>
                             </div>
 
                         </div>
-
                     </div>
-
-                </div>
+                </Waypoint>
             </Section>
         )
     }
 
-    renderResumeSection(props) {
+    renderResumeSection = props => {
         const {
             workExperienceItems,
             educationExperienceItems,
@@ -176,55 +202,59 @@ class IndexPage extends React.PureComponent {
                 description
             }
 
-            return <Experience key={ id } { ...props }/>
+            return <Experience key={ id } { ...props } />
         }
 
         return (
             <Section id="resume">
+                <Waypoint onEnter={ x => this.onWaypointEnter(x, 'resume') }>
+                    <div>
+                        <div className="row section-item">
 
-                <div className="row section-item">
-
-                    <div className="three columns header-col">
-                        <h1><span>Experience</span></h1>
-                    </div>
-
-                    <div className="nine columns main-col">
-                        { workExperienceItems.map(renderExperience) }
-                    </div>
-
-                </div>
-
-                <div className="row section-item">
-
-                    <div className="three columns header-col">
-                        <h1><span>Education</span></h1>
-                    </div>
-
-                    <div className="nine columns main-col">
-                        { educationExperienceItems.map(renderExperience) }
-                    </div>
-
-                </div>
-
-                <div className="row section-item">
-
-                    <div className="three columns header-col">
-                        <h1><span>Skills</span></h1>
-                    </div>
-
-                    <div className="nine columns main-col">
-                        <div className="row item">
-                            <div className="one columns"></div>
-                            <div className="eleven columns">
-                                <p>
-                                    I have experience with a broad field of front-end technologies and frameworks.
-                                </p>
+                            <div className="three columns header-col">
+                                <h1><span>Experience</span></h1>
                             </div>
-                            <SkillGrid skills={ skills }></SkillGrid>
+
+                            <div className="nine columns main-col">
+                                { workExperienceItems.map(renderExperience) }
+                            </div>
+
+                        </div>
+
+                        <div className="row section-item">
+
+                            <div className="three columns header-col">
+                                <h1><span>Education</span></h1>
+                            </div>
+
+                            <div className="nine columns main-col">
+                                { educationExperienceItems.map(renderExperience) }
+                            </div>
+
+                        </div>
+
+                        <div className="row section-item">
+
+                            <div className="three columns header-col">
+                                <h1><span>Skills</span></h1>
+                            </div>
+
+                            <div className="nine columns main-col">
+                                <div className="row item">
+                                    <div className="one columns"></div>
+                                    <div className="eleven columns">
+                                        <p>
+                                            I have experience with a broad field of front-end technologies and frameworks.
+                                        </p>
+                                    </div>
+                                    <SkillGrid skills={ skills }></SkillGrid>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </Waypoint>
             </Section>
+
         )
     }
 }
