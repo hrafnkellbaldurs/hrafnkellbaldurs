@@ -4,6 +4,11 @@
 $iconSize: 40px;
 $iconMarginRight: 15px;
 
+.titleContainer,
+.detailsContainer {
+    padding: 0 30% 0 20px;
+}
+
 .titleContainer {
     display: flex;
     align-items: center;
@@ -27,13 +32,12 @@ $iconMarginRight: 15px;
 
 .detailsContainer {
     margin-left: $iconSize + $iconMarginRight;
-    float: none !important;
 
     .info {
         line-height: 24px;
         color: contrast-color('light', 'secondary');
-        margin-bottom: 18px;
-        margin-top: 9px;
+        margin-top: -5px;
+        margin-bottom: 10px;
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -60,6 +64,12 @@ $iconMarginRight: 15px;
                 margin-right: 5px;
                 margin-left: 5px;
             }
+        }
+    }
+
+    .description {
+        p {
+            margin-bottom: 10px;
         }
     }
 }

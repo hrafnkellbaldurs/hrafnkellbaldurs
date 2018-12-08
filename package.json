@@ -15,7 +15,7 @@
     "test:coverage": "npm run test -- --coverage",
     "test:nooutput": "jest",
     "storybook": "start-storybook -p 6006",
-    "storybook:prod": "build-storybook -o docs"
+    "storybook:prod": "npm run test && build-storybook -o docs"
   },
   "keywords": [
     "gatsby",
@@ -32,14 +32,18 @@
     "gatsby-plugin-svgr": "^2.0.0-alpha",
     "gatsby-source-filesystem": "^2.0.8",
     "gatsby-transformer-json": "^2.1.5",
+    "html-react-parser": "^0.4.7",
+    "moment": "^2.22.2",
     "node-sass": "^4.10.0",
     "prop-types": "^15.6.2",
     "ramda": "^0.26.0",
     "react": "^16.5.1",
     "react-burger-menu": "^2.5.4",
     "react-dom": "^16.5.1",
+    "react-event-listener": "^0.6.4",
     "react-fittext": "^1.0.0",
     "react-helmet": "^5.2.0",
+    "react-waypoint": "^8.1.0",
     "smooth-scroll-into-view-if-needed": "^1.1.23"
   },
   "devDependencies": {

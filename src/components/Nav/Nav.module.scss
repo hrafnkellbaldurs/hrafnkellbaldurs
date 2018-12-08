@@ -89,7 +89,7 @@ $bm-cross-color: $bm-burger-color;
     }
 
     @include media('<=tablet') {
-        font-size: 12px;
+        font-size: 10px;
         letter-spacing: 1.5px;
 
         .items {
@@ -101,7 +101,7 @@ $bm-cross-color: $bm-burger-color;
 // BurgerMenu styles
 .Nav {
 
-    .Menu, 
+    .NavMenu, 
     :global(.bm-overlay),
     :global(.bm-burger-button) {
         @include onlyDisplayWhenTabletOrLess();
@@ -165,7 +165,7 @@ $bm-cross-color: $bm-burger-color;
     /* Individual item */
     :global(.bm-item) {
         display: inline-block;
-        border-bottom: 1px solid lighten($bm-menu-color, 2%);
+        border-bottom: 1px solid lighten($bm-menu-color, 3%);
     }
 
     /* Styling of overlay */
