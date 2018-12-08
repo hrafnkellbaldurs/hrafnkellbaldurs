@@ -28,7 +28,7 @@ class SkillGrid extends React.Component {
             skills = []
         } = this.props
 
-        const top5 = skills.filter(R.pipe(
+        const top5Skills = skills.filter(R.pipe(
             R.prop('rating'),
             R.both(
                 R.complement(R.isNil),
@@ -36,7 +36,7 @@ class SkillGrid extends React.Component {
             )
         ))
 
-        const rest = skills.filter(R.pipe(
+        const additionalSkills = skills.filter(R.pipe(
             R.prop('rating'),
             R.either(
                 R.isNil,
@@ -44,10 +44,10 @@ class SkillGrid extends React.Component {
             )
         ))
 
-        const renderSkill = skill => {
+        const Skill = skill => {
             return (
-                <div className={ styles.itemContainer } key={ skill.id }>
-                    <SkillBadge { ...skill }/>
+                <div className={ styles.skillContainer } key={ skill.id }>
+                    <SkillBadge { ...skill } />
                 </div>
             )
         }
@@ -75,26 +75,32 @@ class SkillGrid extends React.Component {
 
         const additionalSkillsProps = {
             className: classnames({
-                [styles.items]: true,
+                [styles.skills]: true,
+                [styles.grid]: true,
+                [styles.expandable]: true,
                 [styles.hidden]: !this.state.additionalOpen
             })
         }
 
         return (
             <div { ...containerProps }>
-                <div className={ styles.groupLabel }>Top 5</div>
-                <div className={ styles.items } style={{ height: 'auto' }}>
-                    { top5.map(renderSkill) }
+                <div className={ styles.skillGroup }>
+                    <div className={ styles.groupLabel }>Top 5</div>
+                    <div className={ styles.skills }>
+                        { top5Skills.map(Skill) }
+                    </div>
                 </div>
 
-                <button { ...additionalButtonProps }>
-                    <span>Additional</span>
-                    <span { ...dropdownArrowContainerProps }>
-                        <DropdownArrow />
-                    </span>
-                </button>
-                <div { ...additionalSkillsProps }>
-                    { rest.map(renderSkill) }
+                <div className={ styles.skillGroup }>
+                    <button { ...additionalButtonProps }>
+                        <span>Additional</span>
+                        <span { ...dropdownArrowContainerProps }>
+                            <DropdownArrow />
+                        </span>
+                    </button>
+                    <div { ...additionalSkillsProps }>
+                        { additionalSkills.map(Skill) }
+                    </div>
                 </div>
             </div>
         )

@@ -5,7 +5,7 @@
 // Creates styling for a circular container around an svg
 // Expects to to have a child with the .svgr class on it
 @mixin svgrCircleContainer(
-    $size, 
+    $size,
     $backgroundColor: theme-color('foreground'),
     $backgroundColorHover: theme-color('accent'),
     $svgColor: theme-color('background', 'dark'),
@@ -14,7 +14,7 @@
     width: $size;
     height: $size;
     background: $backgroundColor;
-    
+
     border-radius: 50%;
     display: inline-flex;
     align-items: center;
@@ -22,7 +22,7 @@
     transition: all 0.3s $timing-function-happy;
 
     @include materialHover();
-    
+
     &:hover {
         background: $backgroundColorHover;
     }
@@ -44,3 +44,29 @@
 @mixin onlyDisplayWhenTabletOrLess($display: block) {
     @include onlyDisplayWhenMedia($display, '<=tablet')
 }
+
+@mixin grid-repeat(
+    $gap: 0,
+    $column-count: auto-fit,
+    $row-count: auto-fit,
+    $min-column-size: 0,
+    $max-column-size: 1fr,
+    $min-row-size: 0,
+    $max-row-size: min-content
+    ) {
+    display: grid;
+    grid-gap: $gap;
+    grid-template-columns: repeat($column-count, minmax($min-column-size, $max-column-size));
+    grid-template-rows: repeat($row-count, minmax($min-row-size, $max-row-size));
+}
+
+@mixin grid-repeat-box($gap: 0, $column-count: auto-fit, $row-count: auto-fit, $min-item-size: 0) {
+    @include grid-repeat(
+        $gap: $gap,
+        $column-count: $column-count,
+        $row-count: $row-count,
+        $min-column-size: $min-item-size,
+        $min-row-size: $min-item-size
+    )
+}
+
