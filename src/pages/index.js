@@ -24,6 +24,23 @@ const WAYPOINT_PROPS = {
     bottomOffset: '40%'
 }
 
+const mockShowcases = n => {
+    const imageSrc = require('../assets/images/rayman.jpg')
+    return R.times(i => {
+        return {
+            id: `showcase-${ i }`,
+            title: `Showcase ${ i }`,
+            subtitle: 'subtitle',
+            image: {
+                src: imageSrc,
+                label: 'imagelabel'
+            },
+            tags: 'tag1;tag2;tag3',
+            onClick: showcaseId => console.log('clicked showcase', showcaseId)
+        }
+    }, n)
+}
+
 class IndexPage extends React.PureComponent {
     constructor(props) {
         super(props)
@@ -44,7 +61,8 @@ class IndexPage extends React.PureComponent {
             aboutMe: aboutMeData,
             workExperience: workExperienceItems,
             educationExperience: educationExperienceItems,
-            skills
+            skills,
+            showcases = mockShowcases(200)
         } = mapData(props.data)
 
         const aboutMe = aboutMeData[0]
@@ -66,7 +84,7 @@ class IndexPage extends React.PureComponent {
         }
 
         const portfolioProps = {
-
+            showcases
         }
 
         return (
@@ -299,7 +317,7 @@ class IndexPage extends React.PureComponent {
 
     renderPortfolioSection = props => {
         const {
-            items = []
+            showcases = []
         } = props
 
         const waypointProps = {
@@ -313,9 +331,9 @@ class IndexPage extends React.PureComponent {
             <Section id="portfolio">
                 <Waypoint { ...waypointProps }>
                     <div className="row">
-                        <div className="twelve columns collapsed content-container">
+                        <div className="twelve columns content-container">
                             <h1 className="accent-underline">Check out some of my works</h1>
-                            <ShowcaseGrid items={ items }/>
+                            <ShowcaseGrid showcases={ showcases }/>
                         </div>
                     </div>
                 </Waypoint>
@@ -324,6 +342,7 @@ class IndexPage extends React.PureComponent {
     }
 }
 
+// Fragment is located in src/fragments/pages/index.js
 export const query = graphql`
     query IndexPage {
         ...IndexPageFragment

@@ -2,8 +2,7 @@
 @import '../../utils/media-queries';
 
 .Section#portfolio {
-    height: 1000px;
-    background: #ebeeee;
+    background: theme-color('foreground', 'dark');
     padding-top: 90px;
     padding-bottom: 60px;
 
@@ -13,7 +12,6 @@
         letter-spacing: 1px;
         text-align: center;
         margin-bottom: 48px;
-        color: #313131; /*#95A3A3*/
     }
 
     h3 {
@@ -26,8 +24,8 @@
 
     .content-container {
         display: flex;
-        justify-content: center;
         flex-direction: column;
+        align-items: center;
     }
 
     // .portfolio-item {
