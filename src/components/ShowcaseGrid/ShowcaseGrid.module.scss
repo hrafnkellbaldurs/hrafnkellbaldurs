@@ -1,4 +1,23 @@
+@import '../../styles/utils/mixins';
+
+$grid-gap: 20px;
+$showcase-size: 300px;
 
 .ShowcaseGrid {
+    width: 100%;
 
+    .showcases {
+        @include grid-repeat-box(
+            $gap: $grid-gap,
+            $min-item-size: $showcase-size
+        );
+
+    }
+
+    :global(.ShowcaseItem) {
+        margin: 0;
+        min-height: $showcase-size;
+        width: auto;
+        height: 0;
+    }
 }
