@@ -1,0 +1,11 @@
+{
+    "title": "Calculator App",
+	"type": "development",
+    "subtitle": "A simple calculator app for Android",
+    "image": null,
+    "coAuthors": "",
+    "tags": "Java, Android",
+    "description": "This Android app was a part of an android app development class in Reykjavik University. We had to create a simple calculator to learn the basics of Android app development",
+    "link": "",
+    "sourceCodeLink": "https://github.com/hrafnkellbaldurs/CalculatorApp"
+}

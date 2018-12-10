@@ -63,7 +63,7 @@ class IndexPage extends React.PureComponent {
             workExperience: workExperienceItems,
             educationExperience: educationExperienceItems,
             skills,
-            showcases = mockShowcases(20)
+            showcases
         } = mapData(props.data)
 
         const aboutMe = aboutMeData[0]
@@ -336,13 +336,24 @@ class IndexPage extends React.PureComponent {
             })
         }
 
+        const mapShowcase = showcase => {
+            return {
+                ...showcase,
+                image: {
+                    src: R.path(['image', 'publicURL'], showcase),
+                    label: showcase.title
+                },
+                onClick: id => console.log('showcase', id)
+            }
+        }
+
         return (
             <Section id={ sectionId }>
                 <Waypoint { ...waypointProps }>
                     <div className="row">
                         <div className="twelve columns content-container">
                             <h1 className="accent-underline">Check out some of my works</h1>
-                            <ShowcaseGrid showcases={ showcases }/>
+                            <ShowcaseGrid showcases={ showcases.map(mapShowcase) }/>
                         </div>
                     </div>
                 </Waypoint>

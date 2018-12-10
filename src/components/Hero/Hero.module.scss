@@ -3,12 +3,12 @@
 @import '../../styles/utils/media-queries';
 
 .Hero {
-    background-color: theme-color();
+    background-color: theme-color('primary', 'light');
     background-repeat: no-repeat;
     background-position: bottom;
     background-size: cover;
     min-height: 100px;
-    box-shadow: inset 0 0 0 1000px rgba(theme-color(), 0.5);
+    box-shadow: inset 0 0 0 1000px rgba(theme-color('background'), 0.4);
     text-align: center;
     overflow: hidden;
     display: flex;

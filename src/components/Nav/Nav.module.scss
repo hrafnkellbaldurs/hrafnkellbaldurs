@@ -6,7 +6,7 @@
 $height: 48px;
 $padding-vertical: 0px;
 $padding-horizontal: 30px;
-$background-color: rgba(theme-color('primary', 'dark'), 1);
+$background-color: theme-color('foreground');
 
 // Burger menu
 $bm-burger-size: 36px;
@@ -18,7 +18,7 @@ $bm-cross-color: $bm-burger-color;
     height: $height;
     min-height: $height;
     width: 100%;
-    
+
     font: 12px 'opensans-bold', sans-serif;
     text-transform: uppercase;
     letter-spacing: 2.5px;
@@ -58,9 +58,9 @@ $bm-cross-color: $bm-burger-color;
     }
 
     .item {
-        $color: theme-color('foreground');
+        $color: contrast-color('dark');
         $hoverColor: theme-color('accent');
-        
+
         padding: 8px 13px;
         line-height: 32px;
         text-decoration: none;
@@ -101,7 +101,7 @@ $bm-cross-color: $bm-burger-color;
 // BurgerMenu styles
 .Nav {
 
-    .NavMenu, 
+    .NavMenu,
     :global(.bm-overlay),
     :global(.bm-burger-button) {
         @include onlyDisplayWhenTabletOrLess();

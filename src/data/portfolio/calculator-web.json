@@ -1,0 +1,11 @@
+{
+    "title": "React Calculator",
+	"type": "development",
+    "subtitle": "A simple calculator for FreeCodeCamp",
+    "image": null,
+    "coAuthors": "",
+    "tags": "React, Redux, Ramda, SCSS, HTML, CSS, JavaScript",
+    "description": "A simple calculator created with React for a <a href=\"https: //learn.freecodecamp.org/front-end-libraries/front-end-libraries-projects/build-a-javascript-calculator/\">project in FreeCodeCamp</a>",
+    "link": "https://codepen.io/kotkarl/project/full/ZjxOaA",
+    "sourceCodeLink": "https://codepen.io/kotkarl/project/editor/ZjxOaA"
+}

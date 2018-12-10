@@ -4,7 +4,7 @@
 /* General Styles
 /* ------------------------------------------------------------------ */
 
-body { background: theme-color(); }
+body { background: theme-color('background'); }
 
 hr {
    border-width: 1px 0 0;

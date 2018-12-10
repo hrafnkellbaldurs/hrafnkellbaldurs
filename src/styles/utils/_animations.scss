@@ -1,1 +1,5 @@
 $timing-function-happy: cubic-bezier(.25,.8,.25,1);
+
+@function transition-happy($prop, $length: 300ms, $timing-function: $timing-function-happy) {
+    @return $prop $length $timing-function;
+}

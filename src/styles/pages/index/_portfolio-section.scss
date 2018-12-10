@@ -2,7 +2,12 @@
 @import '../../utils/media-queries';
 
 .Section#portfolio {
-    background: theme-color('foreground', 'dark');
+    // background: theme-color('foreground', 'dark');
+    background: linear-gradient(289deg,
+        mix(theme-color('accent', 'light'), theme-color('background'), 10%) 0%,
+        mix(theme-color('accent', 'light'), theme-color('background'), 70%) 40%,
+        theme-color('background') 100%
+    );
     padding-top: 90px;
     padding-bottom: 60px;
 

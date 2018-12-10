@@ -1,60 +1,79 @@
 @import '../../styles/utils/colors';
+@import '../../styles/utils/material-helpers';
+@import '../../styles/utils/animations';
 
 .ShowcaseItem {
     $color: contrast-color('dark');
+    $border-radius: 15px;
 
     position: relative;
     display: flex;
+    flex-direction: column;
     width: 200px;
     height: 200px;
-    border-radius: 15px;
+    border-radius: $border-radius;
     overflow: hidden;
     margin: 15px;
     background: linear-gradient(135deg,
         rgba(theme-color('foreground'), 0.2) 0%,
         rgba(theme-color('accent'), 0.2) 100%
     );
+    transition: transition-happy(transform);
+
+    @include materialBoxShadow(1);
+
+    &:after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+    }
+
+    &:hover {
+        cursor: pointer;
+
+        transform: translateY(-5px);
+        @include materialBoxShadow(3);
+
+        &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(white, 0.2);
+        }
+
+        .infoContainer {
+            border-top-color: theme-color('accent');
+        }
+    }
 
     .imageContainer {
         background-repeat: no-repeat;
-        background-size: cover;
+        background-size: 100%;
         background-position: center;
-        transition: transform 300ms ease-in-out;
         width: 100%;
         height: 100%;
         flex: 1;
     }
 
-    &:hover {
+    .infoContainer {
+        $color: contrast-color('light');
+
         color: $color;
-        cursor: pointer;
-
-        .imageContainer {
-            transform: scale(1.1);
-        }
-
-        .overlay {
-            opacity: 1;
-        }
-    }
-
-    .overlay {
-        position: absolute;
-        left: 0;
-        top: 0;
+        background: theme-color('foreground', 'light');
+        height: 150px;
         width: 100%;
-        height: 100%;
         padding: 15px;
-
-        opacity: 0;
-        transition: opacity 0.3s ease-in-out;
-        background: rgba(black, 0.4);
-    }
-
-    .info {
-        color: $color;
         display: flex;
         flex-direction: column;
+        border-top: 2px solid transparent;
+
+        .info {
+            color: currentColor;
+        }
     }
 
     .title,
@@ -72,5 +91,28 @@
         font-family: 'opensans-light', sans-serif;
         font-size: 12px;
         line-height: 18px;
+        margin-bottom: 5px;
+    }
+
+    .tags {
+        display: flex;
+        width: 100%;
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .tag {
+        background: theme-color('foreground');
+        color: currentColor;
+        font-family: 'opensans-regular', sans-serif;
+        font-size: 10px;
+        margin: 2px;
+        padding: 0 12px;
+        white-space: nowrap;
+        border-radius: 16px;
+        height: 17px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
     }
 }

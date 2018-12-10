@@ -106,6 +106,27 @@ export const IndexPageFragment = graphql`
                 rating
               }
             }
-          }
-    }   
+        },
+
+        showcases: allPortfolioJson(sort: { order: ASC, fields: image }) {
+            edges {
+                node {
+                    id,
+                    title,
+                    subtitle,
+                    type,
+                    image {
+                        publicURL
+                    },
+                    coAuthors,
+                    tags,
+                    description,
+                    link,
+                    sourceCodeLink
+                }
+            }
+        }
+
+
+    }
 `

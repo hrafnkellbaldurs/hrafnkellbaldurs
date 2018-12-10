@@ -1,0 +1,11 @@
+{
+    "title": "Chat Program",
+    "type": "development",
+    "subtitle": "A chatroom website",
+    "image": null,
+    "coAuthors": "Hafþór Snær Þórsson, Sigurður Már Atlason",
+    "tags": "Node.js, Express, socket.io, JavaScript, HTML, CSS",
+    "description": "A chatroom website created using Express and socket.io",
+    "link": "",
+    "sourceCodeLink": "https://github.com/hrafnkellbaldurs/ChatProgram"
+}

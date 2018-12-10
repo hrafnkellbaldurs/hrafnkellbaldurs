@@ -1,0 +1,11 @@
+{
+    "title": "Current Weather",
+	"type": "development",
+    "subtitle": "Local weather webapp for FreeCodeCamp",
+    "image": null,
+    "coAuthors": "",
+    "tags": "jQuery, HTML, CSS, JavaScript",
+    "description": "Created for a <a href=\"https: //learn.freecodecamp.org/coding-interview-prep/take-home-projects/show-the-local-weather/\">project in FreeCodeCamp</a>",
+    "link": "https://codepen.io/kotkarl/full/KzZrXe",
+    "sourceCodeLink": "https://codepen.io/kotkarl/pen/KzZrXe"
+}
