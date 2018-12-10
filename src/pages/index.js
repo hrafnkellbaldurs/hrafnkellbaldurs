@@ -63,7 +63,7 @@ class IndexPage extends React.PureComponent {
             workExperience: workExperienceItems,
             educationExperience: educationExperienceItems,
             skills,
-            showcases = mockShowcases(200)
+            showcases = mockShowcases(20)
         } = mapData(props.data)
 
         const aboutMe = aboutMeData[0]
