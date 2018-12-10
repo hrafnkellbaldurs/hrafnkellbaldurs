@@ -1,5 +1,4 @@
 import createPluralAmountString from './index'
-import moment from 'moment'
 
 describe('createPluralAmountString', () => {
     it('should return a string', () => {

@@ -6,6 +6,7 @@ import classnames from 'classnames'
 import NavMenu from 'react-burger-menu/lib/menus/slide'
 import Link from '../Link'
 import { ReactComponent as BurgerIcon } from '../../assets/images/burger_menu.svg'
+import { SECTION_IDS } from '../../constants'
 
 const globalLocalClassnames = R.partial(createGlobalLocalClassnames, [styles])
 
@@ -63,7 +64,7 @@ class Nav extends React.PureComponent {
             // const locationHash = location.hash
 
             // const noHash = locationHash === ''
-            // const isHome = item.id === 'home'
+            // const isHome = item.id === SECTION_IDS.HOME
             // const isCurrentHash = linkHrefHash === locationHash
             const isCurrentItemId = item.id === currentItemId
 

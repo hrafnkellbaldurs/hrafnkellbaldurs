@@ -13,6 +13,7 @@ import SkillGrid from '../components/SkillGrid'
 import HTMLReactParser from 'html-react-parser'
 import Waypoint from 'react-waypoint'
 import ShowcaseGrid from '../components/ShowcaseGrid'
+import { SECTION_IDS } from '../constants'
 
 const mapData = R.mapObjIndexed(R.pipe(
     R.prop('edges'),
@@ -68,22 +69,26 @@ class IndexPage extends React.PureComponent {
         const aboutMe = aboutMeData[0]
 
         const heroProps = {
+            sectionId: SECTION_IDS.HOME,
             authorFullName: aboutMe.contactDetails.name,
             text: aboutMe.shortDescription,
             backgroundUrl: require('../assets/images/hero-background.jpg')
         }
 
         const aboutProps = {
-            ...aboutMe
+            ...aboutMe,
+            sectionId: SECTION_IDS.ABOUT,
         }
 
         const resumeProps = {
+            sectionId: SECTION_IDS.RESUME,
             workExperienceItems,
             educationExperienceItems,
             skills
         }
 
         const portfolioProps = {
+            sectionId: SECTION_IDS.PORTFOLIO,
             showcases
         }
 
@@ -115,6 +120,7 @@ class IndexPage extends React.PureComponent {
 
     renderHero = props => {
         const {
+            sectionId,
             authorFullName,
             text,
             backgroundUrl
@@ -128,7 +134,7 @@ class IndexPage extends React.PureComponent {
         const waypointProps = {
             ...WAYPOINT_PROPS,
             onEnter: waypoint => this.onWaypointEnter(waypoint, {
-                id: 'home'
+                id: sectionId
             })
         }
 
@@ -150,6 +156,7 @@ class IndexPage extends React.PureComponent {
 
     renderAboutSection = props => {
         const {
+            sectionId,
             title,
             description,
             urls,
@@ -160,12 +167,12 @@ class IndexPage extends React.PureComponent {
         const waypointProps = {
             ...WAYPOINT_PROPS,
             onEnter: waypoint => this.onWaypointEnter(waypoint, {
-                id: 'about'
+                id: sectionId
             })
         }
 
         return (
-            <Section id="about">
+            <Section id={ sectionId }>
                 <Waypoint { ...waypointProps }>
                     <div className="row">
 
@@ -217,6 +224,7 @@ class IndexPage extends React.PureComponent {
 
     renderResumeSection = props => {
         const {
+            sectionId,
             workExperienceItems,
             educationExperienceItems,
             skills
@@ -252,12 +260,12 @@ class IndexPage extends React.PureComponent {
         const waypointProps = {
             ...WAYPOINT_PROPS,
             onEnter: waypoint => this.onWaypointEnter(waypoint, {
-                id: 'resume'
+                id: sectionId
             })
         }
 
         return (
-            <Section id="resume">
+            <Section id={ sectionId }>
                 <Waypoint { ...waypointProps }>
                     <div>
                         <div className="row section-item">
@@ -317,18 +325,19 @@ class IndexPage extends React.PureComponent {
 
     renderPortfolioSection = props => {
         const {
+            sectionId,
             showcases = []
         } = props
 
         const waypointProps = {
             ...WAYPOINT_PROPS,
             onEnter: waypoint => this.onWaypointEnter(waypoint, {
-                id: 'portfolio'
+                id: sectionId
             })
         }
 
         return (
-            <Section id="portfolio">
+            <Section id={ sectionId }>
                 <Waypoint { ...waypointProps }>
                     <div className="row">
                         <div className="twelve columns content-container">

@@ -2,7 +2,8 @@ import React from 'react'
 import classnames from 'classnames'
 import { ReactComponent as DownArrowIcon } from '../../assets/images/arrow_drop_down.svg'
 import Link from '../Link'
-import { debounce } from '../../scripts/utils'
+import { debounce, createHashHref } from '../../scripts/utils'
+import { SECTION_IDS } from '../../constants'
 import styles from './Hero.module.scss'
 import EventListener, { withOptions } from 'react-event-listener'
 
@@ -102,7 +103,7 @@ class Hero extends React.PureComponent {
                     { children }
                 </div>
 
-                <Link className="scrolldown" to="/#about" smoothScroll>
+                <Link className="scrolldown" to={ createHashHref(SECTION_IDS.ABOUT) } smoothScroll>
                     <DownArrowIcon />
                 </Link>
             </div>
