@@ -25,6 +25,31 @@ $theme-colors: (
     )
 );
 
+$primary-color: #0865FF;//#2B2B2B;
+$accent-color: #00FFA5;//#11ABB0;
+$foreground-color: #04DAFF;//#f8f5f5;
+$background-color: #0892E8;//#2B2B2B;
+
+@function generateThemeColorMap($color, $colorGap: 20%) {
+    @return (
+        'base': $color,
+        'light': lighten($color, $colorGap),
+        'dark': darken($color, $colorGap)
+    )
+}
+
+$theme-colors-old: (
+    // Brand color
+    'primary': generateThemeColorMap($primary-color),
+    // Secondary color
+    'accent': generateThemeColorMap($accent-color),
+    // Primary objects with darker colors
+    'foreground': generateThemeColorMap($foreground-color),
+    // Lighter objects or section backgrounds
+    'background': generateThemeColorMap($background-color)
+);
+
+
 @function theme-color($key: 'primary', $variant: 'base') {
     $map: map-get($theme-colors, $key);
     @return map-get($map, $variant);
@@ -49,7 +74,7 @@ $contrast-colors: (
     $map: map-get($contrast-colors, $background);
     @return map-get($map, $type);
 }
-  
+
 @mixin contrast-color($background: 'light', $type: 'primary') {
     color: contrast-color($background, $type);
 }
