@@ -352,7 +352,7 @@ class IndexPage extends React.PureComponent {
                 <Waypoint { ...waypointProps }>
                     <div className="row">
                         <div className="twelve columns content-container">
-                            <h1 className="accent-underline">Check out some of my works</h1>
+                            <h1 className="accent-underline">Portfolio</h1>
                             <ShowcaseGrid showcases={ showcases.map(mapShowcase) }/>
                         </div>
                     </div>

@@ -1,103 +1,62 @@
-$theme-colors: (
-    // Brand color
-    'primary': (
-        'base': #2B2B2B,
-        'light': #dbdbdb,
-        'dark': #1d1d1d
-    ),
-    // Secondary color
-    'accent': (
-        'base': #11ABB0,
-        'light': #13bec4,
-        'dark': #0e8f94
-    ),
-    // Primary objects with darker colors
-    'foreground': (
-        'base': #f8f5f5,
-        'light': #fff,
-        'dark': #ddd
-    ),
-    // Lighter objects or section backgrounds
-    'background': (
-        'base': #2B2B2B,
-        'light': #969696,
-        'dark': #111
-    )
-);
+@import './theme-colors/theme-colors';
 
-$primary-color: #0865FF;//#2B2B2B;
-$accent-color: #00FFA5;//#11ABB0;
-$foreground-color: #04DAFF;//#f8f5f5;
-$background-color: #0892E8;//#2B2B2B;
+// @import './theme-colors/theme-colors-map-1';
+// @import './theme-colors/theme-colors-map-2';
+// @import './theme-colors/theme-colors-map-3';
 
-@function generateThemeColorMap($color, $colorGap: 20%) {
-    @return (
-        'base': $color,
-        'light': lighten($color, $colorGap),
-        'dark': darken($color, $colorGap)
-    )
-}
+// // The currently used theme colors
+// $theme-colors: $theme-colors-map-3;
+// $contrast-colors: $theme-colors-map-3-contrast;
 
-$theme-colors-old: (
-    // Brand color
-    'primary': generateThemeColorMap($primary-color),
-    // Secondary color
-    'accent': generateThemeColorMap($accent-color),
-    // Primary objects with darker colors
-    'foreground': generateThemeColorMap($foreground-color),
-    // Lighter objects or section backgrounds
-    'background': generateThemeColorMap($background-color)
-);
+// @function theme-color($key: 'primary', $variant: 'base') {
+//     $map: map-get($theme-colors, $key);
+//     @return map-get($map, $variant);
+// }
 
+// @function contrast-color($background: 'light', $type: 'primary') {
+//     $map: map-get($contrast-colors, $background);
+//     @return map-get($map, $type);
+// }
 
-@function theme-color($key: 'primary', $variant: 'base') {
-    $map: map-get($theme-colors, $key);
-    @return map-get($map, $variant);
-}
+// @mixin contrast-color($background: 'light', $type: 'primary') {
+//     color: contrast-color($background, $type);
+// }
 
-$contrast-colors: (
-  'dark': (
-    'primary': rgb(240, 239, 239),
-    'secondary': rgba(240, 239, 239, .7),
-    'disabled': rgba(240, 239, 239, .5),
-    'hint': rgba(240, 239, 239, .12)
-  ),
-  'light': (
-    'primary': rgba(0, 0, 0, .87),
-    'secondary': rgba(0, 0, 0, .54),
-    'disabled': rgba(0, 0, 0, .4),
-    'hint': rgba(0, 0, 0, .12)
-  ),
-);
+// :export {
+//     // Theme Base
+//     theme-primary-base: theme-color('primary', 'base');
+//     theme-primary-light: theme-color('primary', 'light');
+//     theme-primary-dark: theme-color('primary', 'dark');
 
-@function contrast-color($background: 'light', $type: 'primary') {
-    $map: map-get($contrast-colors, $background);
-    @return map-get($map, $type);
-}
+//     // Theme Accent
+//     theme-accent-base: theme-color('accent', 'base');
+//     theme-accent-light: theme-color('accent', 'light');
+//     theme-accent-dark: theme-color('accent', 'dark');
 
-@mixin contrast-color($background: 'light', $type: 'primary') {
-    color: contrast-color($background, $type);
-}
+//     // Theme Secondary
+//     theme-secondary-base: theme-color('secondary', 'base');
+//     theme-secondary-light: theme-color('secondary', 'light');
+//     theme-secondary-dark: theme-color('secondary', 'dark');
 
-:export {
-    theme-primary-base: theme-color('primary', 'base');
-    theme-primary-light: theme-color('primary', 'light');
-    theme-primary-dark: theme-color('primary', 'dark');
-    theme-accent-base: theme-color('accent', 'base');
-    theme-accent-light: theme-color('accent', 'light');
-    theme-accent-dark: theme-color('accent', 'dark');
-    theme-foreground-base: theme-color('foreground', 'base');
-    theme-foreground-light: theme-color('foreground', 'light');
-    theme-foreground-dark: theme-color('foreground', 'dark');
-    theme-background-base: theme-color('background', 'base');
-    theme-background-light: theme-color('background', 'light');
-    theme-background-dark: theme-color('background', 'dark');
-    contrast-dark-primary: contrast-color('dark', 'primary');
-    contrast-dark-secondary: contrast-color('dark', 'secondary');
-    contrast-dark-disabled: contrast-color('dark', 'disabled');
-    contrast-dark-hint: contrast-color('dark', 'hint');
-    contrast-light-primary: contrast-color('light', 'primary');
-    contrast-light-secondary: contrast-color('light', 'secondary');
-    contrast-light-disabled: contrast-color('light', 'disabled');
-    contrast-light-hint: contrast-color('light', 'hint');
-}
+//     // Theme Foreground
+//     theme-foreground-base: theme-color('foreground', 'base');
+//     theme-foreground-light: theme-color('foreground', 'light');
+//     theme-foreground-dark: theme-color('foreground', 'dark');
+
+//     // Theme Background
+//     theme-background-base: theme-color('background', 'base');
+//     theme-background-light: theme-color('background', 'light');
+//     theme-background-dark: theme-color('background', 'dark');
+
+//     // Contrast Dark
+//     contrast-dark-primary: contrast-color('dark', 'primary');
+//     contrast-dark-secondary: contrast-color('dark', 'secondary');
+//     contrast-dark-disabled: contrast-color('dark', 'disabled');
+//     contrast-dark-hint: contrast-color('dark', 'hint');
+
+//     // Contrast Light
+//     contrast-light-primary: contrast-color('light', 'primary');
+//     contrast-light-secondary: contrast-color('light', 'secondary');
+//     contrast-light-disabled: contrast-color('light', 'disabled');
+//     contrast-light-hint: contrast-color('light', 'hint');
+// }

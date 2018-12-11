@@ -1,0 +1,27 @@
+@import './generate-theme-colors-map';
+
+// The first theme that was used
+$theme-colors-map-3: generateThemeColorsMap(
+    (
+        'primary': #010312,
+        'accent': #117bfb,
+        'secondary': #f8f5f5,
+        'foreground': #f8f5f5,
+        'background': #2b2b2b
+    )
+);
+
+$theme-colors-map-3-contrast: (
+    'dark': (
+        'primary': rgb(240, 239, 239),
+        'secondary': rgba(240, 239, 239, 0.7),
+        'disabled': rgba(240, 239, 239, 0.5),
+        'hint': rgba(240, 239, 239, 0.12)
+    ),
+    'light': (
+        'primary': rgba(0, 0, 0, 0.87),
+        'secondary': rgba(0, 0, 0, 0.54),
+        'disabled': rgba(0, 0, 0, 0.4),
+        'hint': rgba(0, 0, 0, 0.12)
+    )
+);
