@@ -2,11 +2,11 @@
 @import '../../utils/media-queries';
 
 .Section#portfolio {
-    // background: theme-color('foreground', 'dark');
+    // background: get-theme-color('foreground', 'dark');
     background: linear-gradient(289deg,
-        mix(theme-color('accent', 'light'), theme-color('background'), 10%) 0%,
-        mix(theme-color('accent', 'light'), theme-color('background'), 70%) 40%,
-        theme-color('background') 100%
+        mix(get-theme-color('accent', 'light'), get-theme-color('background'), 10%) 0%,
+        mix(get-theme-color('accent', 'light'), get-theme-color('background'), 70%) 40%,
+        get-theme-color('background') 100%
     );
     padding-top: 90px;
     padding-bottom: 60px;
@@ -154,7 +154,7 @@
 
     //     a {
     //         &:hover {
-    //             color: theme-color('accent');
+    //             color: get-theme-color('accent');
     //         }
 
     //         &.popup-modal-dismiss {

@@ -6,9 +6,9 @@
 // Expects to to have a child with the .svgr class on it
 @mixin svgrCircleContainer(
     $size,
-    $backgroundColor: theme-color('foreground'),
-    $backgroundColorHover: theme-color('accent'),
-    $svgColor: theme-color('background', 'dark'),
+    $backgroundColor: get-theme-color('foreground'),
+    $backgroundColorHover: get-theme-color('accent'),
+    $svgColor: get-theme-color('background', 'dark'),
     $svgSizeRatio: 0.7
 ) {
     width: $size;

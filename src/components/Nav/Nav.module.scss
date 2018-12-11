@@ -6,11 +6,11 @@
 $height: 48px;
 $padding-vertical: 0px;
 $padding-horizontal: 30px;
-$background-color: theme-color('foreground');
+$background-color: get-theme-color('foreground');
 
 // Burger menu
 $bm-burger-size: 36px;
-$bm-burger-color: theme-color('primary', 'light');
+$bm-burger-color: get-theme-color('primary', 'light');
 $bm-menu-color: $background-color;
 $bm-cross-color: $bm-burger-color;
 
@@ -58,8 +58,8 @@ $bm-cross-color: $bm-burger-color;
     }
 
     .item {
-        $color: contrast-color('dark');
-        $hoverColor: theme-color('accent');
+        $color: get-contrast-color('dark');
+        $hoverColor: get-theme-color('accent');
 
         padding: 8px 13px;
         line-height: 32px;
@@ -158,7 +158,7 @@ $bm-cross-color: $bm-burger-color;
 
     /* Wrapper for item list */
     :global(.bm-item-list) {
-        color: contrast-color('dark');
+        color: get-contrast-color('dark');
         padding: 0.8em;
     }
 

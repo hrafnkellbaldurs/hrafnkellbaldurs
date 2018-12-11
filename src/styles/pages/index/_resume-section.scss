@@ -2,7 +2,7 @@
 @import '../../utils/media-queries';
 
 .Section#resume {
-    background: theme-color('foreground');
+    background: get-theme-color('foreground');
     padding-top: 90px;
     padding-bottom: 72px;
     overflow: hidden;
@@ -25,7 +25,7 @@
     .section-item {
         margin-bottom: 48px;
         padding-bottom: 24px;
-        border-bottom: 1px solid rgba(theme-color('background', 'light'), 0.2);
+        border-bottom: 1px solid rgba(get-theme-color('background', 'light'), 0.2);
 
         &:last-child,
         .Experience:last-child {
@@ -35,7 +35,7 @@
         }
 
         .Experience {
-            border-bottom: 2px dotted rgba(theme-color('background', 'light'), 0.1);
+            border-bottom: 2px dotted rgba(get-theme-color('background', 'light'), 0.1);
             margin-bottom: 20px;
             padding-bottom: 20px;
         }

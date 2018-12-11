@@ -35,7 +35,7 @@ $iconMarginRight: 15px;
 
     .info {
         line-height: 24px;
-        color: contrast-color('light', 'secondary');
+        color: get-contrast-color('light', 'secondary');
         margin-top: -5px;
         margin-bottom: 10px;
         width: 100%;
@@ -48,7 +48,7 @@ $iconMarginRight: 15px;
         }
 
         .dateContainer {
-            color: contrast-color('light', 'disabled');
+            color: get-contrast-color('light', 'disabled');
             font-family: 'opensans-regular', sans-serif;
             font-size: 15px;
             display: flex;

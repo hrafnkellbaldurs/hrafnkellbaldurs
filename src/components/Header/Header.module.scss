@@ -5,7 +5,7 @@
 $height: 48px;
 
 .Header {
-    background-color: theme-color();
+    background-color: get-theme-color();
     text-align: center;
     height: $height;
 }

@@ -2,10 +2,10 @@
 @import '../../styles/utils/mixins';
 @import '../../styles/utils/media-queries';
 
-$color: theme-color('background', 'light');
+$color: get-theme-color('background', 'light');
 
 .Footer {
-    background: theme-color('background');
+    background: get-theme-color('background');
     padding: 48px 0;
     color: $color;
     font-size: 14px;
@@ -23,18 +23,18 @@ $color: theme-color('background', 'light');
         color: $color;
 
         &:hover {
-            color: theme-color('accent')
+            color: get-theme-color('accent')
         }
     }
 
-    
+
     .goToTop {
         a {
             @mixin floatingSvgrCircleContainer($size) {
                 @include svgrCircleContainer(
                     $size: $size,
                     $backgroundColor: $color,
-                    $svgColor: theme-color('foreground', 'light')
+                    $svgColor: get-theme-color('foreground', 'light')
                 );
 
                 margin-left: -($size / 2);

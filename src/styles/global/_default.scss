@@ -345,7 +345,7 @@ a,
 a:visited {
     text-decoration: none;
     outline: 0;
-    color: theme-color('accent');
+    color: get-theme-color('accent');
     transition: color 0.3s ease-in-out;
 }
 a:hover,
@@ -419,8 +419,8 @@ input[type='reset'],
 input[type='button'] {
     font: 16px 'opensans-bold', sans-serif;
     display: inline-block;
-    background: theme-color('accent');
-    color: contrast-color('dark');
+    background: get-theme-color('accent');
+    color: get-contrast-color('dark');
     text-decoration: none;
     letter-spacing: 0;
     padding: 12px 20px;

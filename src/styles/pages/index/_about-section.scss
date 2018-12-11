@@ -4,20 +4,20 @@
 @import '../../utils/media-queries';
 
 .Section#about {
-    background: theme-color('background');
+    background: get-theme-color('background');
     padding-top: 96px;
     padding-bottom: 66px;
     overflow: hidden;
 
     h2 {
         font: 22px/30px 'opensans-bold', sans-serif;
-        color: contrast-color('dark');
+        color: get-contrast-color('dark');
         margin-bottom: 12px;
     }
 
     p {
         line-height: 25px;
-        color: rgba(contrast-color('dark', 'secondary'), 0.35);
+        color: rgba(get-contrast-color('dark', 'secondary'), 0.35);
     }
 
     .profile-pic {
@@ -27,7 +27,7 @@
         border-radius: 50%;
         border-width: thick;
         border-style: solid;
-        border-color: theme-color('accent');
+        border-color: get-theme-color('accent');
     }
 
     .contact-details {
@@ -40,14 +40,14 @@
 
         .button {
             margin-top: 6px;
-            color: contrast-color('dark');
-            background: theme-color('accent', 'dark');
+            color: get-contrast-color('dark');
+            background: get-theme-color('accent', 'dark');
             transition: all 0.3s $timing-function-happy;
 
             @include materialHover();
 
             &:hover {
-                background: theme-color('accent');
+                background: get-theme-color('accent');
             }
         }
     }

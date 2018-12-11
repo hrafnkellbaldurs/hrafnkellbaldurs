@@ -15,7 +15,7 @@
 
         h2 {
             font: 30px/1.5em 'opensans-bold', sans-serif;
-            color: theme-color('accent');
+            color: get-theme-color('accent');
             letter-spacing: -2px;
             margin: 0 auto 18px auto;
             text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.8);

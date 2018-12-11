@@ -3,12 +3,12 @@
 @import '../../styles/utils/media-queries';
 
 .Hero {
-    background-color: theme-color('primary', 'light');
+    background-color: get-theme-color('primary', 'light');
     background-repeat: no-repeat;
     background-position: bottom;
     background-size: cover;
     min-height: 100px;
-    box-shadow: inset 0 0 0 1000px rgba(theme-color('background'), 0.4);
+    box-shadow: inset 0 0 0 1000px rgba(get-theme-color('background'), 0.4);
     text-align: center;
     overflow: hidden;
     display: flex;
@@ -27,8 +27,8 @@
 
         @include svgrCircleContainer(
             $size: $size,
-            $backgroundColor: theme-color('foreground'),
-            $svgColor: theme-color('background', 'dark'),
+            $backgroundColor: get-theme-color('foreground'),
+            $svgColor: get-theme-color('background', 'dark'),
             $svgSizeRatio: 0.7
         );
 

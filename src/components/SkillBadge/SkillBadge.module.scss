@@ -15,7 +15,7 @@ $logoSize: 30px;
 
 .SkillBadge {
     @include setBadgeSize(80px);
-    background: theme-color('foreground', 'light');
+    background: get-theme-color('foreground', 'light');
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -32,9 +32,9 @@ $logoSize: 30px;
         transform: translateY(-3px);
         cursor: pointer;
         background: linear-gradient(to bottom,
-            rgba(theme-color('accent'), 0.02) 0%,
-            theme-color('foreground', 'light') 50%,
-            theme-color('foreground', 'light') 100%
+            rgba(get-theme-color('accent'), 0.02) 0%,
+            get-theme-color('foreground', 'light') 50%,
+            get-theme-color('foreground', 'light') 100%
         );
 
         &:before {
@@ -43,7 +43,7 @@ $logoSize: 30px;
             height: 100%;
             position: absolute;
             border-radius: 15px 15px 0 0;
-            border-top: 2px solid theme-color('accent', 'light');
+            border-top: 2px solid get-theme-color('accent', 'light');
         }
 
 
@@ -68,15 +68,15 @@ $logoSize: 30px;
     .fallbackLogo {
         height: $logoSize;
         width: $logoSize;
-        background: theme-color('accent');
-        color: contrast-color('dark');
+        background: get-theme-color('accent');
+        color: get-contrast-color('dark');
         border-radius: 50%;
         text-align: center;
     }
 
     .itemLabel {
         font-size: 12px;
-        color: contrast-color('light');
+        color: get-contrast-color('light');
         font-weight: bold;
         white-space: nowrap;
     }

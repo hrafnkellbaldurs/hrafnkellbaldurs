@@ -27,10 +27,10 @@
     }
 
     .socialLink {
-        color: theme-color('foreground');
+        color: get-theme-color('foreground');
 
         &:hover {
-            color: theme-color('accent');
+            color: get-theme-color('accent');
         }
     }
 }

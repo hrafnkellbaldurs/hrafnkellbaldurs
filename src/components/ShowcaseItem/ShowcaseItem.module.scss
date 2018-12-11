@@ -3,7 +3,7 @@
 @import '../../styles/utils/animations';
 
 .ShowcaseItem {
-    $color: contrast-color('dark');
+    $color: get-contrast-color('dark');
     $border-radius: 15px;
 
     position: relative;
@@ -15,8 +15,8 @@
     overflow: hidden;
     margin: 15px;
     background: linear-gradient(135deg,
-        rgba(theme-color('foreground'), 0.2) 0%,
-        rgba(theme-color('accent'), 0.2) 100%
+        rgba(get-theme-color('foreground'), 0.2) 0%,
+        rgba(get-theme-color('accent'), 0.2) 100%
     );
     transition: transition-happy(transform);
 
@@ -46,7 +46,7 @@
         }
 
         .infoContainer {
-            border-top-color: theme-color('accent');
+            border-top-color: get-theme-color('accent');
         }
     }
 
@@ -60,10 +60,10 @@
     }
 
     .infoContainer {
-        $color: contrast-color('light');
+        $color: get-contrast-color('light');
 
         color: $color;
-        background: theme-color('foreground', 'light');
+        background: get-theme-color('foreground', 'light');
         height: 150px;
         width: 100%;
         padding: 15px;
@@ -102,7 +102,7 @@
     }
 
     .tag {
-        background: theme-color('foreground');
+        background: get-theme-color('foreground');
         color: currentColor;
         font-family: 'opensans-regular', sans-serif;
         font-size: 10px;

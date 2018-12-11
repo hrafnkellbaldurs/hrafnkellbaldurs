@@ -4,7 +4,7 @@
 /* General Styles
 /* ------------------------------------------------------------------ */
 
-body { background: theme-color('background'); }
+body { background: get-theme-color('background'); }
 
 hr {
    border-width: 1px 0 0;
@@ -12,12 +12,12 @@ hr {
    height: 0;
    width: 60%;
    margin: 18px auto 24px auto;
-   border-color: rgba(theme-color('background', 'light'), 0.5);
+   border-color: rgba(get-theme-color('background', 'light'), 0.5);
 }
 
 .accent-underline {
     display: inline-block;
-    border-bottom: 3px solid theme-color('accent');
+    border-bottom: 3px solid get-theme-color('accent');
     padding-bottom: 3px;
 }
 
