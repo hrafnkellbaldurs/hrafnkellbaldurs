@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import Layout from './Layout'
 import { Provider } from '../../store'
+import { ModalRoot } from '../Modal'
 
 class LayoutContainer extends React.PureComponent {
     render() {
@@ -22,6 +23,7 @@ class LayoutContainer extends React.PureComponent {
                 `}
                 render={ data => (
                     <Provider>
+                        <ModalRoot />
                         <Layout siteMetadata={ data.site.siteMetadata }>
                             { children }
                         </Layout>

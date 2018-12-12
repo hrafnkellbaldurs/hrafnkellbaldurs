@@ -25,7 +25,8 @@ class SkillGrid extends React.Component {
 
     render() {
         const {
-            skills = []
+            skills = [],
+            onSkillClick
         } = this.props
 
         const top5Skills = skills.filter(R.pipe(
@@ -47,7 +48,7 @@ class SkillGrid extends React.Component {
         const Skill = skill => {
             return (
                 <div className={ styles.skillContainer } key={ skill.id }>
-                    <SkillBadge { ...skill } />
+                    <SkillBadge { ...skill } onClick={ onSkillClick }/>
                 </div>
             )
         }

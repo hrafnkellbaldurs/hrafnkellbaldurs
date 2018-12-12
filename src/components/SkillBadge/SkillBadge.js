@@ -6,8 +6,9 @@ import classnames from 'classnames'
 
 const globalLocalClassnames = R.partial(createGlobalLocalClassnames, [styles])
 
-const SkillBadge = ({ id, logo = {}, name, shortName }) => {
-    logo = R.defaultTo({}, logo)
+const SkillBadge = props => {
+    const { id, name, shortName, onClick } = props
+    const logo = R.defaultTo({}, props.logo)
 
     const LogoImage = () => (
         <img
@@ -33,7 +34,8 @@ const SkillBadge = ({ id, logo = {}, name, shortName }) => {
         key: id,
         className: classnames(
             globalLocalClassnames('SkillBadge')
-        )
+        ),
+        onClick: _e => onClick(_e, props)
     }
 
     const itemLabelProps = {

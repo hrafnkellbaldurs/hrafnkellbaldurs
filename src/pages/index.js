@@ -12,7 +12,7 @@ import SkillGrid from '../components/SkillGrid'
 import HTMLReactParser from 'html-react-parser'
 import Waypoint from 'react-waypoint'
 import ShowcaseGrid from '../components/ShowcaseGrid'
-import { SECTION_IDS } from '../constants'
+import { SECTION_IDS, MODAL_SIZES } from '../constants'
 import { actions } from '../store'
 
 const mapData = R.mapObjIndexed(R.pipe(
@@ -183,6 +183,22 @@ const RenderResumeSection = props => {
         })
     }
 
+    const onSkillClick = (_e, { id, name }) => {
+        actions.showModal({
+            renderContent: () => {
+                return (
+                    <>
+                        <h2>SkillBadge Dialog</h2>
+                        <p>
+                            { name } { id }
+                        </p>
+                    </>
+                )
+            },
+            size: MODAL_SIZES.SMALL
+        })
+    }
+
     return (
         <Section id={ sectionId }>
             <Waypoint { ...waypointProps }>
@@ -231,7 +247,7 @@ const RenderResumeSection = props => {
                                         I have experience with a broad field of front-end technologies and frameworks.
                                     </p>
                                 </div>
-                                <SkillGrid skills={ skills }></SkillGrid>
+                                <SkillGrid skills={ skills } onSkillClick={ onSkillClick }></SkillGrid>
                             </div>
                         </div>
                     </div>
@@ -255,6 +271,21 @@ const RenderPortfolioSection = props => {
         })
     }
 
+    const onShowcaseClick = ({ id, title }) => {
+        actions.showModal({
+            renderContent: () => {
+                return (
+                    <>
+                        <h2>Showcase Dialog</h2>
+                        <p>
+                            { title } { id }
+                        </p>
+                    </>
+                )
+            },
+            size: MODAL_SIZES.MEDIUM
+        })
+    }
     const mapShowcase = showcase => {
         return {
             ...showcase,
@@ -262,7 +293,7 @@ const RenderPortfolioSection = props => {
                 src: R.path(['image', 'publicURL'], showcase),
                 label: showcase.title
             },
-            onClick: id => console.log('showcase', id)
+            onClick: onShowcaseClick
         }
     }
 

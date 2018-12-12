@@ -43,9 +43,10 @@
     "react-event-listener": "^0.6.4",
     "react-fittext": "^1.0.0",
     "react-helmet": "^5.2.0",
+    "react-modal": "^3.7.1",
+    "react-waterfall": "^4.0.0-beta.3",
     "react-waypoint": "^8.1.0",
-    "smooth-scroll-into-view-if-needed": "^1.1.23",
-    "react-waterfall": "^4.0.0-beta.3"
+    "smooth-scroll-into-view-if-needed": "^1.1.23"
   },
   "devDependencies": {
     "@babel/core": "^7.1.6",

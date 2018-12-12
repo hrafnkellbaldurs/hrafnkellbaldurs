@@ -23,12 +23,15 @@ class ShowcaseItem extends React.PureComponent {
         onClick: PropTypes.func
     }
 
+    handleOnClick = _e => {
+        this.props.onClick(this.props)
+    }
+
     render() {
         const {
             id,
             title,
             subtitle,
-            onClick
         } = this.props
 
         const image = R.defaultTo({}, this.props.image)
@@ -60,7 +63,7 @@ class ShowcaseItem extends React.PureComponent {
         )
 
         return (
-            <div { ...containerProps } onClick={ () => onClick(id) }>
+            <div { ...containerProps } onClick={ this.handleOnClick }>
                 { imageContainer }
                 <div className="infoContainer">
                     <h5 className="title">{ title }</h5>
