@@ -1,8 +1,8 @@
 import React from 'react'
 import classnames from 'classnames'
-import { ReactComponent as DownArrowIcon } from '../../assets/images/arrow_drop_down.svg'
+import { ReactComponent as DownArrowIcon } from '../../assets/icons/arrow_drop_down.svg'
 import Link from '../Link'
-import { debounce, createHashHref } from '../../scripts/utils'
+import { debounce, createHashHref, createGlobalLocalClassnames } from '../../scripts/utils'
 import { SECTION_IDS } from '../../constants'
 import styles from './Hero.module.scss'
 import EventListener, { withOptions } from 'react-event-listener'
@@ -73,7 +73,7 @@ class Hero extends React.PureComponent {
         } = this.state
 
         const heroProps = {
-            className: classnames(styles.Hero, className),
+            className: classnames(createGlobalLocalClassnames(styles, 'Hero'), className),
             style: {
                 height: `${ height }${ heightUnit }`,
                 backgroundImage: `url(${ backgroundUrl })`
@@ -98,6 +98,8 @@ class Hero extends React.PureComponent {
         return (
             <div { ...heroProps }>
                 { windowEventListener }
+
+                <div className="overlay"></div>
 
                 <div className={ childrenClassnames }>
                     { children }

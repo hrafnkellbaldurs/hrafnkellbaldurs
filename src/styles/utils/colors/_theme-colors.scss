@@ -1,10 +1,11 @@
 @import './theme-colors-map-1';
 @import './theme-colors-map-2';
 @import './theme-colors-map-3';
+@import './theme-colors-map-4';
 
 // The currently used theme colors
-$theme-colors: $theme-colors-map-3;
-$contrast-colors: $theme-colors-map-3-contrast;
+$theme-colors: $theme-colors-map-4;
+$contrast-colors: $theme-colors-map-4-contrast;
 
 @function get-theme-color($key: 'primary', $variant: 'base') {
     $map: map-get($theme-colors, $key);

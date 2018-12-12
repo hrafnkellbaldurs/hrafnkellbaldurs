@@ -5,7 +5,7 @@ import * as R from 'ramda'
 import classnames from 'classnames'
 import NavMenu from 'react-burger-menu/lib/menus/slide'
 import Link from '../Link'
-import { ReactComponent as BurgerIcon } from '../../assets/images/burger_menu.svg'
+import { ReactComponent as BurgerIcon } from '../../assets/icons/burger_menu.svg'
 import { SECTION_IDS } from '../../constants'
 
 const globalLocalClassnames = R.partial(createGlobalLocalClassnames, [styles])

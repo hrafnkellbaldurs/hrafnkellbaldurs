@@ -1,100 +1,103 @@
 @import '../../utils/colors';
 @import '../../utils/media-queries';
 
-.Section#resume {
-    $backgroundColor: get-theme-color('secondary');
-    $descriptionColor: contrast-color(
-        $color: $backgroundColor,
-        $dark: get-contrast-color('light', 'secondary'),
-        $light: get-contrast-color('dark', 'secondary')
-    );
+@mixin resumeSectionStyles(
+    $backgroundColor: get-theme-color('secondary'),
+    $descriptionColor:
+        contrast-color(
+            $color: $backgroundColor,
+            $dark: get-contrast-color('light', 'secondary'),
+            $light: get-contrast-color('dark', 'secondary')
+        )
+) {
+    .Section#resume {
+        background: $backgroundColor;
+        padding-top: 90px;
+        padding-bottom: 72px;
+        overflow: hidden;
 
-    background: $backgroundColor;
-    padding-top: 90px;
-    padding-bottom: 72px;
-    overflow: hidden;
-
-    h1 {
-        font: 18px/24px 'opensans-bold', sans-serif;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        padding-bottom: 6px;
-        color: contrast-color($backgroundColor);
-    }
-
-    p {
-        color: $descriptionColor;
-    }
-
-    .header-col {
-        padding-top: 9px;
-    }
-
-    .main-col {
-        padding-right: 10%;
-    }
-
-    .section-item {
-        $border-bottom-color: contrast-color($backgroundColor);
-
-        margin-bottom: 48px;
-        padding-bottom: 24px;
-        border-bottom: 1px solid rgba($border-bottom-color, 0.1);
-
-        &:last-child,
-        .Experience:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: 0;
-        }
-
-        .Experience {
-            border-bottom: 2px dotted rgba($border-bottom-color, 0.1);
-            margin-bottom: 20px;
-            padding-bottom: 20px;
-
-            .title {
-                color: contrast-color($backgroundColor);
-            }
-
-            .info {
-                color: $descriptionColor;
-            }
-
-            .dateContainer {
-                color: contrast-color(
-                    $color: $backgroundColor,
-                    $dark: get-contrast-color('light', 'disabled'),
-                    $light: get-contrast-color('dark', 'disabled')
-                );
-            }
-        }
-    }
-
-    @include media('<=laptop') {
         h1 {
-            font-size: 16px;
-            line-height: 24px;
+            font: 18px/24px 'opensans-bold', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding-bottom: 6px;
+            color: contrast-color($backgroundColor);
         }
 
-        .main-col {
-            padding-right: 5%;
-        }
-    }
-
-    @include media('<=tablet') {
-        h1 {
-            letter-spacing: 3px;
-        }
-
-        .main-col {
-            padding-right: 30px;
+        p {
+            color: $descriptionColor;
         }
 
         .header-col {
-            padding-top: 0;
+            padding-top: 9px;
+        }
+
+        .main-col {
+            padding-right: 10%;
+        }
+
+        .section-item {
+            $border-bottom-color: contrast-color($backgroundColor);
+
             margin-bottom: 48px;
-            text-align: center;
+            padding-bottom: 24px;
+            border-bottom: 1px solid rgba($border-bottom-color, 0.1);
+
+            &:last-child,
+            .Experience:last-child {
+                margin-bottom: 0;
+                padding-bottom: 0;
+                border-bottom: 0;
+            }
+
+            .Experience {
+                border-bottom: 2px dotted rgba($border-bottom-color, 0.1);
+                margin-bottom: 20px;
+                padding-bottom: 20px;
+
+                .title {
+                    color: contrast-color($backgroundColor);
+                }
+
+                .info {
+                    color: $descriptionColor;
+                }
+
+                .dateContainer {
+                    color: contrast-color(
+                        $color: $backgroundColor,
+                        $dark: get-contrast-color('light', 'disabled'),
+                        $light: get-contrast-color('dark', 'disabled')
+                    );
+                }
+            }
+        }
+
+        @include media('<=laptop') {
+            h1 {
+                font-size: 16px;
+                line-height: 24px;
+            }
+
+            .main-col {
+                padding-right: 5%;
+            }
+        }
+
+        @include media('<=tablet') {
+            h1 {
+                letter-spacing: 3px;
+            }
+
+            .main-col {
+                padding-right: 30px;
+            }
+
+            .header-col {
+                padding-top: 0;
+                margin-bottom: 48px;
+                text-align: center;
+            }
         }
     }
 }

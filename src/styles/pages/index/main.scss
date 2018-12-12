@@ -25,6 +25,23 @@ hr {
 /* Page
 /* ------------------------------------------------------------------ */
 @import './hero';
+@include heroStyles(
+    $backgroundColor: get-theme-color('primary'),
+    $overlayBackground: linear-gradient(to bottom, get-theme-color('primary'), get-theme-color('primary','light'))
+);
+
 @import './about-section';
+@include aboutSectionStyles(
+    $backgroundColor: get-theme-color('primary', 'light')
+);
+
 @import './resume-section';
+@include resumeSectionStyles(
+    $backgroundColor: get-theme-color('secondary')
+);
+
 @import './portfolio-section';
+@include portfolioSectionStyles(
+    $backgroundColor: get-theme-color('primary', 'light'),
+    $background: linear-gradient(to bottom, get-theme-color('primary'), get-theme-color('primary','light'))
+);

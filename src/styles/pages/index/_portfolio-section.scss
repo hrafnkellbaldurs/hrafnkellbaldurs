@@ -1,52 +1,54 @@
 @import '../../utils/colors';
 @import '../../utils/media-queries';
 
-.Section#portfolio {
-    $backgroundColor: get-theme-color('secondary');
+@mixin portfolioSectionStyles(
+    $backgroundColor: get-theme-color('secondary'),
+    $background: null,
+    $showcaseBackgroundColor: get-theme-color('foreground')
+) {
+    .Section#portfolio {
+        background: $background;
+        background-color: $backgroundColor;
+        padding-top: 90px;
+        padding-bottom: 60px;
 
-    border-top: 1px solid rgba(contrast-color($backgroundColor), 0.1);
-    background-color: $backgroundColor;
-    padding-top: 90px;
-    padding-bottom: 60px;
-
-    h1 {
-        font: 18px/24px 'opensans-semibold', sans-serif;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        text-align: center;
-        margin-bottom: 48px;
-        color: contrast-color($backgroundColor)
-    }
-
-    h3 {
-        font: 20px/24px 'opensans-bold', sans-serif;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        text-align: center;
-        margin-bottom: 30px;
-    }
-
-    .content-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .ShowcaseItem {
-        $showcaseBackgroundColor: get-theme-color('foreground');
-
-        .infoContainer {
-            @include contrasted($showcaseBackgroundColor);
+        h1 {
+            font: 18px/24px 'opensans-semibold', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+            margin-bottom: 48px;
+            color: contrast-color($backgroundColor);
         }
 
-        .tag {
-            $tagBackgroundColor: contrast-color(
-                $color: $showcaseBackgroundColor,
-                $dark: get-theme-color('foreground', 'dark'),
-                $light: get-theme-color('foreground', 'light')
-            );
+        h3 {
+            font: 20px/24px 'opensans-bold', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
 
-            @include contrasted($tagBackgroundColor);
+        .content-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .ShowcaseItem {
+            .infoContainer {
+                @include contrasted($showcaseBackgroundColor);
+            }
+
+            .tag {
+                $tagBackgroundColor: contrast-color(
+                    $color: $showcaseBackgroundColor,
+                    $dark: darken($showcaseBackgroundColor, 10%),
+                    $light: lighten($showcaseBackgroundColor, 10%)
+                );
+
+                @include contrasted($tagBackgroundColor);
+            }
         }
     }
 }

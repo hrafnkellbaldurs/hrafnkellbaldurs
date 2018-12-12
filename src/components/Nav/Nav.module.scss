@@ -145,8 +145,6 @@ $bm-border: $border;
 
     :global(.bm-menu-wrap) {
         max-width: 300px;
-
-        @include materialBoxShadow(2);
     }
 
     /* General sidebar styles */

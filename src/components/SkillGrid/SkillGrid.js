@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './SkillGrid.module.scss'
 import * as R from 'ramda'
-import { ReactComponent as DropdownArrow } from '../../assets/images/arrow_drop_down.svg'
+import { ReactComponent as DropdownArrow } from '../../assets/icons/arrow_drop_down.svg'
 import classnames from 'classnames'
 import { createGlobalLocalClassnames } from '../../scripts/utils'
 import SkillBadge from '../SkillBadge'

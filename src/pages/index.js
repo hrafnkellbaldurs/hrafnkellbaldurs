@@ -24,23 +24,6 @@ const WAYPOINT_PROPS = {
     bottomOffset: '40%'
 }
 
-const mockShowcases = n => {
-    const imageSrc = require('../assets/images/rayman.jpg')
-    return R.times(i => {
-        return {
-            id: `showcase-${ i }`,
-            title: `Showcase ${ i }`,
-            subtitle: 'subtitle',
-            image: {
-                src: imageSrc,
-                label: 'imagelabel'
-            },
-            tags: 'tag1;tag2;tag3',
-            onClick: showcaseId => console.log('clicked showcase', showcaseId)
-        }
-    }, n)
-}
-
 class IndexPage extends React.PureComponent {
     constructor(props) {
         super(props)
@@ -126,7 +109,7 @@ class IndexPage extends React.PureComponent {
         } = props
 
         const heroProps = {
-            backgroundUrl,
+            backgroundUrl: null,
             className: 'page-hero'
         }
 
@@ -171,59 +154,61 @@ class IndexPage extends React.PureComponent {
             })
         }
 
-        const ContactIcon = require('../assets/images/paper-plane.svg').ReactComponent
-        const DownloadIcon = require('../assets/images/download.svg').ReactComponent
+        const ContactIcon = require('../assets/icons/paper-plane.svg').ReactComponent
+        const DownloadIcon = require('../assets/icons/download.svg').ReactComponent
 
         return (
-            <Section id={ sectionId }>
-                <Waypoint { ...waypointProps }>
-                    <div className="row">
+            <>
+                <Section id={ sectionId }>
+                    <Waypoint { ...waypointProps }>
+                        <div className="row">
 
-                        <div className="three columns">
+                            <div className="three columns">
 
-                            <img className="profile-pic" src={ urls.profilePic.public } alt="profile picture" />
-                        </div>
+                                <img className="profile-pic" src={ urls.profilePic.public } alt="profile picture" />
+                            </div>
 
-                        <div className="nine columns main-col">
+                            <div className="nine columns main-col">
 
-                            <h1 className="accent-underline">{ title }</h1>
+                                <h1 className="accent-underline">{ title }</h1>
 
-                            <div>{ HTMLReactParser(description) }</div>
+                                <div>{ HTMLReactParser(description) }</div>
 
-                            <div className="row">
+                                <div className="row">
 
-                                <div className="columns contact-details">
+                                    <div className="columns contact-details">
 
-                                    <h2>{ contactDetails.label }</h2>
-                                    <p className="address">
-                                        <span>{ contactDetails.name }</span><br />
-                                        <span>{ contactDetails.address }</span><br />
-                                        <span>{ contactDetails.zip } { contactDetails.city }, { contactDetails.country }</span><br />
-                                        <span>{ contactDetails.phone }</span><br />
-                                        <Link style={ { color: 'inherit' } } to={ `mailto:${ contactDetails.email }` } target="_top">
-                                            { contactDetails.email }
+                                        <h2>{ contactDetails.label }</h2>
+                                        <p className="address">
+                                            <span>{ contactDetails.name }</span><br />
+                                            <span>{ contactDetails.address }</span><br />
+                                            <span>{ contactDetails.zip } { contactDetails.city }, { contactDetails.country }</span><br />
+                                            <span>{ contactDetails.phone }</span><br />
+                                            <Link style={ { color: 'inherit' } } to={ `mailto:${ contactDetails.email }` } target="_top">
+                                                { contactDetails.email }
+                                            </Link>
+                                        </p>
+
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="columns action-links">
+                                        <Link to={ `mailto:${ contactDetails.email }` } className="button button-secondary icon-right">
+                                            <span className="text">{ contactLabel }</span>
+                                            <ContactIcon/>
                                         </Link>
-                                    </p>
-
+                                        <Link to={ urls.portfolioPdf.public } className="button icon-right" target="_blank">
+                                            <span className="text">{ downloadResumeLabel }</span>
+                                            <DownloadIcon/>
+                                        </Link>
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="row">
-                                <div className="columns action-links">
-                                    <Link to={ `mailto:${ contactDetails.email }` } className="button button-secondary icon-right">
-                                        <span className="text">{ contactLabel }</span>
-                                        <ContactIcon/>
-                                    </Link>
-                                    <Link to={ urls.portfolioPdf.public } className="button icon-right" target="_blank">
-                                        <span className="text">{ downloadResumeLabel }</span>
-                                        <DownloadIcon/>
-                                    </Link>
-                                </div>
-                            </div>
 
+                            </div>
                         </div>
-                    </div>
-                </Waypoint>
-            </Section>
+                    </Waypoint>
+                </Section>
+            </>
         )
     }
 

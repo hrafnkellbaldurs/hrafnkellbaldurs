@@ -6,8 +6,8 @@
     $backgroundColor: white;
     $imageFallback: linear-gradient(
         135deg,
-        rgba($backgroundColor, 0.2) 0%,
-        rgba(get-theme-color('accent'), 0.8) 100%
+        rgba($backgroundColor, 0.1) 0%,
+        rgba(get-theme-color('accent'), 0.4) 100%
     );
     $border-radius: 15px;
 
