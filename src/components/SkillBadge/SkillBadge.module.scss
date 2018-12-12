@@ -26,10 +26,9 @@ $logoSize: 30px;
     transition: all 0.3s $timing-function-happy;
     position: relative;
 
-    @include materialBoxShadow(1);
+    @include materialHover($hoverTransform: translateY(-2px));
 
     &:hover {
-        transform: translateY(-3px);
         cursor: pointer;
         background: linear-gradient(to bottom,
             rgba(get-theme-color('accent'), 0.02) 0%,
@@ -45,9 +44,6 @@ $logoSize: 30px;
             border-radius: 15px 15px 0 0;
             border-top: 2px solid get-theme-color('accent', 'light');
         }
-
-
-        @include materialBoxShadow(2);
 
         .itemLabel {
             font-size: 12.5px;

@@ -76,7 +76,6 @@ class SkillGrid extends React.Component {
         const additionalSkillsProps = {
             className: classnames({
                 [styles.skills]: true,
-                [styles.grid]: true,
                 [styles.expandable]: true,
                 [styles.hidden]: !this.state.additionalOpen
             })

@@ -45,12 +45,15 @@
 @mixin materialHover(
     $level: 1,
     $hoverLevel: 2,
-    $hoverTransform: translateY(-3px)
+    $hoverTransform: null
 ) {
     @include materialBoxShadow($level);
 
     &:hover {
         @include materialBoxShadow($hoverLevel);
-        transform: $hoverTransform
+
+        @if($hoverTransform != null) {
+            transform: $hoverTransform;
+        }
     }
 }

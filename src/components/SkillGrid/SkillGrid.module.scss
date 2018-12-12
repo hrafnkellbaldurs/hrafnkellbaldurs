@@ -19,8 +19,7 @@ $skillBadge-size-small: 50px;
     }
 
     .groupLabel {
-        font-family: 'opensans-semibold', sans-serif;
-        font-size: 16px;
+        font: 16px 'opensans-semibold', sans-serif;
         background: none;
         color: get-contrast-color('light');
         padding: 3px 10px;
@@ -29,10 +28,16 @@ $skillBadge-size-small: 50px;
         justify-items: center;
         align-items: center;
         margin-bottom: 10px;
+        box-shadow: none;
+        transform: none;
+        text-decoration: none;
+        text-transform: none;
     }
 
     .additionalLabel {
         margin-top: 20px;
+        border-radius: 0;
+        transition: none;
 
         .arrow {
             margin-left: 5px;
@@ -70,6 +75,7 @@ $skillBadge-size-small: 50px;
             &.hidden {
                 height: 0;
                 opacity: 0;
+                pointer-events: none;
             }
         }
     }

@@ -22,7 +22,11 @@
     background: $imageFallback;
     transition: transition-happy(transform);
 
-    @include materialBoxShadow(1);
+    @include materialHover(
+        $level: 1,
+        $hoverLevel: 3,
+        $hoverTransform: translateY(-3px)
+    );
 
     &:after {
         content: '';
@@ -34,9 +38,6 @@
 
     &:hover {
         cursor: pointer;
-
-        transform: translateY(-5px);
-        @include materialBoxShadow(3);
 
         &:after {
             content: '';
