@@ -2,10 +2,11 @@
 @import '../../styles/utils/mixins';
 @import '../../styles/utils/media-queries';
 
-$color: get-theme-color('background', 'light');
+$backgroundColor: get-theme-color('primary');
+$color: contrast-color($backgroundColor);
 
 .Footer {
-    background: get-theme-color('background');
+    background: $backgroundColor;
     padding: 48px 0;
     color: $color;
     font-size: 14px;
@@ -19,23 +20,10 @@ $color: get-theme-color('background', 'light');
         }
     }
 
-    :global(.SocialLinks .socialLink) {
-        color: $color;
-
-        &:hover {
-            color: get-theme-color('accent')
-        }
-    }
-
-
     .goToTop {
         a {
             @mixin floatingSvgrCircleContainer($size) {
-                @include svgrCircleContainer(
-                    $size: $size,
-                    $backgroundColor: $color,
-                    $svgColor: get-theme-color('foreground', 'light')
-                );
+                @include svgrCircleContainer($size: $size);
 
                 margin-left: -($size / 2);
                 top: -($size / 2);
