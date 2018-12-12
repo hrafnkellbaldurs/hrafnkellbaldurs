@@ -18,7 +18,7 @@ const Footer = () => {
 
     return (
         <footer className={ styles.Footer }>
-            <div className={ styles.goToTop}>
+            <div className={ styles.goToTop }>
                 <Link to={ homeSectionHref } smoothScroll>
                     <DownArrowIcon></DownArrowIcon>
                 </Link>
@@ -29,6 +29,11 @@ const Footer = () => {
                         <SocialLinks></SocialLinks>
                     </div>
                 </div>
+            </div>
+            <div className="row">
+                <span className="icon-licence">
+                    Icons made by <a href="https://smashicons.com/" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+                </span>
             </div>
         </footer>
     )
