@@ -7,7 +7,7 @@ class Header extends React.PureComponent {
     render() {
         return (
             <header id={ SECTION_IDS.HOME } className={ styles.Header }>
-                <Nav items={ this.props.items } currentItemId={ this.props.currentItemId }></Nav>
+                <Nav/>
             </header>
         )
     }

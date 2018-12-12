@@ -7,9 +7,7 @@ class Layout extends React.PureComponent {
     render() {
         const {
             siteMetadata = {},
-            children,
-            currentNavItemId,
-            navItems
+            children
         } = this.props
 
         return (
@@ -24,7 +22,7 @@ class Layout extends React.PureComponent {
                 >
                     <html lang="en" />
                 </Helmet>
-                <Header items={ navItems } currentItemId={ currentNavItemId }/>
+                <Header />
                 { children }
                 <Footer />
             </>

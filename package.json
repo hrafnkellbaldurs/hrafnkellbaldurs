@@ -44,7 +44,8 @@
     "react-fittext": "^1.0.0",
     "react-helmet": "^5.2.0",
     "react-waypoint": "^8.1.0",
-    "smooth-scroll-into-view-if-needed": "^1.1.23"
+    "smooth-scroll-into-view-if-needed": "^1.1.23",
+    "react-waterfall": "^4.0.0-beta.3"
   },
   "devDependencies": {
     "@babel/core": "^7.1.6",
