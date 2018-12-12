@@ -446,9 +446,14 @@ input[type='button'] {
     transition: transition-happy();
 
     &:hover {
-        text-decoration: none;
         color: contrast-color($backgroundColor);
         background-color: get-theme-color('accent', 'light');
+    }
+
+    &:active,
+    &:focus,
+    &:hover {
+        text-decoration: none;
     }
 
     .svgr {
