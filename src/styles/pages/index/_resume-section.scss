@@ -1,8 +1,15 @@
 @import '../../utils/colors';
 @import '../../utils/media-queries';
 
+$backgroundColor: get-theme-color('secondary');
+$descriptionColor: contrast-color(
+    $color: $backgroundColor,
+    $dark: get-contrast-color('light', 'secondary'),
+    $light: get-contrast-color('dark', 'secondary')
+);
+
 .Section#resume {
-    background: get-theme-color('foreground');
+    background: $backgroundColor;
     padding-top: 90px;
     padding-bottom: 72px;
     overflow: hidden;
@@ -14,6 +21,10 @@
         padding-bottom: 6px;
     }
 
+    p {
+        color: $descriptionColor;
+    }
+
     .header-col {
         padding-top: 9px;
     }
@@ -23,9 +34,15 @@
     }
 
     .section-item {
+        $border-bottom-color: contrast-color($backgroundColor);
+
         margin-bottom: 48px;
         padding-bottom: 24px;
-        border-bottom: 1px solid rgba(get-theme-color('background', 'light'), 0.2);
+        border-bottom: 1px solid rgba($border-bottom-color, 0.1);
+
+        h1 {
+            color: contrast-color($backgroundColor)
+        }
 
         &:last-child,
         .Experience:last-child {
@@ -35,9 +52,25 @@
         }
 
         .Experience {
-            border-bottom: 2px dotted rgba(get-theme-color('background', 'light'), 0.1);
+            border-bottom: 2px dotted rgba($border-bottom-color, 0.1);
             margin-bottom: 20px;
             padding-bottom: 20px;
+
+            .title {
+                color: contrast-color($backgroundColor);
+            }
+
+            .info {
+                color: $descriptionColor;
+            }
+
+            .dateContainer {
+                color: contrast-color(
+                    $color: $backgroundColor,
+                    $dark: get-contrast-color('light', 'disabled'),
+                    $light: get-contrast-color('dark', 'disabled')
+                );
+            }
         }
     }
 
