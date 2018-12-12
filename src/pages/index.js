@@ -2,7 +2,6 @@ import '../styles/pages/index/main.scss'
 import React from 'react'
 import { graphql } from 'gatsby'
 import * as R from 'ramda'
-import { ReactComponent as DownloadIcon } from '../assets/images/download.svg'
 import { LayoutContainer } from '../components/Layout'
 import FitText from 'react-fittext'
 import Link from '../components/Link'
@@ -161,7 +160,8 @@ class IndexPage extends React.PureComponent {
             description,
             urls,
             contactDetails,
-            downloadResumeLabel
+            downloadResumeLabel,
+            contactLabel
         } = props
 
         const waypointProps = {
@@ -171,6 +171,9 @@ class IndexPage extends React.PureComponent {
             })
         }
 
+        const ContactIcon = require('../assets/images/paper-plane.svg').ReactComponent
+        const DownloadIcon = require('../assets/images/download.svg').ReactComponent
+
         return (
             <Section id={ sectionId }>
                 <Waypoint { ...waypointProps }>
@@ -178,12 +181,12 @@ class IndexPage extends React.PureComponent {
 
                         <div className="three columns">
 
-                            <img className="profile-pic" src={ urls.profilePic.public } alt="" />
+                            <img className="profile-pic" src={ urls.profilePic.public } alt="profile picture" />
                         </div>
 
                         <div className="nine columns main-col">
 
-                            <h2>{ title }</h2>
+                            <h1 className="accent-underline">{ title }</h1>
 
                             <div>{ HTMLReactParser(description) }</div>
 
@@ -203,16 +206,18 @@ class IndexPage extends React.PureComponent {
                                     </p>
 
                                 </div>
-
-                                <div className="columns download">
-                                    <Link to={ urls.portfolioPdf.public } className="button" target="_blank">
-                                        <span style={ { display: 'flex', alignItems: 'center', 'justifyContent': 'center' } }>
-                                            <DownloadIcon style={ { fontSize: '22px', marginRight: '5px', marginTop: '-5px' } } />
-                                            { downloadResumeLabel }
-                                        </span>
+                            </div>
+                            <div className="row">
+                                <div className="columns action-links">
+                                    <Link to={ `mailto:${ contactDetails.email }` } className="button button-secondary icon-right">
+                                        <span className="text">{ contactLabel }</span>
+                                        <ContactIcon/>
+                                    </Link>
+                                    <Link to={ urls.portfolioPdf.public } className="button icon-right" target="_blank">
+                                        <span className="text">{ downloadResumeLabel }</span>
+                                        <DownloadIcon/>
                                     </Link>
                                 </div>
-
                             </div>
 
                         </div>
@@ -353,7 +358,7 @@ class IndexPage extends React.PureComponent {
                     <div className="row">
                         <div className="twelve columns content-container">
                             <h1 className="accent-underline">Portfolio</h1>
-                            <ShowcaseGrid showcases={ showcases.map(mapShowcase) }/>
+                            <ShowcaseGrid showcases={ showcases.map(mapShowcase) } />
                         </div>
                     </div>
                 </Waypoint>

@@ -32,7 +32,8 @@ export const IndexPageFragment = graphql`
                         phone,
                         email
                     },
-                    downloadResumeLabel
+                    downloadResumeLabel,
+                    contactLabel
                 }
             }
         },

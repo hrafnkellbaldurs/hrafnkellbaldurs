@@ -4,20 +4,35 @@
 @import '../../utils/media-queries';
 
 .Section#about {
-    background: get-theme-color('background');
+    $backgroundColor: get-theme-color('primary');
+    $descriptionColor: contrast-color(
+        $color: $backgroundColor,
+        $dark: get-contrast-color('light', 'secondary'),
+        $light: get-contrast-color('dark', 'secondary')
+    );
+
+    background: $backgroundColor;
     padding-top: 96px;
     padding-bottom: 66px;
     overflow: hidden;
 
+    h1 {
+        font: 18px/24px 'opensans-bold', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding-bottom: 6px;
+        color: contrast-color($backgroundColor);
+    }
+
     h2 {
-        font: 22px/30px 'opensans-bold', sans-serif;
-        color: get-contrast-color('dark');
+        font: 16px/30px 'opensans-bold', sans-serif;
+        color: contrast-color($backgroundColor);
         margin-bottom: 12px;
     }
 
     p {
         line-height: 25px;
-        color: rgba(get-contrast-color('dark', 'secondary'), 0.35);
+        color: $descriptionColor;
     }
 
     .profile-pic {
@@ -34,20 +49,27 @@
         width: 41.66667%;
     }
 
-    .download {
-        width: 58.33333%;
+    .action-links {
+        display: flex;
+        align-items: center;
         padding-top: 6px;
+        float: none;
 
         .button {
-            margin-top: 6px;
-            color: get-contrast-color('dark');
-            background: get-theme-color('accent', 'dark');
-            transition: all 0.3s $timing-function-happy;
+            margin-top: 20px;
+            margin-right: 5px;
+            margin-left: 5px;
 
-            @include materialHover();
+            &.button-secondary {
+                $color: contrast-color($backgroundColor);
+                color: $color;
+                border-color: $color;
 
-            &:hover {
-                background: get-theme-color('accent');
+                &:hover {
+                    color: contrast-color($color);
+                    border-color: contrast-color($color);
+                    background-color: $color;
+                }
             }
         }
     }
@@ -62,11 +84,6 @@
             height: 140px;
             margin-left: 12px;
         }
-
-        .contact-details,
-        .download {
-            width: 50%;
-        }
     }
 
     @include media('<=tablet') {
@@ -74,10 +91,14 @@
             float: right;
         }
 
-        .download .button {
-            width: 100%;
-            text-align: center;
-            padding: 15px 20px;
+        .action-links {
+
+            // flex-direction: column;
+            flex-wrap: wrap;
+            .button {
+                width: 100%;
+                flex: 1;
+            }
         }
 
         .main-col {

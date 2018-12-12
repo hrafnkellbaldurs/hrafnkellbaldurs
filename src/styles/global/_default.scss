@@ -1,5 +1,7 @@
 @import '../utils/colors';
 @import '../utils/media-queries';
+@import '../utils/material-helpers';
+@import '../utils/animations';
 
 /*
 
@@ -340,18 +342,24 @@ blockquote cite a:visited {
 }
 
 /*  3. Links  ------------------------------------------------------- */
+a {
+    $color: get-theme-color('accent');
 
-a,
-a:visited {
-    text-decoration: none;
-    outline: 0;
-    color: get-theme-color('accent');
-    transition: color 0.3s ease-in-out;
+    &,
+    &:visited {
+        text-decoration: none;
+        outline: 0;
+        color: $color;
+        transition: color 0.3s ease-in-out;
+    }
+
+    &:hover,
+    &:focus {
+        text-decoration: underline;
+        color: get-theme-color('accent', 'light')
+    }
 }
-a:hover,
-a:focus {
-    color: #313131;
-}
+
 p a,
 p a:visited {
     line-height: inherit;
@@ -417,17 +425,74 @@ button,
 input[type='submit'],
 input[type='reset'],
 input[type='button'] {
-    font: 16px 'opensans-bold', sans-serif;
-    display: inline-block;
-    background: get-theme-color('accent');
-    color: get-contrast-color('dark');
+    $backgroundColor: get-theme-color('accent');
+
+    background-color: $backgroundColor;
+    color: contrast-color($backgroundColor);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font: 14px 'opensans-light', sans-serif;
     text-decoration: none;
+    text-transform: uppercase;
     letter-spacing: 0;
     padding: 12px 20px;
     border: none;
     cursor: pointer;
     height: auto;
-    border-radius: 3px;
+    border-radius: 30px;
+    white-space: nowrap;
+
+    transition: transition-happy();
+
+    &:hover {
+        text-decoration: none;
+        color: contrast-color($backgroundColor);
+        background-color: get-theme-color('accent', 'light');
+    }
+
+    .svgr {
+        font-size: 20px;
+    }
+
+    &.icon-right {
+        .text {
+            order: 1;
+        }
+
+        .svgr {
+            align-self: flex-end;
+            margin-left: 8px;
+            order: 2;
+        }
+    }
+
+    &.icon-left {
+        .text {
+            order: 2;
+        }
+
+        .svgr {
+            align-self: flex-start;
+            margin-right: 8px;
+            order: 1;
+        }
+    }
+
+    &.button-secondary {
+        $color: contrast-color($backgroundColor);
+        $backgroundColor: transparent;
+
+        background-color: $backgroundColor;
+        color: $color;
+        border: 1px solid $color;
+
+        &:hover {
+            color: contrast-color($color);
+            border-color: $backgroundColor;
+            background-color: $color;
+        }
+    }
 }
 
 /*  7. Forms  --------------------------------------------------------- */

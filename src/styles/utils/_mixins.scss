@@ -12,7 +12,7 @@
     $svgSizeRatio: 0.7
 ) {
     @if($backgroundColorHover == null) {
-        $backgroundColorHover: rgba($backgroundColor, 0.8);
+        $backgroundColorHover: lighten($backgroundColor, 10%);
     }
 
     @if($svgColor == null) {
