@@ -6,13 +6,16 @@
 $height: 48px;
 $padding-vertical: 0px;
 $padding-horizontal: 30px;
-$background-color: get-theme-color('foreground');
+$background-color: get-theme-color('primary');
+$border: 2px solid get-theme-color('accent');
+$item-color: contrast-color($background-color);
 
 // Burger menu
 $bm-burger-size: 36px;
-$bm-burger-color: get-theme-color('primary', 'light');
+$bm-burger-color: get-theme-color('accent');
 $bm-menu-color: $background-color;
 $bm-cross-color: $bm-burger-color;
+$bm-border: $border;
 
 .Nav {
     height: $height;
@@ -35,8 +38,7 @@ $bm-cross-color: $bm-burger-color;
         width: 100%;
         height: 100%;
         background-color: $background-color;
-
-        @include materialBoxShadow(2);
+        border-bottom: $border;
     }
 
     .items,
@@ -58,27 +60,30 @@ $bm-cross-color: $bm-burger-color;
     }
 
     .item {
-        $color: get-contrast-color('dark');
         $hoverColor: get-theme-color('accent');
 
         padding: 8px 13px;
         line-height: 32px;
         text-decoration: none;
         text-align: left;
-        color: $color;
+        color: $item-color;
         background: transparent;
         transition: color 200ms ease-in-out;
 
         &:hover {
-            color: lighten($color, 20%);
-            background: rgba(0, 0, 0, 0.1);
+            color: lighten($item-color, 10%);
+            background: contrast-color(
+                $color: $background-color,
+                $dark: rgba(black, 0.1),
+                $light: rgba(white, 0.1)
+            );
         }
 
         &.current {
             color: $hoverColor;
 
             &:hover {
-                color: lighten($hoverColor, 20%);
+                color: lighten($hoverColor, 10%);
             }
         }
     }
@@ -149,6 +154,7 @@ $bm-cross-color: $bm-burger-color;
         background: $bm-menu-color;
         padding: 2.5em 1.5em 0;
         font-size: 1.15em;
+        border-left: $bm-border;
     }
 
     /* Morph shape necessary with bubble or elastic */
@@ -158,14 +164,18 @@ $bm-cross-color: $bm-burger-color;
 
     /* Wrapper for item list */
     :global(.bm-item-list) {
-        color: get-contrast-color('dark');
+        color: contrast-color($bm-menu-color);
         padding: 0.8em;
     }
 
     /* Individual item */
     :global(.bm-item) {
         display: inline-block;
-        border-bottom: 1px solid lighten($bm-menu-color, 3%);
+        border-bottom: 1px solid contrast-color(
+            $color: $bm-menu-color,
+            $dark: rgba(black, 0.1),
+            $light: rgba(white, 0.1)
+        )
     }
 
     /* Styling of overlay */
