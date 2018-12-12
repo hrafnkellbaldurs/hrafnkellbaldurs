@@ -2,10 +2,15 @@
 @import '../../styles/utils/material-helpers';
 @import '../../styles/utils/animations';
 
-.ShowcaseItem {
-    $color: get-contrast-color('dark');
-    $border-radius: 15px;
+$backgroundColor: get-theme-color('secondary', 'light');
+$imageFallback: linear-gradient(
+    135deg,
+    rgba(get-theme-color('foreground'), 0.2) 0%,
+    rgba(get-theme-color('accent'), 0.2) 100%
+);
+$border-radius: 15px;
 
+.ShowcaseItem {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -14,10 +19,7 @@
     border-radius: $border-radius;
     overflow: hidden;
     margin: 15px;
-    background: linear-gradient(135deg,
-        rgba(get-theme-color('foreground'), 0.2) 0%,
-        rgba(get-theme-color('accent'), 0.2) 100%
-    );
+    background: $imageFallback;
     transition: transition-happy(transform);
 
     @include materialBoxShadow(1);
@@ -42,15 +44,19 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            background-color: rgba(white, 0.2);
+            background: linear-gradient(
+                to bottom,
+                rgba($backgroundColor, 0.2) 0%,
+                transparent 100%
+            );
         }
 
-        .infoContainer {
+        :global(.infoContainer) {
             border-top-color: get-theme-color('accent');
         }
     }
 
-    .imageContainer {
+    :global(.imageContainer) {
         background-repeat: no-repeat;
         background-size: 100%;
         background-position: center;
@@ -59,51 +65,47 @@
         flex: 1;
     }
 
-    .infoContainer {
-        $color: get-contrast-color('light');
-
-        color: $color;
-        background: get-theme-color('foreground', 'light');
+    :global(.infoContainer) {
+        color: contrast-color($backgroundColor);
+        background: $backgroundColor;
         height: 150px;
         width: 100%;
         padding: 15px;
         display: flex;
         flex-direction: column;
         border-top: 2px solid transparent;
-
-        .info {
-            color: currentColor;
-        }
     }
 
-    .title,
-    .subtitle {
+    :global(.title),
+    :global(.subtitle) {
         color: currentColor;
     }
 
-    .title {
+    :global(.title) {
         font-family: 'opensans-bold', sans-serif;
         font-size: 14px;
         line-height: 21px;
     }
 
-    .subtitle {
+    :global(.subtitle) {
         font-family: 'opensans-light', sans-serif;
         font-size: 12px;
         line-height: 18px;
         margin-bottom: 5px;
     }
 
-    .tags {
+    :global(.tags) {
         display: flex;
         width: 100%;
         align-items: flex-start;
         flex-wrap: wrap;
     }
 
-    .tag {
-        background: get-theme-color('foreground');
-        color: currentColor;
+    :global(.tag) {
+        $tagBackgroundColor: get-theme-color('secondary');
+
+        background: $tagBackgroundColor;
+        color: contrast-color($tagBackgroundColor);
         font-family: 'opensans-regular', sans-serif;
         font-size: 10px;
         margin: 2px;

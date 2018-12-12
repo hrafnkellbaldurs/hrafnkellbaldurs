@@ -1,22 +1,21 @@
 @import '../../utils/colors';
 @import '../../utils/media-queries';
 
+$backgroundColor: get-theme-color('secondary');
+
 .Section#portfolio {
-    // background: get-theme-color('foreground', 'dark');
-    background: linear-gradient(289deg,
-        mix(get-theme-color('accent', 'light'), get-theme-color('background'), 10%) 0%,
-        mix(get-theme-color('accent', 'light'), get-theme-color('background'), 70%) 40%,
-        get-theme-color('background') 100%
-    );
+    border-top: 1px solid rgba(contrast-color($backgroundColor), 0.1);
+    background-color: $backgroundColor;
     padding-top: 90px;
     padding-bottom: 60px;
 
     h1 {
-        font: 15px/24px 'opensans-semibold', sans-serif;
+        font: 18px/24px 'opensans-semibold', sans-serif;
         text-transform: uppercase;
         letter-spacing: 1px;
         text-align: center;
         margin-bottom: 48px;
+        color: contrast-color($backgroundColor)
     }
 
     h3 {

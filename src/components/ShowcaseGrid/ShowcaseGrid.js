@@ -8,13 +8,13 @@ import ShowcaseItem from '../ShowcaseItem'
 const globalLocalClassnames = R.partial(createGlobalLocalClassnames, [styles])
 
 class ShowcaseGrid extends React.PureComponent {
-    renderShowcaseItem(props) {
-        return <ShowcaseItem key={ props.id } { ...props } />
+    renderShowcaseItem = itemProps => {
+        return <ShowcaseItem key={ itemProps.id } { ...itemProps } />
     }
 
     render() {
         const {
-            showcases = [],
+            showcases = []
         } = this.props
 
         const containerProps = {
