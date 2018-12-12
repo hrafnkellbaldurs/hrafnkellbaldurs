@@ -1,9 +1,9 @@
 @import '../../styles/utils/mixins';
 
-$grid-gap: 20px;
-$showcase-size: 300px;
-
 .ShowcaseGrid {
+    $grid-gap: 20px;
+    $showcase-size: 300px;
+
     width: 100%;
 
     .showcases {
@@ -11,9 +11,7 @@ $showcase-size: 300px;
             $gap: $grid-gap,
             $min-item-size: $showcase-size
         );
-
     }
-
     :global(.ShowcaseItem) {
         margin: 0;
         min-height: $showcase-size;

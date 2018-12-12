@@ -1,5 +1,5 @@
 // Generates a map with different variants of the given $color
-@function generateThemeColorVariantMap($color, $colorGap: 20%) {
+@function generateThemeColorVariantMap($color, $colorGap: 10%) {
     @return (
         'base': $color,
         'light': lighten($color, $colorGap),

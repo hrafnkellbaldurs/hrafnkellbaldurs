@@ -1,14 +1,14 @@
 @import '../../utils/colors';
 @import '../../utils/media-queries';
 
-$backgroundColor: get-theme-color('secondary');
-$descriptionColor: contrast-color(
-    $color: $backgroundColor,
-    $dark: get-contrast-color('light', 'secondary'),
-    $light: get-contrast-color('dark', 'secondary')
-);
-
 .Section#resume {
+    $backgroundColor: get-theme-color('secondary');
+    $descriptionColor: contrast-color(
+        $color: $backgroundColor,
+        $dark: get-contrast-color('light', 'secondary'),
+        $light: get-contrast-color('dark', 'secondary')
+    );
+
     background: $backgroundColor;
     padding-top: 90px;
     padding-bottom: 72px;
@@ -19,7 +19,7 @@ $descriptionColor: contrast-color(
         text-transform: uppercase;
         letter-spacing: 1px;
         padding-bottom: 6px;
-        color: contrast-color($backgroundColor)
+        color: contrast-color($backgroundColor);
     }
 
     p {

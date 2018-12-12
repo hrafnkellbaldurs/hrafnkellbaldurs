@@ -2,15 +2,15 @@
 @import '../../styles/utils/material-helpers';
 @import '../../styles/utils/animations';
 
-$backgroundColor: get-theme-color('secondary', 'light');
-$imageFallback: linear-gradient(
-    135deg,
-    rgba(get-theme-color('foreground'), 0.2) 0%,
-    rgba(get-theme-color('accent'), 0.2) 100%
-);
-$border-radius: 15px;
-
 .ShowcaseItem {
+    $backgroundColor: white;
+    $imageFallback: linear-gradient(
+        135deg,
+        rgba($backgroundColor, 0.2) 0%,
+        rgba(get-theme-color('accent'), 0.8) 100%
+    );
+    $border-radius: 15px;
+
     position: relative;
     display: flex;
     flex-direction: column;
@@ -67,7 +67,7 @@ $border-radius: 15px;
 
     :global(.infoContainer) {
         color: contrast-color($backgroundColor);
-        background: $backgroundColor;
+        background-color: $backgroundColor;
         height: 150px;
         width: 100%;
         padding: 15px;
@@ -102,7 +102,7 @@ $border-radius: 15px;
     }
 
     :global(.tag) {
-        $tagBackgroundColor: get-theme-color('secondary');
+        $tagBackgroundColor: darken($backgroundColor, 10%);
 
         background: $tagBackgroundColor;
         color: contrast-color($tagBackgroundColor);
