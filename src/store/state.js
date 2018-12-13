@@ -33,5 +33,9 @@ export default {
         size: MODAL_SIZES.SMALL,
         type: MODAL_TYPES.DEFAULT,
         renderContent: null
-    }
+    },
+    workExperience: [],
+    educationExperience: [],
+    skills: [],
+    showcases: []
 }
