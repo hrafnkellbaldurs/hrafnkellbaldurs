@@ -1,0 +1,10 @@
+@import '../../utils/colors';
+
+body {
+    background: get-theme-color('background');
+}
+
+@import './content-section';
+@include contentSectionStyles(
+    $backgroundColor: get-theme-color('primary', 'light')
+)
