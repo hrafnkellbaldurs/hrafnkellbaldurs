@@ -17,7 +17,7 @@ class Layout extends React.PureComponent {
                     meta={ [
                         { name: 'description', content: siteMetadata.description },
                         { name: 'author', content: siteMetadata.author },
-                        { name: 'keywords', content: 'sample, something' },
+                        { name: 'keywords', content: siteMetadata.keywords },
                     ] }
                 >
                     <html lang="en" />
@@ -32,7 +32,12 @@ class Layout extends React.PureComponent {
 
 Layout.propTypes = {
     children: PropTypes.node.isRequired,
-    siteMetadata: PropTypes.object.isRequired
+    siteMetadata: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        author: PropTypes.string.isRequired,
+        keywords: PropTypes.string.isRequired
+    })
 }
 
 export default Layout

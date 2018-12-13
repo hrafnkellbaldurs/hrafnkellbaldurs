@@ -16,6 +16,7 @@ class LayoutContainer extends React.PureComponent {
                                 title
                                 description
                                 author
+                                keywords
                             }
                         }
                     }
