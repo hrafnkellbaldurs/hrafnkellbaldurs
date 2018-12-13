@@ -4,8 +4,11 @@
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
 
-// You can delete this file if you're not using it
+// Wrap the root element with the context provider
+const store = require('./src/store')
+exports.wrapRootElement = store.wrapWithProvider
 
 // Global styles
 require('./src/styles/global/main.scss')
 exports.onClientEntry = () => {}
+
