@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './Nav.module.scss'
-import { createGlobalLocalClassnames } from '../../scripts/utils'
+import { createGlobalLocalClassnames, isHome } from '../../scripts/utils'
 import * as R from 'ramda'
 import classnames from 'classnames'
 import NavMenu from 'react-burger-menu/lib/menus/slide'
@@ -34,7 +34,9 @@ class Nav extends React.PureComponent {
     }
 
     onItemClick = e => {
-        e.preventDefault()
+        if (isHome()) {
+            e.preventDefault()
+        }
         this.closeMenu()
     }
 

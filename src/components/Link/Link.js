@@ -1,10 +1,11 @@
 import React from 'react'
 import { Link as GatsbyLink } from 'gatsby'
+import { isHome } from '../../scripts/utils'
 import scrollIntoView from 'smooth-scroll-into-view-if-needed'
 import * as R from 'ramda'
 
 const onInternalClick = ({ smoothScroll }, e) => {
-    if (smoothScroll) {
+    if (smoothScroll && isHome()) {
         e.preventDefault()
         const target = e.currentTarget.hash.split('#')[1]
         const targetNode = document.getElementById(target)
@@ -42,10 +43,11 @@ const Link = props => {
 
     // Use Gatsby Link for internal links, and <a> for others
     if (internal && !file) {
-        const onClickHandler = (...args) => {
-            onInternalClick({ smoothScroll }, ...args)
+        const onClickHandler = e => {
+            onInternalClick({ smoothScroll }, e)
+
             if (!R.isNil(onClick)) {
-                onClick(...args)
+                onClick(e)
             }
         }
 
