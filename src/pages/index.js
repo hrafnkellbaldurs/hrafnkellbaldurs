@@ -15,6 +15,7 @@ import Waypoint from 'react-waypoint'
 import ShowcaseGrid from '../components/ShowcaseGrid'
 import { SECTION_IDS, MODAL_SIZES } from '../constants'
 import { actions, subscribe, connect } from '../store'
+import { pluckEdgeNodes } from '../scripts/utils'
 
 subscribe((action, state) => console.log(action, state))
 
@@ -62,14 +63,6 @@ const RenderHero = props => {
         </Hero>
     )
 }
-const ConnectedRenderHero = connect(({ aboutMe }) => {
-    return {
-        sectionId: SECTION_IDS.HOME,
-        authorFullName: aboutMe.contactDetails.name,
-        text: aboutMe.shortDescription,
-        backgroundUrl: require('../assets/images/hero-background.jpg')
-    }
-})(RenderHero)
 
 const AboutSection = props => {
     const {
@@ -151,12 +144,6 @@ const AboutSection = props => {
         </>
     )
 }
-const ConnectedAboutSection = connect(({ aboutMe }) => {
-    return {
-        ...aboutMe,
-        sectionId: SECTION_IDS.ABOUT
-    }
-})(AboutSection)
 
 const ResumeSection = props => {
     const {
@@ -342,13 +329,32 @@ const ConnectedPortfolioSection = connect(({ showcases }) => {
     }
 })(PortfolioSection)
 
+const mapData = R.mapObjIndexed(pluckEdgeNodes)
 class IndexPage extends React.PureComponent {
     render() {
+        const {
+            aboutMe: aboutMeItems
+        } = mapData(this.props.data)
+
+        const aboutMe = R.head(aboutMeItems)
+
+        const heroProps = {
+            sectionId: SECTION_IDS.HOME,
+            authorFullName: aboutMe.contactDetails.name,
+            text: aboutMe.shortDescription,
+            backgroundUrl: require('../assets/images/hero-background.jpg')
+        }
+
+        const aboutSectionProps = {
+            ...aboutMe,
+            sectionId: SECTION_IDS.ABOUT
+        }
+
         return (
             <LayoutContainer>
                 <SEO title="Home" keywords={['gatsby', 'application', 'react', 'portfolio']}/>
-                <ConnectedRenderHero />
-                <ConnectedAboutSection />
+                <RenderHero { ...heroProps }/>
+                <AboutSection {...aboutSectionProps} />
                 <ConnectedResumeSection />
                 <ConnectedPortfolioSection />
             </LayoutContainer>

@@ -4,7 +4,8 @@ import { actions } from './index'
 import * as R from 'ramda'
 
 /**
- * Takes an object that
+ * Takes an object that contains a list of edges which each contain a node.
+ * Returns a list of the value of each node
  * @param {Object} obj
  * @param {Object[]} obj.edges - A list of literal edge objects
  * @param {Object} obj.edges[].node - Should contain the data we want to pluck
