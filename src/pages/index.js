@@ -14,10 +14,10 @@ import HTMLReactParser from 'html-react-parser'
 import Waypoint from 'react-waypoint'
 import ShowcaseGrid from '../components/ShowcaseGrid'
 import { SECTION_IDS, MODAL_SIZES } from '../constants'
-import { actions, subscribe, connect } from '../store'
+import { actions, connect } from '../store'
 import { pluckEdgeNodes } from '../scripts/utils'
 
-subscribe((action, state) => console.log(action, state))
+// subscribe((action, state) => console.log(action, state))
 
 const WAYPOINT_PROPS = {
     topOffset: '40%',
@@ -261,11 +261,8 @@ const ResumeSection = props => {
 
     )
 }
-const ConnectedResumeSection = connect(({ workExperience, educationExperience, skills }) => {
+const ConnectedResumeSection = connect(({ skills }) => {
     return {
-        sectionId: SECTION_IDS.RESUME,
-        workExperience,
-        educationExperience,
         skills
     }
 })(ResumeSection)
@@ -333,7 +330,9 @@ const mapData = R.mapObjIndexed(pluckEdgeNodes)
 class IndexPage extends React.PureComponent {
     render() {
         const {
-            aboutMe: aboutMeItems
+            aboutMe: aboutMeItems,
+            workExperience,
+            educationExperience
         } = mapData(this.props.data)
 
         const aboutMe = R.head(aboutMeItems)
@@ -350,12 +349,18 @@ class IndexPage extends React.PureComponent {
             sectionId: SECTION_IDS.ABOUT
         }
 
+        const resumeSectionProps = {
+            sectionId: SECTION_IDS.RESUME,
+            workExperience,
+            educationExperience
+        }
+
         return (
             <LayoutContainer>
                 <SEO title="Home" keywords={['gatsby', 'application', 'react', 'portfolio']}/>
                 <RenderHero { ...heroProps }/>
                 <AboutSection {...aboutSectionProps} />
-                <ConnectedResumeSection />
+                <ConnectedResumeSection { ...resumeSectionProps } />
                 <ConnectedPortfolioSection />
             </LayoutContainer>
         )

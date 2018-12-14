@@ -34,8 +34,6 @@ export default {
         type: MODAL_TYPES.DEFAULT,
         renderContent: null
     },
-    workExperience: [],
-    educationExperience: [],
     skills: [],
     showcases: []
 }
