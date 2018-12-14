@@ -13,12 +13,9 @@ import HTMLReactParser from 'html-react-parser'
 import Waypoint from 'react-waypoint'
 import ShowcaseGrid from '../components/ShowcaseGrid'
 import { SECTION_IDS, MODAL_SIZES } from '../constants'
-import { actions } from '../store'
+import { actions, subscribe, connect } from '../store'
 
-const mapData = R.mapObjIndexed(R.pipe(
-    R.prop('edges'),
-    R.pluck('node')
-))
+subscribe((action, state) => console.log(action, state))
 
 const WAYPOINT_PROPS = {
     topOffset: '40%',
@@ -64,17 +61,33 @@ const RenderHero = props => {
         </Hero>
     )
 }
+const ConnectedRenderHero = connect(({ aboutMe }) => {
+    return {
+        sectionId: SECTION_IDS.HOME,
+        authorFullName: aboutMe.contactDetails.name,
+        text: aboutMe.shortDescription,
+        backgroundUrl: require('../assets/images/hero-background.jpg')
+    }
+})(RenderHero)
 
-const RenderAboutSection = props => {
+const AboutSection = props => {
     const {
         sectionId,
         title,
-        description,
-        urls,
-        contactDetails,
+        description = '',
+        urls = {},
+        contactDetails = {},
         downloadResumeLabel,
         contactLabel
     } = props
+
+    const {
+        profilePic = {},
+        portfolioPdf = {}
+    } = urls
+
+    const ContactIcon = require('../assets/icons/paper-plane.svg').ReactComponent
+    const DownloadIcon = require('../assets/icons/download.svg').ReactComponent
 
     const waypointProps = {
         ...WAYPOINT_PROPS,
@@ -82,9 +95,6 @@ const RenderAboutSection = props => {
             id: sectionId
         })
     }
-
-    const ContactIcon = require('../assets/icons/paper-plane.svg').ReactComponent
-    const DownloadIcon = require('../assets/icons/download.svg').ReactComponent
 
     return (
         <>
@@ -94,7 +104,7 @@ const RenderAboutSection = props => {
 
                         <div className="three columns">
 
-                            <img className="profile-pic" src={ urls.profilePic.public } alt="profile picture" />
+                            <img className="profile-pic" src={ profilePic.public } alt="profile picture" />
                         </div>
 
                         <div className="nine columns main-col">
@@ -126,7 +136,7 @@ const RenderAboutSection = props => {
                                         <span className="text">{ contactLabel }</span>
                                         <ContactIcon />
                                     </Link>
-                                    <Link to={ urls.portfolioPdf.public } className="button icon-right" target="_blank">
+                                    <Link to={ portfolioPdf.public } className="button icon-right" target="_blank">
                                         <span className="text">{ downloadResumeLabel }</span>
                                         <DownloadIcon />
                                     </Link>
@@ -140,12 +150,18 @@ const RenderAboutSection = props => {
         </>
     )
 }
+const ConnectedAboutSection = connect(({ aboutMe }) => {
+    return {
+        ...aboutMe,
+        sectionId: SECTION_IDS.ABOUT
+    }
+})(AboutSection)
 
-const RenderResumeSection = props => {
+const ResumeSection = props => {
     const {
         sectionId,
-        workExperienceItems,
-        educationExperienceItems,
+        workExperience: workExperienceItems,
+        educationExperience: educationExperienceItems,
         skills
     } = props
 
@@ -257,8 +273,16 @@ const RenderResumeSection = props => {
 
     )
 }
+const ConnectedResumeSection = connect(({ workExperience, educationExperience, skills }) => {
+    return {
+        sectionId: SECTION_IDS.RESUME,
+        workExperience,
+        educationExperience,
+        skills
+    }
+})(ResumeSection)
 
-const RenderPortfolioSection = props => {
+const PortfolioSection = props => {
     const {
         sectionId,
         showcases = []
@@ -310,53 +334,26 @@ const RenderPortfolioSection = props => {
         </Section>
     )
 }
+const ConnectedPortfolioSection = connect(({ showcases }) => {
+    return {
+        sectionId: SECTION_IDS.PORTFOLIO,
+        showcases
+    }
+})(PortfolioSection)
 
 class IndexPage extends React.PureComponent {
+    constructor(props) {
+        super(props)
+        actions.initStateWithGraphqlData({ ...props.data })
+    }
+
     render() {
-        const {
-            props
-        } = this
-
-        const {
-            aboutMe: aboutMeData,
-            workExperience: workExperienceItems,
-            educationExperience: educationExperienceItems,
-            skills,
-            showcases
-        } = mapData(props.data)
-
-        const aboutMe = aboutMeData[0]
-
-        const heroProps = {
-            sectionId: SECTION_IDS.HOME,
-            authorFullName: aboutMe.contactDetails.name,
-            text: aboutMe.shortDescription,
-            backgroundUrl: require('../assets/images/hero-background.jpg')
-        }
-
-        const aboutProps = {
-            ...aboutMe,
-            sectionId: SECTION_IDS.ABOUT
-        }
-
-        const resumeProps = {
-            sectionId: SECTION_IDS.RESUME,
-            workExperienceItems,
-            educationExperienceItems,
-            skills
-        }
-
-        const portfolioProps = {
-            sectionId: SECTION_IDS.PORTFOLIO,
-            showcases
-        }
-
         return (
             <LayoutContainer>
-                <RenderHero { ...heroProps } />
-                <RenderAboutSection { ...aboutProps } />
-                <RenderResumeSection { ...resumeProps } />
-                <RenderPortfolioSection { ...portfolioProps } />
+                <ConnectedRenderHero />
+                <ConnectedAboutSection />
+                <ConnectedResumeSection />
+                <ConnectedPortfolioSection />
             </LayoutContainer>
         )
     }

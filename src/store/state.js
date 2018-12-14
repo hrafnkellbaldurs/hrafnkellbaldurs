@@ -33,5 +33,12 @@ export default {
         size: MODAL_SIZES.SMALL,
         type: MODAL_TYPES.DEFAULT,
         renderContent: null
-    }
+    },
+    aboutMe: {
+        contactDetails: {}
+    },
+    workExperience: [],
+    educationExperience: [],
+    skills: [],
+    showcases: []
 }
