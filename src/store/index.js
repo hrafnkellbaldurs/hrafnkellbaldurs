@@ -1,12 +1,22 @@
 import React from 'react'
 
-import {
+import createStore from 'react-waterfall'
+
+import initialState from './state'
+import actionsCreators from './actions'
+
+const config = {
+    initialState,
+    actionsCreators
+}
+
+const {
     Provider,
     connect,
     actions,
     subscribe,
     unsubscribe
-} from './store'
+} = createStore(config)
 
 const wrapWithProvider = ({ element }) => <Provider>{ element }</Provider>
 

@@ -35,7 +35,7 @@ const SkillBadge = props => {
         className: classnames(
             globalLocalClassnames('SkillBadge')
         ),
-        onClick: _e => onClick(_e, props)
+        onClick: _e => onClick(props, _e)
     }
 
     const itemLabelProps = {

@@ -9,7 +9,7 @@ import Link from '../components/Link'
 import Hero from '../components/Hero'
 import Section from '../components/Section'
 import Experience from '../components/Experience'
-import SkillGrid from '../components/SkillGrid'
+import { SkillGridContainer } from '../components/SkillGrid'
 import HTMLReactParser from 'html-react-parser'
 import Waypoint from 'react-waypoint'
 import ShowcaseGrid from '../components/ShowcaseGrid'
@@ -187,22 +187,6 @@ const ResumeSection = props => {
         })
     }
 
-    const onSkillClick = (_e, { id, name }) => {
-        actions.showModal({
-            renderContent: () => {
-                return (
-                    <>
-                        <h2>SkillBadge Dialog</h2>
-                        <p>
-                            { name } { id }
-                        </p>
-                    </>
-                )
-            },
-            size: MODAL_SIZES.SMALL
-        })
-    }
-
     return (
         <Section id={ sectionId }>
             <Waypoint { ...waypointProps }>
@@ -251,7 +235,7 @@ const ResumeSection = props => {
                                         I have experience with a broad field of front-end technologies and frameworks.
                                     </p>
                                 </div>
-                                <SkillGrid skills={ skills } onSkillClick={ onSkillClick }></SkillGrid>
+                                <SkillGridContainer />
                             </div>
                         </div>
                     </div>
@@ -261,11 +245,6 @@ const ResumeSection = props => {
 
     )
 }
-const ConnectedResumeSection = connect(({ skills }) => {
-    return {
-        skills
-    }
-})(ResumeSection)
 
 const PortfolioSection = props => {
     const {
@@ -360,7 +339,7 @@ class IndexPage extends React.PureComponent {
                 <SEO title="Home" keywords={['gatsby', 'application', 'react', 'portfolio']}/>
                 <RenderHero { ...heroProps }/>
                 <AboutSection {...aboutSectionProps} />
-                <ConnectedResumeSection { ...resumeSectionProps } />
+                <ResumeSection { ...resumeSectionProps } />
                 <ConnectedPortfolioSection />
             </LayoutContainer>
         )

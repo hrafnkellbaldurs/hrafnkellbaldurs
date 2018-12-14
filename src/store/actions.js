@@ -1,4 +1,6 @@
+import React from 'react'
 import defaultState from './state'
+import * as R from 'ramda'
 
 // General
 const initStateWithGraphqlData = (_s, _a, data) => ({ ...data })
@@ -18,10 +20,26 @@ const showModal = (_s, _a, { type, size, renderContent }) => ({
 })
 const hideModal = (_s, _a) => ({ modal: defaultState.modal })
 
+// SkillBadge
+const onSkillClick = (_s, _a, { id }) => {
+    const skill = _s.skills.find(R.propEq('id', id))
+
+    const modal = showModal(_s, _a, {
+        type: 'DEFAULT',
+        size: 'SMALL',
+        renderContent: () => {
+            return <pre>{ JSON.stringify(skill, null, 2) }</pre>
+        }
+    }).modal
+
+    return { modal }
+}
+
 export default {
     initStateWithGraphqlData,
     setCurrentNavItemId,
     setNavMenuOpen,
     showModal,
-    hideModal
+    hideModal,
+    onSkillClick
 }
