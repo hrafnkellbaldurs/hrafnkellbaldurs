@@ -10,11 +10,11 @@ import Hero from '../components/Hero'
 import Section from '../components/Section'
 import Experience from '../components/Experience'
 import { SkillGridContainer } from '../components/SkillGrid'
+import { ShowcaseGridContainer } from '../components/ShowcaseGrid'
 import HTMLReactParser from 'html-react-parser'
 import Waypoint from 'react-waypoint'
-import ShowcaseGrid from '../components/ShowcaseGrid'
-import { SECTION_IDS, MODAL_SIZES } from '../constants'
-import { actions, connect } from '../store'
+import { SECTION_IDS } from '../constants'
+import { actions } from '../store'
 import { pluckEdgeNodes } from '../scripts/utils'
 
 // subscribe((action, state) => console.log(action, state))
@@ -247,8 +247,7 @@ const ResumeSection = props => {
 
 const PortfolioSection = props => {
     const {
-        sectionId,
-        showcases = []
+        sectionId
     } = props
 
     const waypointProps = {
@@ -258,51 +257,19 @@ const PortfolioSection = props => {
         })
     }
 
-    const onShowcaseClick = ({ id, title }) => {
-        actions.showModal({
-            renderContent: () => {
-                return (
-                    <>
-                        <h2>Showcase Dialog</h2>
-                        <p>
-                            { title } { id }
-                        </p>
-                    </>
-                )
-            },
-            size: MODAL_SIZES.MEDIUM
-        })
-    }
-    const mapShowcase = showcase => {
-        return {
-            ...showcase,
-            image: {
-                src: R.path(['image', 'publicURL'], showcase),
-                label: showcase.title
-            },
-            onClick: onShowcaseClick
-        }
-    }
-
     return (
         <Section id={ sectionId }>
             <Waypoint { ...waypointProps }>
                 <div className="row">
                     <div className="twelve columns content-container">
                         <h1 className="accent-underline">Portfolio</h1>
-                        <ShowcaseGrid showcases={ showcases.map(mapShowcase) } />
+                        <ShowcaseGridContainer />
                     </div>
                 </div>
             </Waypoint>
         </Section>
     )
 }
-const ConnectedPortfolioSection = connect(({ showcases }) => {
-    return {
-        sectionId: SECTION_IDS.PORTFOLIO,
-        showcases
-    }
-})(PortfolioSection)
 
 const mapData = R.mapObjIndexed(pluckEdgeNodes)
 class IndexPage extends React.PureComponent {
@@ -333,13 +300,17 @@ class IndexPage extends React.PureComponent {
             educationExperience
         }
 
+        const portfolioSectionProps = {
+            sectionId: SECTION_IDS.PORTFOLIO
+        }
+
         return (
             <LayoutContainer>
                 <SEO title="Home" keywords={['gatsby', 'application', 'react', 'portfolio']}/>
                 <RenderHero { ...heroProps }/>
                 <AboutSection {...aboutSectionProps} />
                 <ResumeSection { ...resumeSectionProps } />
-                <ConnectedPortfolioSection />
+                <PortfolioSection { ...portfolioSectionProps }/>
             </LayoutContainer>
         )
     }

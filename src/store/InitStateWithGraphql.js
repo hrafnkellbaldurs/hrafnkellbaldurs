@@ -1,19 +1,30 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import { actions } from './index'
+import { pluckEdgeNodes } from '../scripts/utils'
 import * as R from 'ramda'
 
-/**
- * Takes an object that contains a list of edges which each contain a node.
- * Returns a list of the value of each node
- * @param {Object} obj
- * @param {Object[]} obj.edges - A list of literal edge objects
- * @param {Object} obj.edges[].node - Should contain the data we want to pluck
- * @returns {any[]} - Returns an array of the contents of each edge node
- */
-const pluckEdgeNodes = R.pipe(
-    R.prop('edges'),
-    R.pluck('node')
+const mapGraphqlAsset = (asset, label) => ({
+    src: R.prop('publicURL', asset),
+    label
+})
+
+const mapData = R.pipe(
+    // Pluck the edge nodes of each property in data.
+    // This eliminates the deep nesting of the data we want (data[prop].edges[i].node[dataWeWant] => data[prop][dataWeWant])
+    R.mapObjIndexed(pluckEdgeNodes),
+    // I think we'll only ever need 1 item for aboutMe, so only get the first item
+    R.evolve({
+        aboutMe: R.head,
+        showcases: R.map(showcase => ({
+            ...showcase,
+            image: mapGraphqlAsset(showcase.image, showcase.title)
+        })),
+        skills: R.map(skill => ({
+            ...skill,
+            logo: mapGraphqlAsset(skill.logo, skill.name)
+        }))
+    })
 )
 
 /**
@@ -24,13 +35,7 @@ class InitStateWithGraphql extends React.PureComponent {
     constructor(props) {
         super(props)
 
-        const mappedData = R.pipe(
-            // Pluck the edge nodes of each property in data.
-            // This eliminates the deep nesting of the data we want (data[prop].edges[i].node[dataWeWant] => data[prop][dataWeWant])
-            R.mapObjIndexed(pluckEdgeNodes),
-            // I think we'll only ever need 1 item for aboutMe, so only get the first item
-            R.evolve({ aboutMe: R.head })
-        )(props.data)
+        const mappedData = mapData(props.data)
 
         actions.initStateWithGraphqlData({ ...mappedData })
     }

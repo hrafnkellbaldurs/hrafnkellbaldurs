@@ -19,12 +19,16 @@ class ShowcaseItem extends React.PureComponent {
         }),
         title: PropTypes.string,
         subtitle: PropTypes.string,
-        tags: PropTypes.string,
+        // comma seperated string or array
+        tags: PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.arrayOf(PropTypes.string)
+        ]),
         onClick: PropTypes.func
     }
 
     handleOnClick = _e => {
-        this.props.onClick(this.props)
+        this.props.onClick(this.props, _e)
     }
 
     render() {

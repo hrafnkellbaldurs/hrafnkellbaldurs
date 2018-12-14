@@ -35,11 +35,26 @@ const onSkillClick = (_s, _a, { id }) => {
     return { modal }
 }
 
+const onShowcaseClick = (_s, _a, { id }) => {
+    const showcase = _s.showcases.find(R.propEq('id', id))
+
+    const modal = showModal(_s, _a, {
+        type: 'DEFAULT',
+        size: 'LARGE',
+        renderContent: () => {
+            return <pre>{ JSON.stringify(showcase, null, 2) }</pre>
+        }
+    }).modal
+
+    return { modal }
+}
+
 export default {
     initStateWithGraphqlData,
     setCurrentNavItemId,
     setNavMenuOpen,
     showModal,
     hideModal,
-    onSkillClick
+    onSkillClick,
+    onShowcaseClick
 }

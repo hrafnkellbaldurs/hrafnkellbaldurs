@@ -9,7 +9,12 @@ const globalLocalClassnames = R.partial(createGlobalLocalClassnames, [styles])
 
 class ShowcaseGrid extends React.PureComponent {
     renderShowcaseItem = itemProps => {
-        return <ShowcaseItem key={ itemProps.id } { ...itemProps } />
+        return (
+            <ShowcaseItem
+                { ...itemProps }
+                key={ itemProps.id }
+                onClick={ this.props.onShowcaseClick }
+            />)
     }
 
     render() {
