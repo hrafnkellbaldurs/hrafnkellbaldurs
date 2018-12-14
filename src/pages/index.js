@@ -149,8 +149,7 @@ const ResumeSection = props => {
     const {
         sectionId,
         workExperience: workExperienceItems,
-        educationExperience: educationExperienceItems,
-        skills
+        educationExperience: educationExperienceItems
     } = props
 
     const renderExperience = (item, i) => {
