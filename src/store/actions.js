@@ -1,5 +1,7 @@
 import defaultState from './state'
-import * as R from 'ramda'
+
+// General
+const initStateWithGraphqlData = (_s, _a, data) => ({ ...data })
 
 // Nav
 const setCurrentNavItemId = (_s, _a, currentNavItemId) => ({ currentNavItemId })
@@ -16,32 +18,10 @@ const showModal = (_s, _a, { type, size, renderContent }) => ({
 })
 const hideModal = (_s, _a) => ({ modal: defaultState.modal })
 
-const mapGraphqlData = R.mapObjIndexed(R.pipe(
-    R.prop('edges'),
-    R.pluck('node')
-))
-const initStateWithGraphqlData = (_s, _a, data) => {
-    const {
-        aboutMe,
-        workExperience,
-        educationExperience,
-        skills,
-        showcases
-    } = mapGraphqlData(data)
-
-    return {
-        aboutMe: aboutMe[0],
-        workExperience,
-        educationExperience,
-        skills,
-        showcases
-    }
-}
-
 export default {
+    initStateWithGraphqlData,
     setCurrentNavItemId,
     setNavMenuOpen,
     showModal,
-    hideModal,
-    initStateWithGraphqlData
+    hideModal
 }

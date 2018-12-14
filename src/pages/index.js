@@ -343,11 +343,6 @@ const ConnectedPortfolioSection = connect(({ showcases }) => {
 })(PortfolioSection)
 
 class IndexPage extends React.PureComponent {
-    constructor(props) {
-        super(props)
-        actions.initStateWithGraphqlData({ ...props.data })
-    }
-
     render() {
         return (
             <LayoutContainer>

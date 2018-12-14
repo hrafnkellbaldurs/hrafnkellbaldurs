@@ -3,30 +3,34 @@ import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import Layout from './Layout'
 import { ModalRoot } from '../Modal'
+import InitStateWithGraphql from '../../store/InitStateWithGraphql'
 
 class LayoutContainer extends React.PureComponent {
     render() {
         const { children } = this.props
         return (
-            <StaticQuery
-                query={ graphql`
-                    query SiteMetaQuery {
-                        site {
-                            siteMetadata {
-                                title
+            <>
+                <InitStateWithGraphql />
+                <StaticQuery
+                    query={ graphql`
+                        query SiteMetaQuery {
+                            site {
+                                siteMetadata {
+                                    title
+                                }
                             }
                         }
-                    }
-                `}
-                render={ ({ site: { siteMetadata: { title } } }) => (
-                    <>
-                        <Layout siteTitle={ title }>
-                            { children }
-                        </Layout>
-                        <ModalRoot />
-                    </>
-                ) }
-            />
+                    `}
+                    render={ ({ site: { siteMetadata: { title } } }) => (
+                        <>
+                            <Layout siteTitle={ title }>
+                                { children }
+                            </Layout>
+                            <ModalRoot />
+                        </>
+                    ) }
+                />
+            </>
         )
     }
 }
