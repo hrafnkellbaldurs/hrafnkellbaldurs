@@ -1,6 +1,6 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
-import { actions } from '../store'
+import { actions } from './index'
 import * as R from 'ramda'
 
 /**
