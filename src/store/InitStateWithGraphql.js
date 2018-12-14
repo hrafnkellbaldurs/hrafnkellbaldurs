@@ -41,18 +41,16 @@ class InitStateWithGraphql extends React.PureComponent {
 
 const InitStateWithGraphqlContainer = () => {
     return <StaticQuery
-        query={ initStateQuery }
+        query={ graphql`
+            query InitStateQuery {
+                ...AboutMeFragment
+                ...ExperienceFragment
+                ...SkillsFragment
+                ...ShowcasesFragment
+            }
+        ` }
         render={ data => <InitStateWithGraphql data={ data } /> }
     />
 }
 
 export default InitStateWithGraphqlContainer
-
-export const initStateQuery = graphql`
-  query InitStateQuery {
-    ...AboutMeFragment
-    ...ExperienceFragment
-    ...SkillsFragment
-    ...ShowcasesFragment
-  }
-`

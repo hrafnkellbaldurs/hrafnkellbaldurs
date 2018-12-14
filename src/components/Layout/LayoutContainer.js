@@ -13,7 +13,7 @@ class LayoutContainer extends React.PureComponent {
                 <InitStateWithGraphql />
                 <StaticQuery
                     query={ graphql`
-                        query SiteMetaQuery {
+                        query LayoutQuery {
                             site {
                                 siteMetadata {
                                     title
