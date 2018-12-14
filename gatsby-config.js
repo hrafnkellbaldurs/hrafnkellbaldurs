@@ -5,8 +5,7 @@ module.exports = {
     siteMetadata: {
         title: siteName,
         description: packageJson.description,
-        author: packageJson.author,
-        keywords: 'sample, something'
+        author: packageJson.author
     },
     plugins: [
         {

@@ -14,16 +14,13 @@ class LayoutContainer extends React.PureComponent {
                         site {
                             siteMetadata {
                                 title
-                                description
-                                author
-                                keywords
                             }
                         }
                     }
                 `}
-                render={ data => (
+                render={ ({ site: { siteMetadata: { title } } }) => (
                     <>
-                        <Layout siteMetadata={ data.site.siteMetadata }>
+                        <Layout siteTitle={ title }>
                             { children }
                         </Layout>
                         <ModalRoot />

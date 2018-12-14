@@ -3,6 +3,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import * as R from 'ramda'
 import { LayoutContainer } from '../components/Layout'
+import SEO from '../components/SEO'
 import FitText from 'react-fittext'
 import Link from '../components/Link'
 import Hero from '../components/Hero'
@@ -350,6 +351,7 @@ class IndexPage extends React.PureComponent {
     render() {
         return (
             <LayoutContainer>
+                <SEO title="Home" keywords={['gatsby', 'application', 'react', 'portfolio']}/>
                 <ConnectedRenderHero />
                 <ConnectedAboutSection />
                 <ConnectedResumeSection />

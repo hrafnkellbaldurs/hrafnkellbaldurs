@@ -2,6 +2,7 @@ import React from 'react'
 import { LayoutContainer } from '../components/Layout'
 import Section from '../components/Section'
 import Link from '../components/Link'
+import SEO from '../components/SEO'
 import '../styles/pages/404/main.scss'
 import { ReactComponent as HomeIcon } from '../assets/icons/home-1.svg'
 import { ReactComponent as ErrorIcon } from '../assets/icons/error.svg'
@@ -20,6 +21,7 @@ class NotFoundPage extends React.Component {
     render() {
         return (
             <LayoutContainer>
+                <SEO title="404: Not found" />
                 <Section id="content404" style={ { height: `${ this.state.height }px` } }>
                     <div className="row container">
                         <div className="message-container accent-underline">
