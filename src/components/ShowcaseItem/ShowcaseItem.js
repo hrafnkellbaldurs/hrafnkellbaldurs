@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styles from './ShowcaseItem.module.scss'
-import { createGlobalLocalClassnames } from '../../scripts/utils'
+import { createGlobalLocalClassnames, stringToArray } from '../../scripts/utils'
 import classnames from 'classnames'
 import * as R from 'ramda'
 
@@ -36,14 +36,10 @@ class ShowcaseItem extends React.PureComponent {
             id,
             title,
             subtitle,
+            image
         } = this.props
 
-        const image = R.defaultTo({}, this.props.image)
-        const tags = R.pipe(
-            R.defaultTo(''),
-            R.split(','),
-            R.map(R.trim)
-        )(this.props.tags)
+        const tagArray = stringToArray(this.props.tags)
 
         const containerProps = {
             className: classnames(
@@ -73,7 +69,7 @@ class ShowcaseItem extends React.PureComponent {
                     <h5 className="title">{ title }</h5>
                     <h6 className="subtitle">{ subtitle }</h6>
                     <div className="tags">
-                        { tags.map(renderTag) }
+                        { tagArray.map(renderTag) }
                     </div>
                 </div>
             </div>
