@@ -6,7 +6,9 @@ export const SECTION_IDS = {
 }
 
 export const MODAL_TYPES = {
-    DEFAULT: 'DEFAULT'
+    DEFAULT: 'DEFAULT',
+    SKILL: 'SKILL',
+    SHOWCASE: 'SHOWCASE'
 }
 
 export const MODAL_SIZES = {
