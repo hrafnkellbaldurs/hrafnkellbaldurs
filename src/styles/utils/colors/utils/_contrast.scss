@@ -1,5 +1,5 @@
 @import './brightness';
-@import './theme-colors';
+@import '../theme-colors';
 
 $contrasted-dark-default: get-contrast-color('light') !default;
 $contrasted-light-default: get-contrast-color('dark') !default;

@@ -15,7 +15,8 @@
         'accent': generateThemeColorVariantMap(map-get($colorMap, 'accent')),
         'secondary': generateThemeColorVariantMap(map-get($colorMap, 'secondary')),
         'foreground': generateThemeColorVariantMap(map-get($colorMap, 'foreground')),
-        'background': generateThemeColorVariantMap(map-get($colorMap, 'background'))
+        'background': generateThemeColorVariantMap(map-get($colorMap, 'background')),
+        'overlay': generateThemeColorVariantMap(map-get($colorMap, 'overlay'))
     );
     @return $generated-map;
 };

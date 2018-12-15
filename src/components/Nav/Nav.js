@@ -93,13 +93,18 @@ class Nav extends React.PureComponent {
         }
 
         const menuOptionPropOr = R.partialRight(R.propOr, [menuOptionsProp])
+        const NavMenuClassname = 'NavMenu'
         const menuOptions = {
             width: menuOptionPropOr('60%', 'width'),
             customBurgerIcon: menuOptionPropOr(<BurgerIcon />, 'customBurgerIcon'),
             right: menuOptionsProp.left !== true,
-            className: classnames(styles.NavMenu, menuOptionsProp.className),
+            className: classnames(
+                globalLocalClassnames(NavMenuClassname),
+                menuOptionsProp.className
+            ),
             isOpen: menuOpen,
-            onStateChange: this.handleMenuStateChange
+            onStateChange: this.handleMenuStateChange,
+            bodyClassName: menuOptionPropOr(`${ NavMenuClassname }--open__Body`, 'bodyClassName')
         }
 
         return (

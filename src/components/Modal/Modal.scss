@@ -1,10 +1,4 @@
-
-// Lock page scrolling when modal is open
-.ModalPortal--open__Body,
-.ModalPortal--open__Html {
-    overflow: hidden;
-}
-
+@import '../../styles/utils/colors';
 
 :local(.ModalPortal) {
     // Since .modalOverlay doesn't exist when
@@ -24,7 +18,7 @@
 
         transition: opacity 200ms ease-in-out;
 
-        background: rgba(0,0,0,0.15);
+        background: get-theme-color('overlay');
 
         &--after-open {
             opacity: 1;

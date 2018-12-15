@@ -1,0 +1,6 @@
+// Lock page scrolling when modal or nav menu is open
+.ModalPortal--open__Body,
+.ModalPortal--open__Html,
+.NavMenu--open__Body {
+    overflow: hidden;
+}

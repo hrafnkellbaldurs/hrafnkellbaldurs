@@ -176,6 +176,6 @@ $bm-border: $border;
 
     /* Styling of overlay */
     :global(.bm-overlay) {
-        background: rgba(0, 0, 0, 0.5) !important;
+        background: get-theme-color('overlay') !important;
     }
 }
