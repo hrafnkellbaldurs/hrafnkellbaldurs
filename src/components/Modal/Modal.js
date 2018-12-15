@@ -6,7 +6,7 @@ import styles from './Modal.scss'
 import classnames from 'classnames'
 import { createGlobalLocalClassnames } from '../../scripts/utils'
 
-ReactModal.setAppElement(document.getElementById('___gatsby'))
+ReactModal.setAppElement('#___gatsby')
 
 const createDecoratorClassname = (key, val) => `${ R.toLower(key) }-${ R.toLower(val) }`
 const createTypeClassname = R.partial(createDecoratorClassname, ['type'])
