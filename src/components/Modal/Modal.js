@@ -38,6 +38,7 @@ class Modal extends React.PureComponent {
             createSizeClassname(size)
         )
 
+        // Prepare ReactModal props
         const createReactModalClassname = base => ({
             base,
             afterOpen: `${ base }--after-open`,
