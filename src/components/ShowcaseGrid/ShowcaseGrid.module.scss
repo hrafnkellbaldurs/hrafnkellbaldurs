@@ -1,4 +1,5 @@
 @import '../../styles/utils/mixins';
+@import '../../styles/utils/media-queries';
 
 .ShowcaseGrid {
     $grid-gap: 20px;
@@ -17,5 +18,9 @@
         min-height: $showcase-size;
         width: auto;
         height: 0;
+
+        @include media('<=phone-small') {
+            width: 83vw;
+        }
     }
 }

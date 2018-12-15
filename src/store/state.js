@@ -30,7 +30,6 @@ export default {
     navMenuOpen: false,
     modal: {
         isOpen: false,
-        size: null,
         type: null,
         contentId: null
     },

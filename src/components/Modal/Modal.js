@@ -14,6 +14,7 @@ const createSizeClassname = R.partial(createDecoratorClassname, ['size'])
 
 class Modal extends React.PureComponent {
     afterOpenModal = () => {
+
     }
 
     handleOnClose = _e => {

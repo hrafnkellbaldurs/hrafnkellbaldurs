@@ -20,7 +20,7 @@ const SkillModal = props => {
         <div { ...containerProps }>
             <h1 id={ titleId }>Hello from SkillModal</h1>
             <h2>Content</h2>
-            <pre id={ descriptionId }>{ JSON.stringify(content, null, 2) }</pre>
+            {/* <pre id={ descriptionId }>{ JSON.stringify(content, null, 2) }</pre> */}
         </div>
     )
 }

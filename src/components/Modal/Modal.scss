@@ -1,5 +1,88 @@
 @import '../../styles/utils/colors';
+@import '../../styles/utils/media-queries';
 
+// Generic styles
+:local(.ModalPortal) {
+    .modalOverlay {
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 101;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+        padding: 0 50px;
+        background: get-theme-color('overlay');
+    }
+
+    .modalContent {
+        display: block;
+        position: relative;
+        border-radius: 15px;
+        background: get-theme-color('foreground');
+        outline: none;
+    }
+}
+
+// Sizes
+:local(.ModalPortal).size {
+    @mixin createSize(
+        $breakpoint-width,
+        $min-width,
+        $max-height,
+        $min-height: 100px
+    ) {
+        .modalContent {
+            max-width: $breakpoint-width;
+            min-width: $min-width;
+            min-height: $min-height;
+            max-height: $max-height;
+        }
+        @include media('<=#{$breakpoint-width}') {
+            .modalOverlay {
+                padding: 0;
+            }
+            .modalContent {
+                width: 85vw;
+                min-width: 85vw;
+                max-width: 85vw;
+                max-height: none;
+                margin: 20px 0;
+            }
+        }
+    }
+
+    &-small {
+        @include createSize(
+            $breakpoint-width: breakpoint('phone'),
+            $min-width: 200px,
+            $min-height: 100px,
+            $max-height: 400px
+        );
+    }
+    &-medium {
+        @include createSize(
+            $breakpoint-width: breakpoint('tablet'),
+            $min-width: 700px,
+            $min-height: 100px,
+            $max-height: 600px
+        );
+    }
+    &-large {
+        @include createSize(
+            $breakpoint-width: breakpoint('desktop'),
+            $min-width: 900px,
+            $min-height: 100px,
+            $max-height: 700px
+        );
+    }
+}
+
+// Fade in/out transition
 :local(.ModalPortal) {
     // Since .modalOverlay doesn't exist when
     // the modal is closed, we have to use this to target
@@ -9,16 +92,7 @@
     }
 
     .modalOverlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 101;
-
         transition: opacity 200ms ease-in-out;
-
-        background: get-theme-color('overlay');
 
         &--after-open {
             opacity: 1;
@@ -27,20 +101,5 @@
         &--before-close {
             opacity: 0;
         }
-    }
-
-    .modalContent {
-        position: absolute;
-        top: 40px;
-        left: 40px;
-        right: 40px;
-        bottom: 40px;
-        border: 1px solid #ccc;
-        padding: 20px;
-        border-radius: 4px;
-        background: #fff;
-        overflow: auto;
-        -webkit-overflow-scrolling: touch;
-        outline: none;
     }
 }

@@ -8,19 +8,23 @@ const setCurrentNavItemId = (_s, _a, currentNavItemId) => ({ currentNavItemId })
 const setNavMenuOpen = (_s, _a, navMenuOpen) => ({ navMenuOpen })
 
 // Modal
-const showModal = (_s, _a, { contentId, type, size }) => {
+const showModal = (_s, _a, { contentId, type }) => {
     return {
         modal: {
             ..._s.modal,
             isOpen: true,
             contentId,
-            size,
             type
         }
     }
 }
 
-const hideModal = (_s, _a) => ({ modal: defaultState.modal })
+const hideModal = (_s, _a) => ({
+    modal: {
+        ..._s.modal,
+        isOpen: false
+    }
+})
 
 export default {
     initStateWithGraphqlData,
