@@ -1,0 +1,24 @@
+@mixin grid-repeat(
+    $gap: 0,
+    $column-count: auto-fit,
+    $row-count: auto-fit,
+    $min-column-size: 0,
+    $max-column-size: 1fr,
+    $min-row-size: 0,
+    $max-row-size: min-content
+    ) {
+    display: grid;
+    grid-gap: $gap;
+    grid-template-columns: repeat($column-count, minmax($min-column-size, $max-column-size));
+    grid-template-rows: repeat($row-count, minmax($min-row-size, $max-row-size));
+}
+
+@mixin grid-repeat-box($gap: 0, $column-count: auto-fit, $row-count: auto-fit, $min-item-size: 0) {
+    @include grid-repeat(
+        $gap: $gap,
+        $column-count: $column-count,
+        $row-count: $row-count,
+        $min-column-size: $min-item-size,
+        $min-row-size: $min-item-size
+    )
+}

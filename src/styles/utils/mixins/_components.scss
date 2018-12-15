@@ -1,0 +1,46 @@
+@import '../colors';
+@import '../animations';
+
+/*
+    This file contains mixins that produce most of the styles needed for an element
+*/
+
+
+// Creates styling for a circular container around an svg
+// Expects to to have a child with the .svgr class on it
+@mixin svgrCircleContainer(
+    $size,
+    $backgroundColor: get-theme-color('accent'),
+    $backgroundColorHover: null,
+    $svgColor: null,
+    $svgSizeRatio: 0.7
+) {
+    @if($backgroundColorHover == null) {
+        $backgroundColorHover: lighten($backgroundColor, 10%);
+    }
+
+    @if($svgColor == null) {
+        $svgColor: contrast-color($backgroundColor);
+    }
+
+    width: $size;
+    height: $size;
+    background: $backgroundColor;
+
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s $timing-function-happy;
+
+    @include materialHover();
+
+    &:hover {
+        background: $backgroundColorHover;
+    }
+
+    :global(.svgr) {
+        color: $svgColor;
+        font-size: $size * $svgSizeRatio;
+    }
+}

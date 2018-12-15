@@ -1,0 +1,13 @@
+@import './import-media';
+
+@mixin onlyDisplayWhenMedia($display, $media) {
+    display: none;
+
+    @include media($media) {
+        display: $display;
+    }
+}
+
+@mixin onlyDisplayWhenMediaTabletOrLess($display: block) {
+    @include onlyDisplayWhenMedia($display, '<=tablet')
+}

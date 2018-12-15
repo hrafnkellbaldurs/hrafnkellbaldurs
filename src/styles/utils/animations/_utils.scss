@@ -1,0 +1,5 @@
+@import './variables';
+
+@function transition-happy($prop: all, $length: 300ms, $timing-function: $timing-function-happy) {
+    @return $prop $length $timing-function;
+}

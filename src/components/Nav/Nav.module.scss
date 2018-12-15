@@ -1,7 +1,5 @@
 @import '../../styles/utils/colors';
-@import '../../styles/utils/mixins';
 @import '../../styles/utils/media-queries';
-@import '../../styles/utils/material-helpers';
 
 $height: 48px;
 $padding-vertical: 0px;
@@ -109,7 +107,7 @@ $bm-border: $border;
     .NavMenu,
     :global(.bm-overlay),
     :global(.bm-burger-button) {
-        @include onlyDisplayWhenTabletOrLess();
+        @include onlyDisplayWhenMediaTabletOrLess();
     }
 
     /* Position and sizing of burger button */
