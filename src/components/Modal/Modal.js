@@ -21,6 +21,10 @@ const createTypeClassname = R.partial(createDecoratorClassname, ['type'])
 const createSizeClassname = R.partial(createDecoratorClassname, ['size'])
 
 class Modal extends React.PureComponent {
+    afterOpenModal = () => {
+        console.log('afterOpenModal')
+    }
+
     handleOnClose = _e => {
         this.props.onClose()
     }
@@ -45,6 +49,7 @@ class Modal extends React.PureComponent {
         const reactModalProps = {
             ...reactModalPropsForType,
             isOpen,
+            onAfterOpen: this.afterOpenModal,
             onRequestClose: this.handleOnClose,
             contentLabel: 'Example Modal',
             portalClassName: rootClassnames,

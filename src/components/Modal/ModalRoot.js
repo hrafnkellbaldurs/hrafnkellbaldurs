@@ -42,7 +42,6 @@ const compareProps = (props, nextProps) => path => R.path(path, props) !== R.pat
 class ModalRoot extends React.Component {
     shouldComponentUpdate(nextProps) {
         const hasChanged = compareProps(this.props, nextProps)
-
         return R.any(hasChanged)([
             ['modal', 'isOpen'],
             ['modal', 'type'],
@@ -60,20 +59,37 @@ class ModalRoot extends React.Component {
         const modalType = R.propOr(MODAL_TYPES.DEFAULT, 'type', modal)
         const modalConfig = modalConfigs[modalType]
         const modalSize = R.defaultTo(modalConfig.size, modal.size)
+        const modalTitleId = 'modal-title'
+        const modalDescriptionId = 'modal-description'
 
+        // Props going into Modal
         const modalProps = {
-            ...modal,
+            isOpen: modal.isOpen,
             type: modalType,
-            size: modalSize
+            size: modalSize,
+            contentId: modal.contentId,
+            onClose: actions.hideModal,
+            aria: {
+                labelledby: modalTitleId,
+                describedby: modalDescriptionId
+            }
         }
 
-        // Find the matching item using the modalConfigs contentCollectionKey and passed in contentCollections
+        // Find the content/data we want going into the content modal
+        // by looking for the id that matches the contentId in the correct contentCollection
         const contentCollection = R.propOr([], modalConfig.contentCollectionKey, contentCollections)
-        const contentComponentProps = findContentItemById(modal.contentId, contentCollection)
+        const content = findContentItemById(modal.contentId, contentCollection)
+
+        // Set up the children of the modal
         const ContentComponent = modalConfig.contentComponent
+        const contentComponentProps = {
+            content,
+            titleId: modalTitleId,
+            descriptionId: modalDescriptionId
+        }
 
         return (
-            <Modal { ...modalProps } onClose={ actions.hideModal }>
+            <Modal { ...modalProps }>
                 <ContentComponent { ...contentComponentProps } />
             </Modal>
         )

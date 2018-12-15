@@ -52,7 +52,7 @@ const renderSocialLink = ({ href, icon: Icon }, key) => {
 
     return (
         <li key={ key }>
-            <Link className={ socialLinkClassnames } to={ href } target="_blank">
+            <Link className={ socialLinkClassnames } to={ href }>
                 <Icon />
             </Link>
         </li>

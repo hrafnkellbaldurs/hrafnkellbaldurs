@@ -4,6 +4,12 @@ import { createGlobalLocalClassnames } from '../../scripts/utils'
 import styles from './SkillModal.scss'
 
 const SkillModal = props => {
+    const {
+        content,
+        titleId,
+        descriptionId
+    } = props
+
     const containerProps = {
         className: classnames(
             createGlobalLocalClassnames(styles, 'SkillModal')
@@ -12,8 +18,9 @@ const SkillModal = props => {
 
     return (
         <div { ...containerProps }>
-            <h1>Hello from SkillModal</h1>
-            <pre>{ JSON.stringify(props, null, 2) }</pre>
+            <h1 id={ titleId }>Hello from SkillModal</h1>
+            <h2>Content</h2>
+            <pre id={ descriptionId }>{ JSON.stringify(content, null, 2) }</pre>
         </div>
     )
 }

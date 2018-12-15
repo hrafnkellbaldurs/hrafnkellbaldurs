@@ -70,7 +70,7 @@ const Link = props => {
     }
 
     return (
-        <a href={ to } { ...other }>
+        <a href={ to } rel="noopener" target="_blank" { ...other }>
             { children }
         </a>
     )
