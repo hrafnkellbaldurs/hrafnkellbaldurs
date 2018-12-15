@@ -9,7 +9,7 @@
 
 // Generates a theme color map with the given $colorMap.
 // $colorMap must contain 'primary', 'accent', 'secondary', 'foreground', and 'background' keys
-@function generateThemeColorsMap($colorMap) {
+@function generateThemeColorMap($colorMap) {
     $generated-map: (
         'primary': generateThemeColorVariantMap(map-get($colorMap, 'primary')),
         'accent': generateThemeColorVariantMap(map-get($colorMap, 'accent')),

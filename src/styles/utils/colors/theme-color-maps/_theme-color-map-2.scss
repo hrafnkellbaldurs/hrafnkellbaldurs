@@ -1,17 +1,17 @@
-@import './generate-theme-colors-map';
+@import './generate-theme-color-map';
 
 // The first theme that was used
-$theme-colors-map-1: generateThemeColorsMap(
+$theme-color-map-2: generateThemeColorMap(
     (
-        'primary': #2b2b2b,
-        'accent': #11abb0,
+        'primary': #0865ff,
+        'accent': #00ffa5,
         'secondary': #fff,
-        'foreground': #f8f5f5,
-        'background': #2b2b2b
+        'foreground': #04daff,
+        'background': #0892e8
     )
 );
 
-$theme-colors-map-1-contrast: (
+$theme-color-map-2-contrast: (
     'dark': (
         'primary': rgb(240, 239, 239),
         'secondary': rgba(240, 239, 239, 0.7),

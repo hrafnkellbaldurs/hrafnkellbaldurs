@@ -1,19 +1,12 @@
-@import './theme-colors-map-1';
-@import './theme-colors-map-2';
-@import './theme-colors-map-3';
-@import './theme-colors-map-4';
-
-// The currently used theme colors
-$theme-colors: $theme-colors-map-4;
-$contrast-colors: $theme-colors-map-4-contrast;
+@import './theme-color-maps/current-theme-color-map';
 
 @function get-theme-color($key: 'primary', $variant: 'base') {
-    $map: map-get($theme-colors, $key);
+    $map: map-get($current-theme-color-map, $key);
     @return map-get($map, $variant);
 }
 
 @function get-contrast-color($background: 'light', $type: 'primary') {
-    $map: map-get($contrast-colors, $background);
+    $map: map-get($current-theme-color-map-contrast, $background);
     @return map-get($map, $type);
 }
 

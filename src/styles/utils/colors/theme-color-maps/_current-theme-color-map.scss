@@ -1,0 +1,7 @@
+@import './theme-color-map-1';
+@import './theme-color-map-2';
+@import './theme-color-map-3';
+@import './theme-color-map-4';
+
+$current-theme-color-map: $theme-color-map-4;
+$current-theme-color-map-contrast: $theme-color-map-4-contrast;
