@@ -18,17 +18,20 @@ const modalConfigs = {
     [MODAL_TYPES.DEFAULT]: {
         size: MODAL_SIZES.SMALL,
         contentComponent: () => <span />,
-        contentCollectionKey: null
+        contentCollectionKey: null,
+        contentLabel: 'Modal'
     },
     [MODAL_TYPES.SKILL]: {
         size: MODAL_SIZES.SMALL,
         contentComponent: SkillModal,
-        contentCollectionKey: modalContentCollectionKeyMap.SKILLS
+        contentCollectionKey: modalContentCollectionKeyMap.SKILLS,
+        contentLabel: 'Skill Modal'
     },
     [MODAL_TYPES.SHOWCASE]: {
         size: MODAL_SIZES.MEDIUM,
         contentComponent: ShowcaseModal,
-        contentCollectionKey: modalContentCollectionKeyMap.SHOWCASES
+        contentCollectionKey: modalContentCollectionKeyMap.SHOWCASES,
+        contentLabel: 'Showcase modal'
     }
 }
 
@@ -59,20 +62,21 @@ class ModalRoot extends React.Component {
         const modalType = R.propOr(MODAL_TYPES.DEFAULT, 'type', modal)
         const modalConfig = modalConfigs[modalType]
         const modalSize = R.defaultTo(modalConfig.size, modal.size)
-        const modalTitleId = 'modal-title'
-        const modalDescriptionId = 'modal-description'
+        const titleId = 'modal-title'
+        const descriptionId = 'modal-description'
 
         // Props going into Modal
         const modalProps = {
-            isOpen: modal.isOpen,
             type: modalType,
             size: modalSize,
+            isOpen: modal.isOpen,
             contentId: modal.contentId,
-            onClose: actions.hideModal,
+            contentLabel: modalConfig.contentLabel,
             aria: {
-                labelledby: modalTitleId,
-                describedby: modalDescriptionId
-            }
+                labelledby: titleId,
+                describedby: descriptionId
+            },
+            onClose: actions.hideModal,
         }
 
         // Find the content/data we want going into the content modal
@@ -84,8 +88,8 @@ class ModalRoot extends React.Component {
         const ContentComponent = modalConfig.contentComponent
         const contentComponentProps = {
             content,
-            titleId: modalTitleId,
-            descriptionId: modalDescriptionId
+            titleId: titleId,
+            descriptionId: descriptionId
         }
 
         return (

@@ -6,15 +6,7 @@ import styles from './Modal.scss'
 import classnames from 'classnames'
 import { createGlobalLocalClassnames } from '../../scripts/utils'
 
-ReactModal.setAppElement('#___gatsby')
-
-const typeProps = {
-    [MODAL_TYPES.DEFAULT]: {
-        // center: false,
-        // animationDuration: 50000,
-        // focusTrapped: true
-    }
-}
+ReactModal.setAppElement(document.getElementById('___gatsby'))
 
 const createDecoratorClassname = (key, val) => `${ R.toLower(key) }-${ R.toLower(val) }`
 const createTypeClassname = R.partial(createDecoratorClassname, ['type'])
@@ -22,7 +14,6 @@ const createSizeClassname = R.partial(createDecoratorClassname, ['size'])
 
 class Modal extends React.PureComponent {
     afterOpenModal = () => {
-        console.log('afterOpenModal')
     }
 
     handleOnClose = _e => {
@@ -31,7 +22,8 @@ class Modal extends React.PureComponent {
 
     render() {
         const {
-            isOpen
+            isOpen,
+            contentLabel
         } = this.props
 
         const type = R.defaultTo(MODAL_TYPES.DEFAULT, this.props.type)
@@ -39,22 +31,30 @@ class Modal extends React.PureComponent {
 
         // The highest parent below ReactModalPortal is the overlay
         // We want to have a root to set styles on
+        const rootClassname = 'ModalPortal'
         const rootClassnames = classnames(
-            createGlobalLocalClassnames(styles, 'ModalPortal'),
+            createGlobalLocalClassnames(styles, rootClassname),
             createTypeClassname(type),
             createSizeClassname(size)
         )
 
-        const reactModalPropsForType = R.propOr({}, type, typeProps)
+        const createReactModalClassname = base => ({
+            base,
+            afterOpen: `${ base }--after-open`,
+            beforeClose: `${ base }--before-close`
+        })
         const reactModalProps = {
-            ...reactModalPropsForType,
             isOpen,
+            contentLabel,
             onAfterOpen: this.afterOpenModal,
             onRequestClose: this.handleOnClose,
-            contentLabel: 'Example Modal',
             portalClassName: rootClassnames,
-            overlayClassName: 'modalOverlay',
-            className: 'modalContent'
+            overlayClassName: createReactModalClassname('modalOverlay'),
+            className: createReactModalClassname('modalContent'),
+            bodyOpenClassName: `${ rootClassname }--open__Body`,
+            htmlOpenClassName: `${ rootClassname }--open__Html`,
+            closeTimeoutMS: 200
+
         }
         return (
             <ReactModal { ...reactModalProps }>

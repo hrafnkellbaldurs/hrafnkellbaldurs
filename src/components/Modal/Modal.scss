@@ -1,12 +1,38 @@
+
+// Lock page scrolling when modal is open
+.ModalPortal--open__Body,
+.ModalPortal--open__Html {
+    overflow: hidden;
+}
+
+
 :local(.ModalPortal) {
+    // Since .modalOverlay doesn't exist when
+    // the modal is closed, we have to use this to target
+    // the direct div child of .ModalPortal, which is .modalOverlay
+    & > div {
+        opacity: 0;
+    }
+
     .modalOverlay {
         position: fixed;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
-        background-color: rgba(255, 255, 255, 0.75);
         z-index: 101;
+
+        transition: opacity 200ms ease-in-out;
+
+        background: rgba(0,0,0,0.15);
+
+        &--after-open {
+            opacity: 1;
+        }
+
+        &--before-close {
+            opacity: 0;
+        }
     }
 
     .modalContent {
@@ -15,6 +41,12 @@
         left: 40px;
         right: 40px;
         bottom: 40px;
-        background-color: papayawhip;
+        border: 1px solid #ccc;
+        padding: 20px;
+        border-radius: 4px;
+        background: #fff;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+        outline: none;
     }
 }
