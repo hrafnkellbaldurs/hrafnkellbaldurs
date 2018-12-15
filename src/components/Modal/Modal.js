@@ -30,8 +30,6 @@ class Modal extends React.PureComponent {
             isOpen
         } = this.props
 
-        const renderContent = R.defaultTo(() => <span />, this.props.renderContent)
-
         const type = R.defaultTo(MODAL_TYPES.DEFAULT, this.props.type)
         const size = R.defaultTo(MODAL_SIZES.SMALL, this.props.size)
 
@@ -42,8 +40,10 @@ class Modal extends React.PureComponent {
             createTypeClassname(type),
             createSizeClassname(size)
         )
+
+        const reactModalPropsForType = R.propOr({}, type, typeProps)
         const reactModalProps = {
-            ...typeProps[type],
+            ...reactModalPropsForType,
             isOpen,
             onRequestClose: this.handleOnClose,
             contentLabel: 'Example Modal',
@@ -53,7 +53,7 @@ class Modal extends React.PureComponent {
         }
         return (
             <ReactModal { ...reactModalProps }>
-                { renderContent() }
+                { this.props.children }
             </ReactModal>
         )
     }

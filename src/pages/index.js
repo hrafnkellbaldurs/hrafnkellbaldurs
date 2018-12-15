@@ -17,8 +17,6 @@ import { SECTION_IDS } from '../constants'
 import { actions } from '../store'
 import { pluckEdgeNodes } from '../scripts/utils'
 
-// subscribe((action, state) => console.log(action, state))
-
 const WAYPOINT_PROPS = {
     topOffset: '40%',
     bottomOffset: '40%'

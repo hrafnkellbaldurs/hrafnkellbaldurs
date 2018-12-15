@@ -1,4 +1,4 @@
-import { SECTION_IDS, MODAL_TYPES, MODAL_SIZES } from '../constants'
+import { SECTION_IDS } from '../constants'
 import { createHashHref } from '../scripts/utils'
 
 const navItems = [
@@ -30,9 +30,9 @@ export default {
     navMenuOpen: false,
     modal: {
         isOpen: false,
-        size: MODAL_SIZES.SMALL,
-        type: MODAL_TYPES.DEFAULT,
-        renderContent: null
+        size: null,
+        type: null,
+        contentId: null
     },
     skills: [],
     showcases: []
