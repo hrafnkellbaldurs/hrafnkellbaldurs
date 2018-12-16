@@ -1,22 +1,31 @@
 @import '../../utils/colors';
 @import '../../utils/media-queries';
+@import '../../utils/mixins';
 
 @mixin resumeSectionStyles(
     $backgroundColor: get-theme-color('secondary'),
-    $descriptionColor: contrast-color-by-keys($backgroundColor, 'secondary')
+    $contentBackgroundColor: get-theme-color('primary'),
+    $descriptionColor: contrast-color-by-keys($contentBackgroundColor, 'secondary')
 ) {
     .Section#resume {
         background: $backgroundColor;
         padding-top: 90px;
         padding-bottom: 72px;
         overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .content-container {
+            @include content-card($contentBackgroundColor, $level: 2);
+        }
 
         h1 {
             font: 18px/24px 'opensans-bold', sans-serif;
             text-transform: uppercase;
             letter-spacing: 1px;
             padding-bottom: 6px;
-            color: contrast-color($backgroundColor);
+            color: contrast-color($contentBackgroundColor);
         }
 
         p {
@@ -32,7 +41,7 @@
         }
 
         .section-item {
-            $border-bottom-color: contrast-color($backgroundColor);
+            $border-bottom-color: contrast-color($contentBackgroundColor);
 
             margin-bottom: 48px;
             padding-bottom: 24px;
@@ -51,7 +60,7 @@
                 padding-bottom: 20px;
 
                 .title {
-                    color: contrast-color($backgroundColor);
+                    color: contrast-color($contentBackgroundColor);
                 }
 
                 .info {
@@ -59,7 +68,7 @@
                 }
 
                 .dateContainer {
-                    color: contrast-color-by-keys($backgroundColor, 'disabled')
+                    color: contrast-color-by-keys($contentBackgroundColor, 'disabled')
                 }
             }
         }

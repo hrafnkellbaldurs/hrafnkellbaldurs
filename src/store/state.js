@@ -13,14 +13,14 @@ const navItems = [
         text: 'About'
     },
     {
-        id: SECTION_IDS.RESUME,
-        href: createHashHref(SECTION_IDS.RESUME),
-        text: 'Resume'
-    },
-    {
         id: SECTION_IDS.PORTFOLIO,
         href: createHashHref(SECTION_IDS.PORTFOLIO),
         text: 'Portfolio'
+    },
+    {
+        id: SECTION_IDS.RESUME,
+        href: createHashHref(SECTION_IDS.RESUME),
+        text: 'Resume'
     }
 ]
 

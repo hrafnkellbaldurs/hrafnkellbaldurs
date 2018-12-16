@@ -5,25 +5,35 @@
 
 @mixin aboutSectionStyles(
     $backgroundColor: get-theme-color('primary'),
-    $descriptionColor: contrast-color-by-keys($backgroundColor, 'secondary')
+    $contentBackgroundColor: get-theme-color('secondary'),
+    $descriptionColor: contrast-color-by-keys($contentBackgroundColor, 'secondary')
 ) {
     .Section#about {
         background: $backgroundColor;
         padding-top: 96px;
         padding-bottom: 66px;
-        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .content-container {
+            @include content-card($contentBackgroundColor, $level: 2);
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
 
         h1 {
             font: 18px/24px 'opensans-bold', sans-serif;
             text-transform: uppercase;
             letter-spacing: 1px;
             padding-bottom: 6px;
-            color: contrast-color($backgroundColor);
+            color: contrast-color($contentBackgroundColor);
         }
 
         h2 {
             font: 16px/30px 'opensans-bold', sans-serif;
-            color: contrast-color($backgroundColor);
+            color: contrast-color($contentBackgroundColor);
             margin-bottom: 12px;
         }
 
@@ -40,6 +50,7 @@
             border-width: thick;
             border-style: solid;
             border-color: get-theme-color('accent');
+            @include materialBoxShadow(1);
         }
 
         .contact-details {
@@ -58,7 +69,7 @@
                 margin-left: 5px;
 
                 &.button-secondary {
-                    $color: contrast-color($backgroundColor);
+                    $color: contrast-color($contentBackgroundColor);
                     color: $color;
                     border-color: $color;
 
@@ -84,12 +95,13 @@
         }
 
         @include media('<=tablet') {
-            .profile-pic {
-                float: right;
+
+            .profile-pic-container {
+                position: absolute;
+                top: -80px;
             }
 
             .action-links {
-                // flex-direction: column;
                 flex-wrap: wrap;
                 .button {
                     width: 100%;

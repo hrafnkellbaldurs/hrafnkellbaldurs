@@ -4,7 +4,7 @@
 $height: 48px;
 $padding-vertical: 0px;
 $padding-horizontal: 30px;
-$background-color: get-theme-color('primary');
+$background-color: get-theme-color('primary', 'dark');
 $border: 2px solid get-theme-color('accent');
 $item-color: contrast-color($background-color);
 

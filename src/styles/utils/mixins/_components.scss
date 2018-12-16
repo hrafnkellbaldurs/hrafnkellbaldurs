@@ -1,5 +1,6 @@
 @import '../colors';
 @import '../animations';
+@import './material-helpers';
 
 /*
     This file contains mixins that produce most of the styles needed for an element
@@ -52,4 +53,13 @@
 }
 .accent-underline {
     @include accent-underline();
+}
+
+@mixin content-card($background: get-theme-color('secondary'), $level: 1) {
+    background: $background;
+    padding: 50px 0;
+    border-radius: 15px;
+    margin: 0 20px;
+
+    @include materialBoxShadow($level);
 }

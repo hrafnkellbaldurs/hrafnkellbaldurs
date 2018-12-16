@@ -92,9 +92,9 @@ const AboutSection = props => {
         <>
             <Section id={ sectionId }>
                 <Waypoint { ...waypointProps }>
-                    <div className="row">
+                    <div className="row content-container">
 
-                        <div className="three columns">
+                        <div className="profile-pic-container three columns flex flex--center">
 
                             <img className="profile-pic" src={ profilePic.public } alt="profile picture" />
                         </div>
@@ -143,6 +143,32 @@ const AboutSection = props => {
     )
 }
 
+const PortfolioSection = props => {
+    const {
+        sectionId
+    } = props
+
+    const waypointProps = {
+        ...WAYPOINT_PROPS,
+        onEnter: waypoint => onWaypointEnter(waypoint, {
+            id: sectionId
+        })
+    }
+
+    return (
+        <Section id={ sectionId }>
+            <Waypoint { ...waypointProps }>
+                <div className="row">
+                    <div className="twelve columns content-container">
+                        <h1 className="accent-underline">Portfolio</h1>
+                        <ShowcaseGridContainer />
+                    </div>
+                </div>
+            </Waypoint>
+        </Section>
+    )
+}
+
 const ResumeSection = props => {
     const {
         sectionId,
@@ -187,7 +213,7 @@ const ResumeSection = props => {
     return (
         <Section id={ sectionId }>
             <Waypoint { ...waypointProps }>
-                <div>
+                <div className="content-container">
                     <div className="row section-item">
 
                         <div className="three columns header-col">
@@ -243,32 +269,6 @@ const ResumeSection = props => {
     )
 }
 
-const PortfolioSection = props => {
-    const {
-        sectionId
-    } = props
-
-    const waypointProps = {
-        ...WAYPOINT_PROPS,
-        onEnter: waypoint => onWaypointEnter(waypoint, {
-            id: sectionId
-        })
-    }
-
-    return (
-        <Section id={ sectionId }>
-            <Waypoint { ...waypointProps }>
-                <div className="row">
-                    <div className="twelve columns content-container">
-                        <h1 className="accent-underline">Portfolio</h1>
-                        <ShowcaseGridContainer />
-                    </div>
-                </div>
-            </Waypoint>
-        </Section>
-    )
-}
-
 const mapData = R.mapObjIndexed(pluckEdgeNodes)
 class IndexPage extends React.PureComponent {
     render() {
@@ -307,8 +307,8 @@ class IndexPage extends React.PureComponent {
                 <SEO title="Home" keywords={['gatsby', 'application', 'react', 'portfolio']}/>
                 <RenderHero { ...heroProps }/>
                 <AboutSection {...aboutSectionProps} />
-                <ResumeSection { ...resumeSectionProps } />
                 <PortfolioSection { ...portfolioSectionProps }/>
+                <ResumeSection { ...resumeSectionProps } />
             </LayoutContainer>
         )
     }

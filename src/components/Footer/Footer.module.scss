@@ -2,7 +2,7 @@
 @import '../../styles/utils/mixins';
 @import '../../styles/utils/media-queries';
 
-$backgroundColor: get-theme-color('primary');
+$backgroundColor: get-theme-color('primary', 'dark');
 $color: contrast-color-by-keys($backgroundColor, 'secondary');
 
 .Footer {
