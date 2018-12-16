@@ -3,3 +3,11 @@
 @import './svg';
 @import './components';
 @import './flex';
+
+.bullet {
+    &:before {
+        font-family: 'librebaskerville', serif;
+        content: '\2022';
+        margin: 0 5px;
+    }
+}

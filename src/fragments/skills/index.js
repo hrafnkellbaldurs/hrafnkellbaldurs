@@ -14,7 +14,9 @@ export const SkillsFragment = graphql`
                 logo {
                   publicURL
                 }
-                rating
+                rating,
+                skillLevel,
+                link
               }
             }
         }

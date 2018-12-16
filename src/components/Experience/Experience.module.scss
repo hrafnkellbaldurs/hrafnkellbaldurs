@@ -62,13 +62,6 @@ $iconMarginRight: 15px;
         white-space: nowrap;
     }
 
-    :global(.bullet):before {
-        font-family: 'librebaskerville', serif;
-        content: '•';
-        margin-right: 5px;
-        margin-left: 5px;
-    }
-
     :global(.description) {
         p {
             margin-bottom: 10px;

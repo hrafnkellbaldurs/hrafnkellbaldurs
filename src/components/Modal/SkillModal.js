@@ -18,7 +18,10 @@ const SkillModal = props => {
         description,
         yearsOfExperience,
         logo,
-        rating
+        rating,
+        skillLevel,
+        skillLevelText,
+        link
     } = content
 
     const containerProps = {
@@ -28,7 +31,22 @@ const SkillModal = props => {
         )
     }
 
-    const yearsOfExperienceText = `${createPluralAmountString(yearsOfExperience, 'year', 'years')} of experience`
+    const skillLevelColor = 'purple'
+    const skillLevelProps = {
+        className: 'skill-level',
+        style: {
+            color: skillLevelColor
+        }
+    }
+
+    const metaDataProps = {
+        className: 'metadata flex flex--center-both',
+        style: {
+            borderColor: skillLevelColor
+        }
+    }
+
+    const yearsOfExperienceText = `${ createPluralAmountString(yearsOfExperience, 'yr', 'yrs') } experience`
 
     return (
         <div { ...containerProps }>
@@ -37,7 +55,9 @@ const SkillModal = props => {
             </div>
             <h1 id={ titleId } className="name">{ name }</h1>
             <p id={ descriptionId } className="description">{ description }</p>
-            <div className="metadata">
+            <div { ...metaDataProps }>
+                <div { ...skillLevelProps }>Expert</div>
+                <div className="bullet"></div>
                 <div className="years-of-experience">
                     { yearsOfExperienceText }
                 </div>
@@ -58,7 +78,10 @@ const skillContentShape = PropTypes.shape({
         src: PropTypes.string,
         label: PropTypes.string
     }).isRequired,
-    rating: PropTypes.number
+    rating: PropTypes.number,
+    skillLevel: PropTypes.number,
+    skillLevelText: PropTypes.string,
+    link: PropTypes.string
 })
 
 SkillModal.propTypes = {

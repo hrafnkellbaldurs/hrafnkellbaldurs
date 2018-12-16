@@ -3,13 +3,16 @@
 $logoSize: 80px;
 $backgroundColor: get-theme-color('foreground');
 $color: contrast-color($backgroundColor);
+$metaDataHeight: 35px;
+$paddingX: 40px;
+$paddingY: 10px;
 
 :local(.SkillModal) {
 
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10px 40px;
+    padding: $paddingY $paddingX $metaDataHeight $paddingX;
 
 
     .logoContainer {
@@ -35,13 +38,33 @@ $color: contrast-color($backgroundColor);
     }
 
     .metadata {
-        display: flex;
+        height: $metaDataHeight;
+        // display: flex;
+        // justify-content: center;
+        // align-items: center;
         width: 100%;
-        position: relative;
-        border-top: 1px solid get-theme-color('accent');
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        border-top: 2px solid;
+        padding: 10px;
+        color: contrast-color-by-keys($backgroundColor, 'secondary')
+    }
+
+    .skill-level {
+        flex: 1;
+        text-align: right;
+        font-weight: bold;
+    }
+
+    .bullet {
+        margin: 0 20px;
+        color: currentColor;
     }
 
     .years-of-experience {
-
+        flex: 1;
+        text-align: left;
+        color: currentColor;
     }
 }

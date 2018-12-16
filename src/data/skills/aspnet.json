@@ -6,6 +6,6 @@
     "yearsOfExperience": "0.5",
     "logo": "../../assets/images/asp-net-logo.png",
     "rating": 16,
-	"skillLevel": 1,
+	"skillLevel": 0,
 	"link": "https://www.asp.net/mvc"
 }

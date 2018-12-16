@@ -6,6 +6,6 @@
     "yearsOfExperience": "2",
     "logo": "../../assets/images/redux-logo.png",
     "rating": 5,
-	"skillLevel": 3,
+	"skillLevel": 2,
 	"link": "https://redux.js.org/"
 }

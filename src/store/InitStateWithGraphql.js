@@ -2,12 +2,29 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import { actions } from './index'
 import { pluckEdgeNodes } from '../scripts/utils'
+import { SKILL_LEVELS } from '../constants'
 import * as R from 'ramda'
 
 const mapGraphqlAsset = (asset, label) => ({
     src: R.prop('publicURL', asset),
     label
 })
+
+const getSkillLevelText = R.pipe(
+    R.equals,
+    is => is(SKILL_LEVELS.NOVICE) ? 'Novice'
+        : is(SKILL_LEVELS.PROFICIENT) ? 'Proficient'
+            : is(SKILL_LEVELS.EXPERT) ? 'Expert'
+                : null
+)
+
+// TODO: use matcher instead of getSkillLevelText
+// const matcher = (list, condition) => {
+//     return list.find(([toMatch, value]) => {
+//       return condition(toMatch)
+//     })[1]
+//  }
+
 
 const mapData = R.pipe(
     // Pluck the edge nodes of each property in data.
@@ -22,7 +39,8 @@ const mapData = R.pipe(
         })),
         skills: R.map(skill => ({
             ...skill,
-            logo: mapGraphqlAsset(skill.logo, skill.name)
+            logo: mapGraphqlAsset(skill.logo, skill.name),
+            skillLevelText: getSkillLevelText(skill.skillLevel)
         }))
     })
 )

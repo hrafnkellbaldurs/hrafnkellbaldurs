@@ -8,6 +8,11 @@
             align-items: center;
         }
 
+        &-both {
+            justify-content: center;
+            align-items: center;
+        }
+
         &.flex--column {
             justify-content: flex-start;
             align-items: center;
