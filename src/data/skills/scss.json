@@ -5,5 +5,7 @@
     "description": "I use SCSS wherever I can to be able to use variables, functions, mixins and more to reduce repeated css.",
     "yearsOfExperience": "2.5",
     "logo": "../../assets/images/scss-logo.png",
-    "rating": 9
+    "rating": 9,
+	"skillLevel": 2,
+	"link": "https://sass-lang.com/"
 }

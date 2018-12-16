@@ -5,5 +5,7 @@
     "description": "I have proficient knowledge of HTML and use it pretty much daily",
     "yearsOfExperience": "5",
     "logo": "../../assets/images/html5-logo.png",
-    "rating": 3
+    "rating": 3,
+	"skillLevel": 3,
+	"link": "https://en.wikipedia.org/wiki/HTML"
 }

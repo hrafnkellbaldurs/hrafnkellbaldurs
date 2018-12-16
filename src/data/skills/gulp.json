@@ -5,5 +5,7 @@
     "description": "",
     "yearsOfExperience": "2",
     "logo": "../../assets/images/gulp-logo.png",
-    "rating": 13
+    "rating": 13,
+	"skillLevel": 0,
+	"link": "https://gulpjs.com/"
 }

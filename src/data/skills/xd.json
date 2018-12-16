@@ -5,5 +5,7 @@
     "description": "",
     "yearsOfExperience": "0.5",
     "logo": "../../assets/images/xd-logo.png",
-    "rating": 19
+    "rating": 19,
+	"skillLevel": 0,
+	"link": "https://www.adobe.com/products/xd.html"
 }

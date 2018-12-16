@@ -5,5 +5,7 @@
     "description": "",
     "yearsOfExperience": "1",
     "logo": "../../assets/images/enzyme-logo.png",
-    "rating": 12
+    "rating": 12,
+	"skillLevel": 2,
+	"link": "https://airbnb.io/enzyme/"
 }

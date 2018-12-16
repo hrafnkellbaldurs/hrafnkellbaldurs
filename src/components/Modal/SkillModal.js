@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
-import { createGlobalLocalClassnames } from '../../scripts/utils'
+import { createGlobalLocalClassnames, createPluralAmountString } from '../../scripts/utils'
 import styles from './SkillModal.scss'
 
 const SkillModal = props => {
@@ -28,6 +28,8 @@ const SkillModal = props => {
         )
     }
 
+    const yearsOfExperienceText = `${createPluralAmountString(yearsOfExperience, 'year', 'years')} of experience`
+
     return (
         <div { ...containerProps }>
             <div className="logoContainer">
@@ -37,8 +39,7 @@ const SkillModal = props => {
             <p id={ descriptionId } className="description">{ description }</p>
             <div className="metadata">
                 <div className="years-of-experience">
-                    <span className="years">{ yearsOfExperience }</span>
-                    <span className="of-experience">years of experience</span>
+                    { yearsOfExperienceText }
                 </div>
             </div>
         </div>

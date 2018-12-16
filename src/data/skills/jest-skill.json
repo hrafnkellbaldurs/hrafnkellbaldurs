@@ -5,5 +5,7 @@
     "description": "",
     "yearsOfExperience": "1",
     "logo": "../../assets/images/jest-logo.png",
-    "rating": 11
+    "rating": 11,
+	"skillLevel": 2,
+	"link": "https://jestjs.io/"
 }

@@ -5,5 +5,7 @@
     "description": "",
     "yearsOfExperience": "0.5",
     "logo": "../../assets/images/react-logo.png",
-    "rating": 14
+    "rating": 14,
+	"skillLevel": 0,
+	"link": "https://facebook.github.io/react-native/"
 }

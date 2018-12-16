@@ -5,5 +5,7 @@
     "description": "",
     "yearsOfExperience": "3",
     "logo": "../../assets/images/knockoutjs-logo.png",
-    "rating": 10
+    "rating": 10,
+	"skillLevel": 3,
+	"link": "https://knockoutjs.com/"
 }

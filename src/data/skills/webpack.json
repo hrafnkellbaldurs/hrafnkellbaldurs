@@ -5,5 +5,7 @@
     "description": "",
     "yearsOfExperience": "2",
     "logo": "../../assets/images/webpack-logo.png",
-    "rating": 6
+    "rating": 6,
+	"skillLevel": 2,
+	"link": "https://webpack.js.org/"
 }

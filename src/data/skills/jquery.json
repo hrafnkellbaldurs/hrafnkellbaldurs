@@ -5,5 +5,7 @@
     "description": "",
     "yearsOfExperience": "4",
     "logo": "../../assets/images/jquery-logo.png",
-    "rating": 8
+    "rating": 8,
+	"skillLevel": 3,
+	"link": "https://jquery.com/"
 }
