@@ -5,7 +5,7 @@
 
 @mixin aboutSectionStyles(
     $backgroundColor: get-theme-color('primary'),
-    $contentBackgroundColor: get-theme-color('secondary'),
+    $contentBackgroundColor: get-theme-color('foreground'),
     $descriptionColor: contrast-color-by-keys($contentBackgroundColor, 'secondary')
 ) {
     .Section#about {

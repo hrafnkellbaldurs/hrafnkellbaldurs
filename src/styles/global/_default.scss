@@ -427,7 +427,7 @@ input[type='reset'],
 input[type='button'] {
     $backgroundColor: get-theme-color('accent');
 
-    background-color: $backgroundColor;
+    background: $backgroundColor;
     color: contrast-color($backgroundColor);
     display: inline-flex;
     justify-content: center;
@@ -442,12 +442,15 @@ input[type='button'] {
     height: auto;
     border-radius: 30px;
     white-space: nowrap;
+    border: 1px solid transparent;
 
     transition: transition-happy();
 
     &:hover {
-        color: contrast-color($backgroundColor);
-        background-color: get-theme-color('accent', 'light');
+        $hoverBackgroundColor: lighten($backgroundColor, 10%);
+
+        background: $hoverBackgroundColor;
+        color: contrast-color($hoverBackgroundColor);
     }
 
     &:active,

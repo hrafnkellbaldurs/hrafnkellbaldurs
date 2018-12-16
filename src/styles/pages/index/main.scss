@@ -6,7 +6,7 @@
 /* ------------------------------------------------------------------ */
 
 body {
-    background: get-theme-color('background');
+    background: get-theme-color('primary');
 }
 
 hr {
@@ -23,25 +23,25 @@ hr {
 /* ------------------------------------------------------------------ */
 @import './hero';
 @include heroStyles(
-    $backgroundColor: get-theme-color('primary'),
-    $overlayBackground: linear-gradient(to bottom, get-theme-color('primary'), get-theme-color('primary','light'))
+    $overlayBaseBackgroundColor: transparent,
+    $overlayBackground: transparent
 );
 
 @import './about-section';
 @include aboutSectionStyles(
-    $backgroundColor: get-theme-color('primary', 'light'),
-    $contentBackgroundColor: get-theme-color('secondary')
+    $backgroundColor: transparent,
+    $contentBackgroundColor: get-theme-color('foreground')
 );
 
 @import './portfolio-section';
 @include portfolioSectionStyles(
-    $backgroundColor: get-theme-color('primary', 'dark'),
-    $background: linear-gradient(to bottom, get-theme-color('primary', 'dark'), get-theme-color('primary','light'))
+    $backgroundColor: transparent,
+    $background: transparent,
 );
 
 @import './resume-section';
 @include resumeSectionStyles(
-    $backgroundColor: get-theme-color('primary'),
-    $contentBackgroundColor: get-theme-color('secondary')
+    $backgroundColor: transparent,
+    $contentBackgroundColor: get-theme-color('foreground')
 );
 

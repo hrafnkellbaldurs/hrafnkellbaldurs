@@ -55,7 +55,7 @@
     @include accent-underline();
 }
 
-@mixin content-card($background: get-theme-color('secondary'), $level: 1) {
+@mixin content-card($background: get-theme-color('foreground'), $level: 1) {
     background: $background;
     padding: 50px 0;
     border-radius: 15px;

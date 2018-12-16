@@ -2,15 +2,16 @@
 @import '../../utils/media-queries';
 
 @mixin heroStyles(
-    $backgroundColor,
+    $backgroundColor: $overlayBaseBackgroundColor,
+    $overlayBaseBackgroundColor: get-theme-color('primary'),
     $overlayBackground: null
 ) {
     @if($overlayBackground == null) {
         $overlayBackground: radial-gradient(
             ellipse at 80% 50%,
             transparent,
-            $backgroundColor 70%,
-            $backgroundColor 100%
+            $overlayBaseBackgroundColor 70%,
+            $overlayBaseBackgroundColor 100%
         );
     }
 
