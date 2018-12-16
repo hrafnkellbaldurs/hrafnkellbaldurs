@@ -10,21 +10,11 @@ const mapGraphqlAsset = (asset, label) => ({
     label
 })
 
-const getSkillLevelText = R.pipe(
-    R.equals,
-    is => is(SKILL_LEVELS.NOVICE) ? 'Novice'
-        : is(SKILL_LEVELS.PROFICIENT) ? 'Proficient'
-            : is(SKILL_LEVELS.EXPERT) ? 'Expert'
-                : null
-)
-
-// TODO: use matcher instead of getSkillLevelText
-// const matcher = (list, condition) => {
-//     return list.find(([toMatch, value]) => {
-//       return condition(toMatch)
-//     })[1]
-//  }
-
+const skillLevelTextMap = {
+    [SKILL_LEVELS.NOVICE]: 'Novice',
+    [SKILL_LEVELS.PROFICIENT]: 'Proficient',
+    [SKILL_LEVELS.EXPERT]: 'Expert'
+}
 
 const mapData = R.pipe(
     // Pluck the edge nodes of each property in data.
@@ -40,7 +30,7 @@ const mapData = R.pipe(
         skills: R.map(skill => ({
             ...skill,
             logo: mapGraphqlAsset(skill.logo, skill.name),
-            skillLevelText: getSkillLevelText(skill.skillLevel)
+            skillLevelText: skillLevelTextMap[skill.skillLevel]
         }))
     })
 )

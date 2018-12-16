@@ -1,7 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
-import { createGlobalLocalClassnames, createPluralAmountString } from '../../scripts/utils'
+import {
+    createGlobalLocalClassnames,
+    createPluralAmountString,
+    getColorBySkillLevel
+} from '../../scripts/utils'
 import styles from './SkillModal.scss'
 
 const SkillModal = props => {
@@ -31,7 +35,7 @@ const SkillModal = props => {
         )
     }
 
-    const skillLevelColor = 'purple'
+    const skillLevelColor = getColorBySkillLevel(skillLevel)
     const skillLevelProps = {
         className: 'skill-level',
         style: {
@@ -56,7 +60,7 @@ const SkillModal = props => {
             <h1 id={ titleId } className="name">{ name }</h1>
             <p id={ descriptionId } className="description">{ description }</p>
             <div { ...metaDataProps }>
-                <div { ...skillLevelProps }>Expert</div>
+                <div { ...skillLevelProps }>{ skillLevelText }</div>
                 <div className="bullet"></div>
                 <div className="years-of-experience">
                     { yearsOfExperienceText }
