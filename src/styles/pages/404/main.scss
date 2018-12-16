@@ -1,4 +1,5 @@
 @import '../../utils/colors';
+@import '../../utils/mixins';
 
 body {
     background: get-theme-color('background');

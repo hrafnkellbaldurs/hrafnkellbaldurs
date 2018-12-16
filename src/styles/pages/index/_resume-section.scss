@@ -3,12 +3,7 @@
 
 @mixin resumeSectionStyles(
     $backgroundColor: get-theme-color('secondary'),
-    $descriptionColor:
-        contrast-color(
-            $color: $backgroundColor,
-            $dark: get-contrast-color('light', 'secondary'),
-            $light: get-contrast-color('dark', 'secondary')
-        )
+    $descriptionColor: contrast-color-by-keys($backgroundColor, 'secondary')
 ) {
     .Section#resume {
         background: $backgroundColor;
@@ -64,11 +59,7 @@
                 }
 
                 .dateContainer {
-                    color: contrast-color(
-                        $color: $backgroundColor,
-                        $dark: get-contrast-color('light', 'disabled'),
-                        $light: get-contrast-color('dark', 'disabled')
-                    );
+                    color: contrast-color-by-keys($backgroundColor, 'disabled')
                 }
             }
         }

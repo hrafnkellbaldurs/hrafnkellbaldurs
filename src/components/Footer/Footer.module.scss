@@ -3,11 +3,7 @@
 @import '../../styles/utils/media-queries';
 
 $backgroundColor: get-theme-color('primary');
-$color: contrast-color(
-    $color: $backgroundColor,
-    $dark: get-contrast-color('light', 'secondary'),
-    $light: get-contrast-color('dark', 'secondary')
-);
+$color: contrast-color-by-keys($backgroundColor, 'secondary');
 
 .Footer {
     background: $backgroundColor;

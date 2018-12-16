@@ -89,7 +89,8 @@ class ModalRoot extends React.Component {
         const contentComponentProps = {
             content,
             titleId: titleId,
-            descriptionId: descriptionId
+            descriptionId: descriptionId,
+            className: 'ModalContentComponent'
         }
 
         return (

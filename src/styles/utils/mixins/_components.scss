@@ -44,3 +44,12 @@
         font-size: $size * $svgSizeRatio;
     }
 }
+
+@mixin accent-underline($size: 3px) {
+    display: inline-block;
+    border-bottom: $size solid get-theme-color('accent');
+    padding-bottom: $size;
+}
+.accent-underline {
+    @include accent-underline();
+}

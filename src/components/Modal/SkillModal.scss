@@ -1,0 +1,49 @@
+@import '../../styles/utils/colors';
+
+$logoSize: 80px;
+$backgroundColor: get-theme-color('foreground');
+$color: contrast-color($backgroundColor);
+
+:local(.SkillModal) {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 40px;
+
+
+    .logoContainer {
+        display: flex;
+    }
+
+    .logo {
+        height: $logoSize;
+        width: $logoSize;
+        min-height: $logoSize;
+        min-width: $logoSize;
+    }
+
+    .name {
+        margin-top: 5px;
+        font-family: 'opensans-semibold', sans-serif;
+        font-size: 30px;
+        color: $color;
+    }
+
+    .description {
+        color: contrast-color-by-keys($backgroundColor, 'secondary')
+    }
+
+    .metadata {
+        display: flex;
+        width: 100%;
+        position: relative;
+        border-top: 1px solid get-theme-color('accent');
+    }
+
+    .years-of-experience {
+        .years {
+            margin-right: 5px;
+        }
+    }
+}

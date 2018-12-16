@@ -36,11 +36,7 @@
             }
             h3 {
                 font: 18px/1.9em 'librebaskerville-regular', serif;
-                color: contrast-color(
-                    $color: $backgroundColor,
-                    $dark: get-contrast-color('light', 'secondary'),
-                    $light: get-contrast-color('dark', 'secondary')
-                );
+                color: contrast-color-by-keys($backgroundColor, 'secondary');
                 margin: 0 auto;
                 width: 70%;
                 span,

@@ -22,9 +22,13 @@
     .modalContent {
         display: block;
         position: relative;
-        border-radius: 15px;
         background: get-theme-color('foreground');
         outline: none;
+    }
+
+    .modalContent,
+    .ModalContentComponent {
+        border-radius: 15px;
     }
 }
 
