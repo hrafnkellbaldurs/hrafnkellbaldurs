@@ -3,9 +3,10 @@
     "shortName": "AI",
     "type": "graphicdesign",
     "description": "",
-    "yearsOfExperience": "5",
+    "startDate": "2013-12-01",
+    "endDate": null,
     "logo": "../../assets/images/illustrator-logo.png",
     "rating": 18,
-	"skillLevel": 1,
-	"link": "https://www.adobe.com/products/illustrator.html"
+    "skillLevel": 1,
+    "link": "https://www.adobe.com/products/illustrator.html"
 }

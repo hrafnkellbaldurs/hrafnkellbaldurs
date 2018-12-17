@@ -3,9 +3,10 @@
     "shortName": "RN",
     "type": "technology",
     "description": "",
-    "yearsOfExperience": "0.5",
+    "startDate": "2017-01-01",
+    "endDate": "2017-06-01",
     "logo": "../../assets/images/react-logo.png",
     "rating": 14,
-	"skillLevel": 0,
-	"link": "https://facebook.github.io/react-native/"
+    "skillLevel": 0,
+    "link": "https://facebook.github.io/react-native/"
 }

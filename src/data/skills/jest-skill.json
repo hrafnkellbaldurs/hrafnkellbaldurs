@@ -3,9 +3,10 @@
     "shortName": "Jest",
     "type": "technology",
     "description": "",
-    "yearsOfExperience": "1",
+    "startDate": "2017-12-01",
+    "endDate": null,
     "logo": "../../assets/images/jest-logo.png",
     "rating": 11,
-	"skillLevel": 1,
-	"link": "https://jestjs.io/"
+    "skillLevel": 1,
+    "link": "https://jestjs.io/"
 }

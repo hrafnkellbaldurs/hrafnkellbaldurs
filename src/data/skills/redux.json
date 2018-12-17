@@ -3,9 +3,10 @@
     "shortName": "Redux",
     "type": "technology",
     "description": "",
-    "yearsOfExperience": "2",
+    "startDate": "2016-12-01",
+    "endDate": null,
     "logo": "../../assets/images/redux-logo.png",
     "rating": 5,
-	"skillLevel": 2,
-	"link": "https://redux.js.org/"
+    "skillLevel": 2,
+    "link": "https://redux.js.org/"
 }

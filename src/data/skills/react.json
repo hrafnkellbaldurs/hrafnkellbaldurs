@@ -3,9 +3,10 @@
     "shortName": "React",
     "type": "technology",
     "description": "I love to use React as it allows for easy development of web applications",
-    "yearsOfExperience": "2",
+    "startDate": "2016-12-01",
+    "endDate": null,
     "logo": "../../assets/images/react-logo.png",
     "rating": 0,
-	"skillLevel": 2,
-	"link": "https://reactjs.org/"
+    "skillLevel": 2,
+    "link": "https://reactjs.org/"
 }

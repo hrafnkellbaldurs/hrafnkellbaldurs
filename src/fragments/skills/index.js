@@ -10,7 +10,8 @@ export const SkillsFragment = graphql`
                 shortName
                 type
                 description
-                yearsOfExperience
+                startDate
+                endDate
                 logo {
                   publicURL
                 }
