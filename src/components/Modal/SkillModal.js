@@ -1,18 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
-import {
-    createGlobalLocalClassnames,
-    createPluralAmountString
-} from '../../scripts/utils'
-import { SKILL_LEVELS } from '../../constants'
+import { createGlobalLocalClassnames } from '../../scripts/utils'
 import styles from './SkillModal.scss'
-
-const skillLevelClassMap = {
-    [SKILL_LEVELS.NOVICE]: 'skill-level-novice',
-    [SKILL_LEVELS.PROFICIENT]: 'skill-level-proficient',
-    [SKILL_LEVELS.EXPERT]: 'skill-level-expert'
-}
+import SkillLevelBanner from '../SkillLevelBanner'
+import * as R from 'ramda'
+import Link from '../Link'
+import { ReactComponent as LinkIcon } from '../../assets/icons/link.svg'
 
 const SkillModal = props => {
     const {
@@ -26,23 +20,25 @@ const SkillModal = props => {
         name,
         type,
         description,
-        yearsOfExperience,
         logo,
         rating,
-        skillLevel,
-        skillLevelText,
         link
     } = content
+
+    const skillLevelBannerProps = R.pickAll([
+        'skillLevel',
+        'skillLevelText',
+        'startDate',
+        'endDate'
+    ], content)
+    skillLevelBannerProps.borderPosition = 'bottom'
 
     const containerProps = {
         className: classnames(
             createGlobalLocalClassnames(styles, 'SkillModal'),
-            className,
-            skillLevelClassMap[skillLevel]
+            className
         )
     }
-
-    const yearsOfExperienceText = `${ createPluralAmountString(yearsOfExperience, 'yr', 'yrs') } experience`
 
     return (
         <div { ...containerProps }>
@@ -51,15 +47,11 @@ const SkillModal = props => {
             </div>
             <h1 id={ titleId } className="name">{ name }</h1>
             <p id={ descriptionId } className="description">{ description }</p>
-            <div className="metadata">
-                <div className="content-container">
-                    <div className="metadata-item skill-level-text">{ skillLevelText }</div>
-                    <div className="metadata-item bullet"></div>
-                    <div className="metadata-item years-of-experience">
-                        <span>{ yearsOfExperienceText }</span>
-                    </div>
-                </div>
-            </div>
+            <Link to={link} className="homepage-link button button-small icon-right">
+                <span>Open homepage</span>
+                <LinkIcon />
+            </Link>
+            <SkillLevelBanner { ...skillLevelBannerProps } />
         </div>
     )
 }
@@ -68,10 +60,8 @@ const skillContentShape = PropTypes.shape({
     name: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
-    yearsOfExperience: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number
-    ]).isRequired,
+    startDate: PropTypes.string.isRequired,
+    endDate: PropTypes.string,
     logo: PropTypes.shape({
         src: PropTypes.string,
         label: PropTypes.string

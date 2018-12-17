@@ -4,3 +4,97 @@
 .NavMenu--open__Body {
     overflow: hidden;
 }
+
+// Buttons
+.button,
+.button:visited,
+button,
+input[type='submit'],
+input[type='reset'],
+input[type='button'] {
+    $backgroundColor: get-theme-color('accent');
+
+    background: $backgroundColor;
+    color: contrast-color($backgroundColor);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font: 14px 'opensans-regular', sans-serif;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    height: auto;
+    border-radius: 30px;
+    white-space: nowrap;
+    border: 1px solid transparent;
+
+    transition: transition-happy();
+
+    &:hover {
+        $hoverBackgroundColor: lighten($backgroundColor, 10%);
+
+        background: $hoverBackgroundColor;
+        color: contrast-color($hoverBackgroundColor);
+    }
+
+    &:active,
+    &:focus,
+    &:hover {
+        text-decoration: none;
+    }
+
+    .svgr {
+        font-size: 20px;
+    }
+
+    &.icon-right {
+        .text {
+            order: 1;
+        }
+
+        .svgr {
+            align-self: flex-end;
+            margin-left: 8px;
+            order: 2;
+        }
+    }
+
+    &.icon-left {
+        .text {
+            order: 2;
+        }
+
+        .svgr {
+            align-self: flex-start;
+            margin-right: 8px;
+            order: 1;
+        }
+    }
+
+    &.button-secondary {
+        $color: contrast-color($backgroundColor);
+        $backgroundColor: transparent;
+
+        background-color: $backgroundColor;
+        color: $color;
+        border: 1px solid $color;
+
+        &:hover {
+            color: contrast-color($color);
+            border-color: $backgroundColor;
+            background-color: $color;
+        }
+    }
+
+    &.button-small {
+        font-size: 12px;
+        padding: 6px 12px;
+
+        .svgr {
+            font-size: 15px;
+        }
+    }
+}

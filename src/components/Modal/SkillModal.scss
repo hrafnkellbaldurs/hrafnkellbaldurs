@@ -4,16 +4,16 @@
 $logoSize: 80px;
 $backgroundColor: get-theme-color('foreground');
 $color: contrast-color($backgroundColor);
-$metaDataHeight: 35px;
+$skillLevelBannerHeight: 35px;
 $paddingX: 40px;
-$paddingY: 10px;
+$paddingY: 20px;
 
 :local(.SkillModal) {
 
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: $paddingY $paddingX $metaDataHeight $paddingX;
+    padding: ($paddingY + $skillLevelBannerHeight) $paddingX $paddingY $paddingX;
     min-width: 300px;
 
     .logoContainer {
@@ -39,100 +39,21 @@ $paddingY: 10px;
         width: 100%;
     }
 
-    .metadata {
-        height: $metaDataHeight;
-        width: 100%;
+    .homepage-link {
+        align-self: center;
+    }
+
+    :global(.SkillLevelBanner) {
+        height: $skillLevelBannerHeight;
         position: absolute;
-        bottom: 0;
-        border-top: 2px solid;
-        padding: 10px;
-        color: contrast-color-by-keys($backgroundColor, 'secondary');
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-
-    .content-container {
-        display: flex;
-    }
-
-    .metadata-item {
-        display: flex;
-        flex: 1;
-        justify-content: center;
-        align-items: center;
-        font-weight: bold;
-        color: $color;
-    }
-
-
-
-    .skill-level-text {
-        font-weight: bold;
-        justify-content: flex-end;
-    }
-
-    .bullet {
-        color: contrast-color-by-keys($backgroundColor, 'secondary');
-        margin: 0 10px;
-    }
-
-    .years-of-experience {
-        justify-content: flex-start;
-
-        &,
-        span {
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-    }
-
-    .skill-level-text,
-    .years-of-experience {
-        min-width: 130px;
+        top: 0;
     }
 
     @include media('<=phone') {
         min-width: unset;
 
-        .skill-level-text,
-        .years-of-experience {
-            min-width: unset;
-        }
-
-        .bullet {
-            margin: 0;
-        }
-    }
-}
-
-// Skill level colors
-:local(.SkillModal) {
-    @mixin setSkillLevelColor($color) {
-        .metadata {
-            border-color: $color;
-            background-color: rgba($color, 0.1);
-        }
-
-        .skill-level-text {
-            color: $color;
-        }
-    }
-
-    &.skill-level {
-        &-novice {
-            @include setSkillLevelColor($skill-level-color-novice);
-        }
-
-        &-proficient {
-            @include setSkillLevelColor($skill-level-color-proficient);
-        }
-
-        &-expert {
-            @include setSkillLevelColor($skill-level-color-expert);
+        .homepage-link {
+            align-self: center;
         }
     }
 }
