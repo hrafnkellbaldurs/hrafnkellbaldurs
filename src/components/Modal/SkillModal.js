@@ -3,10 +3,16 @@ import PropTypes from 'prop-types'
 import classnames from 'classnames'
 import {
     createGlobalLocalClassnames,
-    createPluralAmountString,
-    getColorBySkillLevel
+    createPluralAmountString
 } from '../../scripts/utils'
+import { SKILL_LEVELS } from '../../constants'
 import styles from './SkillModal.scss'
+
+const skillLevelClassMap = {
+    [SKILL_LEVELS.NOVICE]: 'skill-level-novice',
+    [SKILL_LEVELS.PROFICIENT]: 'skill-level-proficient',
+    [SKILL_LEVELS.EXPERT]: 'skill-level-expert'
+}
 
 const SkillModal = props => {
     const {
@@ -31,23 +37,9 @@ const SkillModal = props => {
     const containerProps = {
         className: classnames(
             createGlobalLocalClassnames(styles, 'SkillModal'),
-            className
+            className,
+            skillLevelClassMap[skillLevel]
         )
-    }
-
-    const skillLevelColor = getColorBySkillLevel(skillLevel)
-    const skillLevelProps = {
-        className: 'skill-level',
-        style: {
-            color: skillLevelColor
-        }
-    }
-
-    const metaDataProps = {
-        className: 'metadata flex flex--center-both',
-        style: {
-            borderColor: skillLevelColor
-        }
     }
 
     const yearsOfExperienceText = `${ createPluralAmountString(yearsOfExperience, 'yr', 'yrs') } experience`
@@ -59,11 +51,13 @@ const SkillModal = props => {
             </div>
             <h1 id={ titleId } className="name">{ name }</h1>
             <p id={ descriptionId } className="description">{ description }</p>
-            <div { ...metaDataProps }>
-                <div { ...skillLevelProps }>{ skillLevelText }</div>
-                <div className="bullet"></div>
-                <div className="years-of-experience">
-                    { yearsOfExperienceText }
+            <div className="metadata">
+                <div className="content-container">
+                    <div className="metadata-item skill-level-text">{ skillLevelText }</div>
+                    <div className="metadata-item bullet"></div>
+                    <div className="metadata-item years-of-experience">
+                        <span>{ yearsOfExperienceText }</span>
+                    </div>
                 </div>
             </div>
         </div>

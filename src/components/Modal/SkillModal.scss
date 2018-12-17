@@ -1,4 +1,5 @@
 @import '../../styles/utils/colors';
+@import '../../styles/utils/media-queries';
 
 $logoSize: 80px;
 $backgroundColor: get-theme-color('foreground');
@@ -13,7 +14,7 @@ $paddingY: 10px;
     flex-direction: column;
     align-items: center;
     padding: $paddingY $paddingX $metaDataHeight $paddingX;
-
+    min-width: 300px;
 
     .logoContainer {
         display: flex;
@@ -34,37 +35,104 @@ $paddingY: 10px;
     }
 
     .description {
-        color: contrast-color-by-keys($backgroundColor, 'secondary')
+        color: contrast-color-by-keys($backgroundColor, 'secondary');
+        width: 100%;
     }
 
     .metadata {
         height: $metaDataHeight;
-        // display: flex;
-        // justify-content: center;
-        // align-items: center;
         width: 100%;
         position: absolute;
         bottom: 0;
-        left: 0;
         border-top: 2px solid;
         padding: 10px;
-        color: contrast-color-by-keys($backgroundColor, 'secondary')
+        color: contrast-color-by-keys($backgroundColor, 'secondary');
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
-    .skill-level {
+    .content-container {
+        display: flex;
+    }
+
+    .metadata-item {
+        display: flex;
         flex: 1;
-        text-align: right;
+        justify-content: center;
+        align-items: center;
         font-weight: bold;
+        color: $color;
+    }
+
+
+
+    .skill-level-text {
+        font-weight: bold;
+        justify-content: flex-end;
     }
 
     .bullet {
-        margin: 0 20px;
-        color: currentColor;
+        color: contrast-color-by-keys($backgroundColor, 'secondary');
+        margin: 0 10px;
     }
 
     .years-of-experience {
-        flex: 1;
-        text-align: left;
-        color: currentColor;
+        justify-content: flex-start;
+
+        &,
+        span {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+
+    .skill-level-text,
+    .years-of-experience {
+        min-width: 130px;
+    }
+
+    @include media('<=phone') {
+        min-width: unset;
+
+        .skill-level-text,
+        .years-of-experience {
+            min-width: unset;
+        }
+
+        .bullet {
+            margin: 0;
+        }
+    }
+}
+
+// Skill level colors
+:local(.SkillModal) {
+    @mixin setSkillLevelColor($color) {
+        .metadata {
+            border-color: $color;
+            background-color: rgba($color, 0.1);
+        }
+
+        .skill-level-text {
+            color: $color;
+        }
+    }
+
+    &.skill-level {
+        &-novice {
+            @include setSkillLevelColor($skill-level-color-novice);
+        }
+
+        &-proficient {
+            @include setSkillLevelColor($skill-level-color-proficient);
+        }
+
+        &-expert {
+            @include setSkillLevelColor($skill-level-color-expert);
+        }
     }
 }

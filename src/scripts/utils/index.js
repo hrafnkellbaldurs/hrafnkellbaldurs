@@ -9,5 +9,3 @@ export { default as capitalize } from './capitalize'
 export { default as pluckEdgeNodes } from './pluckEdgeNodes'
 export { default as stringToArray } from './stringToArray'
 export { default as findBy } from './findBy'
-export { default as getColorBySkillLevel } from './getColorBySkillLevel'
-

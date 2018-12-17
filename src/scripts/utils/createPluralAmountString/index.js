@@ -9,7 +9,7 @@
 export default function createPluralAmountString(amount = 0, string = '', stringPlural = '', fallback = '') {
     let pluralAmount = fallback
 
-    if (amount >= 1) {
+    if (amount > 0) {
         pluralAmount = `${ amount } ${ amount > 1 ? stringPlural : string }`
     }
 
