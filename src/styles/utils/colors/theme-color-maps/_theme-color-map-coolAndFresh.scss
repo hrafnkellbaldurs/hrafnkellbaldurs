@@ -1,0 +1,28 @@
+@import './generate-theme-color-map';
+
+// The first theme that was used
+$theme-color-map-coolAndFresh: generateThemeColorMap(
+    (
+        'primary': #05386B,
+        'accent': #5cdb95,
+        'secondary': #379683,
+        'foreground': #fff,
+        'background': #2b2b2b,
+        'overlay': #00000080
+    )
+);
+
+$theme-color-map-coolAndFresh-contrast: (
+    'dark': (
+        'primary': rgb(240, 239, 239),
+        'secondary': rgba(240, 239, 239, 0.7),
+        'disabled': rgba(240, 239, 239, 0.5),
+        'hint': rgba(240, 239, 239, 0.12)
+    ),
+    'light': (
+        'primary': rgba(0, 0, 0, 0.87),
+        'secondary': rgba(0, 0, 0, 0.54),
+        'disabled': rgba(0, 0, 0, 0.4),
+        'hint': rgba(0, 0, 0, 0.12)
+    )
+);

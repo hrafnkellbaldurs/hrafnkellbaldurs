@@ -1,0 +1,11 @@
+{
+    "title": "Pomodoro Clock",
+	"type": "development",
+    "subtitle": "A simple Pomodoro clock app for FreeCodeCamp",
+    "image": null,
+    "coAuthors": "",
+    "tags": "Knockout.js, Ramda, HTML, CSS, JavaScript",
+    "description": "Created for a <a href=\"https: //learn.freecodecamp.org/front-end-libraries/front-end-libraries-projects/build-a-pomodoro-clock/\">project in FreeCodeCamp</a>",
+    "link": "https://codepen.io/kotkarl/full/GWEwOd",
+    "sourceCodeLink": "https://codepen.io/kotkarl/pen/GWEwOd"
+}

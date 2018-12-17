@@ -3,7 +3,10 @@
     "shortName": ".NET MVC",
     "type": "technology",
     "description": "",
-    "yearsOfExperience": "0.5",
+    "startDate": "2018-06-01",
+    "endDate": "2018-12-01",
     "logo": "../../assets/images/asp-net-logo.png",
-    "rating": 16
+    "rating": 16,
+	"skillLevel": 0,
+	"link": "https://www.asp.net/mvc"
 }

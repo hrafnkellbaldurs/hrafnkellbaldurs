@@ -1,0 +1,11 @@
+{
+    "title": "Random quote generator",
+	"type": "development",
+    "subtitle": "Simple frontend using the forismatic API for FreeCodeCamp",
+    "image": null,
+    "coAuthors": "",
+    "tags": "jQuery, JavaScript",
+    "description": "Created for a <a href=\"https: //learn.freecodecamp.org/front-end-libraries/front-end-libraries-projects/build-a-random-quote-machine/\">project in FreeCodeCamp</a>",
+    "link": "https://codepen.io/kotkarl/full/MyrEqr",
+    "sourceCodeLink": "https://codepen.io/kotkarl/pen/MyrEqr"
+}

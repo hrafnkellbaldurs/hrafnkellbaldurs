@@ -1,94 +1,124 @@
 @import '../../utils/colors';
-@import '../../utils/material-helpers';
+@import '../../utils/mixins';
 @import '../../utils/animations';
 @import '../../utils/media-queries';
 
-.Section#about {
-    background: theme-color('background');
-    padding-top: 96px;
-    padding-bottom: 66px;
-    overflow: hidden;
+@mixin aboutSectionStyles(
+    $backgroundColor: get-theme-color('primary'),
+    $contentBackgroundColor: get-theme-color('foreground'),
+    $descriptionColor: contrast-color-by-keys($contentBackgroundColor, 'secondary')
+) {
+    .Section#about {
+        background: $backgroundColor;
+        padding-top: 96px;
+        padding-bottom: 66px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
-    h2 {
-        font: 22px/30px 'opensans-bold', sans-serif;
-        color: contrast-color('dark');
-        margin-bottom: 12px;
-    }
+        .section-content-container {
+            @include content-card($contentBackgroundColor, $level: 2);
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
 
-    p {
-        line-height: 25px;
-        color: rgba(contrast-color('dark', 'secondary'), 0.35);
-    }
+        h1 {
+            font: 18px/24px 'opensans-bold', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding-bottom: 6px;
+            color: contrast-color($contentBackgroundColor);
+        }
 
-    .profile-pic {
-        position: relative;
-        width: 170px;
-        height: 170px;
-        border-radius: 50%;
-        border-width: thick;
-        border-style: solid;
-        border-color: theme-color('accent');
-    }
+        h2 {
+            font: 16px/30px 'opensans-bold', sans-serif;
+            color: contrast-color($contentBackgroundColor);
+            margin-bottom: 12px;
+        }
 
-    .contact-details {
-        width: 41.66667%;
-    }
+        p {
+            line-height: 25px;
+            color: $descriptionColor;
+        }
 
-    .download {
-        width: 58.33333%;
-        padding-top: 6px;
+        .profile-pic {
+            position: relative;
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            border-width: thick;
+            border-style: solid;
+            border-color: get-theme-color('accent');
+            @include materialBoxShadow(1);
+        }
 
-        .button {
-            margin-top: 6px;
-            color: contrast-color('dark');
-            background: theme-color('accent', 'dark');
-            transition: all 0.3s $timing-function-happy;
+        .contact-details {
+            width: 41.66667%;
+        }
 
-            @include materialHover();
+        .action-links {
+            display: flex;
+            align-items: center;
+            padding-top: 6px;
+            float: none;
 
-            &:hover {
-                background: theme-color('accent');
+            .button {
+                margin-top: 20px;
+                margin-right: 5px;
+                margin-left: 5px;
+
+                &.button-secondary {
+                    $color: contrast-color($contentBackgroundColor);
+                    color: $color;
+                    border-color: $color;
+
+                    &:hover {
+                        color: contrast-color($color);
+                        border-color: contrast-color($color);
+                        background-color: $color;
+                    }
+                }
             }
-        }
-    }
-
-    .main-col {
-        padding-right: 5%;
-    }
-
-    @include media('<=laptop') {
-        .profile-pic {
-            width: 140px;
-            height: 140px;
-            margin-left: 12px;
-        }
-
-        .contact-details,
-        .download {
-            width: 50%;
-        }
-    }
-
-    @include media('<=tablet') {
-        .profile-pic {
-            float: right;
-        }
-
-        .download .button {
-            width: 100%;
-            text-align: center;
-            padding: 15px 20px;
         }
 
         .main-col {
-            padding-right: 30px;
+            padding-right: 5%;
         }
-    }
 
-    @include media('<=phone') {
-        .profile-pic {
-            width: 100px;
-            height: 100px;
+        @include media('<=laptop') {
+            .profile-pic {
+                width: 140px;
+                height: 140px;
+                margin-left: 12px;
+            }
+        }
+
+        @include media('<=tablet') {
+
+            .profile-pic-container {
+                position: absolute;
+                top: -80px;
+            }
+
+            .action-links {
+                flex-wrap: wrap;
+                .button {
+                    width: 100%;
+                    flex: 1;
+                }
+            }
+
+            .main-col {
+                padding-right: 30px;
+            }
+        }
+
+        @include media('<=phone') {
+            .profile-pic {
+                width: 100px;
+                height: 100px;
+            }
         }
     }
 }

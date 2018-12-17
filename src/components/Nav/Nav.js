@@ -1,20 +1,18 @@
 import React from 'react'
 import styles from './Nav.module.scss'
-import { createGlobalLocalClassnames } from '../../scripts/utils'
+import { createGlobalLocalClassnames, isHome } from '../../scripts/utils'
 import * as R from 'ramda'
 import classnames from 'classnames'
 import NavMenu from 'react-burger-menu/lib/menus/slide'
 import Link from '../Link'
-import { ReactComponent as BurgerIcon } from '../../assets/images/burger_menu.svg'
+import { ReactComponent as BurgerIcon } from '../../assets/icons/burger_menu.svg'
+import { connect, actions } from '../../store'
 
 const globalLocalClassnames = R.partial(createGlobalLocalClassnames, [styles])
 
 class Nav extends React.PureComponent {
     constructor(props) {
         super(props)
-        this.state = {
-            menuOpen: false
-        }
 
         this.handleMenuStateChange = this.handleMenuStateChange.bind(this)
         this.closeMenu = this.closeMenu.bind(this)
@@ -24,19 +22,21 @@ class Nav extends React.PureComponent {
     // Keeps state in sync with NavMenu state
     // via the default means, e.g. clicking the X, pressing the ESC key etc.
     handleMenuStateChange({ isOpen: menuOpen }) {
-        this.setState({ menuOpen })
+        actions.setNavMenuOpen(menuOpen)
     }
 
     closeMenu() {
-        this.setState({ menuOpen: false })
+        actions.setNavMenuOpen(false)
     }
 
     toggleMenu() {
-        this.setState(({ menuOpen }) => ({ menuOpen: !menuOpen }))
+        actions.setNavMenuOpen(!this.props.menuOpen)
     }
 
     onItemClick = e => {
-        e.preventDefault()
+        if (isHome()) {
+            e.preventDefault()
+        }
         this.closeMenu()
     }
 
@@ -57,25 +57,12 @@ class Nav extends React.PureComponent {
     renderItem = item => {
         const currentItemId = this.props.currentItemId
 
-        const getCurrentClassName = ({ href = '', location = {} }) => {
-            // const key = R.pipe(R.split('#'), R.last)(href)
-            // const linkHrefHash = `#${ key }`
-            // const locationHash = location.hash
-
-            // const noHash = locationHash === ''
-            // const isHome = item.id === 'home'
-            // const isCurrentHash = linkHrefHash === locationHash
-            const isCurrentItemId = item.id === currentItemId
-
-            const isCurrent = isCurrentItemId
-
-            return {
-                className: classnames({
-                    [item.className]: true,
-                    [styles.current]: isCurrent
-                })
-            }
-        }
+        const getCurrentClassName = () => ({
+            className: classnames({
+                [item.className]: true,
+                [styles.current]: item.id === currentItemId
+            })
+        })
 
         return (
             <Link
@@ -95,8 +82,8 @@ class Nav extends React.PureComponent {
     render() {
         const {
             items = [],
-            currentItemId,
-            menuOptions: menuOptionsProp = {}
+            menuOptions: menuOptionsProp = {},
+            menuOpen
         } = this.props
 
         const containerProps = {
@@ -106,13 +93,18 @@ class Nav extends React.PureComponent {
         }
 
         const menuOptionPropOr = R.partialRight(R.propOr, [menuOptionsProp])
+        const NavMenuClassname = 'NavMenu'
         const menuOptions = {
             width: menuOptionPropOr('60%', 'width'),
             customBurgerIcon: menuOptionPropOr(<BurgerIcon />, 'customBurgerIcon'),
             right: menuOptionsProp.left !== true,
-            className: classnames(styles.NavMenu, menuOptionsProp.className),
-            isOpen: this.state.menuOpen,
-            onStateChange: this.handleMenuStateChange
+            className: classnames(
+                globalLocalClassnames(NavMenuClassname),
+                menuOptionsProp.className
+            ),
+            isOpen: menuOpen,
+            onStateChange: this.handleMenuStateChange,
+            bodyClassName: menuOptionPropOr(`${ NavMenuClassname }--open__Body`, 'bodyClassName')
         }
 
         return (
@@ -131,4 +123,10 @@ class Nav extends React.PureComponent {
     }
 }
 
-export default Nav
+const mapStateToProps = state => ({
+    currentItemId: state.currentNavItemId,
+    menuOpen: state.navMenuOpen,
+    items: state.navItems
+})
+
+export default connect(mapStateToProps)(Nav)

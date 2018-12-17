@@ -1,28 +1,43 @@
 @import '../../styles/utils/colors';
 @import '../../styles/utils/media-queries';
+@import '../../styles/utils/mixins';
+
+$grid-gap: 10px;
+$skillBadge-size: 80px;
+$skillBadge-size-medium: 60px;
+$skillBadge-size-small: 50px;
 
 .SkillGrid {
-    width: 100%;
     padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+
+    &,
+    .skillGroup {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
     .groupLabel {
-        font-family: 'opensans-semibold', sans-serif;
-        font-size: 16px;
+        font: 16px 'opensans-semibold', sans-serif;
         background: none;
-        color: contrast-color('light');
+        color: get-contrast-color('light');
         padding: 3px 10px;
         display: flex;
         justify-content: space-between;
         justify-items: center;
         align-items: center;
         margin-bottom: 10px;
+        box-shadow: none;
+        transform: none;
+        text-decoration: none;
+        text-transform: none;
     }
 
     .additionalLabel {
         margin-top: 20px;
+        border-radius: 0;
+        transition: none;
 
         .arrow {
             margin-left: 5px;
@@ -42,49 +57,88 @@
         }
     }
 
-    .items {
+    .skills {
         width: 100%;
-        display: flex;
-        flex-wrap: wrap;
         transition: height 300ms ease-in-out, opacity 300ms ease-in-out;
-        opacity: 1;
         overflow: hidden;
-        height: 330px;
+        padding: 16px 3px;
 
-        &.hidden {
-            height: 0;
-            opacity: 0;
-        }
+        @include grid-repeat-box(
+            $gap: $grid-gap,
+            $min-item-size: $skillBadge-size,
+            $column-count: 5
+        );
 
-        .itemContainer {
-            display: flex;
-            flex-grow: 1;
-            flex-shrink: 1;
-            justify-content: center;
-            width: 18%;
+        &.expandable {
+            height: 290px;
+
+            &.hidden {
+                height: 0;
+                opacity: 0;
+                pointer-events: none;
+            }
         }
     }
 
+    .skillContainer {
+        height: $skillBadge-size-medium;
+        min-width: $skillBadge-size;
+        min-height: $skillBadge-size;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+
+
+    :global(.SkillBadge) {
+        // Remove margin to make css grid take care of it
+        margin: 0;
+    }
+}
+
+// Media Queries
+.SkillGrid {
     @mixin setSkillBadgeSize($size) {
         width: $size;
         height: $size;
         max-height: $size;
+        min-width: $size;
+        max-width: $size;
+        min-height: $size;
     }
 
     @include media('<=tablet') {
-        .items {
-            height: 220px;
-            
-            .itemContainer {
-                $size: 60px;
-                height: $size + 12px;
+        .skills {
+            &.expandable {
+                height: 270px;
+            }
 
-                :global(.SkillBadge) {
-                    @include setSkillBadgeSize($size);
-                    padding: 10px;
-                    margin: 5px;
-        
-                    :global(.itemLabel) {
+            @include grid-repeat-box(
+                $gap: $grid-gap,
+                $min-item-size: $skillBadge-size-medium
+            );
+        }
+
+        .skillContainer {
+            height: $skillBadge-size-medium;
+            min-width: $skillBadge-size-medium;
+            min-height: $skillBadge-size-medium;
+
+            :global(.SkillBadge) {
+                @include setSkillBadgeSize($skillBadge-size-medium);
+                padding-top: 15px;
+                padding-bottom: 10px;
+
+                :global(.itemLabel) {
+                    display: none;
+                }
+
+                :global(.SkillLevelBanner) {
+                    height: 10px;
+                    border-bottom-width: 1px;
+
+                    :global(.content-container) {
                         display: none;
                     }
                 }
@@ -93,19 +147,33 @@
     }
 
     @include media('<=phone') {
-        .items {
-            height: 190px;
-            
-            .itemContainer {
-                $size: 50px;
-                height: $size + 12px;
+        .skills {
+            @include grid-repeat-box(
+                $gap: 10px,
+                $min-item-size: $skillBadge-size-small
+            );
+        }
 
-                :global(.SkillBadge) {
-                    @include setSkillBadgeSize($size);
+        .skillContainer {
+            height: $skillBadge-size-small;
+            min-width: $skillBadge-size-small;
+            min-height: $skillBadge-size-small;
+
+            :global(.SkillBadge) {
+                @include setSkillBadgeSize($skillBadge-size-small);
+                padding-top: 13px;
+
+                :global(.SkillLevelBanner) {
+                    height: 8px;
+                    border-bottom-width: 1px;
+
+                    :global(.content-container) {
+                        display: none;
+                    }
                 }
             }
         }
+
     }
 
-    
 }

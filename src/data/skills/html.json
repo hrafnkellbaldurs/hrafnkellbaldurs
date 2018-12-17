@@ -3,7 +3,10 @@
     "shortName": "HTML",
     "type": "technology",
     "description": "I have proficient knowledge of HTML and use it pretty much daily",
-    "yearsOfExperience": "5",
+    "startDate": "2013-12-01",
+    "endDate": null,
     "logo": "../../assets/images/html5-logo.png",
-    "rating": 3
+    "rating": 3,
+    "skillLevel": 2,
+    "link": "https://en.wikipedia.org/wiki/HTML"
 }

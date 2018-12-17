@@ -1,0 +1,22 @@
+// Generates a map with different variants of the given $color
+@function generateThemeColorVariantMap($color, $colorGap: 5%) {
+    @return (
+        'base': $color,
+        'light': lighten($color, $colorGap),
+        'dark': darken($color, $colorGap)
+    )
+};
+
+// Generates a theme color map with the given $colorMap.
+// $colorMap must contain 'primary', 'accent', 'secondary', 'foreground', and 'background' keys
+@function generateThemeColorMap($colorMap) {
+    $generated-map: (
+        'primary': generateThemeColorVariantMap(map-get($colorMap, 'primary')),
+        'accent': generateThemeColorVariantMap(map-get($colorMap, 'accent')),
+        'secondary': generateThemeColorVariantMap(map-get($colorMap, 'secondary')),
+        'foreground': generateThemeColorVariantMap(map-get($colorMap, 'foreground')),
+        'background': generateThemeColorVariantMap(map-get($colorMap, 'background')),
+        'overlay': generateThemeColorVariantMap(map-get($colorMap, 'overlay'))
+    );
+    @return $generated-map;
+};

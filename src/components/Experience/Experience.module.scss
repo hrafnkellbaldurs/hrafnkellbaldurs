@@ -4,16 +4,18 @@
 $iconSize: 40px;
 $iconMarginRight: 15px;
 
-.titleContainer,
-.detailsContainer {
-    padding: 0 30% 0 20px;
-}
+.Experience {
+    :global(.titleContainer),
+    :global(.detailsContainer) {
+        padding: 0 30% 0 20px;
+    }
 
-.titleContainer {
-    display: flex;
-    align-items: center;
+    :global(.titleContainer) {
+        display: flex;
+        align-items: center;
+    }
 
-    .iconContainer {
+    :global(.iconContainer) {
         font-size: $iconSize;
         width: 1em;
         min-width: 1em;
@@ -25,49 +27,42 @@ $iconMarginRight: 15px;
         }
     }
 
-    .title {
+    :global(.title) {
         margin: 0;
     }
-}
 
-.detailsContainer {
-    margin-left: $iconSize + $iconMarginRight;
+    :global(.detailsContainer) {
+        margin-left: $iconSize + $iconMarginRight;
+    }
 
-    .info {
+    :global(.info) {
         line-height: 24px;
-        color: contrast-color('light', 'secondary');
+        color: get-contrast-color('light', 'secondary');
         margin-top: -5px;
         margin-bottom: 10px;
         width: 100%;
         display: flex;
         flex-direction: column;
-
-        .subtitle {
-            font-family: 'librebaskerville-italic', serif;
-            font-size: 16px;
-        }
-
-        .dateContainer {
-            color: contrast-color('light', 'disabled');
-            font-family: 'opensans-regular', sans-serif;
-            font-size: 15px;
-            display: flex;
-            flex-wrap: wrap;
-
-            .date {
-                white-space: nowrap;
-            }
-
-            .bullet:before {
-                font-family: 'librebaskerville', serif;
-                content: '•';
-                margin-right: 5px;
-                margin-left: 5px;
-            }
-        }
     }
 
-    .description {
+    :global(.subtitle) {
+        font-family: 'librebaskerville-italic', serif;
+        font-size: 16px;
+    }
+
+    :global(.dateContainer) {
+        color: get-contrast-color('light', 'disabled');
+        font-family: 'opensans-regular', sans-serif;
+        font-size: 15px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    :global(.date) {
+        white-space: nowrap;
+    }
+
+    :global(.description) {
         p {
             margin-bottom: 10px;
         }

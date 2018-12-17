@@ -1,0 +1,66 @@
+@import '../../utils/colors';
+
+@mixin contentSectionStyles(
+    $backgroundColor
+) {
+    .Section#content404 {
+        background-color: $backgroundColor;
+        background: radial-gradient(
+            ellipse at 80% 50%,
+            lighten($backgroundColor, 10%) 0%,
+            lighten($backgroundColor, 5%) 70%,
+            $backgroundColor 100%
+        );
+        color: contrast-color($backgroundColor);
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height: 100%;
+        }
+
+        .message-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: contrast-color($backgroundColor);
+
+            .right-column {
+                margin-left: 10px;
+                width: 67px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            h1 {
+                color: currentColor;
+                margin: 0;
+                padding: 0;
+            }
+
+            .svgr {
+                color: currentColor;
+                font-size: 65px;
+                margin-bottom: 20px;
+            }
+        }
+
+
+
+        span {
+            color: contrast-color-by-keys($backgroundColor, 'secondary')
+        }
+
+        .button.go-home {
+            margin-top: 20px;
+
+            .svgr {
+                margin-top: -2px;
+            }
+        }
+    }
+}

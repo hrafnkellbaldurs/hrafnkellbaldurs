@@ -1,5 +1,7 @@
 @import '../utils/colors';
 @import '../utils/media-queries';
+@import '../utils/mixins';
+@import '../utils/animations';
 
 /*
 
@@ -10,7 +12,6 @@ c. Default Styles
    2. Typography
    3. Links
    4. Images
-   5. Buttons
    6. Forms
 d. Grid
 e. Others
@@ -302,7 +303,7 @@ small {
 
 /*	Blockquotes */
 blockquote {
-    margin: 30px 0px;
+    margin: 30px 0;
     padding-left: 40px;
     position: relative;
 }
@@ -310,7 +311,7 @@ blockquote:before {
     content: '\201C';
     opacity: 0.45;
     font-size: 80px;
-    line-height: 0px;
+    line-height: 0;
     margin: 0;
     font-family: arial, sans-serif;
 
@@ -340,18 +341,24 @@ blockquote cite a:visited {
 }
 
 /*  3. Links  ------------------------------------------------------- */
+a {
+    $color: get-theme-color('accent');
 
-a,
-a:visited {
-    text-decoration: none;
-    outline: 0;
-    color: theme-color('accent');
-    transition: color 0.3s ease-in-out;
+    &,
+    &:visited {
+        text-decoration: none;
+        outline: 0;
+        color: $color;
+        transition: color 0.3s ease-in-out;
+    }
+
+    &:hover,
+    &:focus {
+        text-decoration: underline;
+        color: get-theme-color('accent', 'light')
+    }
 }
-a:hover,
-a:focus {
-    color: #313131;
-}
+
 p a,
 p a:visited {
     line-height: inherit;
@@ -407,27 +414,6 @@ li {
 img {
     max-width: 100%;
     height: auto;
-}
-
-/*  6. Buttons  --------------------------------------------------------- */
-
-.button,
-.button:visited,
-button,
-input[type='submit'],
-input[type='reset'],
-input[type='button'] {
-    font: 16px 'opensans-bold', sans-serif;
-    display: inline-block;
-    background: theme-color('accent');
-    color: contrast-color('dark');
-    text-decoration: none;
-    letter-spacing: 0;
-    padding: 12px 20px;
-    border: none;
-    cursor: pointer;
-    height: auto;
-    border-radius: 3px;
 }
 
 /*  7. Forms  --------------------------------------------------------- */

@@ -1,0 +1,11 @@
+{
+    "title": "Twitch TV user display",
+	"type": "development",
+    "subtitle": "A front end using the Twitch JSON API for FreeCodeCamp",
+    "image": null,
+    "coAuthors": "",
+    "tags": "Knockout.js, jQuery, HTML, CSS, JavaScript",
+    "description": "Created for a <a href=\"https: //learn.freecodecamp.org/coding-interview-prep/take-home-projects/use-the-twitch-json-api/\">project in FreeCodeCamp</a>",
+    "link": "https://codepen.io/kotkarl/full/KzREoW",
+    "sourceCodeLink": "https://codepen.io/kotkarl/pen/KzREoW"
+}

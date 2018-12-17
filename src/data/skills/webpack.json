@@ -3,7 +3,10 @@
     "shortName": "Webpack",
     "type": "technology",
     "description": "",
-    "yearsOfExperience": "2",
+    "startDate": "2016-12-01",
+    "endDate": null,
     "logo": "../../assets/images/webpack-logo.png",
-    "rating": 6
+    "rating": 6,
+    "skillLevel": 1,
+    "link": "https://webpack.js.org/"
 }

@@ -1,5 +1,4 @@
 import createPluralAmountString from './index'
-import moment from 'moment'
 
 describe('createPluralAmountString', () => {
     it('should return a string', () => {
@@ -23,7 +22,15 @@ describe('createPluralAmountString', () => {
         expect(result).toEqual(`${ amount } ${ string }`)
     })
 
-    it('should return fallback if amount is lower than 1', () => {
+    it('should return the non plural amount if amount is between 0 and 1', () => {
+        const string = 'egg'
+        const pluralString = 'eggs'
+        const amount = 0.1
+        const result = createPluralAmountString(amount, string, pluralString)
+        expect(result).toEqual(`${ amount } ${ string }`)
+    })
+
+    it('should return fallback if amount is lower than 0', () => {
         const amount = 0
         const fallback = 'No eggs'
         const result = createPluralAmountString(amount, 'egg', 'eggs', fallback)

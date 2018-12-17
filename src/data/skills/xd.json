@@ -3,7 +3,10 @@
     "shortName": "XD",
     "type": "graphicdesign",
     "description": "",
-    "yearsOfExperience": "0.5",
+    "startDate": "2018-06-01",
+    "endDate": null,
     "logo": "../../assets/images/xd-logo.png",
-    "rating": 19
+    "rating": 19,
+    "skillLevel": 0,
+    "link": "https://www.adobe.com/products/xd.html"
 }

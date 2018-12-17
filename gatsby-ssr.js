@@ -4,7 +4,11 @@
  * See: https://www.gatsbyjs.org/docs/ssr-apis/
  */
 
-// You can delete this file if you're not using it
+// Wrap the root element with the context provider
+const store = require('./src/store')
+exports.wrapRootElement = store.wrapWithProvider
+
+// Used for debugging build
 const verboseLogger = (() => {
     const COLORS = {
         FG_YELLOW: '\x1b[33m',

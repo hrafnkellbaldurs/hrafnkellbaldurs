@@ -6,7 +6,7 @@ import { configureViewport, INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
 import { withTests } from '@storybook/addon-jest'
 import { withOptions } from '@storybook/addon-options';
 import testResults from '../jest-test-results.json'
-import colors from '../src/styles/utils/_colors.scss'
+import themeColors from '../src/styles/utils/colors/_theme-colors.scss'
 import * as R from 'ramda'
 require('../src/styles/storybook/main.scss')
 
@@ -47,7 +47,7 @@ addDecorator(withKnobs)
 const websiteColors = R.pipe(
   R.toPairs,
   R.map(([name, value]) => ({ name, value }))
-)(colors)
+)(themeColors)
 
 addDecorator(withBackgrounds(
   [
@@ -60,12 +60,12 @@ addDecorator(withBackgrounds(
 
  // Viewport
 const newViewports = {}
-configureViewport({ 
+configureViewport({
   viewports: {
     ...INITIAL_VIEWPORTS,
     ...newViewports
-  } 
-})  
+  }
+})
 
   // Tests
 addDecorator(withTests({ results: testResults }))

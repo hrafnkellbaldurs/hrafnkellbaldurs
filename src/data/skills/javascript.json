@@ -3,7 +3,10 @@
     "shortName": "JS",
     "type": "technology",
     "description": "The programming language I use pretty much exclusively",
-    "yearsOfExperience": "4",
+    "startDate": "2014-12-01",
+    "endDate": null,
     "logo": "../../assets/images/javascript-logo.png",
-    "rating": 1
+    "rating": 1,
+    "skillLevel": 2,
+    "link": "https://en.wikipedia.org/wiki/JavaScript"
 }

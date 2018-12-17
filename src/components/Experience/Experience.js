@@ -7,6 +7,8 @@ import * as R from 'ramda'
 import HTMLReactParser from 'html-react-parser'
 import { getDateRangeDuration, createPluralAmountString, createGlobalLocalClassnames } from '../../scripts/utils'
 
+const globalLocalClassnames = R.partial(createGlobalLocalClassnames, [styles])
+
 class Experience extends React.PureComponent {
     createDateStrings(startDate, endDate, dateFormat = 'MMM YYYY') {
         const defaultMoment = R.pipe(R.defaultTo(moment()), moment)
@@ -47,15 +49,8 @@ class Experience extends React.PureComponent {
         const containerProps = {
             className: classnames(
                 'row',
-                createGlobalLocalClassnames(styles, 'Experience')
+                globalLocalClassnames('Experience')
             )
-        }
-
-        const titleContainerProps = {
-            className: classnames('twelve', styles.titleContainer)
-        }
-        const detailsContainerProps = {
-            className: classnames('twelve', styles.detailsContainer)
         }
 
         const {
@@ -66,22 +61,22 @@ class Experience extends React.PureComponent {
 
         return (
             <div { ...containerProps }>
-                <div { ...titleContainerProps }>
-                    <div className={ styles.iconContainer }>{ icon }</div>
-                    <h3 className={ styles.title }>{ title }</h3>
+                <div className="twelve titleContainer">
+                    <div className="iconContainer">{ icon }</div>
+                    <h3 className="title">{ title }</h3>
                 </div>
-                <div { ...detailsContainerProps }>
-                    <div className={ styles.info }>
-                        <span className={ styles.subtitle }>{ subtitle }</span>
-                        <span className={ styles.dateContainer }>
-                            <span className={ styles.date }>{ startDateString } - { endDateString }</span>
-                            <span className={ styles.bullet }></span>
-                            <span className={ styles.date }>{ durationString }</span>
+                <div className="twelve detailsContainer">
+                    <div className="info">
+                        <span className="subtitle">{ subtitle }</span>
+                        <span className="dateContainer">
+                            <span className="date">{ startDateString } - { endDateString }</span>
+                            <span className="bullet"></span>
+                            <span className="date">{ durationString }</span>
                         </span>
                     </div>
                     {
                         description ? (
-                            <div className={ styles.description }>
+                            <div className="description">
                                 { HTMLReactParser(description) }
                             </div>
                         ) : null

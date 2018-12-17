@@ -1,190 +1,54 @@
 @import '../../utils/colors';
 @import '../../utils/media-queries';
 
-.Section#portfolio {
-    background: #ebeeee;
-    padding-top: 90px;
-    padding-bottom: 60px;
+@mixin portfolioSectionStyles(
+    $backgroundColor: get-theme-color('secondary'),
+    $background: null,
+    $showcaseBackgroundColor: get-theme-color('foreground')
+) {
+    .Section#portfolio {
+        background: $background;
+        background-color: $backgroundColor;
+        padding-top: 90px;
+        padding-bottom: 60px;
 
-    h1 {
-        font: 15px/24px 'opensans-semibold', sans-serif;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        text-align: center;
-        margin-bottom: 48px;
-        color: #313131; /*#95A3A3*/
-
-        span {
-            border-bottom: 3px solid theme-color('accent');
-        }
-    }
-
-    h3 {
-        font: 20px/24px 'opensans-bold', sans-serif;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        text-align: center;
-        margin-bottom: 30px;
-    }
-
-    .portfolio-item {
-        margin-bottom: 36px;
-
-        &:hover .item-wrap {
-            .overlay,
-            .link-icon {
-                opacity: 1;
-            }
+        h1 {
+            font: 18px/24px 'opensans-semibold', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+            margin-bottom: 48px;
+            color: contrast-color($backgroundColor);
         }
 
-        .item-wrap {
-            background: #fff;
-            overflow: hidden;
-            position: relative;
-            transition: all 0.3s ease-in-out;
-
-            a {
-                display: block;
-                cursor: pointer;
-            }
-
-            .overlay {
-                position: absolute;
-                left: 0;
-                top: 0;
-                width: 100%;
-                height: 100%;
-                opacity: 0;
-                transition: opacity 0.3s ease-in-out;
-                background: url(../../../assets/images/overlay-bg.png) repeat;
-            }
-
-            .link-icon {
-                display: block;
-                color: #fff;
-                height: 30px;
-                width: 30px;
-                font-size: 18px;
-                line-height: 30px;
-                text-align: center;
-                opacity: 0;
-                transition: opacity 0.3s ease-in-out;
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                margin-left: -15px;
-                margin-top: -15px;
-            }
-
-            img {
-                vertical-align: bottom;
-            }
-
-            .portfolio-item-meta {
-                padding: 18px;
-
-                h5 {
-                    font: 14px/21px 'opensans-bold', sans-serif;
-                    color: #fff;
-                }
-
-                p {
-                    font: 12px/18px 'opensans-light', sans-serif;
-                    color: #c6c7c7;
-                    margin-bottom: 0;
-                }
-            }
-        }
-    }
-
-    .popup-modal {
-        max-width: 550px;
-        background: #fff;
-        position: relative;
-        margin: 0 auto;
-
-        .description-box {
-            padding: 12px 36px 18px 36px;
-
-            h4 {
-                font: 15px/24px 'opensans-bold', sans-serif;
-                margin-bottom: 12px;
-                color: #111;
-            }
-
-            p {
-                font: 14px/24px 'opensans-regular', sans-serif;
-                color: #a1a1a1;
-                margin-bottom: 12px;
-            }
-
-            .categories {
-                font: 11px/21px 'opensans-light', sans-serif;
-                color: #a1a1a1;
-                text-transform: uppercase;
-                letter-spacing: 2px;
-                display: block;
-                text-align: left;
-
-                i {
-                    margin-right: 8px;
-                }
-            }
+        h3 {
+            font: 20px/24px 'opensans-bold', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+            margin-bottom: 30px;
         }
 
-        .link-box {
-            padding: 18px 36px;
-            background: #111;
-            text-align: left;
-
-            a {
-                color: #fff;
-                font: 11px/21px 'opensans-bold', sans-serif;
-                text-transform: uppercase;
-                letter-spacing: 3px;
-                cursor: pointer;
-            }
+        .section-content-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        a {
-            &:hover {
-                color: theme-color('accent');
+        .ShowcaseItem {
+            .infoContainer {
+                @include contrasted($showcaseBackgroundColor);
             }
 
-            &.popup-modal-dismiss {
-                margin-left: 24px;
+            .tag {
+                $tagBackgroundColor: contrast-color(
+                    $color: $showcaseBackgroundColor,
+                    $dark: darken($showcaseBackgroundColor, 10%),
+                    $light: lighten($showcaseBackgroundColor, 10%)
+                );
+
+                @include contrasted($tagBackgroundColor);
             }
         }
-    }
-
-    @include media('<=tablet') {
-        .portfolio-item {
-            margin-bottom: 40px;
-        }
-
-        .popup-modal {
-            max-width: 85%;
-        }
-    }
-
-    /* fadein/fadeout effect for modal popup
-    /* ------------------------------------------------------------------ */
-
-    /* content at start */
-    .mfp-fade.mfp-wrap .mfp-content .popup-modal {
-        opacity: 0;
-        -webkit-transition: all 200ms ease-in-out;
-        -moz-transition: all 200ms ease-in-out;
-        -o-transition: all 200ms ease-in-out;
-        -ms-transition: all 200ms ease-in-out;
-        transition: all 200ms ease-in-out;
-    }
-    /* content fadein */
-    .mfp-fade.mfp-wrap.mfp-ready .mfp-content .popup-modal {
-        opacity: 1;
-    }
-    /* content fadeout */
-    .mfp-fade.mfp-wrap.mfp-removing .mfp-content .popup-modal {
-        opacity: 0;
     }
 }

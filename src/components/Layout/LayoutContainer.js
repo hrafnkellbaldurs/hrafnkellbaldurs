@@ -2,68 +2,35 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import Layout from './Layout'
+import { ModalRoot } from '../Modal'
+import InitStateWithGraphql from '../../store/InitStateWithGraphql'
 
-const navItems = [
-    {
-        id: 'home',
-        href: '/#home',
-        text: 'Home'
-    },
-    {
-        id: 'about',
-        href: '/#about',
-        text: 'About'
-    },
-    {
-        id: 'resume',
-        href: '/#resume',
-        text: 'Resume'
-    },
-    {
-        id: 'portfolio',
-        href: '/#portfolio',
-        text: 'Portfolio'
-    }
-]
 class LayoutContainer extends React.PureComponent {
-    constructor(props) {
-        super(props)
-
-        this.state = {
-            currentNavItemId: null
-        }
-    }
-
-    setCurrentNavItem(navItemId) {
-        this.setState({ currentNavItemId: navItemId })
-    }
-
     render() {
         const { children } = this.props
-        const { currentNavItemId } = this.state
         return (
-            <StaticQuery
-                query={ graphql`
-                    query SiteTitleQuery {
-                        site {
-                            siteMetadata {
-                                title
-                                description
-                                author
+            <>
+                <InitStateWithGraphql />
+                <StaticQuery
+                    query={ graphql`
+                        query LayoutQuery {
+                            site {
+                                siteMetadata {
+                                    title
+                                }
                             }
                         }
-                    }
-                `}
-                render={ data => (
-                    <Layout
-                        navItems={ navItems }
-                        currentNavItemId={ currentNavItemId }
-
-                        siteMetadata={ data.site.siteMetadata }
-                        children={ children }
-                    />
-                )}
-            />
+                    `}
+                    render={ ({ site: { siteMetadata: { title } } }) => (
+                        <>
+                            <Layout siteTitle={ title }>
+                                { children }
+                            </Layout>
+                            <ModalRoot />
+                        </>
+                    ) }
+                />
+            </>
         )
     }
 }

@@ -1,0 +1,11 @@
+@import '../../utils/colors';
+@import '../../utils/mixins';
+
+body {
+    background: get-theme-color('background');
+}
+
+@import './content-section';
+@include contentSectionStyles(
+    $backgroundColor: get-theme-color('primary', 'light')
+)

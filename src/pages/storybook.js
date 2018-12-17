@@ -1,10 +1,12 @@
 import React from 'react'
 import Header from '../components/Header'
+import SEO from '../components/SEO'
 
 const StoryBookPage = () => {
     return (
         <div>
-            <Header></Header>
+            <SEO title="Storybook" />
+            <Header />
             <iframe
                 style={{
                     display: 'block',

@@ -1,0 +1,21 @@
+$breakpoints: (
+    phone-small: 320px,
+    phone: 480px,
+    tablet: 768px,
+    laptop: 900px,
+    desktop: 1024px,
+    desktop-large: 1200px
+);
+
+@function breakpoint($key) {
+    @return map-get($breakpoints, $key);
+}
+
+:export {
+    phone-small: breakpoint('phone-small');
+    phone: breakpoint('phone');
+    tablet: breakpoint('tablet');
+    laptop: breakpoint('laptop');
+    desktop: breakpoint('desktop');
+    desktop-large: breakpoint('desktop-large');
+}

@@ -1,0 +1,54 @@
+@import './theme-color-maps/current-theme-color-map';
+
+@function get-theme-color($key: 'primary', $variant: 'base') {
+    $map: map-get($current-theme-color-map, $key);
+    @return map-get($map, $variant);
+}
+
+@function get-contrast-color($background: 'light', $type: 'primary') {
+    $map: map-get($current-theme-color-map-contrast, $background);
+    @return map-get($map, $type);
+}
+
+@mixin get-contrast-color($background: 'light', $type: 'primary') {
+    color: get-contrast-color($background, $type);
+}
+
+:export {
+    // Theme Base
+    theme-primary-base: get-theme-color('primary', 'base');
+    theme-primary-light: get-theme-color('primary', 'light');
+    theme-primary-dark: get-theme-color('primary', 'dark');
+
+    // Theme Accent
+    theme-accent-base: get-theme-color('accent', 'base');
+    theme-accent-light: get-theme-color('accent', 'light');
+    theme-accent-dark: get-theme-color('accent', 'dark');
+
+    // Theme Secondary
+    theme-secondary-base: get-theme-color('secondary', 'base');
+    theme-secondary-light: get-theme-color('secondary', 'light');
+    theme-secondary-dark: get-theme-color('secondary', 'dark');
+
+    // Theme Foreground
+    theme-foreground-base: get-theme-color('foreground', 'base');
+    theme-foreground-light: get-theme-color('foreground', 'light');
+    theme-foreground-dark: get-theme-color('foreground', 'dark');
+
+    // Theme Background
+    theme-background-base: get-theme-color('background', 'base');
+    theme-background-light: get-theme-color('background', 'light');
+    theme-background-dark: get-theme-color('background', 'dark');
+
+    // Contrast Dark
+    contrast-dark-primary: get-contrast-color('dark', 'primary');
+    contrast-dark-secondary: get-contrast-color('dark', 'secondary');
+    contrast-dark-disabled: get-contrast-color('dark', 'disabled');
+    contrast-dark-hint: get-contrast-color('dark', 'hint');
+
+    // Contrast Light
+    contrast-light-primary: get-contrast-color('light', 'primary');
+    contrast-light-secondary: get-contrast-color('light', 'secondary');
+    contrast-light-disabled: get-contrast-color('light', 'disabled');
+    contrast-light-hint: get-contrast-color('light', 'hint');
+}

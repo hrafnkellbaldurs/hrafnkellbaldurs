@@ -3,7 +3,10 @@
     "shortName": "jQ",
     "type": "technology",
     "description": "",
-    "yearsOfExperience": "4",
+    "startDate": "2014-12-01",
+    "endDate": null,
     "logo": "../../assets/images/jquery-logo.png",
-    "rating": 8
+    "rating": 8,
+    "skillLevel": 2,
+    "link": "https://jquery.com/"
 }

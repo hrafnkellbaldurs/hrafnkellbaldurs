@@ -1,74 +1,103 @@
 @import '../../utils/colors';
 @import '../../utils/media-queries';
+@import '../../utils/mixins';
 
-.Section#resume {
-    background: theme-color('foreground');
-    padding-top: 90px;
-    padding-bottom: 72px;
-    overflow: hidden;
+@mixin resumeSectionStyles(
+    $backgroundColor: get-theme-color('secondary'),
+    $contentBackgroundColor: get-theme-color('foreground'),
+    $descriptionColor: contrast-color-by-keys($contentBackgroundColor, 'secondary')
+) {
+    .Section#resume {
+        background: $backgroundColor;
+        padding-top: 90px;
+        padding-bottom: 72px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
-    h1 {
-        font: 18px/24px 'opensans-bold', sans-serif;
-        text-transform: uppercase;
-        letter-spacing: 1px;
+        .section-content-container {
+            @include content-card($contentBackgroundColor, $level: 2);
+        }
 
-        span {
-            border-bottom: 3px solid theme-color('accent');
+        h1 {
+            font: 18px/24px 'opensans-bold', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             padding-bottom: 6px;
-        }
-    }
-
-    .header-col {
-        padding-top: 9px;
-    }
-
-    .main-col {
-        padding-right: 10%;
-    }
-
-    .section-item {
-        margin-bottom: 48px;
-        padding-bottom: 24px;
-        border-bottom: 1px solid rgba(theme-color('background', 'light'), 0.2);
-
-        &:last-child,
-        .Experience:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: 0;
+            color: contrast-color($contentBackgroundColor);
         }
 
-        .Experience {
-            border-bottom: 2px dotted rgba(theme-color('background', 'light'), 0.1);
-            margin-bottom: 20px;
-            padding-bottom: 20px;
-        }
-    }
-
-    @include media('<=laptop') {
-        h1 {
-            font-size: 16px;
-            line-height: 24px;
-        }
-
-        .main-col {
-            padding-right: 5%;
-        }
-    }
-
-    @include media('<=tablet') {
-        h1 {
-            letter-spacing: 3px;
-        }
-        
-        .main-col {
-            padding-right: 30px;
+        p {
+            color: $descriptionColor;
         }
 
         .header-col {
-            padding-top: 0;
+            padding-top: 9px;
+        }
+
+        .main-col {
+            padding-right: 10%;
+        }
+
+        .section-item {
+            $border-bottom-color: contrast-color($contentBackgroundColor);
+
             margin-bottom: 48px;
-            text-align: center;
+            padding-bottom: 24px;
+            border-bottom: 1px solid rgba($border-bottom-color, 0.1);
+
+            &:last-child,
+            .Experience:last-child {
+                margin-bottom: 0;
+                padding-bottom: 0;
+                border-bottom: 0;
+            }
+
+            .Experience {
+                border-bottom: 2px dotted rgba($border-bottom-color, 0.1);
+                margin-bottom: 20px;
+                padding-bottom: 20px;
+
+                .title {
+                    color: contrast-color($contentBackgroundColor);
+                }
+
+                .info {
+                    color: $descriptionColor;
+                }
+
+                .dateContainer {
+                    color: contrast-color-by-keys($contentBackgroundColor, 'disabled')
+                }
+            }
+        }
+
+        @include media('<=laptop') {
+            h1 {
+                font-size: 16px;
+                line-height: 24px;
+            }
+
+            .main-col {
+                padding-right: 5%;
+            }
+        }
+
+        @include media('<=tablet') {
+            h1 {
+                letter-spacing: 3px;
+            }
+
+            .main-col {
+                padding-right: 30px;
+            }
+
+            .header-col {
+                padding-top: 0;
+                margin-bottom: 48px;
+                text-align: center;
+            }
         }
     }
 }

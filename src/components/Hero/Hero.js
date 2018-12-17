@@ -1,10 +1,11 @@
 import React from 'react'
 import classnames from 'classnames'
-import { ReactComponent as DownArrowIcon } from '../../assets/images/arrow_drop_down.svg'
+import { ReactComponent as DownArrowIcon } from '../../assets/icons/arrow_drop_down.svg'
 import Link from '../Link'
-import { debounce } from '../../scripts/utils'
+import { debounce, createHashHref, createGlobalLocalClassnames } from '../../scripts/utils'
+import { SECTION_IDS } from '../../constants'
 import styles from './Hero.module.scss'
-import EventListener, { withOptions } from 'react-event-listener'
+import EventListener from 'react-event-listener'
 
 class Hero extends React.PureComponent {
     constructor(props) {
@@ -18,8 +19,8 @@ class Hero extends React.PureComponent {
             heightUnit: 'vh'
         }
         this.updateHeight = this.updateHeight.bind(this)
-        this.handleOnWindowScroll = this.handleOnWindowScroll.bind(this)
-        this.handleOnWindowResize = this.handleOnWindowResize.bind(this)
+        this.handleOnWindowScroll = debounce(this.handleOnWindowScroll.bind(this), this.WINDOW_CHANGE_DEBOUNCE_DURATION)
+        this.handleOnWindowResize = debounce(this.handleOnWindowResize.bind(this), this.WINDOW_CHANGE_DEBOUNCE_DURATION)
         this.onWindowChange = this.onWindowChange.bind(this)
     }
 
@@ -72,7 +73,7 @@ class Hero extends React.PureComponent {
         } = this.state
 
         const heroProps = {
-            className: classnames(styles.Hero, className),
+            className: classnames(createGlobalLocalClassnames(styles, 'Hero'), className),
             style: {
                 height: `${ height }${ heightUnit }`,
                 backgroundImage: `url(${ backgroundUrl })`
@@ -85,12 +86,11 @@ class Hero extends React.PureComponent {
             styles.children
         )
 
-        const debouncedHandleWindowResize = debounce(this.handleOnWindowResize, this.WINDOW_CHANGE_DEBOUNCE_DURATION)
         const windowEventListener = (
             <EventListener
                 target="window"
-                onResize={ debouncedHandleWindowResize }
-                onScroll={ withOptions(debouncedHandleWindowResize, { passive: true, capture: false }) }
+                onResize={ this.handleOnWindowResize }
+                onScroll={ this.handleOnWindowScroll }
             />
         )
 
@@ -98,11 +98,13 @@ class Hero extends React.PureComponent {
             <div { ...heroProps }>
                 { windowEventListener }
 
+                <div className="overlay"></div>
+
                 <div className={ childrenClassnames }>
                     { children }
                 </div>
 
-                <Link className="scrolldown" to="/#about" smoothScroll>
+                <Link className="scrolldown" to={ createHashHref(SECTION_IDS.ABOUT) } smoothScroll>
                     <DownArrowIcon />
                 </Link>
             </div>

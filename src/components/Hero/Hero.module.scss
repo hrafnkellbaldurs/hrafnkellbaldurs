@@ -3,12 +3,11 @@
 @import '../../styles/utils/media-queries';
 
 .Hero {
-    background-color: theme-color();
+    background-color: get-theme-color('primary');
     background-repeat: no-repeat;
     background-position: bottom;
     background-size: cover;
     min-height: 100px;
-    box-shadow: inset 0 0 0 1000px rgba(theme-color(), 0.5);
     text-align: center;
     overflow: hidden;
     display: flex;
@@ -20,20 +19,27 @@
 
     .children {
         width: 85%;
+        z-index: 2;
+    }
+
+    :global(.overlay) {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: rgba(get-theme-color('primary'), 0.5);
     }
 
     :global(.scrolldown) {
         $size: 42px;
 
-        @include svgrCircleContainer(
-            $size: $size,
-            $backgroundColor: theme-color('foreground'),
-            $svgColor: theme-color('background', 'dark'),
-            $svgSizeRatio: 0.7
-        );
+        @include svgrCircleContainer($size);
 
         position: absolute;
         bottom: $size / 2;
+        z-index: 2;
 
         @include media('<=tablet') {
             display: none;

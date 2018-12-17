@@ -1,0 +1,71 @@
+@import './brightness';
+@import '../theme-colors';
+
+$contrasted-dark-default: get-contrast-color('light') !default;
+$contrasted-light-default: get-contrast-color('dark') !default;
+
+// Returns either the `$light` or `$dark` color
+// by deciding which contrasts more with `$color`.
+//
+// E.g. This can be used to select the more readable foreground color
+// for a given background color.
+//
+// `$dark` defaults to black and `$light` defaults to white.
+//
+// When `$color` is `null`, this function returns `null`.
+@function contrast-color(
+    $color,
+    $dark: $contrasted-dark-default,
+    $light: $contrasted-light-default
+) {
+    @if $color == null {
+        @return null;
+    } @else {
+        $color-brightness: brightness($color);
+        $dark-text-brightness: brightness($dark);
+        $light-text-brightness: brightness($light);
+        $lightDifference: abs($color-brightness - $light-text-brightness);
+        $darkDifference: abs($color-brightness - $dark-text-brightness);
+        @return if($lightDifference > $darkDifference, $light, $dark);
+    }
+}
+// Sets the specified background color and calculates a dark or light
+// contrasted text color.  The arguments are passed through to the
+// [contrast-color function](#function-contrast-color).
+@mixin contrasted(
+    $background-color,
+    $dark: $contrasted-dark-default,
+    $light: $contrasted-light-default
+) {
+    background-color: $background-color;
+    color: contrast-color($background-color, $dark, $light);
+}
+// Helper function for reducing boilerplate code when
+// more seethrough text is required when contrasting text.
+// Instead of $dark and $light just being color values, they can also be
+// keys of the $current-theme-color-map-contrast.
+// Possible keys for the map are
+// 'primary', 'secondary', 'disabled' and 'hint'
+@function contrast-color-by-keys($color, $dark: 'primary', $light: null) {
+    $darkColor: $dark;
+    $lightColor: $dark;
+    @if ($light == null) {
+        @if (type-of($dark) == string) {
+            $darkColor: get-contrast-color('light', $dark);
+            $lightColor: get-contrast-color('dark', $dark)
+        }
+    } @else {
+        $darkColor: if(
+            type-of($dark) == string,
+            get-contrast-color('light', $dark),
+            $dark
+        );
+        $lightColor: if(
+            type-of($light) == string,
+            get-contrast-color('dark', $light),
+            $light
+        );
+    }
+
+    @return contrast-color($color, $darkColor, $lightColor)
+}

@@ -14,15 +14,19 @@ module.exports = {
                 name: siteName,
                 short_name: siteName,
                 start_url: `/`,
-                background_color: `#663399`,
-                theme_color: `#663399`,
+                background_color: `#010312`,
+                theme_color: `#010312`,
                 display: `minimal-ui`,
                 // Relative to the root of the site.
                 icon: `src/assets/images/favicon.png`
             },
         },
         `gatsby-plugin-react-helmet`,
-        `gatsby-plugin-sass`,
+        {
+            resolve: `gatsby-plugin-sass`,
+            options: {
+            }
+        },
         {
             resolve: `gatsby-transformer-json`,
             options: {}
