@@ -1,8 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
-import { createGlobalLocalClassnames } from '../../scripts/utils'
+import HTMLReactParser from 'html-react-parser'
+import { createGlobalLocalClassnames, stringToArray } from '../../scripts/utils'
 import styles from './ShowcaseModal.scss'
+import Tag from '../Tag'
+
+const renderTag = (tag, i) => (
+    <Tag key={i}>{ tag }</Tag>
+)
 
 const ShowcaseModal = props => {
     const {
@@ -18,11 +24,12 @@ const ShowcaseModal = props => {
         type,
         subtitle,
         description,
-        tags,
-        coAuthors,
         link,
         sourceCodeLink
     } = content
+
+    const tagsArray = stringToArray(content.tags)
+    const coAuthorsArray = stringToArray(content.coAuthors)
 
     const containerProps = {
         className: classnames(
@@ -31,9 +38,27 @@ const ShowcaseModal = props => {
         )
     }
 
+    const imageContainer = (
+        <div
+            className="image-container"
+            style={ {
+                backgroundImage: `url(${ image.src })`
+            } }></div>
+    )
+
     return (
         <div { ...containerProps }>
-
+            { imageContainer }
+            <div className="content-container">
+                <h1 id={ titleId } className="title">{ title }</h1>
+                <h2 className="subtitle">{ subtitle }</h2>
+                <p id={ descriptionId } className="description">
+                    { HTMLReactParser(description) }
+                </p>
+                <div className="tags">
+                    { tagsArray.map(renderTag) }
+                </div>
+            </div>
         </div>
     )
 }

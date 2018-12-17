@@ -4,6 +4,7 @@ import styles from './ShowcaseItem.module.scss'
 import { createGlobalLocalClassnames, stringToArray } from '../../scripts/utils'
 import classnames from 'classnames'
 import * as R from 'ramda'
+import Tag from '../Tag'
 
 const globalLocalClassnames = R.partial(createGlobalLocalClassnames, [styles])
 
@@ -30,6 +31,10 @@ class ShowcaseItem extends React.PureComponent {
     handleOnClick = _e => {
         this.props.onClick(this.props, _e)
     }
+
+    renderTag = (tag, i) => (
+        <Tag key={ i } size="small">{ tag }</Tag>
+    )
 
     render() {
         const {
@@ -58,10 +63,6 @@ class ShowcaseItem extends React.PureComponent {
                 } }></div>
         )
 
-        const renderTag = (tag, i) => (
-            <span key={ i } className="tag">{ tag }</span>
-        )
-
         return (
             <div { ...containerProps } onClick={ this.handleOnClick }>
                 { imageContainer }
@@ -69,7 +70,7 @@ class ShowcaseItem extends React.PureComponent {
                     <h5 className="title">{ title }</h5>
                     <h6 className="subtitle">{ subtitle }</h6>
                     <div className="tags">
-                        { tagArray.map(renderTag) }
+                        { tagArray.map(this.renderTag) }
                     </div>
                 </div>
             </div>

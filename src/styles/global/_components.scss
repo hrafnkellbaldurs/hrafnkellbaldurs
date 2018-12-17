@@ -5,6 +5,20 @@
     overflow: hidden;
 }
 
+// Blur page content when modal or nav menu is open
+.layout-content-container,
+.Footer {
+    transition: filter 200ms ease-in-out;
+    filter: none;
+}
+.ModalPortal--open__Body,
+.NavMenu--open__Body {
+    .layout-content-container,
+    .Footer {
+        filter: blur(2px);
+    }
+}
+
 // Buttons
 .button,
 .button:visited,

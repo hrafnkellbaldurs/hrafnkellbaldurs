@@ -1,0 +1,70 @@
+@import '../../styles/utils/colors';
+
+$contentBackgroundColor: get-theme-color('foreground');
+$imageFallback: linear-gradient(
+        135deg,
+        rgba(get-theme-color('primary'), 0.9) 0%,
+        rgba(get-theme-color('accent'), 0.9) 100%
+    );
+
+:local(.ShowcaseModal) {
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 200px;
+    overflow: hidden;
+    background: $imageFallback;
+
+    .image-container {
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: center;
+        width: 100%;
+        height: 300px;
+        flex: 1;
+    }
+
+    .content-container {
+        background: $contentBackgroundColor;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .title {
+        margin-bottom: 5px;
+        line-height: 26px;
+        color: contrast-color-by-keys($contentBackgroundColor)
+    }
+
+    .subtitle {
+        line-height: 20px;
+        margin-bottom: 15px;
+    }
+
+    .subtitle,
+    .description {
+        color: contrast-color-by-keys($contentBackgroundColor, 'secondary')
+    }
+
+    .description {
+
+    }
+
+    .tags {
+        display: flex;
+        width: 100%;
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .Tag {
+        $tagBackgroundColor: darken($contentBackgroundColor, 10%);
+        @include contrasted($tagBackgroundColor);
+    }
+}
+
+.ModalPortal--open__Body .modalContent {
+    background: transparent;
+}

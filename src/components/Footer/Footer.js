@@ -4,10 +4,16 @@ import styles from './Footer.module.scss'
 import SocialLinks from '../SocialLinks'
 import { ReactComponent as DownArrowIcon } from '../../assets/icons/arrow_drop_down.svg'
 import classnames from 'classnames'
-import { createHashHref } from '../../scripts/utils'
+import { createHashHref, createGlobalLocalClassnames } from '../../scripts/utils'
 import { SECTION_IDS } from '../../constants'
 
 const Footer = () => {
+    const containerProps = {
+        className: classnames(
+            createGlobalLocalClassnames(styles, 'Footer')
+        )
+    }
+
     const footerContentClassnames = classnames(
         'twelve',
         'columns',
@@ -17,7 +23,7 @@ const Footer = () => {
     const homeSectionHref = createHashHref(SECTION_IDS.HOME)
 
     return (
-        <footer className={ styles.Footer }>
+        <footer { ...containerProps }>
             <div className={ styles.goToTop }>
                 <Link to={ homeSectionHref } smoothScroll>
                     <DownArrowIcon></DownArrowIcon>

@@ -3,7 +3,7 @@
 @import '../../styles/utils/animations';
 
 .ShowcaseItem {
-    $backgroundColor: white;
+    $backgroundColor: get-theme-color('foreground');
     $imageFallback: linear-gradient(
         135deg,
         rgba($backgroundColor, 0.1) 0%,
@@ -102,20 +102,8 @@
         flex-wrap: wrap;
     }
 
-    :global(.tag) {
+    :global(.Tag) {
         $tagBackgroundColor: darken($backgroundColor, 10%);
-
-        background: $tagBackgroundColor;
-        color: contrast-color($tagBackgroundColor);
-        font-family: 'opensans-regular', sans-serif;
-        font-size: 10px;
-        margin: 2px;
-        padding: 0 12px;
-        white-space: nowrap;
-        border-radius: 16px;
-        height: 17px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
+        @include contrasted($tagBackgroundColor);
     }
 }
