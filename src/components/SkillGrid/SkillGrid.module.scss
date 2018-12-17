@@ -127,9 +127,20 @@ $skillBadge-size-small: 50px;
 
             :global(.SkillBadge) {
                 @include setSkillBadgeSize($skillBadge-size-medium);
+                padding-top: 15px;
+                padding-bottom: 10px;
 
                 :global(.itemLabel) {
                     display: none;
+                }
+
+                :global(.SkillLevelBanner) {
+                    height: 10px;
+                    border-bottom-width: 1px;
+
+                    :global(.content-container) {
+                        display: none;
+                    }
                 }
             }
         }
@@ -150,6 +161,16 @@ $skillBadge-size-small: 50px;
 
             :global(.SkillBadge) {
                 @include setSkillBadgeSize($skillBadge-size-small);
+                padding-top: 13px;
+
+                :global(.SkillLevelBanner) {
+                    height: 8px;
+                    border-bottom-width: 1px;
+
+                    :global(.content-container) {
+                        display: none;
+                    }
+                }
             }
         }
 

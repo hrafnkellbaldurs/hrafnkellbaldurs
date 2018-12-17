@@ -3,6 +3,11 @@
 @import '../../styles/utils/animations';
 
 $logoSize: 30px;
+$border-radius: 15px;
+$skillLevelBannerHeight: 15px;
+$paddingTop: $skillLevelBannerHeight + 8px;
+$paddingBottom: 0px;
+$paddingX: 10px;
 
 @mixin setBadgeSize($size) {
     width: $size;
@@ -21,8 +26,8 @@ $logoSize: 30px;
     align-items: center;
     justify-content: center;
     margin: 15px 5px;
-    padding: 10px;
-    border-radius: 15px;
+    padding: $paddingTop $paddingX $paddingBottom $paddingX;
+    border-radius: $border-radius;
     transition: all 0.3s $timing-function-happy;
     position: relative;
 
@@ -40,13 +45,10 @@ $logoSize: 30px;
             content: '';
             width: 100%;
             height: 100%;
+            top: 0;
             position: absolute;
             border-radius: 15px 15px 0 0;
-            border-top: 2px solid get-theme-color('accent', 'light');
-        }
-
-        .itemLabel {
-            font-size: 12.5px;
+            border-top: 2px solid rgba(get-theme-color('accent', 'light'), 0.5);
         }
     }
 
@@ -75,5 +77,35 @@ $logoSize: 30px;
         color: get-contrast-color('light');
         font-weight: bold;
         white-space: nowrap;
+        margin-top: 2px;
+    }
+}
+
+.SkillBadge {
+    :global(.SkillLevelBanner) {
+        height: $skillLevelBannerHeight;
+        position: absolute;
+        top: 0;
+        font-size: 8px;
+        border-radius: $border-radius $border-radius 0 0;
+        padding: 0;
+
+        :global(.content-container) {
+            height: $skillLevelBannerHeight;
+            width: 70%;
+        }
+
+        :global(.bullet) {
+            margin: 0;
+        }
+
+        :global(.skill-level-text),
+        :global(.years-of-experience) {
+            min-width: unset;
+        }
+
+        :global(.years-of-experience .of-experience) {
+            display: none;
+        }
     }
 }

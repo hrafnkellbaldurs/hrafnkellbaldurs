@@ -16,10 +16,8 @@ const skillLevelClassMap = {
 }
 
 const createYearsOfExperienceText = R.pipe(
-    (startDate, endDate) => getDateRangeDuration(startDate, endDate, true),
-    R.prop('years'),
-    years => createPluralAmountString(years, 'yr', 'yrs'),
-    yearsString => `${ yearsString } experience`
+    years => createPluralAmountString(years, 'yr', 'yrs', '', false),
+    yearsText => `${ yearsText } experience`
 )
 
 const SkillLevelBanner = props => {
@@ -28,7 +26,8 @@ const SkillLevelBanner = props => {
         skillLevelText,
         startDate,
         endDate,
-        borderPosition = 'top'
+        years,
+        borderPosition = 'bottom'
     } = props
 
     const containerProps = {
@@ -39,10 +38,7 @@ const SkillLevelBanner = props => {
         )
     }
 
-    const yearsOfExperienceText = createYearsOfExperienceText(
-        startDate,
-        endDate
-    )
+    const yearsOfExperienceText = createYearsOfExperienceText(years)
 
     return (
         <div { ...containerProps }>
@@ -50,7 +46,9 @@ const SkillLevelBanner = props => {
                 <div className="item skill-level-text">{ skillLevelText }</div>
                 <div className="item bullet"></div>
                 <div className="item years-of-experience">
-                    <span className="text">{ yearsOfExperienceText }</span>
+                    <span className="text">
+                        <span className="years">{ years }</span> <span className="of-experience">{ yearsOfExperienceText }</span>
+                    </span>
                 </div>
             </div>
         </div>

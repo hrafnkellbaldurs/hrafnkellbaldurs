@@ -16,7 +16,7 @@
         flex-direction: column;
         align-items: center;
 
-        .content-container {
+        .section-content-container {
             @include content-card($contentBackgroundColor, $level: 2);
         }
 

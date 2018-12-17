@@ -1,7 +1,7 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import { actions } from './index'
-import { pluckEdgeNodes } from '../scripts/utils'
+import { pluckEdgeNodes, getDateRangeDuration } from '../scripts/utils'
 import { SKILL_LEVELS } from '../constants'
 import * as R from 'ramda'
 
@@ -30,7 +30,8 @@ const mapData = R.pipe(
         skills: R.map(skill => ({
             ...skill,
             logo: mapGraphqlAsset(skill.logo, skill.name),
-            skillLevelText: skillLevelTextMap[skill.skillLevel]
+            skillLevelText: skillLevelTextMap[skill.skillLevel],
+            years: getDateRangeDuration(skill.startDate, skill.endDate, true).years
         }))
     })
 )

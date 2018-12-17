@@ -18,10 +18,8 @@ const SkillModal = props => {
 
     const {
         name,
-        type,
         description,
         logo,
-        rating,
         link
     } = content
 
@@ -29,9 +27,9 @@ const SkillModal = props => {
         'skillLevel',
         'skillLevelText',
         'startDate',
-        'endDate'
+        'endDate',
+        'years'
     ], content)
-    skillLevelBannerProps.borderPosition = 'bottom'
 
     const containerProps = {
         className: classnames(

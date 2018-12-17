@@ -6,6 +6,21 @@ import classnames from 'classnames'
 import { createGlobalLocalClassnames } from '../../scripts/utils'
 import SkillBadge from '../SkillBadge'
 
+const sortBySkillLevel = R.sortWith([
+    R.descend(R.prop('skillLevel')),
+    R.descend(R.prop('years'))
+])
+
+const filterByRating = ratingCheck => skills => R.filter(R.pipe(
+    R.prop('rating'),
+    ratingCheck
+), skills)
+
+const filterByRatingAndSort = ratingCheck => R.pipe(
+    filterByRating(ratingCheck),
+    sortBySkillLevel
+)
+
 class SkillGrid extends React.Component {
     constructor(props) {
         super(props)
@@ -29,26 +44,26 @@ class SkillGrid extends React.Component {
             onSkillClick
         } = this.props
 
-        const top5Skills = skills.filter(R.pipe(
-            R.prop('rating'),
+        const top5Skills = filterByRatingAndSort(
+            // Skills with rating that have a value and less than 4
             R.both(
                 R.complement(R.isNil),
                 R.lte(R.__, 4)
             )
-        ))
+        )(skills)
 
-        const additionalSkills = skills.filter(R.pipe(
-            R.prop('rating'),
+        const additionalSkills = filterByRatingAndSort(
+            // Skills with rating that have a value and less than 4
             R.either(
                 R.isNil,
                 R.gt(R.__, 4)
             )
-        ))
+        )(skills)
 
         const Skill = skill => {
             return (
                 <div className={ styles.skillContainer } key={ skill.id }>
-                    <SkillBadge { ...skill } onClick={ onSkillClick }/>
+                    <SkillBadge { ...skill } onClick={ onSkillClick } />
                 </div>
             )
         }

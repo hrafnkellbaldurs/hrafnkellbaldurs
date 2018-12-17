@@ -92,7 +92,7 @@ const AboutSection = props => {
         <>
             <Section id={ sectionId }>
                 <Waypoint { ...waypointProps }>
-                    <div className="row content-container">
+                    <div className="row section-content-container">
 
                         <div className="profile-pic-container three columns flex flex--center">
 
@@ -159,7 +159,7 @@ const PortfolioSection = props => {
         <Section id={ sectionId }>
             <Waypoint { ...waypointProps }>
                 <div className="row">
-                    <div className="twelve columns content-container">
+                    <div className="twelve columns section-content-container">
                         <h1 className="accent-underline">Portfolio</h1>
                         <ShowcaseGridContainer />
                     </div>
@@ -213,7 +213,7 @@ const ResumeSection = props => {
     return (
         <Section id={ sectionId }>
             <Waypoint { ...waypointProps }>
-                <div className="content-container">
+                <div className="section-content-container">
                     <div className="row section-item">
 
                         <div className="three columns header-col">

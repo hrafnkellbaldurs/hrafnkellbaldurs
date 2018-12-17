@@ -4,6 +4,7 @@ import styles from './SkillBadge.module.scss'
 import * as R from 'ramda'
 import { createGlobalLocalClassnames } from '../../scripts/utils'
 import classnames from 'classnames'
+import SkillLevelBanner from '../SkillLevelBanner'
 
 const globalLocalClassnames = R.partial(createGlobalLocalClassnames, [styles])
 
@@ -15,6 +16,14 @@ const SkillBadge = props => {
         logo,
         onClick
     } = props
+
+    const skillLevelBannerProps = R.pickAll([
+        'skillLevel',
+        'skillLevelText',
+        'startDate',
+        'endDate',
+        'years'
+    ], props)
 
     const LogoImage = () => (
         <img
@@ -59,6 +68,7 @@ const SkillBadge = props => {
             <div { ...itemLabelProps }>
                 { name }
             </div>
+            <SkillLevelBanner { ...skillLevelBannerProps }/>
         </div>
     )
 }
