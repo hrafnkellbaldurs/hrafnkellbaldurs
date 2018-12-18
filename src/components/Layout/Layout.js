@@ -9,7 +9,9 @@ class Layout extends React.PureComponent {
         return (
             <>
                 <Header siteTitle={ siteTitle }/>
-                { this.props.children }
+                <div className="layout-content-container">
+                    { this.props.children }
+                </div>
                 <Footer />
             </>
         )

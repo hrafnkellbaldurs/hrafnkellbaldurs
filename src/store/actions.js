@@ -8,12 +8,13 @@ const setCurrentNavItemId = (_s, _a, currentNavItemId) => ({ currentNavItemId })
 const setNavMenuOpen = (_s, _a, navMenuOpen) => ({ navMenuOpen })
 
 // Modal
-const showModal = (_s, _a, { contentId, type }) => {
+const showModal = (_s, _a, { contentId, type, additionalContent }) => {
     return {
         modal: {
             ..._s.modal,
             isOpen: true,
             contentId,
+            additionalContent,
             type
         }
     }

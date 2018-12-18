@@ -11,8 +11,14 @@ const stringToArray = (str, separator = ',') => R.ifElse(
     R.identity,
     R.pipe(
         R.defaultTo(''),
-        R.split(separator),
-        R.map(R.trim)
+        R.ifElse(
+            R.isEmpty,
+            R.always([]),
+            R.pipe(
+                R.split(separator),
+                R.map(R.trim)
+            )
+        )
     )
 )(str)
 export default stringToArray

@@ -15,6 +15,7 @@ $paddingY: 20px;
     align-items: center;
     padding: ($paddingY + $skillLevelBannerHeight) $paddingX $paddingY $paddingX;
     min-width: 300px;
+    background: $backgroundColor;
 
     .logoContainer {
         display: flex;
@@ -29,8 +30,6 @@ $paddingY: 20px;
 
     .name {
         margin-top: 5px;
-        font-family: 'opensans-semibold', sans-serif;
-        font-size: 30px;
         color: $color;
     }
 
