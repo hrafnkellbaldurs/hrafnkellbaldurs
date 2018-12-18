@@ -31,8 +31,13 @@ export default {
     modal: {
         isOpen: false,
         type: null,
-        contentId: null
+        contentId: null,
+        additionalContent: {}
     },
     skills: [],
-    showcases: []
+    showcases: [],
+    aboutMe: {
+        urls: {},
+        contactDetails: {}
+    }
 }

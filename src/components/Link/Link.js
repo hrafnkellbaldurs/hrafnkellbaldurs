@@ -3,6 +3,7 @@ import { Link as GatsbyLink } from 'gatsby'
 import { isHome } from '../../scripts/utils'
 import scrollIntoView from 'smooth-scroll-into-view-if-needed'
 import * as R from 'ramda'
+import classnames from 'classnames'
 
 const onInternalClick = ({ smoothScroll }, e) => {
     if (smoothScroll && isHome()) {
@@ -29,8 +30,10 @@ const Link = props => {
         activeClassName,
         children,
         to,
+        disabled,
         smoothScroll = false,
-        onClick,
+        onClick = () => {},
+        className,
         ...other
     } = props
 
@@ -41,19 +44,30 @@ const Link = props => {
     // Tests if path ends with a dot file extension
     const file = /\.[0-9a-z]+$/i.test(to)
 
+    const common = {
+        props: {
+            className: classnames(className, { disabled }),
+            disabled
+        },
+        onClickHandler: e => {
+            if (disabled) {
+                e.preventDefault()
+            }
+        }
+    }
+
     // Use Gatsby Link for internal links, and <a> for others
     if (internal && !file) {
         const onClickHandler = e => {
+            common.onClickHandler(e)
             onInternalClick({ smoothScroll }, e)
-
-            if (!R.isNil(onClick)) {
-                onClick(e)
-            }
+            onClick(e)
         }
 
         const gatsbyLinkProps = {
             to,
             onClick: onClickHandler,
+            ...common.props,
             ...other
         }
 
@@ -69,8 +83,13 @@ const Link = props => {
         )
     }
 
+    const onClickHandler = e => {
+        common.onClickHandler(e)
+        onClick(e)
+    }
+
     return (
-        <a href={ to } rel="noopener" target="_blank" { ...other }>
+        <a href={ to } rel="noopener" target="_blank" onClick={ onClickHandler } { ...common.props } { ...other }>
             { children }
         </a>
     )

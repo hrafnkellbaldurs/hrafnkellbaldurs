@@ -1,4 +1,5 @@
 @import '../../styles/utils/colors';
+@import '../../styles/utils/media-queries';
 
 $contentBackgroundColor: get-theme-color('foreground');
 $imageFallback: linear-gradient(
@@ -18,7 +19,7 @@ $imageFallback: linear-gradient(
 
     .image-container {
         background-repeat: no-repeat;
-        background-size: 100%;
+        background-size: cover;
         background-position: center;
         width: 100%;
         height: 300px;
@@ -40,7 +41,7 @@ $imageFallback: linear-gradient(
 
     .subtitle {
         line-height: 20px;
-        margin-bottom: 15px;
+        margin-bottom: 20px;
     }
 
     .subtitle,
@@ -48,8 +49,30 @@ $imageFallback: linear-gradient(
         color: contrast-color-by-keys($contentBackgroundColor, 'secondary')
     }
 
-    .description {
+    .authors-container {
+        display: flex;
+        margin-bottom: 5px;
+        line-height: 20px;
+        color: contrast-color($contentBackgroundColor);
+        label {
+            font-weight: bold;
+        }
+    }
 
+    .authors {
+        margin-left: 10px;
+    }
+
+    .author {
+        font-family: 'opensans-light', sans-serif;
+
+        &:not(:first-child) {
+            margin-left: 5px;
+        }
+
+        &:not(:last-child):after {
+            content: ',';
+        }
     }
 
     .tags {
@@ -63,8 +86,67 @@ $imageFallback: linear-gradient(
         $tagBackgroundColor: darken($contentBackgroundColor, 10%);
         @include contrasted($tagBackgroundColor);
     }
+
+    .links-container {
+        display: flex;
+        justify-content: flex-end;
+        align-self: flex-end;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 10px 20px;
+        width: 100%;
+        background: $contentBackgroundColor;
+        border-top: 1px solid contrast-color-by-keys($contentBackgroundColor, 'hint');
+
+        a {
+            margin: 5px;
+            height: min-content;
+        }
+
+        .link-source {
+            $color: contrast-color($contentBackgroundColor);
+            color: $color;
+
+            &:hover {
+                background: $color;
+                color: contrast-color($color);
+            }
+        }
+
+        .google-play-badge {
+            padding-top: 10px;
+
+            img {
+                width: 150px;
+            }
+        }
+    }
 }
 
-.ModalPortal--open__Body .modalContent {
-    background: transparent;
+
+// Media queries
+:local(.ShowcaseModal) {
+    @include media('<=phone') {
+        .links-container {
+            flex-direction: column;
+            align-items: center;
+
+            a {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    }
+}
+
+// Parent overrides
+.modalOverlay.ShowcaseModal__overlay {
+
+    @include media('<=phone') {
+        align-items: flex-start;
+    }
+
+    .modalContent {
+        background: transparent;
+    }
 }

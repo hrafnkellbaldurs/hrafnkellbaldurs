@@ -32,29 +32,33 @@ class Modal extends React.PureComponent {
 
         // The highest parent below ReactModalPortal is the overlay
         // We want to have a root to set styles on
-        const rootClassname = 'ModalPortal'
-        const rootClassnames = classnames(
-            createGlobalLocalClassnames(styles, rootClassname),
+        const rootClassName = 'ModalPortal'
+        const rootClassNames = classnames(
+            createGlobalLocalClassnames(styles, rootClassName),
             createTypeClassname(type),
-            createSizeClassname(size)
+            createSizeClassname(size),
+            this.props.rootClassName
         )
 
         // Prepare ReactModal props
-        const createReactModalClassname = base => ({
-            base,
+        const createReactModalClassname = (base, other) => ({
+            base: classnames(base, other),
             afterOpen: `${ base }--after-open`,
             beforeClose: `${ base }--before-close`
         })
+
+        const overlayClassName = createReactModalClassname('modalOverlay', this.props.overlayClassName)
+
         const reactModalProps = {
             isOpen,
             contentLabel,
             onAfterOpen: this.afterOpenModal,
             onRequestClose: this.handleOnClose,
-            portalClassName: rootClassnames,
-            overlayClassName: createReactModalClassname('modalOverlay'),
+            portalClassName: rootClassNames,
+            overlayClassName: overlayClassName,
             className: createReactModalClassname('modalContent'),
-            bodyOpenClassName: `${ rootClassname }--open__Body`,
-            htmlOpenClassName: `${ rootClassname }--open__Html`,
+            bodyOpenClassName: `${ rootClassName }--open__Body`,
+            htmlOpenClassName: `${ rootClassName }--open__Html`,
             closeTimeoutMS: 200
 
         }

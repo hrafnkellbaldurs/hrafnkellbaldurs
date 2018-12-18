@@ -92,9 +92,9 @@ input[type='button'] {
         $color: contrast-color($backgroundColor);
         $backgroundColor: transparent;
 
-        background-color: $backgroundColor;
         color: $color;
-        border: 1px solid $color;
+        border: 1px solid currentColor;
+        background-color: $backgroundColor;
 
         &:hover {
             color: contrast-color($color);
@@ -109,6 +109,16 @@ input[type='button'] {
 
         .svgr {
             font-size: 15px;
+        }
+    }
+
+    &.disabled {
+        $background: rgb(230, 230, 230);
+        background: $background;
+        color: contrast-color-by-keys($background, 'disabled');
+
+        &:hover {
+            cursor: default;
         }
     }
 }

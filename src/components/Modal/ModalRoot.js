@@ -19,19 +19,22 @@ const modalConfigs = {
         size: MODAL_SIZES.SMALL,
         contentComponent: () => <span />,
         contentCollectionKey: null,
-        contentLabel: 'Modal'
+        contentLabel: 'Modal',
+        classNameBase: 'DefaultModal'
     },
     [MODAL_TYPES.SKILL]: {
         size: MODAL_SIZES.SMALL,
         contentComponent: SkillModal,
         contentCollectionKey: modalContentCollectionKeyMap.SKILLS,
-        contentLabel: 'Skill Modal'
+        contentLabel: 'Skill Modal',
+        classNameBase: 'SkillModal'
     },
     [MODAL_TYPES.SHOWCASE]: {
         size: MODAL_SIZES.MEDIUM,
         contentComponent: ShowcaseModal,
         contentCollectionKey: modalContentCollectionKeyMap.SHOWCASES,
-        contentLabel: 'Showcase modal'
+        contentLabel: 'Showcase modal',
+        classNameBase: 'ShowcaseModal'
     }
 }
 
@@ -50,6 +53,7 @@ class ModalRoot extends React.Component {
             ['modal', 'type'],
             ['modal', 'type'],
             ['modal', 'contentId'],
+            ['modal', 'additionalContent'],
             ...modalContentCollectionKeys.map(collectionKey =>
                 ['contentCollections', collectionKey]
             )
@@ -77,6 +81,9 @@ class ModalRoot extends React.Component {
                 describedby: descriptionId
             },
             onClose: actions.hideModal,
+            rootClassName: `${ modalConfig.classNameBase }__root`,
+            overlayClassName: `${ modalConfig.classNameBase }__overlay`
+
         }
 
         // Find the content/data we want going into the content modal
@@ -88,6 +95,8 @@ class ModalRoot extends React.Component {
         const ContentComponent = modalConfig.contentComponent
         const contentComponentProps = {
             content,
+            additionalContent: modal.additionalContent,
+            isOpen: modal.isOpen,
             titleId: titleId,
             descriptionId: descriptionId,
             className: 'ModalContentComponent'
