@@ -5,7 +5,7 @@
     "image": null,
     "coAuthors": "Steinar Ágúst Steinarsson, Atli Guðmundsson",
     "tags": "C#, Unity",
-    "description": "This thrilling 2D sidescrolling platformer was a part of a 3 week game development class in Reykjavik University. We had to come up with our own idea for a game that we could design and develop in 3 weeks. Our idea was a story driven game that would put the player on a foreign planet after crashing his spaceship. The player would need to travel unknown landscape using a grappling hook to make the gameplay interesting.",
+    "description": "This thrilling 2D sidescrolling platformer was a part of a 3 week game development class in Reykjavik University. We had to come up with our own idea for a game that we could design and develop in 3 weeks. Our idea was a story driven game that would put the player on a foreign planet after crashing his spaceship. The player would need to travel the unknown landscape using a grappling hook to make the gameplay interesting.",
     "link": "",
     "sourceCodeLink": "https://github.com/steinaragust/SilentPlanet"
 }
