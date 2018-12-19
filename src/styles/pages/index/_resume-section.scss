@@ -18,6 +18,7 @@
 
         .section-content-container {
             @include content-card($contentBackgroundColor, $level: 2);
+            position: relative;
         }
 
         h1 {
@@ -30,6 +31,12 @@
 
         p {
             color: $descriptionColor;
+        }
+
+        .download-button {
+            position: absolute;
+            top: 30px;
+            right: 30px;
         }
 
         .header-col {
