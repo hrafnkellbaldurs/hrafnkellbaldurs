@@ -6,6 +6,7 @@ import { debounce, createHashHref, createGlobalLocalClassnames } from '../../scr
 import { SECTION_IDS } from '../../constants'
 import styles from './Hero.module.scss'
 import EventListener from 'react-event-listener'
+import * as R from 'ramda'
 
 class Hero extends React.PureComponent {
     constructor(props) {
@@ -72,11 +73,12 @@ class Hero extends React.PureComponent {
             heightUnit
         } = this.state
 
+        const backgroundUrlMissing = R.either(R.isNil, R.isEmpty)(backgroundUrl)
         const heroProps = {
             className: classnames(createGlobalLocalClassnames(styles, 'Hero'), className),
             style: {
                 height: `${ height }${ heightUnit }`,
-                backgroundImage: `url(${ backgroundUrl })`
+                backgroundImage: backgroundUrlMissing ? 'none' : `url(${ backgroundUrl })`
             },
             ref: this.heroRef
         }
