@@ -126,11 +126,12 @@ const ShowcaseModal = props => {
         )
     }
 
+    const nullOrEmpty = R.either(R.isNil, R.isEmpty)
     const imageContainer = (
         <div
             className="image-container"
             style={ {
-                backgroundImage: `url(${ image.src })`
+                backgroundImage: nullOrEmpty(image.src) ? 'none' : `url(${ image.src })`
             } }></div>
     )
 
@@ -158,7 +159,7 @@ const ShowcaseModal = props => {
             <div className="links-container">
                 {
                     // Only render source code link if sourceCodeLink exists
-                    !R.either(R.isNil, R.isEmpty)(sourceCodeLink) ? (
+                    !nullOrEmpty(sourceCodeLink) ? (
                         <ShowcaseLink className="link-source button button-secondary" to={ sourceCodeLink } linkType="sourceCodeLink" text="open source" />
                     ) : null
                 }
