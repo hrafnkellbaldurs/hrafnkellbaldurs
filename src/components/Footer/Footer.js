@@ -38,7 +38,7 @@ const Footer = () => {
             </div>
             <div className="row">
                 <span className="icon-licence">
-                    Icons made by <Link to="https://smashicons.com/" title="Smashicons">Smashicons</Link> from <Link to="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</Link> is licensed by <Link to="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC 3.0 BY</Link>
+                    Icons made by <Link to="https://smashicons.com/" title="Smashicons">Smashicons</Link> from <Link to="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</Link> is licensed by <Link to="https://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC 3.0 BY</Link>
                 </span>
             </div>
         </footer>

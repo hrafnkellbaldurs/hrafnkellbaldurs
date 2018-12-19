@@ -24,7 +24,7 @@ storiesOf('Components|Link', module)
         </div>
     ))
     .add('Link to external page', () => (
-        <Link to="http://www.facebook.com">
+        <Link to="https://www.facebook.com">
             Go to facebook.com
         </Link>
     ))
