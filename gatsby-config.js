@@ -54,6 +54,17 @@ module.exports = {
                 }
                 // see https://github.com/smooth-code/svgr for a list of all options
             }
+        },
+        {
+            // This needs to be last in the array
+            resolve: `gatsby-plugin-netlify`,
+            options: {
+                headers: {
+                    // '/*': [
+                    //     'Strict-Transport-Security: max-age=63072000; includeSubDomains; preload'
+                    // ]
+                }
+            }
         }
     ]
 }
