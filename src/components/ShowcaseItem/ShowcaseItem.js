@@ -46,11 +46,12 @@ class ShowcaseItem extends React.PureComponent {
 
         const tagArray = stringToArray(this.props.tags)
 
+        const imageSrcMissing = R.either(R.isNil, R.isEmpty)(image.src)
         const containerProps = {
             className: classnames(
                 globalLocalClassnames('ShowcaseItem'),
                 {
-                    'noImage': R.either(R.isNil, R.isEmpty)(image.src)
+                    'noImage': imageSrcMissing
                 }
             )
         }
@@ -59,7 +60,7 @@ class ShowcaseItem extends React.PureComponent {
             <div
                 className="imageContainer"
                 style={ {
-                    backgroundImage: `url(${ image.src })`
+                    backgroundImage: imageSrcMissing ? 'none' : `url(${ image.src })`
                 } }></div>
         )
 
