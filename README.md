@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="https://hrafnkellbaldurs.netlify.com">
-    <img alt="HrafnkellBaldurs" src="https://hrafnkellbaldurs.netlify.com/icons/icon-72x72.png" width="60" />
+  <a href="https://hrafnkellbaldurs.com">
+    <img alt="HrafnkellBaldurs" src="https://hrafnkellbaldurs.com/icons/icon-72x72.png" width="60" />
   </a>
 </p>
 
@@ -8,7 +8,7 @@
   HrafnkellBaldurs - Personal Portfolio
 </h1>
 
-[![Storybook](https://github.com/storybooks/press/blob/master/badges/storybook.svg)](https://hrafnkellbaldurs.github.io/hrafnkellbaldurs-netlify/)
+[![Storybook](https://github.com/storybooks/press/blob/master/badges/storybook.svg)](https://hrafnkellbaldurs.github.io/hrafnkellbaldurs/)
 
 This is my personal portfolio website where I showcase my work and experience.<br>
 The website is created with [Gatsby](https://github.com/gatsbyjs/gatsby) to render everything server side, to improve performance and SEO.<br/>
@@ -59,4 +59,4 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
     ```sh
     npm run storybook:prod
     ```
-    The build files are generated in the [/docs](https://github.com/hrafnkellbaldurs/hrafnkellbaldurs-netlify/tree/master/docs) folder, which is hosted on the main branch GitHub Pages [for this repository](https://hrafnkellbaldurs.github.io/hrafnkellbaldurs-netlify/)
+    The build files are generated in the [/docs](https://github.com/hrafnkellbaldurs/hrafnkellbaldurs/tree/master/docs) folder, which is hosted on the main branch GitHub Pages [for this repository](https://hrafnkellbaldurs.github.io/hrafnkellbaldurs/)
