@@ -16,10 +16,10 @@ export const AboutMeFragment = graphql`
                     shortDescription,
                     urls {
                         profilePic {
-                            public: publicURL
+                            src: publicURL
                         },
                         portfolioPdf {
-                            public: publicURL
+                            src: publicURL
                         }
                     },
                     contactDetails {

@@ -12,11 +12,11 @@ module.exports = {
             resolve: `gatsby-plugin-manifest`,
             options: {
                 name: siteName,
-                short_name: siteName,
+                short_name: `HB`,
                 start_url: `/`,
-                background_color: `#010312`,
-                theme_color: `#010312`,
-                display: `minimal-ui`,
+                background_color: `#1f2522`,
+                theme_color: `#1f2522`,
+                display: `standalone`,
                 // Relative to the root of the site.
                 icon: `src/assets/images/favicon.png`
             },

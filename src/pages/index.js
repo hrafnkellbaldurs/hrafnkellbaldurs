@@ -16,6 +16,7 @@ import Waypoint from 'react-waypoint'
 import { SECTION_IDS } from '../constants'
 import { actions } from '../store'
 import { pluckEdgeNodes } from '../scripts/utils'
+import { ReactComponent as DownloadIcon } from '../assets/icons/download.svg'
 
 const WAYPOINT_PROPS = {
     topOffset: '40%',
@@ -51,7 +52,8 @@ const RenderHero = props => {
             <Waypoint { ...waypointProps }>
                 <div className="banner-text">
                     <FitText minFontSize={ 30 } maxFontSize={ 80 }>
-                        <h1>Hi, I'm { authorFullName }.</h1>
+                        {/* <h1>Hi, I'm { authorFullName }.</h1> */}
+                        <h1>{ authorFullName }</h1>
                     </FitText>
                     <FitText minFontSize={ 14 } maxFontSize={ 18 } compressor={ 3 }>
                         <h3>{ text }</h3>
@@ -79,7 +81,6 @@ const AboutSection = props => {
     } = urls
 
     const ContactIcon = require('../assets/icons/paper-plane.svg').ReactComponent
-    const DownloadIcon = require('../assets/icons/download.svg').ReactComponent
 
     const waypointProps = {
         ...WAYPOINT_PROPS,
@@ -96,7 +97,7 @@ const AboutSection = props => {
 
                         <div className="profile-pic-container three columns flex flex--center">
 
-                            <img className="profile-pic" src={ profilePic.public } alt="profile picture" />
+                            <img className="profile-pic" src={ profilePic.src } alt="profile picture" />
                         </div>
 
                         <div className="nine columns main-col">
@@ -128,7 +129,7 @@ const AboutSection = props => {
                                         <span className="text">{ contactLabel }</span>
                                         <ContactIcon />
                                     </Link>
-                                    <Link to={ portfolioPdf.public } className="button icon-right" target="_blank">
+                                    <Link to={ portfolioPdf.src } className="button icon-right" target="_blank">
                                         <span className="text">{ downloadResumeLabel }</span>
                                         <DownloadIcon />
                                     </Link>
@@ -173,7 +174,8 @@ const ResumeSection = props => {
     const {
         sectionId,
         workExperience: workExperienceItems,
-        educationExperience: educationExperienceItems
+        educationExperience: educationExperienceItems,
+        portfolioPdf
     } = props
 
     const renderExperience = (item, i) => {
@@ -262,6 +264,10 @@ const ResumeSection = props => {
                             </div>
                         </div>
                     </div>
+
+                    <Link to={ portfolioPdf.src } className="button icon-only download-button">
+                        <DownloadIcon />
+                    </Link>
                 </div>
             </Waypoint>
         </Section>
@@ -295,7 +301,8 @@ class IndexPage extends React.PureComponent {
         const resumeSectionProps = {
             sectionId: SECTION_IDS.RESUME,
             workExperience,
-            educationExperience
+            educationExperience,
+            portfolioPdf: aboutMe.urls.portfolioPdf
         }
 
         const portfolioSectionProps = {

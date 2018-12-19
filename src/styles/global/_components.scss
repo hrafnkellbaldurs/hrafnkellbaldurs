@@ -88,6 +88,10 @@ input[type='button'] {
         }
     }
 
+    &.icon-only {
+        padding: 10px;
+    }
+
     &.button-secondary {
         $color: contrast-color($backgroundColor);
         $backgroundColor: transparent;

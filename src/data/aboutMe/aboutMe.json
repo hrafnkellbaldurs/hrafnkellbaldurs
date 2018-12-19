@@ -2,7 +2,7 @@
     "dataId": "aboutMe",
     "title": "About Me",
     "description": "<p>I'm a front-end developer with a BSc degree in computer science.<p/><p>Whether it's creating interactive experiences out of UI designs,accelerating development with transpiling and build tools or discussing the latest front-end framework/library,it's curiosity that wakes me up in the morning (coffee also helps) and gets me excited for work.</p><p>After completing my BSc in CS, I started my career as a front-end developer at InfoMentor and I've been working ever since. The combination of graphic design education in high school,the odd graphic design project (using Photoshop and Illustrator) and computer science in universityhas been very useful in my day to day job. Especially when working with designers.</p><p>Even though I mainly work on the front-end,I have a great interest in most things related to software development and computer science. Keeping up to date on the latest technologies is something I love to do in my free time.</p>",
-    "shortDescription": "I'm a front-end developer and a graphic design enthusiast.",
+    "shortDescription": "Front-end developer and a graphic design enthusiast.",
     "urls": {
         "profilePic": "../../assets/images/hrafnkell2.png",
         "portfolioPdf": "../../assets/ferilskra-english.pdf"
