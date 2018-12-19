@@ -1,4 +1,0 @@
-### This file is intended for Netlify servers to look at
-
-# HSTS preload, force https
-Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
