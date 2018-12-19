@@ -60,9 +60,9 @@ module.exports = {
             resolve: `gatsby-plugin-netlify`,
             options: {
                 headers: {
-                    // '/*': [
-                    //     'Strict-Transport-Security: max-age=63072000; includeSubDomains; preload'
-                    // ]
+                    '/*': [
+                        'Strict-Transport-Security: max-age=300; includeSubDomains'
+                    ]
                 }
             }
         }
