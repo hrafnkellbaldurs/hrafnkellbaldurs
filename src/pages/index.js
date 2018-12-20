@@ -76,7 +76,7 @@ const AboutSection = props => {
     } = props
 
     const {
-        profilePic = {},
+        gravatar = '',
         portfolioPdf = {}
     } = urls
 
@@ -89,6 +89,8 @@ const AboutSection = props => {
         })
     }
 
+    const profilePicSrc = `${ gravatar }?size=250`
+
     return (
         <>
             <Section id={ sectionId }>
@@ -97,7 +99,7 @@ const AboutSection = props => {
 
                         <div className="profile-pic-container three columns flex flex--center">
 
-                            <img className="profile-pic" src={ profilePic.src } alt="profile picture" />
+                            <img className="profile-pic" src={ profilePicSrc } alt="profile picture" />
                         </div>
 
                         <div className="nine columns main-col">

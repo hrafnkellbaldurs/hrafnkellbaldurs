@@ -2,7 +2,7 @@
     "name": "JavaScript",
     "shortName": "JS",
     "type": "technology",
-    "description": "The programming language I use pretty much exclusively",
+    "description": "My favorite programming language. I use it pretty much daily for front-end related stuff, sometimes back-end if I need to.",
     "startDate": "2014-12-01",
     "endDate": null,
     "logo": "../../assets/images/javascript-logo.png",

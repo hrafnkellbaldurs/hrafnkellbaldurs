@@ -2,7 +2,7 @@
     "name": "NodeJS",
     "shortName": "Node",
     "type": "technology",
-    "description": "I've mainly used it with NPM packages (Babel, Gulp, Webpack, Parcel, Jest and more) to ease development, but also for creating an internally used scaffolding tool for InfoMentor. Using Node.js and Node packages is a key factor in modern front-end development.",
+    "description": "I've mainly used it with NPM packages (Babel, Gulp, Webpack, Parcel, Jest and more) to ease development, but also for creating an internal scaffolding tool for InfoMentor. Using Node.js is a key factor in productive front-end development nowadays.",
     "startDate": "2014-12-01",
     "endDate": null,
     "logo": "../../assets/images/nodejs-logo.png",
