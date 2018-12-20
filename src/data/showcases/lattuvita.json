@@ -1,0 +1,11 @@
+{
+    "title": "MainManager - Láttu Vita",
+	"type": "development",
+    "subtitle": "A hybrid mobile app to ease reporting issues with local authorities",
+    "image": null,
+    "coAuthors": "Aron Freyr Heiðarsson, Halldís Una Hreiðarsdóttir, Hallgrímur Þórhallsson, Rannveig Guðmundsdóttir",
+    "tags": "JavaScript, HTML, CSS, C#",
+    "description": "This was the final project for my BSc degree in Computer Science.<br/> The project involved creating an app for <a target=\"_blank\" rel=\"noopener\" href=\"https://mainmanager.com/\">MainManager</a> that makes it easier for users to notify local authorites or other official institutions of a problem, without knowing who should be notified. The user can mark a location on a map, choose a category and send a notification on something that needs fixing. That notification is then automatically sent to the proper authority.",
+    "link": "http://hdl.handle.net/1946/25759",
+    "sourceCodeLink": null
+}

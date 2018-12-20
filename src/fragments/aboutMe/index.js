@@ -15,9 +15,7 @@ export const AboutMeFragment = graphql`
                     description,
                     shortDescription,
                     urls {
-                        profilePic {
-                            src: publicURL
-                        },
+                        gravatar,
                         portfolioPdf {
                             src: publicURL
                         }

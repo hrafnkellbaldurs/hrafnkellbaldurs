@@ -42,17 +42,6 @@
             color: $descriptionColor;
         }
 
-        .profile-pic {
-            position: relative;
-            width: 170px;
-            height: 170px;
-            border-radius: 50%;
-            border-width: thick;
-            border-style: solid;
-            border-color: get-theme-color('accent');
-            @include materialBoxShadow(1);
-        }
-
         .contact-details {
             width: 41.66667%;
         }
@@ -86,21 +75,7 @@
             padding-right: 5%;
         }
 
-        @include media('<=laptop') {
-            .profile-pic {
-                width: 140px;
-                height: 140px;
-                margin-left: 12px;
-            }
-        }
-
         @include media('<=tablet') {
-
-            .profile-pic-container {
-                position: absolute;
-                top: -80px;
-            }
-
             .action-links {
                 flex-wrap: wrap;
                 .button {
@@ -114,10 +89,46 @@
             }
         }
 
+        // Profile pic
+        $profile-pic-size-desktop: 170px;
+        $profile-pic-size-laptop: 140px;
+        $profile-pic-size-phone: 130px;
+
+        .profile-pic-container {
+            height: $profile-pic-size-desktop;
+            align-items: center;
+        }
+
+        .profile-pic {
+            position: relative;
+            width: $profile-pic-size-desktop;
+            height: $profile-pic-size-desktop;
+            border-radius: 50%;
+            border-width: thick;
+            border-style: solid;
+            border-color: get-theme-color('accent');
+            @include materialBoxShadow(2);
+        }
+
+        @include media('<=laptop') {
+            .profile-pic {
+                width: $profile-pic-size-laptop;
+                height: $profile-pic-size-laptop;
+                margin-left: 12px;
+            }
+        }
+
+        @include media('<=tablet') {
+            .profile-pic-container {
+                position: absolute;
+                top: calc(0px - (#{$profile-pic-size-desktop} / 2));
+            }
+        }
+
         @include media('<=phone') {
             .profile-pic {
-                width: 100px;
-                height: 100px;
+                width: $profile-pic-size-phone;
+                height: $profile-pic-size-phone;
             }
         }
     }
