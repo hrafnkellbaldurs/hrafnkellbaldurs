@@ -89,7 +89,7 @@ const AboutSection = props => {
         })
     }
 
-    const profilePicSrc = `${ gravatar }?size=200`
+    const profilePicSrc = `${ gravatar }?size=250`
 
     return (
         <>
