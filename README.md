@@ -11,7 +11,7 @@
 [![Storybook](https://github.com/storybooks/press/blob/master/badges/storybook.svg)](https://hrafnkellbaldurs.github.io/hrafnkellbaldurs/)
 
 This is my personal portfolio website where I showcase my work and experience.<br>
-The website is created with [Gatsby](https://github.com/gatsbyjs/gatsby) to render everything server side, to improve performance and SEO.<br/>
+The website is created with [Gatsby](https://github.com/gatsbyjs/gatsby) to be statically generated, to improve performance and SEO.<br/>
 To kick off the development, I used [gatsby-starter-default](https://github.com/gatsbyjs/gatsby-starter-default) which has basic scaffolding set up for a Gatsby project<br/>
 
 ## 🚀 Quick start
