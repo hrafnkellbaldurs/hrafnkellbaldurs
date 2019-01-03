@@ -178,4 +178,9 @@ $bm-border: $border;
     :global(.bm-overlay) {
         background: get-theme-color('overlay') !important;
     }
+
+    :global(.bm-overlay),
+    :global(.bm-menu-wrap) {
+      transition-duration: .3s !important;
+    }
 }
