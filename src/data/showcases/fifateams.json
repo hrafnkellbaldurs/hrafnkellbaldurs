@@ -1,6 +1,6 @@
 {
     "title": "Fifa Teams Randomizer",
-	"type": "development",
+	  "type": "development",
     "subtitle": "A mobile app to ease Fifa local multiplayer",
     "image": "../../assets/images/fifateams.jpg",
     "coAuthors": "Sigurður Már Atlason, Hafþór Snær Þórsson",

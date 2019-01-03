@@ -1,6 +1,6 @@
 {
     "title": "Ping Pong",
-	"type": "development",
+	  "type": "development",
     "subtitle": "A simple Canvas game",
     "image": "../../assets/images/pingpong.jpg",
     "coAuthors": "",

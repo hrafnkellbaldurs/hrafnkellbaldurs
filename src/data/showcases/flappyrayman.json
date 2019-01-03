@@ -1,6 +1,6 @@
 {
     "title": "Flappy Rayman",
-	"type": "development",
+	  "type": "development",
     "subtitle": "JavaScript and CSS3 game",
     "image": "../../assets/images/rayman.jpg",
     "coAuthors": "Guðjón Geir Jónsson, Árni Freyr Þorsteinsson",

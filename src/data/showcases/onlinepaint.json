@@ -1,6 +1,6 @@
 {
     "title": "Online Paint",
-	"type": "development",
+	  "type": "development",
     "subtitle": "JavaScript and HTML5 Canvas project",
     "image": "../../assets/images/paint.jpg",
     "coAuthors": "Sigurður Már Atlason",
