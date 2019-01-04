@@ -25,7 +25,8 @@ const mapData = R.pipe(
         aboutMe: R.head,
         showcases: R.map(showcase => ({
             ...showcase,
-            image: mapGraphqlAsset(showcase.image, showcase.title)
+            image: mapGraphqlAsset(showcase.image, showcase.title),
+            internalLink: mapGraphqlAsset(showcase.internalLink, R.prop('name', showcase.internalLink))
         })),
         skills: R.map(skill => ({
             ...skill,

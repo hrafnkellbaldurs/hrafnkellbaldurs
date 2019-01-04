@@ -17,6 +17,8 @@ const createLinkIcon = (href = '', linkType) => {
         } else {
             Icon = require('../../assets/icons/link.svg').ReactComponent
         }
+    } else if (linkType === 'internalLink') {
+        Icon = require('../../assets/icons/download.svg').ReactComponent
     } else if (linkType === 'sourceCodeLink') {
         if (R.test(/codepen/, href)) {
             // Make button icon codepen
@@ -50,7 +52,7 @@ const ShowcaseLink = props => {
             <Link to={ to } className="google-play-badge">
                 <img
                     alt='Get it on Google Play'
-                    src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png'/>
+                    src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png' />
             </Link>
         )
     }
@@ -74,6 +76,10 @@ const ShowcaseLink = props => {
             'button icon-right',
             className
         )
+    }
+
+    if (props.download) {
+        linkProps.download = props.download
     }
 
     return (
@@ -108,7 +114,8 @@ const ShowcaseModal = props => {
         subtitle,
         description,
         link,
-        sourceCodeLink
+        sourceCodeLink,
+        internalLink
     } = content
 
     const { author } = additionalContent
@@ -145,7 +152,7 @@ const ShowcaseModal = props => {
                 <div className="authors-container">
                     <label>Authors: </label>
                     <div className="authors">
-                        { authorsArray.map(renderAuthor)}
+                        { authorsArray.map(renderAuthor) }
                     </div>
                 </div>
 
@@ -161,6 +168,11 @@ const ShowcaseModal = props => {
                     // Only render source code link if sourceCodeLink exists
                     !nullOrEmpty(sourceCodeLink) ? (
                         <ShowcaseLink className="link-source button button-secondary" to={ sourceCodeLink } linkType="sourceCodeLink" text="open source" />
+                    ) : null
+                }
+                {
+                    !nullOrEmpty(internalLink) ? (
+                        <ShowcaseLink className="link-project button" to={ internalLink.src } download={ internalLink.label } linkType="internalLink" text="download"></ShowcaseLink>
                     ) : null
                 }
                 <ShowcaseLink className="link-project button" to={ link } linkType="link" text="open" />
@@ -187,7 +199,11 @@ const showcaseContentShape = PropTypes.shape({
         PropTypes.arrayOf(PropTypes.string)
     ]),
     link: PropTypes.string,
-    sourceCodeLink: PropTypes.string
+    sourceCodeLink: PropTypes.string,
+    internalLink: PropTypes.shape({
+        label: PropTypes.string,
+        src: PropTypes.string
+    })
 })
 
 ShowcaseModal.propTypes = {

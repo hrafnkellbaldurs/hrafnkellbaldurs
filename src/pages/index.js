@@ -131,7 +131,7 @@ const AboutSection = props => {
                                         <span className="text">{ contactLabel }</span>
                                         <ContactIcon />
                                     </Link>
-                                    <Link to={ portfolioPdf.src } className="button icon-right" target="_blank">
+                                    <Link to={ portfolioPdf.src } className="button icon-right" target="_blank" download={ portfolioPdf.label }>
                                         <span className="text">{ downloadResumeLabel }</span>
                                         <DownloadIcon />
                                     </Link>
@@ -267,7 +267,7 @@ const ResumeSection = props => {
                         </div>
                     </div>
 
-                    <Link to={ portfolioPdf.src } className="button icon-only download-button">
+                    <Link to={ portfolioPdf.src } className="button icon-only download-button" download={ portfolioPdf.label }>
                         <DownloadIcon />
                     </Link>
                 </div>

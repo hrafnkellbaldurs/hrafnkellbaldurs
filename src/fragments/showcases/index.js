@@ -5,18 +5,22 @@ export const ShowcasesFragment = graphql`
         showcases: allShowcasesJson(sort: { order: ASC, fields: image }) {
             edges {
                 node {
-                    id,
-                    title,
-                    subtitle,
-                    type,
+                    id
+                    title
+                    subtitle
+                    type
                     image {
                         publicURL
                     },
-                    coAuthors,
-                    tags,
-                    description,
-                    link,
+                    coAuthors
+                    tags
+                    description
+                    link
                     sourceCodeLink
+                    internalLink {
+                        publicURL
+                        name
+                    }
                 }
             }
         }

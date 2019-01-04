@@ -7,5 +7,6 @@
     "tags": "React, SCSS, Gatsby, JavaScript, HTML, Webpack, Jest, Enzyme, Storybook",
     "description": "",
     "link": "https://hrafnkellbaldurs.com",
-    "sourceCodeLink": "https://github.com/hrafnkellbaldurs/hrafnkellbaldurs"
+    "sourceCodeLink": "https://github.com/hrafnkellbaldurs/hrafnkellbaldurs",
+		"internalLink": null
 }

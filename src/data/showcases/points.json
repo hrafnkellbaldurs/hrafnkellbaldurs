@@ -6,6 +6,7 @@
     "coAuthors": "Rannveig Guðmundsdóttir",
     "tags": "Java, Android",
     "description": "This android app was a part of an android app development class in Reykjavik University. We had to create a replica of the <a target=\"_blank\" rel=\"noopener\" href=\"https://play.google.com/store/apps/details?id=com.nerdyoctopus.gamedots&hl=en\">Dots</a> game currently on the Google Play store",
-    "link": "",
-    "sourceCodeLink": "https://github.com/hrafnkellbaldurs/Points"
+    "link": null,
+    "sourceCodeLink": "https://github.com/hrafnkellbaldurs/Points",
+		"internalLink": "../../assets/apk/points.apk"
 }
