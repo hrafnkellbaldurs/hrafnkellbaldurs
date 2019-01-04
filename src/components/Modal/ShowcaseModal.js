@@ -171,7 +171,7 @@ const ShowcaseModal = props => {
                     ) : null
                 }
                 {
-                    !nullOrEmpty(internalLink) ? (
+                    !nullOrEmpty(internalLink.src) ? (
                         <ShowcaseLink className="link-project button" to={ internalLink.src } download={ internalLink.label } linkType="internalLink" text="download"></ShowcaseLink>
                     ) : null
                 }
