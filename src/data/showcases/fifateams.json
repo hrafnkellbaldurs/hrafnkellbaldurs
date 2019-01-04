@@ -7,5 +7,6 @@
     "tags": "React Native",
     "description": "The guys from <a target=\"_blank\" rel=\"noopener\" href=\"https://allaround.is/\">AllAround</a> approached me for help with their pet project, which sounded quite cool.<br/>The idea was to make it easier to pick a random team when playing FIFA 18 and assigning players randomly together. We wanted to try out React Native and thought this was the perfect project, since it was pretty small and simple.",
     "link": "https://play.google.com/store/apps/details?id=com.allaround.fifateamsrandomizer&hl=en&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1",
-    "sourceCodeLink": "https://bitbucket.org/iceallaround/fifarandomizerapp/src/master/"
+    "sourceCodeLink": "https://bitbucket.org/iceallaround/fifarandomizerapp/src/master/",
+		"internalLink": null
 }
