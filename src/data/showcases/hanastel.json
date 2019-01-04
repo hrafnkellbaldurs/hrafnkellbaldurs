@@ -2,11 +2,11 @@
     "title": "Hanastél",
 	  "type": "development",
     "subtitle": "A cocktail recipe app for Android",
-    "image": null,
+    "image": "../../assets/images/hanastel.jpg",
     "coAuthors": "Rannveig Guðmundsdóttir, Sigurður Már Atlason",
     "tags": "Java, Android",
     "description": "This Android app was a part of an android app development class in Reykjavik University. We had to come up with our own idea for an app. Our idea was an app that would list cocktail recipes that you could filter by ingredients and favorite.",
     "link": "",
-    "sourceCodeLink": "https://github.com/Rannveigg13/Hanastel",
-		"internalLink": null
+    "sourceCodeLink": "https://github.com/hrafnkellbaldurs/Hanastel",
+	"internalLink": "../../assets/apk/hanastel.apk"
 }
