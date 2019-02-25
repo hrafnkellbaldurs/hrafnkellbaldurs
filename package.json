@@ -47,7 +47,8 @@
     "react-modal": "^3.7.1",
     "react-waterfall": "^4.0.1",
     "react-waypoint": "^8.1.0",
-    "smooth-scroll-into-view-if-needed": "^1.1.23"
+    "smooth-scroll-into-view-if-needed": "^1.1.23",
+    "lodash": ">=4.17.11"
   },
   "devDependencies": {
     "@babel/core": "^7.2.0",
