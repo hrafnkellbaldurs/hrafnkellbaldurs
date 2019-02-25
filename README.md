@@ -8,7 +8,7 @@
   HrafnkellBaldurs - Personal Portfolio
 </h1>
 
-[![Storybook](https://github.com/storybooks/press/blob/master/badges/storybook.svg)](https://hrafnkellbaldurs.github.io/hrafnkellbaldurs/)
+[![Storybook](https://raw.githubusercontent.com/storybooks/brand/master/badge/badge-storybook.svg)](https://hrafnkellbaldurs.github.io/hrafnkellbaldurs/)
 
 This is my personal portfolio website where I showcase my work and experience.<br>
 The website is created with [Gatsby](https://github.com/gatsbyjs/gatsby) to be statically generated, to improve performance and SEO.<br/>
@@ -45,7 +45,7 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 
 ## :books: Storybook
 
--  The built storybook is located here  [![Storybook](https://github.com/storybooks/press/blob/master/badges/storybook.svg)](https://hrafnkellbaldurs.github.io/hrafnkellbaldurs/)<br/>
+-  The built storybook is located here  [![Storybook](https://raw.githubusercontent.com/storybooks/brand/master/badge/badge-storybook.svg)](https://hrafnkellbaldurs.github.io/hrafnkellbaldurs/)<br/>
     but you can also run it locally and see live changes.
     
 -  **To run Storybook in development mode**
