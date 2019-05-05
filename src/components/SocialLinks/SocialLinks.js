@@ -4,10 +4,7 @@ import classnames from 'classnames'
 import Link from '../Link'
 import styles from './SocialLinks.module.scss'
 import { createGlobalLocalClassnames } from '../../scripts/utils'
-import { ReactComponent as FacebookIcon } from '../../assets/icons/facebook.svg'
-import { ReactComponent as TwitterIcon } from '../../assets/icons/twitter.svg'
 import { ReactComponent as LinkedInIcon } from '../../assets/icons/linkedin.svg'
-import { ReactComponent as InstagramIcon } from '../../assets/icons/instagram.svg'
 import { ReactComponent as GitHubIcon } from '../../assets/icons/github.svg'
 import { ReactComponent as BitBucketIcon } from '../../assets/icons/bitbucket.svg'
 import { ReactComponent as CodePenIcon } from '../../assets/icons/codepen.svg'
@@ -16,20 +13,8 @@ const createSocialLinksGlobalLocalClassnames = R.partial(createGlobalLocalClassn
 
 const defaultLinks = [
     {
-        icon: FacebookIcon,
-        href: 'https://www.facebook.com/hrabbi'
-    },
-    {
-        icon: TwitterIcon,
-        href: 'https://twitter.com/hrafnkellb'
-    },
-    {
         icon: LinkedInIcon,
         href: 'https://www.linkedin.com/in/hrafnkellbaldurs'
-    },
-    {
-        icon: InstagramIcon,
-        href: 'https://www.instagram.com/hrafnkellbaldurs/'
     },
     {
         icon: GitHubIcon,

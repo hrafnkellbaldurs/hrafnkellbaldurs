@@ -10,11 +10,9 @@
     "contactDetails": {
         "label": "Contact Details",
         "name": "Hrafnkell Baldursson",
-        "address": "Bláhamrar",
         "zip": "112",
         "city": "Reykjavik",
         "country": "Iceland",
-        "phone": "(354) 861-6532",
         "email": "hrafnkell.baldursson@gmail.com"
     },
     "downloadResumeLabel": "Download Resume",
