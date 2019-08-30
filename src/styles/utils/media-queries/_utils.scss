@@ -1,4 +1,4 @@
-@import './import-media';
+@import './include-media';
 
 @mixin onlyDisplayWhenMedia($display, $media) {
     display: none;

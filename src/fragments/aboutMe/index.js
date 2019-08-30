@@ -24,11 +24,9 @@ export const AboutMeFragment = graphql`
                     contactDetails {
                         label,
                         name,
-                        address,
                         zip,
                         city,
                         country,
-                        phone,
                         email
                     },
                     downloadResumeLabel,

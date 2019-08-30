@@ -12,7 +12,7 @@ import Experience from '../components/Experience'
 import { SkillGridContainer } from '../components/SkillGrid'
 import { ShowcaseGridContainer } from '../components/ShowcaseGrid'
 import HTMLReactParser from 'html-react-parser'
-import Waypoint from 'react-waypoint'
+import { Waypoint } from 'react-waypoint'
 import { SECTION_IDS } from '../constants'
 import { actions } from '../store'
 import { pluckEdgeNodes } from '../scripts/utils'
@@ -115,9 +115,7 @@ const AboutSection = props => {
                                     <h2>{ contactDetails.label }</h2>
                                     <p className="address">
                                         <span>{ contactDetails.name }</span><br />
-                                        <span>{ contactDetails.address }</span><br />
                                         <span>{ contactDetails.zip } { contactDetails.city }, { contactDetails.country }</span><br />
-                                        <span>{ contactDetails.phone }</span><br />
                                         <Link style={ { color: 'inherit' } } to={ `mailto:${ contactDetails.email }` } target="_top">
                                             { contactDetails.email }
                                         </Link>
@@ -258,9 +256,7 @@ const ResumeSection = props => {
                             <div className="row item">
                                 <div className="one columns"></div>
                                 <div className="eleven columns">
-                                    <p>
-                                        I have experience with a broad field of front-end technologies and frameworks.
-                                    </p>
+                                    <p></p>
                                 </div>
                                 <SkillGridContainer />
                             </div>
