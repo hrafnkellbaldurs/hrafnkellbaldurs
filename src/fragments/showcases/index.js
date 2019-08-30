@@ -2,7 +2,7 @@ import { graphql } from 'gatsby'
 
 export const ShowcasesFragment = graphql`
     fragment ShowcasesFragment on Query {
-        showcases: allShowcasesJson(sort: { order: ASC, fields: image }) {
+        showcases: allShowcasesJson(sort: { order: ASC, fields: image___name }) {
             edges {
                 node {
                     id
