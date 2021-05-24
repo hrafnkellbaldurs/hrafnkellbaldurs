@@ -1,4 +1,4 @@
-<p align="center">
+<p align="center"> 
   <a href="https://hrafnkellbaldurs.com">
     <img alt="HrafnkellBaldurs" src="https://hrafnkellbaldurs.com/icons/icon-72x72.png" width="60" />
   </a>
