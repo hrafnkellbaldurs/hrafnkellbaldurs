@@ -1,123 +1,78 @@
 {
-  "name": "hrafnkellbaldurs.com",
+  "name": "hrafnkellbaldurs",
+  "version": "1.0.0",
+  "private": true,
   "description": "Hrafnkell Baldursson Portfolio page",
   "author": "Hrafnkell Baldursson",
   "license": "MIT",
-  "scripts": {
-    "prod": "gatsby build",
-    "prod:verbose": "gatsby build --no-uglify --verbose",
-    "prod:serve": "npm run prod && npm run serve",
-    "serve": "gatsby serve --port 8080",
-    "dev": "gatsby develop",
-    "format": "eslint ./src/ --ext .js,.jsx --fix",
-    "test": "jest --json --outputFile=jest-test-results.json",
-    "test:watch": "jest --watch",
-    "test:coverage": "npm run test -- --coverage",
-    "test:nooutput": "jest",
-    "storybook": "start-storybook -p 6006",
-    "storybook:prod": "npm run test && build-storybook -o docs"
-  },
-  "keywords": [
-    "gatsby",
-    "storybook",
-    "jest"
-  ],
-  "dependencies": {
-    "@svgr/webpack": "^4.3.2",
-    "classnames": "^2.2.6",
-    "gatsby": "^2.14.6",
-    "gatsby-plugin-manifest": "^2.2.10",
-    "gatsby-plugin-netlify": "^2.1.10",
-    "gatsby-plugin-react-helmet": "^3.1.5",
-    "gatsby-plugin-sass": "^2.1.12",
-    "gatsby-plugin-svgr": "^2.0.2",
-    "gatsby-source-filesystem": "^2.1.18",
-    "gatsby-transformer-json": "^2.2.6",
-    "html-react-parser": "^0.9.1",
-    "moment": "^2.24.0",
-    "node-sass": "^4.13.1",
-    "prop-types": "^15.7.2",
-    "ramda": "^0.26.1",
-    "react": "^16.9.0",
-    "react-burger-menu": "^2.6.11",
-    "react-dom": "^16.9.0",
-    "react-event-listener": "^0.6.6",
-    "react-fittext": "^1.0.0",
-    "react-helmet": "^5.2.1",
-    "react-modal": "^3.10.1",
-    "react-waterfall": "^4.0.4",
-    "react-waypoint": "^9.0.2",
-    "smooth-scroll-into-view-if-needed": "^1.1.23"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.5.5",
-    "@babel/plugin-proposal-class-properties": "^7.5.5",
-    "@storybook/addon-actions": "^5.1.11",
-    "@storybook/addon-backgrounds": "^5.1.11",
-    "@storybook/addon-centered": "^5.1.11",
-    "@storybook/addon-jest": "^5.1.11",
-    "@storybook/addon-knobs": "^5.1.11",
-    "@storybook/addon-links": "^5.1.11",
-    "@storybook/addon-options": "^5.1.11",
-    "@storybook/addon-storysource": "^5.1.11",
-    "@storybook/addon-viewport": "^5.1.11",
-    "@storybook/addons": "^5.1.11",
-    "@storybook/react": "^5.1.11",
-    "babel-core": "^7.0.0-bridge.0",
-    "babel-eslint": "^10.0.3",
-    "babel-jest": "^25.0.0",
-    "babel-loader": "^8.0.6",
-    "babel-preset-gatsby": "^0.2.11",
-    "enzyme": "^3.10.0",
-    "enzyme-adapter-react-16": "^1.14.0",
-    "enzyme-to-json": "^3.4.0",
-    "eslint": "^6.2.2",
-    "eslint-config-standard": "^14.1.0",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-jest": "^22.16.0",
-    "eslint-plugin-node": "^9.2.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-react": "^7.14.3",
-    "eslint-plugin-standard": "^4.0.1",
-    "identity-obj-proxy": "^3.0.0",
-    "include-media": "^1.4.9",
-    "jest": "^25.0.0",
-    "react-test-renderer": "^16.9.0",
-    "storybook-host": "^5.1.0",
-    "tar": "^4.4.10"
-  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/hrafnkellbaldurs/hrafnkellbaldurs-netlify"
+    "url": "https://github.com/hrafnkellbaldurs/hrafnkellbaldurs.git"
   },
-  "jest": {
-    "transform": {
-      "^.+\\.jsx?$": "<rootDir>/jest-preprocess.js"
-    },
-    "moduleNameMapper": {
-      ".+\\.(css|styl|less|sass|scss)$": "identity-obj-proxy",
-      ".+\\.(jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
-      ".+\\.(svg)$": "<rootDir>/__mocks__/svgrMock.js"
-    },
-    "setupTestFrameworkScriptFile": "./setupTests.js",
-    "testPathIgnorePatterns": [
-      "node_modules",
-      "/.cache/"
-    ],
-    "transformIgnorePatterns": [
-      "node_modules/(?!(gatsby)/)"
-    ],
-    "collectCoverageFrom": [
-      "src/**/*.js"
-    ],
-    "globals": {
-      "__PATH_PREFIX__": ""
-    },
-    "setupFiles": [
-      "<rootDir>/loadershim.js"
-    ],
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer"
-    ]
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "build:serve": "npm run build && npm run serve",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "type-check": "tsc",
+    "lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"",
+    "lint:fix": "npm run lint -- --fix",
+    "format:prettier": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write",
+    "format": "npm run lint:fix && npm run format:prettier"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.6.0",
+    "@svgr/webpack": "^5.5.0",
+    "classnames": "^2.3.1",
+    "gatsby": "^3.6.2",
+    "gatsby-plugin-graphql-codegen": "^3.0.0",
+    "gatsby-plugin-manifest": "^3.7.1",
+    "gatsby-plugin-netlify": "^3.9.0",
+    "gatsby-plugin-react-helmet": "^4.7.1",
+    "gatsby-plugin-sass": "^4.7.1",
+    "gatsby-plugin-svgr": "^3.0.0-beta.0",
+    "gatsby-source-filesystem": "^3.7.1",
+    "gatsby-transformer-json": "^3.7.1",
+    "html-react-parser": "^1.2.7",
+    "moment": "^2.29.1",
+    "ramda": "^0.27.1",
+    "react": "^17.0.1",
+    "react-burger-menu": "^3.0.6",
+    "react-dom": "^17.0.1",
+    "react-fittext": "^1.0.0",
+    "react-helmet": "^6.1.0",
+    "react-modal": "^3.14.3",
+    "react-redux": "^7.2.4",
+    "react-waypoint": "^10.1.0",
+    "sass": "^1.35.1",
+    "smooth-scroll-into-view-if-needed": "^1.1.32",
+    "tsconfig-paths-webpack-plugin": "3.5.1"
+  },
+  "devDependencies": {
+    "@types/node": "^15.12.4",
+    "@types/ramda": "^0.27.40",
+    "@types/react-burger-menu": "^2.8.0",
+    "@types/react-helmet": "^6.1.1",
+    "@types/react-modal": "^3.12.0",
+    "@typescript-eslint/eslint-plugin": "4.26.0",
+    "@typescript-eslint/parser": "4.26.0",
+    "babel-plugin-root-import": "6.6.0",
+    "eslint": "7.27.0",
+    "eslint-config-airbnb": "18.2.1",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-import-resolver-root-import": "1.0.4",
+    "eslint-plugin-import": "2.23.4",
+    "eslint-plugin-jsx-a11y": "6.4.1",
+    "eslint-plugin-prettier": "3.4.0",
+    "eslint-plugin-react": "7.24.0",
+    "eslint-plugin-react-hooks": "4.2.0",
+    "postcss": "^8.3.5",
+    "prettier": "2.3.0",
+    "typescript": "4.3.2"
   }
 }

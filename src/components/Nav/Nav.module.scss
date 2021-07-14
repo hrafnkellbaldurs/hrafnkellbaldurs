@@ -166,7 +166,7 @@ $bm-border: $border;
 
     /* Individual item */
     :global(.bm-item) {
-        display: inline-block;
+        display: block;
         border-bottom: 1px solid contrast-color(
             $color: $bm-menu-color,
             $dark: rgba(black, 0.1),

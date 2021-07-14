@@ -3,7 +3,7 @@
 	  "type": "development",
     "subtitle": "A simple Canvas game",
     "image": "../../assets/images/pingpong.jpg",
-    "coAuthors": "",
+    "authors": "Hrafnkell Baldursson",
     "tags": "HTML, JavaScript, CSS",
     "description": "A simple ping pong game made with HTML5 Canvas and JS",
     "link": "https://hrafnkellbaldurs.github.io/pingpong",
