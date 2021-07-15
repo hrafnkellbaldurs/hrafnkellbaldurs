@@ -8,6 +8,8 @@
   HrafnkellBaldurs - Personal Portfolio
 </h1>
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ed8a983c-4c11-4f31-801b-bcf1b6078f04/deploy-status)](https://app.netlify.com/sites/hrafnkellbaldurs/deploys)
+
 [![Storybook](https://github.com/storybooks/brand/blob/master/logo/logo-storybook-default.svg)](https://hrafnkellbaldurs.github.io/hrafnkellbaldurs/)
 
 This is my personal portfolio website where I showcase my work and experience.<br>
