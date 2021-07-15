@@ -7,24 +7,24 @@
   publish = "public"
 
   # Default build command.
-  command = "npm run prod"
+  command = "npm run build"
 
 # Production context: all deploys from the Production branch set in your site's
 # deploy contexts will inherit these settings.
 [context.production]
-  command = "npm run prod"
+  command = "npm run build"
   environment = { NODE_ENV = "production" }
 
 # Branch Deploy context: all deploys that are not from a pull/merge request or
 # from the Production branch will inherit these settings.
 [context.branch-deploy]
-  command = "npm run prod"
+  command = "npm run build"
   environment = { NODE_ENV = "production" }
 
 # Branch Deploy context: all deploys that are not from a pull/merge request or
 # from the Production branch will inherit these settings.
 [context.staging]
-  command = "npm run prod"
+  command = "npm run build"
   environment = { NODE_ENV = "production" }
 
 # Redirect netlify sitename to your sitename for SEO purposes,
