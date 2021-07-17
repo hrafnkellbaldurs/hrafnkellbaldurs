@@ -51,8 +51,8 @@ const useHeroSize = (): {
     [setSize, ref],
   );
 
-  useEventListener(`resize`, handleWindowChange, window);
-  useEventListener(`scroll`, handleWindowChange, window, true);
+  useEventListener(`resize`, handleWindowChange);
+  useEventListener(`scroll`, handleWindowChange, null, true);
 
   return {
     size,

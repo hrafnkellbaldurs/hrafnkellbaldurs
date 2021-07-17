@@ -32,9 +32,10 @@ import { useRef, useEffect } from 'react';
 export function useEventListener(
   eventName: string,
   handler: EventListener,
-  eventTarget: EventTarget = window,
+  _eventTarget?: EventTarget | null,
   options?: boolean | AddEventListenerOptions,
 ): void {
+  let eventTarget: EventTarget | null = null;
   // Create a ref that stores handler
   const savedHandler = useRef<typeof handler>();
   // Update ref.current value if handler changes.
@@ -46,6 +47,10 @@ export function useEventListener(
   }, [handler]);
   useEffect(
     () => {
+      // Default eventTarget to window.
+      // This is done inside useEffect instead of window to prevent HTML builds from failing
+      // https://www.gatsbyjs.com/docs/debugging-html-builds/
+      eventTarget = eventTarget ?? window;
       // Make sure element supports addEventListener
       const isSupported = eventTarget && eventTarget.addEventListener;
       if (!isSupported) return;
@@ -57,7 +62,7 @@ export function useEventListener(
       // Remove event listener on cleanup
       // eslint-disable-next-line consistent-return
       return () => {
-        eventTarget.removeEventListener(eventName, eventListener);
+        eventTarget?.removeEventListener(eventName, eventListener);
       };
     },
     [eventName, eventTarget], // Re-run if eventName or element changes

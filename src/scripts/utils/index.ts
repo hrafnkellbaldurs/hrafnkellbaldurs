@@ -5,6 +5,7 @@ export * from './createPluralAmountString';
 export * from './debounce';
 export * from './findByProp';
 export * from './getDateRangeDuration';
+export * from './isBrowser';
 export * from './isHome';
 export * from './pluckEdgeNodes';
 export * from './stringToArray';
