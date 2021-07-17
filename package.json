@@ -51,7 +51,9 @@
     "react-waypoint": "^10.1.0",
     "sass": "^1.35.1",
     "smooth-scroll-into-view-if-needed": "^1.1.32",
-    "tsconfig-paths-webpack-plugin": "3.5.1"
+    "tsconfig-paths-webpack-plugin": "3.5.1",
+    "babel-plugin-root-import": "6.6.0",
+    "postcss": "^8.3.5"
   },
   "devDependencies": {
     "@types/node": "^15.12.4",
@@ -61,7 +63,6 @@
     "@types/react-modal": "^3.12.0",
     "@typescript-eslint/eslint-plugin": "4.26.0",
     "@typescript-eslint/parser": "4.26.0",
-    "babel-plugin-root-import": "6.6.0",
     "eslint": "7.27.0",
     "eslint-config-airbnb": "18.2.1",
     "eslint-config-prettier": "8.3.0",
@@ -71,7 +72,6 @@
     "eslint-plugin-prettier": "3.4.0",
     "eslint-plugin-react": "7.24.0",
     "eslint-plugin-react-hooks": "4.2.0",
-    "postcss": "^8.3.5",
     "prettier": "2.3.0",
     "typescript": "4.3.2"
   }
