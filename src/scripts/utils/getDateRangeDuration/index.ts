@@ -13,8 +13,8 @@ const roundHalf = R.pipe(
  * Returns an object containing the amount of years and months between the given dates
  */
 export function getDateRangeDuration(
-  startDate: MomentInput,
-  endDate: MomentInput,
+  startDate?: MomentInput,
+  endDate?: MomentInput,
   fraction = false,
 ): { years: number; months: number } {
   const defaultMoment = (val: MomentInput) =>

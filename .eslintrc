@@ -1,7 +1,8 @@
 {
   "env": {
     "browser": true,
-    "es6": true
+    "es6": true,
+    "jest/globals": true
   },
   "parserOptions": {
     "ecmaFeatures": {
@@ -14,8 +15,14 @@
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
   },
-  "plugins": ["react", "react-hooks", "jsx-a11y", "prettier"],
-  "extends": ["plugin:react/recommended", "airbnb", "prettier"],
+  "plugins": ["react", "react-hooks", "jsx-a11y", "jest", "prettier"],
+  "extends": [
+    "plugin:react/recommended",
+    "airbnb",
+    "plugin:jest/recommended",
+    "plugin:jest/style",
+    "prettier"
+  ],
   "rules": {
     "prettier/prettier": ["error", { "endOfLine": "auto" }],
     "import/prefer-default-export": "off",
@@ -37,7 +44,10 @@
     // https://github.com/immerjs/immer/issues/189#issuecomment-506396244
     "no-param-reassign": [
       "error",
-      { "props": true, "ignorePropertyModificationsFor": ["draft", "draftState"] }
+      {
+        "props": true,
+        "ignorePropertyModificationsFor": ["draft", "draftState"]
+      }
     ]
   },
   "overrides": [

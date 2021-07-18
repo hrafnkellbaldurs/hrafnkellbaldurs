@@ -1,23 +1,20 @@
-// import { createGlobalLocalClassnames } from './index';
+import { createGlobalLocalClassnames } from './index';
 
-// describe(`createGlobalLocalClassnames`, () => {
-//   it(`should return an array`, () => {
-//     const result = createGlobalLocalClassnames({ myKey: `myVal` }, `myKey`);
-//     expect(result).toBeInstanceOf(Array);
-//   });
+describe(`createGlobalLocalClassnames`, () => {
+  it(`should return an array`, () => {
+    const result = createGlobalLocalClassnames({ myKey: `myVal` }, `myKey`);
+    expect(result).toBeInstanceOf(Array);
+  });
 
-//   it(`should return an array with two strings, where first is local and second is global`, () => {
-//     const globalKey = `global`;
-//     const localKey = `local`;
-//     const result = createGlobalLocalClassnames(
-//       { [globalKey]: localKey },
-//       globalKey,
-//     );
-//     expect(result.length).toBe(2);
-//     expect(result[0]).toBe(localKey);
-//     expect(result[1]).toBe(globalKey);
-//   });
-// });
-
-// Done to make this a valid module. Remove this when uncommenting above tests
-export {};
+  it(`should return an array with two strings, where first is local and second is global`, () => {
+    const globalKey = `global`;
+    const localKey = `local`;
+    const result = createGlobalLocalClassnames(
+      { [globalKey]: localKey },
+      globalKey,
+    );
+    expect(result).toHaveLength(2);
+    expect(result[0]).toBe(localKey);
+    expect(result[1]).toBe(globalKey);
+  });
+});

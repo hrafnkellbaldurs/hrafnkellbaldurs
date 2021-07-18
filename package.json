@@ -10,7 +10,8 @@
     "url": "https://github.com/hrafnkellbaldurs/hrafnkellbaldurs.git"
   },
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "jest"
   ],
   "scripts": {
     "develop": "gatsby develop",
@@ -23,7 +24,8 @@
     "lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"",
     "lint:fix": "npm run lint -- --fix",
     "format:prettier": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write",
-    "format": "npm run lint:fix && npm run format:prettier"
+    "format": "npm run lint:fix && npm run format:prettier",
+    "test": "jest"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.6.0",
@@ -56,23 +58,32 @@
     "postcss": "^8.3.5"
   },
   "devDependencies": {
+    "@types/jest": "^26.0.24",
     "@types/node": "^15.12.4",
     "@types/ramda": "^0.27.40",
     "@types/react-burger-menu": "^2.8.0",
     "@types/react-helmet": "^6.1.1",
     "@types/react-modal": "^3.12.0",
+    "@types/react-test-renderer": "^17.0.1",
     "@typescript-eslint/eslint-plugin": "4.26.0",
     "@typescript-eslint/parser": "4.26.0",
+    "babel-jest": "^27.0.6",
+    "babel-preset-gatsby": "^1.9.0",
     "eslint": "7.27.0",
     "eslint-config-airbnb": "18.2.1",
     "eslint-config-prettier": "8.3.0",
     "eslint-import-resolver-root-import": "1.0.4",
     "eslint-plugin-import": "2.23.4",
+    "eslint-plugin-jest": "^24.3.6",
     "eslint-plugin-jsx-a11y": "6.4.1",
     "eslint-plugin-prettier": "3.4.0",
     "eslint-plugin-react": "7.24.0",
     "eslint-plugin-react-hooks": "4.2.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^27.0.6",
     "prettier": "2.3.0",
+    "react-test-renderer": "^17.0.2",
+    "ts-jest": "^27.0.3",
     "typescript": "4.3.2"
   }
 }
