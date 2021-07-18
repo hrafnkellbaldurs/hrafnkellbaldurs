@@ -8,6 +8,13 @@ module.exports = {
     description: packageJson.description,
     author: packageJson.author,
   },
+  // https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby/src/utils/flags.ts
+  flags: {
+    // Enable all experiments aimed at improving develop server start time (DEV_SSR, PRESERVE_FILE_DOWNLOAD_CACHE, DEV_WEBPACK_CACHE)
+    FAST_DEV: true,
+    // Use webpack's persistent caching and don't delete webpack's cache when changing gatsby-node.js & gatsby-config.js files.
+    PRESERVE_WEBPACK_CACHE: true,
+  },
   plugins: [
     // Since `gatsby-plugin-typescript` is automatically included in Gatsby you
     // don't need to define it here (just if you need to change the options)
