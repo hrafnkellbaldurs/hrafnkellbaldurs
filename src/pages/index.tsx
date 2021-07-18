@@ -15,10 +15,7 @@ import { ShowcaseGrid } from '@/features/showcase-grid-feature';
 import { SECTION_ID, SECTION_IDS } from '@/constants';
 
 // import heroBackgroundUrl from '@/assets/images/hero-background.jpg';
-import {
-  withWaypoint,
-  WithWayPointOnEnterCallback,
-} from '@/components/hocs/withWaypoint';
+import { withWaypoint, WithWayPointOnEnterCallback } from '@/hocs/withWaypoint';
 import { Section } from '@/components/Section';
 
 import { ReactComponent as ContactIcon } from '@/assets/icons/paper-plane.svg';
