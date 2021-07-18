@@ -39,7 +39,7 @@ $bm-border: $border;
         border-bottom: $border;
     }
 
-    .items,
+    .Nav__items,
     .item,
     a {
         margin: 0;
@@ -48,7 +48,7 @@ $bm-border: $border;
         outline: none;
     }
 
-    .items {
+    .Nav__items {
         width: auto;
         height: auto;
         display: flex;
@@ -95,7 +95,7 @@ $bm-border: $border;
         font-size: 10px;
         letter-spacing: 1.5px;
 
-        .items {
+        .Nav__items {
             display: none;
         }
     }

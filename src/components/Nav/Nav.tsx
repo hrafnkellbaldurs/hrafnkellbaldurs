@@ -74,7 +74,7 @@ export const Nav: React.FC<NavProps> = ({ currentItemId, items }) => {
   return (
     <nav className={classnames(globalLocalClassnames(`Nav`))}>
       <div className={styles.container}>
-        <div className={styles.items}>
+        <div className={classnames(globalLocalClassnames(`Nav__items`))}>
           {items.map((item) => (
             <NavItem
               key={item.id}
