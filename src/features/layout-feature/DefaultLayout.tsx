@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Header } from '@/components/Header';
-import { Nav } from '@/components/Nav';
+import { Nav } from '@/features/nav-feature';
 import { SECTION_IDS } from '@/constants';
 import { getScrollbarWidth, isBrowser } from '@/scripts/utils';
 import { ModalRoot } from '@/features/modal-feature';
