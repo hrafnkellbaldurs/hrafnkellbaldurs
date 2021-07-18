@@ -264,6 +264,8 @@ export type DirectoryCtimeArgs = {
 export type Site = Node & {
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
+  port?: Maybe<Scalars['Int']>;
+  host?: Maybe<Scalars['String']>;
   flags?: Maybe<SiteFlags>;
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
@@ -282,9 +284,7 @@ export type SiteBuildTimeArgs = {
 };
 
 export type SiteFlags = {
-  PRESERVE_FILE_DOWNLOAD_CACHE?: Maybe<Scalars['Boolean']>;
   FAST_DEV?: Maybe<Scalars['Boolean']>;
-  DEV_SSR?: Maybe<Scalars['Boolean']>;
   PRESERVE_WEBPACK_CACHE?: Maybe<Scalars['Boolean']>;
 };
 
@@ -658,6 +658,8 @@ export type QueryAllDirectoryArgs = {
 export type QuerySiteArgs = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  port?: Maybe<IntQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
   flags?: Maybe<SiteFlagsFilterInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
@@ -2986,9 +2988,7 @@ export type SiteSiteMetadataFilterInput = {
 };
 
 export type SiteFlagsFilterInput = {
-  PRESERVE_FILE_DOWNLOAD_CACHE?: Maybe<BooleanQueryOperatorInput>;
   FAST_DEV?: Maybe<BooleanQueryOperatorInput>;
-  DEV_SSR?: Maybe<BooleanQueryOperatorInput>;
   PRESERVE_WEBPACK_CACHE?: Maybe<BooleanQueryOperatorInput>;
 };
 
@@ -3042,9 +3042,9 @@ export type SiteFieldsEnum =
   | 'siteMetadata___title'
   | 'siteMetadata___description'
   | 'siteMetadata___author'
-  | 'flags___PRESERVE_FILE_DOWNLOAD_CACHE'
+  | 'port'
+  | 'host'
   | 'flags___FAST_DEV'
-  | 'flags___DEV_SSR'
   | 'flags___PRESERVE_WEBPACK_CACHE'
   | 'polyfill'
   | 'pathPrefix'
@@ -3147,6 +3147,8 @@ export type SiteGroupConnection = {
 export type SiteFilterInput = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  port?: Maybe<IntQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
   flags?: Maybe<SiteFlagsFilterInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
