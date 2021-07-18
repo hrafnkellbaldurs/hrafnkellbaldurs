@@ -4,6 +4,7 @@ import { Header } from '@/components/Header';
 import { Nav } from '@/components/Nav';
 import { SECTION_IDS } from '@/constants';
 import { getScrollbarWidth, isBrowser } from '@/scripts/utils';
+import { ModalRoot } from '@/features/modal-feature';
 
 import { NavItem } from './layoutSlice';
 
@@ -38,7 +39,7 @@ export const DefaultLayout: React.FC<DefaultLayoutProps> = ({
       </Header>
       <div className="layout-content-container">{children}</div>
       {/* <Footer /> */}
-      {/* <ModalRoot /> */}
+      <ModalRoot />
     </>
   );
 };

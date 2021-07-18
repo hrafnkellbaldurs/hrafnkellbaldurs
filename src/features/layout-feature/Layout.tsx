@@ -3,7 +3,6 @@ import { graphql, useStaticQuery } from 'gatsby';
 
 import { LayoutQueryQuery } from '@/../graphql-types';
 import { useAppSelector } from '@/store';
-import { ModalRoot } from '@/features/modal-feature';
 
 import { DefaultLayout } from './DefaultLayout';
 import { selectCurrentNavItemId, selectNavItems } from './layoutSlice';
@@ -23,16 +22,13 @@ export const Layout: React.FC = ({ children }) => {
   const navItems = useAppSelector(selectNavItems);
 
   return (
-    <>
-      <DefaultLayout
-        siteTitle={data.site?.siteMetadata?.title}
-        currentNavItemId={currentNavItemId}
-        navItems={navItems}
-      >
-        {children}
-      </DefaultLayout>
-      <ModalRoot />
-    </>
+    <DefaultLayout
+      siteTitle={data.site?.siteMetadata?.title}
+      currentNavItemId={currentNavItemId}
+      navItems={navItems}
+    >
+      {children}
+    </DefaultLayout>
   );
 };
 
