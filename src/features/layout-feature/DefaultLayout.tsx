@@ -1,10 +1,11 @@
 import React from 'react';
 
 import { Header } from '@/components/Header';
-import { Nav } from '@/features/nav-feature';
 import { SECTION_IDS } from '@/constants';
 import { getScrollbarWidth, isBrowser } from '@/scripts/utils';
-import { ModalRoot } from '@/features/modal-feature';
+import { ModalRoot } from '../modal-feature';
+import { Nav } from '../nav-feature';
+import { Footer } from '../footer-feature';
 
 import { NavItem } from './layoutSlice';
 
@@ -38,7 +39,7 @@ export const DefaultLayout: React.FC<DefaultLayoutProps> = ({
         <Nav currentItemId={currentNavItemId} items={navItems} />
       </Header>
       <div className="layout-content-container">{children}</div>
-      {/* <Footer /> */}
+      <Footer />
       <ModalRoot />
     </>
   );
