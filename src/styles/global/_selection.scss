@@ -1,0 +1,12 @@
+@import '../utils/colors';
+
+/* Code for Firefox */
+::-moz-selection {
+  color: get-theme-color('accent');
+  background: get-theme-color('primary');
+}
+
+::selection {
+  color: get-theme-color('accent');
+  background: get-theme-color('primary');
+}
