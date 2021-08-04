@@ -84,7 +84,7 @@
     "jest": "^25.0.0",
     "react-test-renderer": "^16.9.0",
     "storybook-host": "^5.1.0",
-    "tar": "^4.4.10"
+    "tar": "^4.4.15"
   },
   "repository": {
     "type": "git",
