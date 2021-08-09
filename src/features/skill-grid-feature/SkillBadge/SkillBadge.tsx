@@ -1,15 +1,15 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import classNames from 'classnames';
 import React from 'react';
-import * as R from 'ramda';
+// import * as R from 'ramda';
 
 import { SimpleImage } from '@/types';
-import { createGlobalLocalClassnames } from '@/scripts/utils';
+// import { createGlobalLocalClassnames } from '@/scripts/utils';
 
-import { SkillLevelBanner } from '../SkillLevelBanner';
-import * as styles from './SkillBadge.module.scss';
+// import { SkillLevelBanner } from '../SkillLevelBanner';
+// import * as styles from './SkillBadge.module.scss';
 
-const globalLocalClassnames = R.partial(createGlobalLocalClassnames, [styles]);
+// const globalLocalClassnames = R.partial(createGlobalLocalClassnames, [styles]);
 
 export type SkillBadgeProps = {
   id: string;
@@ -26,32 +26,35 @@ export type SkillBadgeProps = {
 
 export const SkillBadge: React.FC<SkillBadgeProps> = (props) => {
   const { onClick, name, shortName, logo, skillLevel, years } = props;
+  return <div>SkillBadge</div>;
 
-  const LogoImage = () => (
-    <img
-      className={styles.logo}
-      src={logo?.src ?? ``}
-      alt={logo?.label ?? ``}
-    />
-  );
-  const FallbackImage = () => (
-    <span className={styles.fallbackLogo}>{shortName}</span>
-  );
+  // const { onClick, name, shortName, logo, skillLevel, years } = props;
 
-  return (
-    <div
-      tabIndex={0}
-      role="button"
-      className={classNames(globalLocalClassnames(`SkillBadge`))}
-      onClick={(e) => onClick(props, e)}
-    >
-      <div className={styles.logoContainer}>
-        {logo?.src ? <LogoImage /> : <FallbackImage />}
-      </div>
-      <div className={classNames(globalLocalClassnames(`itemLabel`))}>
-        {name}
-      </div>
-      <SkillLevelBanner skillLevel={skillLevel} years={years} />
-    </div>
-  );
+  // const LogoImage = () => (
+  //   <img
+  //     className={styles.logo}
+  //     src={logo?.src ?? ``}
+  //     alt={logo?.label ?? ``}
+  //   />
+  // );
+  // const FallbackImage = () => (
+  //   <span className={styles.fallbackLogo}>{shortName}</span>
+  // );
+
+  // return (
+  //   <div
+  //     tabIndex={0}
+  //     role="button"
+  //     className={classNames(globalLocalClassnames(`SkillBadge`))}
+  //     onClick={(e) => onClick(props, e)}
+  //   >
+  //     <div className={styles.logoContainer}>
+  //       {logo?.src ? <LogoImage /> : <FallbackImage />}
+  //     </div>
+  //     <div className={classNames(globalLocalClassnames(`itemLabel`))}>
+  //       {name}
+  //     </div>
+  //     <SkillLevelBanner skillLevel={skillLevel} years={years} />
+  //   </div>
+  // );
 };

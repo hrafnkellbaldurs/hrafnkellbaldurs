@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { SkillBadge } from './SkillBadge';
 
 export default {
-  title: `Features/skill-grid-feature/SkillBadge`,
+  title: `Features/skill-grid/SkillBadge`,
   component: SkillBadge,
 } as ComponentMeta<typeof SkillBadge>;
 
