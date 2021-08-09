@@ -1,6 +1,29 @@
+const TsconfigPathsPlugin = require(`tsconfig-paths-webpack-plugin`);
+
 module.exports = {
   stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
-  addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
+  addons: [
+    // '@storybook/preset-scss',
+    {
+      name: '@storybook/preset-scss',
+      options: {
+        rule: {
+          test: /\.s[ca]ss$/,
+        },
+        cssLoaderOptions: {
+          // importLoaders: 1,
+          modules: {
+            // enable CSS modules for all files matching /\.module\.\w+$/i.test(filename)
+            // and /\.icss\.\w+$/i.test(filename) regexp.
+            auto: true,
+            localIdentName: '[name]__[local]--[hash:base64:5]',
+          },
+        },
+      },
+    },
+    '@storybook/addon-links',
+    '@storybook/addon-essentials',
+  ],
   core: {
     builder: 'webpack5',
   },
@@ -8,10 +31,17 @@ module.exports = {
     // transpile Gatsby module because Gatsby includes un-transpiled ES6 code.
     // NOTE: config.module.rules[0].exclude = [/node_modules\/(?!(gatsby)\/)/] did not work, used include instead
     config.module.rules[0].include.push(/node_modules\/gatsby\//);
+
     // use babel-plugin-remove-graphql-queries to remove static queries from components when rendering in storybook
     config.module.rules[0].use[0].options.plugins.push(
       require.resolve('babel-plugin-remove-graphql-queries'),
     );
+
+    // Add support for tsconfig paths
+    // eslint-disable-next-line no-param-reassign
+    config.resolve.plugins = config.resolve.plugins || [];
+    config.resolve.plugins.push(new TsconfigPathsPlugin());
+
     return config;
   },
   // https://storybook.js.org/docs/react/configure/typescript

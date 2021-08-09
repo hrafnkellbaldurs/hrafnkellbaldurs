@@ -48,6 +48,18 @@
         "props": true,
         "ignorePropertyModificationsFor": ["draft", "draftState"]
       }
+    ],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+       "devDependencies": [
+         // Ignore error for stories
+        // https://github.com/storybookjs/storybook/issues/1992
+          ".storybook/**",
+          "stories/**",
+          "**/*.stories.*"
+        ]
+      }
     ]
   },
   "overrides": [
