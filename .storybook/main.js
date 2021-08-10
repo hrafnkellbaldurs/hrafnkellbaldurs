@@ -3,7 +3,6 @@ const TsconfigPathsPlugin = require(`tsconfig-paths-webpack-plugin`);
 module.exports = {
   stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
-    // '@storybook/preset-scss',
     {
       name: '@storybook/preset-scss',
       options: {
@@ -11,12 +10,16 @@ module.exports = {
           test: /\.s[ca]ss$/,
         },
         cssLoaderOptions: {
-          // importLoaders: 1,
           modules: {
             // enable CSS modules for all files matching /\.module\.\w+$/i.test(filename)
             // and /\.icss\.\w+$/i.test(filename) regexp.
             auto: true,
             localIdentName: '[name]__[local]--[hash:base64:5]',
+            // Enable esmodules named exporst for locals
+            // to make imports work like in gatsby `import * as styles from ...`
+            // https://github.com/gatsbyjs/gatsby/discussions/30191#discussioncomment-471552
+            // https://webpack.js.org/loaders/css-loader/#namedexport
+            namedExport: true,
           },
         },
       },
