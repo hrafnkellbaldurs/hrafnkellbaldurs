@@ -91,7 +91,7 @@ $skillBadge-size-small: 50px;
 
 
 
-    :global(.SkillBadge) {
+    :global(.skillBadge) {
         // Remove margin to make css grid take care of it
         margin: 0;
     }
@@ -125,12 +125,12 @@ $skillBadge-size-small: 50px;
             min-width: $skillBadge-size-medium;
             min-height: $skillBadge-size-medium;
 
-            :global(.SkillBadge) {
+            :global(.skillBadge) {
                 @include setSkillBadgeSize($skillBadge-size-medium);
                 padding-top: 15px;
                 padding-bottom: 10px;
 
-                :global(.itemLabel) {
+                :global(.skillBadge__itemLabel) {
                     display: none;
                 }
 
@@ -159,7 +159,7 @@ $skillBadge-size-small: 50px;
             min-width: $skillBadge-size-small;
             min-height: $skillBadge-size-small;
 
-            :global(.SkillBadge) {
+            :global(.skillBadge) {
                 @include setSkillBadgeSize($skillBadge-size-small);
                 padding-top: 13px;
 

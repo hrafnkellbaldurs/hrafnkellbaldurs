@@ -18,7 +18,7 @@ $paddingX: 10px;
     min-height: $size;
 }
 
-.SkillBadge {
+.skillBadge {
     @include setBadgeSize(80px);
     background: get-theme-color('foreground', 'light');
     display: flex;
@@ -81,7 +81,7 @@ $paddingX: 10px;
     }
 }
 
-.SkillBadge {
+.skillBadge {
     :global(.SkillLevelBanner) {
         height: $skillLevelBannerHeight;
         position: absolute;
