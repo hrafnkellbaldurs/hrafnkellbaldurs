@@ -9,7 +9,6 @@ export default {
   argTypes: {
     skillLevel: { control: `number` },
     years: { control: `number` },
-    // borderPosition: { control: `text` }
   },
 } as ComponentMeta<typeof SkillLevelBanner>;
 
