@@ -50,7 +50,7 @@ export const SkillBadge: React.FC<SkillBadgeProps> = (props) => {
       <div className={classNames(`skillBadge__itemLabel`, styles.itemLabel)}>
         {name}
       </div>
-      {/* <SkillLevelBanner skillLevel={skillLevel} years={years} /> */}
+      <SkillLevelBanner skillLevel={skillLevel} years={years} />
     </div>
   );
 };

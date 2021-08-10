@@ -3,10 +3,7 @@ import React from 'react';
 import * as R from 'ramda';
 
 import { SKILL_LEVELS } from '@/constants';
-import {
-  createGlobalLocalClassnames,
-  createPluralAmountString,
-} from '@/scripts/utils';
+import { createPluralAmountString } from '@/scripts/utils/createPluralAmountString';
 
 import * as styles from './SkillLevelBanner.module.scss';
 
@@ -24,7 +21,7 @@ const skillLevelTextMap = {
 
 const createYearsOfExperienceText = R.pipe(
   (years: number | null | undefined) =>
-    createPluralAmountString(years ?? 0, `yr`, `yrs`, ``, false),
+    createPluralAmountString(years ?? 0, `yr`, `yrs`, `No`, false),
   (yearsText: string) => `${yearsText} experience`,
 );
 
@@ -35,11 +32,12 @@ export type SkillLevelBannerProps = {
 };
 
 export const SkillLevelBanner: React.FC<SkillLevelBannerProps> = (props) => {
-  const { skillLevel, years, borderPosition = `bottom` } = props;
+  const { skillLevel = 0, years = 0, borderPosition = `bottom` } = props;
 
   const containerProps = {
     className: classNames(
-      createGlobalLocalClassnames(styles, `SkillLevelBanner`),
+      `skillLevelBanner`,
+      styles.skillLevelBanner,
       skillLevelClassMap[skillLevel ?? SKILL_LEVELS.NOVICE],
       `border-${borderPosition}`,
     ),

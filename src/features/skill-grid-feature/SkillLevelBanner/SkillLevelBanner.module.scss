@@ -2,7 +2,7 @@
 @import '../../../styles/utils/media-queries';
 
 // Base styles
-.SkillLevelBanner {
+.skillLevelBanner {
     width: 100%;
     padding: 10px;
     overflow: hidden;
@@ -51,7 +51,7 @@
 }
 
 // Media queries
-.SkillLevelBanner {
+.skillLevelBanner {
     @include media('<=phone') {
         // width: 100%;
 
@@ -67,7 +67,7 @@
 }
 
 // Border position
-.SkillLevelBanner {
+.skillLevelBanner {
     $border-size: 2px;
 
     &:global(.border-top) {
@@ -80,7 +80,7 @@
 }
 
 // Skill level colors
-.SkillLevelBanner {
+.skillLevelBanner {
     @mixin setSkillLevelColor($color) {
         border-color: $color;
         background-color: rgba($color, 0.1);

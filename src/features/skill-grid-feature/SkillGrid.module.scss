@@ -134,7 +134,7 @@ $skillBadge-size-small: 50px;
                     display: none;
                 }
 
-                :global(.SkillLevelBanner) {
+                :global(.skillLevelBanner) {
                     height: 10px;
                     border-bottom-width: 1px;
 
@@ -163,7 +163,7 @@ $skillBadge-size-small: 50px;
                 @include setSkillBadgeSize($skillBadge-size-small);
                 padding-top: 13px;
 
-                :global(.SkillLevelBanner) {
+                :global(.skillLevelBanner) {
                     height: 8px;
                     border-bottom-width: 1px;
 

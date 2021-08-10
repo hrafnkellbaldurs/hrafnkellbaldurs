@@ -6,44 +6,56 @@ import { SkillBadge } from './SkillBadge';
 export default {
   title: `Features/skill-grid/SkillBadge`,
   component: SkillBadge,
+  argTypes: {
+    className: { control: `text` },
+    name: { control: `text` },
+    shortName: { control: `text` },
+    skillLevel: { control: `number` },
+    years: { control: `number` },
+  },
 } as ComponentMeta<typeof SkillBadge>;
 
 const Template: ComponentStory<typeof SkillBadge> = (args) => (
   <SkillBadge {...args} />
 );
 
-export const Primary = Template.bind({});
-Primary.args = {};
+export const Default = Template.bind({});
+Default.args = {};
 
-// export default {
-//   title: 'Example/Button',
-//   component: Button,
-//   argTypes: {
-//     backgroundColor: { control: 'color' },
-//   },
-// } as ComponentMeta<typeof Button>;
+export const Novice = Template.bind({});
+Novice.args = {
+  name: `Novice Skill`,
+  shortName: `S`,
+  logo: {
+    label: `Logo`,
+    src: `https://via.placeholder.com/20`,
+  },
+  skillLevel: 0,
+  years: 0.5,
+};
 
-// const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
+export const Proficient = Template.bind({});
+Proficient.args = {
+  ...Novice.args,
+  name: `Pro Skill`,
+  skillLevel: 1,
+  years: 2,
+};
 
-// export const Primary = Template.bind({});
-// Primary.args = {
-//   primary: true,
-//   label: 'Button',
-// };
+export const Expert = Template.bind({});
+Expert.args = {
+  ...Novice.args,
+  name: `Expert Skill`,
+  skillLevel: 2,
+  years: 5,
+};
 
-// export const Secondary = Template.bind({});
-// Secondary.args = {
-//   label: 'Button',
-// };
-
-// export const Large = Template.bind({});
-// Large.args = {
-//   size: 'large',
-//   label: 'Button',
-// };
-
-// export const Small = Template.bind({});
-// Small.args = {
-//   size: 'small',
-//   label: 'Button',
-// };
+export const OnClick = Template.bind({});
+OnClick.args = {
+  ...Expert.args,
+  name: `On click`,
+  onClick: () => {
+    // eslint-disable-next-line no-alert
+    alert(`click`);
+  },
+};

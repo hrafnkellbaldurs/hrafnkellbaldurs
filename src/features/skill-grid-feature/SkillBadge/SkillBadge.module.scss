@@ -82,7 +82,7 @@ $paddingX: 10px;
 }
 
 .skillBadge {
-    :global(.SkillLevelBanner) {
+    :global(.skillLevelBanner) {
         height: $skillLevelBannerHeight;
         position: absolute;
         top: 0;
