@@ -2,7 +2,7 @@ import React from 'react';
 
 import { StorybookTest } from '@/features/skill-grid-feature/StorybookTest';
 
-import styles from './StorybookImportTest.module.scss';
+import * as styles from './StorybookImportTest.module.scss';
 
 export type StorybookImportTestProps = {
   text: string;

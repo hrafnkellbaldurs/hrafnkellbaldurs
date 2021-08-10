@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './StorybookTest.module.scss';
+import * as styles from './StorybookTest.module.scss';
 
 export type StorybookTestProps = {
   text: string;
