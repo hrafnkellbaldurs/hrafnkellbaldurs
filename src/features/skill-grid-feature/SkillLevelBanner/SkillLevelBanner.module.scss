@@ -90,6 +90,10 @@
         }
     }
 
+    &:global(.skill-level-unknown) {
+      @include setSkillLevelColor($skill-level-color-unknown);
+    }
+
     &:global(.skill-level-novice) {
       @include setSkillLevelColor($skill-level-color-novice);
     }

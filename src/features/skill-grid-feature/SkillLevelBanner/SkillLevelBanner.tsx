@@ -8,12 +8,14 @@ import { createPluralAmountString } from '@/scripts/utils/createPluralAmountStri
 import * as styles from './SkillLevelBanner.module.scss';
 
 const skillLevelClassMap = {
+  [SKILL_LEVELS.UNKNOWN]: `skill-level-unknown`,
   [SKILL_LEVELS.NOVICE]: `skill-level-novice`,
   [SKILL_LEVELS.PROFICIENT]: `skill-level-proficient`,
   [SKILL_LEVELS.EXPERT]: `skill-level-expert`,
 };
 
 const skillLevelTextMap = {
+  [SKILL_LEVELS.UNKNOWN]: `Unknown`,
   [SKILL_LEVELS.NOVICE]: `Novice`,
   [SKILL_LEVELS.PROFICIENT]: `Proficient`,
   [SKILL_LEVELS.EXPERT]: `Expert`,
@@ -26,13 +28,24 @@ const createYearsOfExperienceText = R.pipe(
 );
 
 export type SkillLevelBannerProps = {
+  /** Skill level from 0 - 2  */
   skillLevel?: number | null;
+  /** Years of experience for skill  */
   years?: number | null;
+  /** Where border should be displayed  */
   borderPosition?: `bottom` | `top`;
 };
 
 export const SkillLevelBanner: React.FC<SkillLevelBannerProps> = (props) => {
-  const { skillLevel = 0, years = 0, borderPosition = `bottom` } = props;
+  const { years = 0, borderPosition = `bottom` } = props;
+
+  // skillLevel
+  let { skillLevel = SKILL_LEVELS.UNKNOWN } = props;
+  skillLevel ??= SKILL_LEVELS.NOVICE;
+  if (skillLevel < SKILL_LEVELS.NOVICE || skillLevel > SKILL_LEVELS.EXPERT) {
+    skillLevel = SKILL_LEVELS.UNKNOWN;
+  }
+  const skillLevelText = skillLevelTextMap[skillLevel];
 
   const containerProps = {
     className: classNames(
@@ -48,9 +61,7 @@ export const SkillLevelBanner: React.FC<SkillLevelBannerProps> = (props) => {
   return (
     <div {...containerProps}>
       <div className="content-container">
-        <div className="item skill-level-text">
-          {skillLevelTextMap[skillLevel ?? SKILL_LEVELS.NOVICE]}
-        </div>
+        <div className="item skill-level-text">{skillLevelText}</div>
         <div className="item bullet" />
         <div className="item years-of-experience">
           <span className="text">

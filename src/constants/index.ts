@@ -13,6 +13,7 @@ export const SECTION_IDS = {
 };
 
 export const SKILL_LEVELS = {
+  UNKNOWN: -1,
   NOVICE: 0,
   PROFICIENT: 1,
   EXPERT: 2,
