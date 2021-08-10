@@ -20,6 +20,11 @@ module.exports = {
             // https://github.com/gatsbyjs/gatsby/discussions/30191#discussioncomment-471552
             // https://webpack.js.org/loaders/css-loader/#namedexport
             namedExport: true,
+            // This is only here to make it clear that css module class names
+            // are exported as camelCaseOnly, which means that a class name of `My-Class-name` will
+            // be exported as `myClassName`
+            // This is needed for named exports
+            exportLocalsConvention: 'camelCaseOnly',
           },
         },
       },
