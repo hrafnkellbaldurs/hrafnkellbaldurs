@@ -1,3 +1,5 @@
+const nodeSass = require('node-sass');
+
 const packageJson = require('./package.json');
 
 const siteName = `HrafnkellBaldurs`;
@@ -32,7 +34,12 @@ module.exports = {
       },
     },
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sass',
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        implementation: nodeSass,
+      },
+    },
     // Automatic type generation for graphql queries
     'gatsby-plugin-graphql-codegen',
     // Use gatsby-transformer-json and gatsby-source-filesystem for transforming json files from /src/data using graphql

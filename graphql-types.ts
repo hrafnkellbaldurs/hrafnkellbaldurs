@@ -264,8 +264,6 @@ export type DirectoryCtimeArgs = {
 export type Site = Node & {
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
-  port?: Maybe<Scalars['Int']>;
-  host?: Maybe<Scalars['String']>;
   flags?: Maybe<SiteFlags>;
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
@@ -385,6 +383,7 @@ export type SitePluginPluginOptions = {
   crossOrigin?: Maybe<Scalars['String']>;
   include_favicon?: Maybe<Scalars['Boolean']>;
   cacheDigest?: Maybe<Scalars['String']>;
+  implementation?: Maybe<SitePluginPluginOptionsImplementation>;
   path?: Maybe<Scalars['String']>;
   svgProps?: Maybe<SitePluginPluginOptionsSvgProps>;
   headers?: Maybe<SitePluginPluginOptionsHeaders>;
@@ -392,6 +391,10 @@ export type SitePluginPluginOptions = {
   allExtensions?: Maybe<Scalars['Boolean']>;
   isTSX?: Maybe<Scalars['Boolean']>;
   jsxPragma?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsImplementation = {
+  info?: Maybe<Scalars['String']>;
 };
 
 export type SitePluginPluginOptionsSvgProps = {
@@ -658,8 +661,6 @@ export type QueryAllDirectoryArgs = {
 export type QuerySiteArgs = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
-  port?: Maybe<IntQueryOperatorInput>;
-  host?: Maybe<StringQueryOperatorInput>;
   flags?: Maybe<SiteFlagsFilterInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
@@ -3042,8 +3043,6 @@ export type SiteFieldsEnum =
   | 'siteMetadata___title'
   | 'siteMetadata___description'
   | 'siteMetadata___author'
-  | 'port'
-  | 'host'
   | 'flags___FAST_DEV'
   | 'flags___PRESERVE_WEBPACK_CACHE'
   | 'polyfill'
@@ -3147,8 +3146,6 @@ export type SiteGroupConnection = {
 export type SiteFilterInput = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
-  port?: Maybe<IntQueryOperatorInput>;
-  host?: Maybe<StringQueryOperatorInput>;
   flags?: Maybe<SiteFlagsFilterInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
@@ -3360,6 +3357,7 @@ export type SitePluginPluginOptionsFilterInput = {
   crossOrigin?: Maybe<StringQueryOperatorInput>;
   include_favicon?: Maybe<BooleanQueryOperatorInput>;
   cacheDigest?: Maybe<StringQueryOperatorInput>;
+  implementation?: Maybe<SitePluginPluginOptionsImplementationFilterInput>;
   path?: Maybe<StringQueryOperatorInput>;
   svgProps?: Maybe<SitePluginPluginOptionsSvgPropsFilterInput>;
   headers?: Maybe<SitePluginPluginOptionsHeadersFilterInput>;
@@ -3367,6 +3365,10 @@ export type SitePluginPluginOptionsFilterInput = {
   allExtensions?: Maybe<BooleanQueryOperatorInput>;
   isTSX?: Maybe<BooleanQueryOperatorInput>;
   jsxPragma?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsImplementationFilterInput = {
+  info?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePluginPluginOptionsSvgPropsFilterInput = {
@@ -3607,6 +3609,7 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___crossOrigin'
   | 'pluginCreator___pluginOptions___include_favicon'
   | 'pluginCreator___pluginOptions___cacheDigest'
+  | 'pluginCreator___pluginOptions___implementation___info'
   | 'pluginCreator___pluginOptions___path'
   | 'pluginCreator___pluginOptions___svgProps___className'
   | 'pluginCreator___pluginOptions___headers____x'
@@ -4549,6 +4552,7 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___crossOrigin'
   | 'pluginOptions___include_favicon'
   | 'pluginOptions___cacheDigest'
+  | 'pluginOptions___implementation___info'
   | 'pluginOptions___path'
   | 'pluginOptions___svgProps___className'
   | 'pluginOptions___headers____x'
