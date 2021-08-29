@@ -1,9 +1,11 @@
+$skill-level-color-unknown: gray;
 $skill-level-color-novice: #83c466;
 $skill-level-color-proficient: #4b9acf;
 $skill-level-color-expert: #5c00a9;
 
 :export {
     // Theme Base
+    skill-level-color-unknown: $skill-level-color-unknown;
     skill-level-color-novice: $skill-level-color-novice;
     skill-level-color-proficient: $skill-level-color-proficient;
     skill-level-color-expert: $skill-level-color-expert;

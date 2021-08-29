@@ -1,3 +1,4 @@
+@use 'sass:math';
 // Computes the "brightness" of a color
 //
 // Brightness is similiar to lightness in HSL but more closely approximates
@@ -8,7 +9,7 @@
 // (white) and 0% is fully dark (black) for color values.
 @function brightness($color) {
     @if type-of($color) == color {
-      @return ((red($color) * .299) + (green($color) * .587) + (blue($color) * .114)) / 255 * 100%;
+      @return math.div(red($color) * 0.299 + green($color) * 0.587 + blue($color) * 0.114, 255) * 100%;
     }
     @else {
       @return unquote("brightness(#{$color})");

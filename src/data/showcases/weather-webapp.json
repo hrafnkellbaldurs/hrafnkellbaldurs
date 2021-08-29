@@ -3,7 +3,7 @@
 	  "type": "development",
     "subtitle": "Local weather webapp for FreeCodeCamp",
     "image": "../../assets/images/weather-webapp.jpg",
-    "coAuthors": "",
+    "authors": "Hrafnkell Baldursson",
     "tags": "jQuery, HTML, CSS, JavaScript",
     "description": "Created for a <a target=\"_blank\" rel=\"noopener\" href=\"https://learn.freecodecamp.org/coding-interview-prep/take-home-projects/show-the-local-weather/\">project in FreeCodeCamp</a>",
     "link": "https://codepen.io/kotkarl/full/KzZrXe",

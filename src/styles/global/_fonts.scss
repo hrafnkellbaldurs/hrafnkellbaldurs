@@ -124,3 +124,11 @@
     font-weight: normal;
     font-style: normal;
 }
+
+.bullet {
+  &:before {
+      font-family: 'librebaskerville', serif;
+      content: '\2022';
+      margin: 0 5px;
+  }
+}

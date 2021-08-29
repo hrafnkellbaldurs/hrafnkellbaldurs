@@ -1,7 +1,0 @@
-{
-    "eslint.enable": true,
-    
-    // Javascript formatting
-    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
-    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": true,
-}
