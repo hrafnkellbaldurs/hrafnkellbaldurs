@@ -1,0 +1,109 @@
+@import '../../../styles/utils/colors';
+@import '../../../styles/utils/media-queries';
+
+// Base styles
+.skillLevelBanner {
+    width: 100%;
+    padding: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &,
+    :global(.item),
+    :global(.content-container) {
+        display: flex;
+    }
+
+    &,
+    :global(.item) {
+        justify-content: center;
+        align-items: center;
+    }
+
+    :global(.item) {
+        flex: 1;
+        font-weight: bold;
+    }
+
+    :global(.skill-level-text) {
+        justify-content: flex-end;
+    }
+
+    :global(.bullet) {
+        margin: 0 10px;
+    }
+
+    :global(.years-of-experience) {
+        justify-content: flex-start;
+
+        &,
+        :global(.text) {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+
+    :global(.skill-level-text),
+    :global(.years-of-experience) {
+        min-width: 130px;
+    }
+}
+
+// Media queries
+.skillLevelBanner {
+    @include media('<=phone') {
+        // width: 100%;
+
+        :global(.skill-level-text),
+        :global(.years-of-experience) {
+            min-width: unset;
+        }
+
+        :global(.bullet) {
+            margin: 0;
+        }
+    }
+}
+
+// Border position
+.skillLevelBanner {
+    $border-size: 2px;
+
+    &:global(.border-top) {
+      border-top: $border-size solid;
+    }
+
+    &:global(.border-bottom) {
+      border-bottom: $border-size solid;
+    }
+}
+
+// Skill level colors
+.skillLevelBanner {
+    @mixin setSkillLevelColor($color) {
+        border-color: $color;
+        background-color: rgba($color, 0.1);
+
+        :global(.skill-level-text) {
+            color: $color;
+        }
+    }
+
+    &:global(.skill-level-unknown) {
+      @include setSkillLevelColor($skill-level-color-unknown);
+    }
+
+    &:global(.skill-level-novice) {
+      @include setSkillLevelColor($skill-level-color-novice);
+    }
+
+    &:global(.skill-level-proficient) {
+      @include setSkillLevelColor($skill-level-color-proficient);
+    }
+
+    &:global(.skill-level-expert) {
+      @include setSkillLevelColor($skill-level-color-expert);
+    }
+}
+

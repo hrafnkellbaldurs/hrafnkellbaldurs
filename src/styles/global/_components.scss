@@ -1,20 +1,17 @@
 // Lock page scrolling when modal or nav menu is open
-.ModalPortal--open__Body,
+.NavMenu--open__Body,
 .ModalPortal--open__Html,
-.NavMenu--open__Body {
-    overflow: hidden;
+.ModalProtal--open__Body {
+  // Disable scrolling (hiding scroll bar)
+  overflow: hidden;
 }
 
-// Blur page content when modal menu is open
-.layout-content-container,
-.Footer {
-    transition: filter 200ms ease-in-out;
-    filter: none;
-}
-.ModalPortal--open__Body {
-    .layout-content-container,
-    .Footer {
-        filter: blur(2px);
+// Add margin for missing scrollbar to prevent width of page flickering
+.ModalPortal--open__Html {
+    &,
+    .Nav .Nav__items,
+    .Nav .bm-burger-button {
+      margin-right: var(--scrollbar-width);
     }
 }
 

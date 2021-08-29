@@ -3,7 +3,7 @@
 	  "type": "development",
     "subtitle": "A simple calculator app for Android",
     "image": "../../assets/images/calculator-app.jpg",
-    "coAuthors": "",
+    "authors": "Hrafnkell Baldursson",
     "tags": "Java, Android",
     "description": "This Android app was a part of an android app development class in Reykjavik University. We had to create a simple calculator to learn the basics of Android app development",
     "link": "",

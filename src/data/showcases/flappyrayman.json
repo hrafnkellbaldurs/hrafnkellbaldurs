@@ -3,7 +3,7 @@
 	  "type": "development",
     "subtitle": "JavaScript and CSS3 game",
     "image": "../../assets/images/rayman.jpg",
-    "coAuthors": "Guðjón Geir Jónsson, Árni Freyr Þorsteinsson",
+    "authors": "Hrafnkell Baldursson, Guðjón Geir Jónsson, Árni Freyr Þorsteinsson",
     "tags": "HTML, CSS, JavaScript, Web Development, Game Development",
     "description": "This is a small remake of the famous Flappy Bird with Rayman, a video game character from the Rayman series as the hero. The game is written in HTML5, CSS3 and JavaScript and is a result of a project in Reykjavik University.",
     "link": "https://hrafnkellbaldurs.github.io/FlappyRayman",

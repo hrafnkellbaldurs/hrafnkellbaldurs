@@ -1,0 +1,58 @@
+@import '../../../styles/utils/colors';
+@import '../../../styles/utils/media-queries';
+
+$logoSize: 80px;
+$backgroundColor: get-theme-color('foreground');
+$color: contrast-color($backgroundColor);
+$skillLevelBannerHeight: 35px;
+$paddingX: 40px;
+$paddingY: 20px;
+
+.SkillModal {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: ($paddingY + $skillLevelBannerHeight) $paddingX $paddingY $paddingX;
+    min-width: 300px;
+    background: $backgroundColor;
+
+    :global(.logoContainer) {
+        display: flex;
+    }
+
+    :global(.logo) {
+        height: $logoSize;
+        width: $logoSize;
+        min-height: $logoSize;
+        min-width: $logoSize;
+    }
+
+    :global(.name) {
+        margin-top: 5px;
+        color: $color;
+    }
+
+    :global(.description) {
+        color: contrast-color-by-keys($backgroundColor, 'secondary');
+        width: 100%;
+    }
+
+    :global(.homepage-link) {
+        align-self: center;
+    }
+
+    :global(.skillLevelBanner) {
+        height: $skillLevelBannerHeight;
+        position: absolute;
+        top: 0;
+    }
+
+    @include media('<=phone') {
+        min-width: unset;
+
+        :global(.homepage-link) {
+            align-self: center;
+        }
+    }
+}

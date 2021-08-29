@@ -3,7 +3,7 @@
 	  "type": "development",
     "subtitle": "My personal portfolio website",
     "image": "../../assets/images/hrafnkellbaldurs.jpg",
-    "coAuthors": "",
+    "authors": "Hrafnkell Baldursson",
     "tags": "React, SCSS, Gatsby, JavaScript, HTML, Webpack, Jest, Enzyme, Storybook",
     "description": "",
     "link": "https://hrafnkellbaldurs.com",

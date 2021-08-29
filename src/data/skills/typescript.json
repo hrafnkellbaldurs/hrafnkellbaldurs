@@ -1,0 +1,12 @@
+{
+    "name": "TypeScript",
+    "shortName": "TS",
+    "type": "technology",
+    "description": "A necessary addition to the JavaScript ecosystem",
+    "startDate": "2020-01-01",
+    "endDate": null,
+    "logo": "../../assets/images/typescript-logo.png",
+    "rating": 5,
+    "skillLevel": 2,
+    "link": "https://www.typescriptlang.org/"
+}

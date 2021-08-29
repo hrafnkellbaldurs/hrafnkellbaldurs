@@ -1,0 +1,7 @@
+.Link {
+  &.disabled {
+    pointer-events: none;
+    background: #e6e6e6;
+    color: rgba(0,0,0,.4);
+  }
+}

@@ -1,0 +1,111 @@
+@import '../../../styles/utils/colors';
+@import '../../../styles/utils/media-queries';
+
+.ModalPortal {
+  :global(.modalOverlay) {
+    z-index: 101;
+    -webkit-overflow-scrolling: touch;
+    background: get-theme-color('overlay');
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    outline: 0;
+  }
+
+  :global(.modalContent) {
+    outline: none;
+
+    margin: 7.15rem auto;
+    width: auto;
+  }
+
+  :global(.ModalContentComponent) {
+    position: relative;
+  }
+
+  :global(.modalContent),
+  :global(.ModalContentComponent) {
+    border-radius: 15px;
+  }
+
+  h1 {
+    font-size: 30px;
+    font-family: 'opensans-semibold', sans-serif;
+  }
+
+  h2 {
+    font-size: 18px;
+    font-family: 'opensans-regular', sans-serif;
+  }
+
+  @mixin createSize(
+    $breakpoint-width,
+    $min-width,
+    $max-height,
+    $min-height: 100px
+  ) {
+    :global(.modalContent) {
+      max-width: $breakpoint-width;
+      min-width: $min-width;
+      min-height: $min-height;
+      max-height: $max-height;
+    }
+    @include media('<=#{$breakpoint-width}') {
+      :global(.modalOverlay) {
+        padding: 0;
+      }
+      :global(.modalContent) {
+        width: 85vw;
+        min-width: 85vw;
+        max-width: 85vw;
+        max-height: none;
+      }
+    }
+  }
+
+  // Sizes
+  &:global(.size-small) {
+    @include createSize(
+      $breakpoint-width: breakpoint('phone'),
+      $min-width: 200px,
+      $min-height: 100px,
+      $max-height: none
+    );
+  }
+  &:global(.size-medium) {
+    @include createSize(
+      $breakpoint-width: breakpoint('tablet'),
+      $min-width: 700px,
+      $min-height: 100px,
+      $max-height: none
+    );
+  }
+  &:global(.size-large) {
+    @include createSize(
+      $breakpoint-width: breakpoint('desktop'),
+      $min-width: 900px,
+      $min-height: 100px,
+      $max-height: none
+    );
+  }
+
+  // Fade in/out transition
+
+  :global(.modalOverlay) {
+    opacity: 0;
+    transition: opacity 200ms ease-in-out;
+  }
+
+  :global(.modalOverlay--after-open) {
+    opacity: 1;
+  }
+
+  :global(.modalOverlay--before-close) {
+    opacity: 0;
+  }
+}

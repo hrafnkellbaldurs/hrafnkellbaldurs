@@ -2,7 +2,7 @@
 @import '../../utils/media-queries';
 
 @mixin heroStyles(
-    $backgroundColor: $overlayBaseBackgroundColor,
+    $backgroundColor: null,
     $overlayBaseBackgroundColor: get-theme-color('primary'),
     $overlayBackground: null
 ) {
@@ -15,8 +15,12 @@
         );
     }
 
+    @if($backgroundColor == null) {
+        $backgroundColor: $overlayBaseBackgroundColor;
+    }
+
     .Hero.page-hero {
-        background-color: $backgroundColor;
+        background-color: $backgroundColor !important;// $backgroundColor;
 
         .overlay {
             background: $overlayBackground;

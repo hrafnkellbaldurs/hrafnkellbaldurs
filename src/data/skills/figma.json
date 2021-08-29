@@ -1,0 +1,12 @@
+{
+    "name": "Figma",
+    "shortName": "Figma",
+    "type": "graphicdesign",
+    "description": "",
+    "startDate": "2019-01-20",
+    "endDate": null,
+    "logo": "../../assets/images/figma-logo.png",
+    "rating": 19,
+    "skillLevel": 1,
+    "link": "https://www.figma.com/"
+}
