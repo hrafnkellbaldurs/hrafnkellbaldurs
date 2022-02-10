@@ -45,7 +45,7 @@
     "gatsby-transformer-json": "^3.7.1",
     "html-react-parser": "^1.2.7",
     "moment": "^2.29.1",
-    "node-sass": "^6.0.1",
+    "node-sass": "^7.0.0",
     "postcss": "^8.3.5",
     "ramda": "^0.27.1",
     "react": "^17.0.1",
